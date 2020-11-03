@@ -1,0 +1,24 @@
+#atari {
+  top: 50px;
+  height: 70%;
+}
+
+#snowB {
+  margin-top: 50px;
+}
+
+%videoSoleil {
+  //display: none;
+  width: 100%;
+  border-radius: 10px;
+  margin: auto;
+}
+
+#jugglejungle,
+#s0leil {
+  @extend %videoSoleil;
+}
+
+.soleil {
+  @extend %videoSoleil;
+}
