@@ -13,7 +13,7 @@ class Jonglage extends Component {
     metierUS = 'I AM AN IBM SQL RPGLE NODEJS DEVELOPER'
     return (
       <section id="VideoJonglage" className={styles.me}>
-        <h1 className=".english">{welcome}</h1>
+        <h1 className="english">{welcome}</h1>
         <h1 className="french">{bienvenue}</h1>
         <video className={styles.jonglage} autoPlay loop poster={VideoPoster} playsInline controls>
           <source src={VideoJ} type="video/mp4"/>
