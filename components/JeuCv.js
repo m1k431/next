@@ -335,28 +335,35 @@ class JeuCv extends Component {
             switch (mini) {
               case gauche:
                 ballLeft = true
+                destroyBrick(i)
                 break
               case droite:
                 ballLeft = false
+                destroyBrick(i)
                 break
               case haut:
                 ballDown = false
+                destroyBrick(i)
                 break
               case bas:
                 ballDown = true
+                destroyBrick(i)
                 break
               default:
             }
-
-            play(pongC)
-            $(mesInfosT[i]).animate({
-              backgroundColor: 'rgba(255, 255, 255, 0.4)'
-            }, 500)
-            mesInfosT[i].className = styles.infoJeu
-            score += 50 * combo
           }
           i--
         }
+      }
+
+      var destroyBrick = function (i) {
+        var mesInfosT = window.document.getElementsByClassName(styles.infoT)
+        play(pongC)
+        $(mesInfosT[i]).animate({
+          backgroundColor: 'rgba(255, 255, 255, 0.4)'
+        }, 500)
+        mesInfosT[i].className = styles.infoJeu
+        score += 50 * combo
       }
 
       var deplacerBalle = function () {
