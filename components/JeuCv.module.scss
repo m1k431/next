@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'ibm';
-  src: url(/src/IBMLogo.ttf);
+  src: url('/fonts/IBMLogo.ttf');
   font-weight: bold;
 }
 
@@ -21,17 +21,18 @@
   margin-bottom: 30px;
 }
 
-p.flags {
+.flags {
   width: 50%;
   margin: 0;
   margin-left: 25%;
   margin-right: 25%;
   top: 35px;
+  display: inline-block;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
-#french,
-#english,
-#spanish {
+.imgFlag {
   display: inline-block;
   margin-left: 8%;
   margin-right: 8%;
@@ -46,7 +47,7 @@ p.flags {
   font-size: 1.2em;
 }
 
-.titreH2 {
+.titreh2 {
   color: white;
   font-family: 'ibm';
   text-transform: uppercase;
@@ -62,18 +63,6 @@ p.flags {
   margin-bottom: 0em;
   margin-top: 0.3em;
   font-size: 0.8em;
-}
-
-#metier {
-  -webkit-transition: background 1s ease-in-out;
-  -ms-transition: background 1s ease-in-out;
-  transition: background 1s ease-in-out;
-  border-radius: 10px;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  margin-left: 15%;
-  margin-right: 15%;
-  border: 1px solid #ffffff;
 }
 
 .moi {
@@ -104,26 +93,6 @@ p.flags {
   border: 1px solid #ffffff;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
-}
-
-.linkedin {
-  display: none;
-  position: absolute;
-  border-radius: 10px;
-  width: 105px;
-  height: 35px;
-  margin: 5px;
-}
-
-.linkedinT {
-  display: none;
-  border: 2px solid #ffffff;
-  position: absolute;
-  border-radius: 10px;
-  height: 25px;
-  width: 105px;
-  margin: 5px;
-  background-color: black;
 }
 
 .experiencesT {
@@ -167,17 +136,6 @@ p.flags {
   text-align: center;
 }
 
-.competences {
-  border: 1px solid #ffffff;
-  color: rgba(0, 0, 0, 0.9);
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  margin: 1%;
-  text-align: center;
-  //display: none;
-  height: 500px;
-}
-
 .competen {
   border: 1px solid #ffffff;
   background-color: rgba(255, 255, 255, 0.2);
@@ -187,6 +145,7 @@ p.flags {
   border-radius: 10px;
   margin: 1%;
   text-align: center;
+  height: auto;
   //display: none;
 }
 
@@ -208,6 +167,7 @@ p.flags {
   margin-bottom: 0.5%;
   margin-top: 0.5%;
   text-align: center;
+  font-size: 1.2em;
   height: 450px;
 }
 

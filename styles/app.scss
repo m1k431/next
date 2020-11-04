@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'ibm';
+  src: url('/fonts/IBMLogo.ttf');
+  font-weight: bold;
+}
+
 $colorBody: rgba(2, 106, 243, 0.99);
 
 body {
@@ -20,8 +26,56 @@ body {
   margin: 20px;
 }
 
+#metier {
+  -webkit-transition: background 1s ease-in-out;
+  -ms-transition: background 1s ease-in-out;
+  transition: background 1s ease-in-out;
+  border-radius: 10px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 15%;
+  margin-right: 15%;
+  border: 1px solid #ffffff;
+}
+
+.blink {
+  //background-color: rgba(255, 0, 0, 0.5);
+  text-align: center;
+  background-color: rgba(245, 245, 245, 1);
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 15%;
+  margin-right: 15%;
+  overflow: hidden;
+}
+
+.linkedin {
+  display: none;
+  position: absolute;
+  border-radius: 10px;
+  width: 105px;
+  height: 35px;
+  margin: 5px;
+}
+
+.linkedinT {
+  display: none;
+  border: 2px solid #ffffff;
+  position: absolute;
+  border-radius: 10px;
+  height: 25px;
+  width: 105px;
+  margin: 5px;
+  background-color: black;
+}
+
+
 #Soleil {
+  font-family: 'ibm';
   margin: 20px;
+  color: white;
 }
 
 .french {

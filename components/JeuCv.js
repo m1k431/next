@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import styles from './JeuCv.module.scss'
 import uk from '../public/img/uk.svg'
 import fr from '../public/img/france.svg'
 import $ from 'jquery'
+import styles from './JeuCv.module.scss'
 
 class JeuCv extends Component {
   jeuBreaker = function () {
@@ -20,19 +20,18 @@ class JeuCv extends Component {
     //$('#scoreForm').fadeOut()
     var $div2blink = $('#metier') // Save reference, only look this item up once, then save
     var idInterBlink = setInterval(function () {
-      $div2blink.toggleClass('backgroundRed')
+      $div2blink.toggleClass('blink')
     }, 700)
 
     //_______________________________Choix_langue____________________________________________________________________________
     $('.english').fadeIn()
-    $('#competen').fadeIn()
 
     window.document.getElementById('french').onclick = () => {
       //play(flagS)
       $('.english').hide()
       $('.spanish').hide()
       $('.french').hide()
-      //$('#competen').css('height', 'auto')
+      $('#competen').css('height', 'auto')
       $('.french').fadeIn()
     }
     window.document.getElementById('english').onclick = () => {
@@ -70,13 +69,13 @@ class JeuCv extends Component {
 
       //____________________INITIALISATION ENVIRONNEMENT________________________________________________________________
       var competences = window.document.getElementById('competen')
-      $('#competen').toggleClass('competences')
+      $('#competen').toggleClass(styles.competencesT)
       var informatique = window.document.getElementById('informatique')
       var commerciales = window.document.getElementById('commerciales')
       var linkedIn = window.document.getElementById('linkedIn')
       var complementaire = window.document.getElementById('complementaire')
       clearInterval(idInterBlink)
-      $div2blink.removeClass('backgroundRed')
+      $div2blink.removeClass('blink')
       $div2blink.css('background-color', 'rgba(255, 255, 255, 0.4)')
       $('#metier > h2').text('SCORE: ' + score).fadeIn(375)
       $('#metier > h2').css('font-size', '1.5em')
@@ -109,19 +108,16 @@ class JeuCv extends Component {
       $('#linkedIn').fadeIn(2000)
       window.document.getElementById('linkedIn').style.left = competences.offsetWidth / 2 - 40 + 'px'
       linkedIn.style.top = competences.offsetTop + competences.offsetHeight - 60 + 'px'
-      complementaire.className = 'complementaireT'
+      //complementaire.className = 'complementaireT'
 
       //________________________________________INITIALISTATION BRICKS_______________________________________
-      var mesDivInfos = window.document.getElementsByClassName('infoJeu')
+      var mesDivInfos = window.document.getElementsByClassName(styles.infoJeu)
       var i = mesDivInfos.length
       i--
       while (i >= 0) {
-        mesDivInfos[i].setAttribute('class', 'infoT')
+        mesDivInfos[i].setAttribute('class', styles.infoT)
         i--
       }
-      $('.infoT').animate({
-        backgroundColor: 'rgba(36, 15, 76, 0.99)'
-      }, 500)
       informatique.style.verticalAlign = 'top'
       commerciales.style.verticalAlign = 'top'
       $('html, body').animate({
@@ -129,7 +125,7 @@ class JeuCv extends Component {
       }, 750)
       $('#btp').fadeOut()
       $('#commerciales').fadeOut()
-      $('.informatiquesCont').animate({
+      $('#informatique').animate({
         width: '98%'
       }, 1000)
 
@@ -320,7 +316,7 @@ class JeuCv extends Component {
 
       //___________________________________Verif/gestion_collision_brick_______________________________________________________________________________________
       var brickBroken = function () {
-        var mesInfosT = window.document.getElementsByClassName('infoT')
+        var mesInfosT = window.document.getElementsByClassName(styles.infoT)
         var i = mesInfosT.length - 1
         let gauche, droite, haut, bas, mini
         while (i >= 0) {
@@ -356,7 +352,7 @@ class JeuCv extends Component {
             $(mesInfosT[i]).animate({
               backgroundColor: 'rgba(255, 255, 255, 0.4)'
             }, 500)
-            mesInfosT[i].className = 'infoJeu'
+            mesInfosT[i].className = styles.infoJeu
             score += 50 * combo
           }
           i--
@@ -418,7 +414,7 @@ class JeuCv extends Component {
 
       //________________________________________________Verif/Gestion_YouWIN______________________________________________________________________________
       var jeuTermine = function () {
-        var mesInfosT = window.document.getElementsByClassName('infoT')
+        var mesInfosT = window.document.getElementsByClassName(styles.infoT)
         //var competences = window.document.getElementById('competen')
         //YOU WIN
         if (!mesInfosT.length && fuse === 1) {
@@ -431,7 +427,7 @@ class JeuCv extends Component {
           linkedIn.className = 'linkedin'
           $('#linkedIn').hide()
           $('#imgSoccer').hide()
-          $('#competen').toggleClass('competences')
+          $('#competen').toggleClass(styles.competen)
           //$('#informatique').fadeOut()
           informatique.style.verticalAlign = 'middle'
           commerciales.style.verticalAlign = 'middle'
@@ -439,9 +435,10 @@ class JeuCv extends Component {
           $('#skills').hide()
           $('#score').fadeIn()
           $('#btp').fadeIn()
-          $('.informatiquesCont').animate({
+          $('#informatique').animate({
             width: '33%'
           }, 1000)
+          $('#competen').css('height', 'auto')
           $('#commerciales').fadeIn()
           $('#scoreForm').fadeIn()
           //Requete AJAX SELECT pour affichage tableau score
@@ -459,7 +456,6 @@ class JeuCv extends Component {
             }
           })
           $('#highScore').fadeIn()
-          $('.background').css('height', '1400px')
         }
       }
 
@@ -575,16 +571,16 @@ class JeuCv extends Component {
           <h2 className={styles.titreH2}>{metier}</h2>
         </div>
         <p className={styles.flags}>
-          <img id="english" src={uk} alt="English" height="30" />
-          <img id="french" src={fr} alt="Français" height="30" />
+          <img id="english" className={styles.imgFlag} src={uk} alt="English" height="30" />
+          <img id="french" className={styles.imgFlag} src={fr} alt="Français" height="30" />
         </p>
         <div className={styles.competen} id="competen">
-          <h2 className="french">Competences</h2>
-          <h2 className="english">Skills</h2>
-          <h2 className="spanish">Competencias</h2>
-          <div className= {styles.informatiquesCont}>
-            <h3>Front End</h3>
-            <div className={styles.informatiques} id="informatique">
+          <h2 className={`${styles.titreh2} ${styles.french}`}>Competences</h2>
+          <h2 className={`${styles.titreh2} ${styles.english}`}>Skills</h2>
+          <h2 className={styles.titreh2, styles.spanish}>Competencias</h2>
+          <div className={styles.informatiquesCont} id="informatique">
+            <h3 className={styles.titreh3}>Front End</h3>
+            <div className={styles.informatiques}>
               <div className={styles.infoJeu}>SQL</div>
               <div className={styles.infoJeu}>RPGLE</div>
               <div className={styles.infoJeu}>CLP</div>
@@ -596,16 +592,16 @@ class JeuCv extends Component {
               <div className={styles.infoJeu}>DOM</div>
               <div className={styles.infoJeu}>REACTJS</div>
             </div>
-            <h3>Back End</h3>
-            <div className={styles.informatiques} id="informatique">
+            <h3 className={styles.titreh3}>Back End</h3>
+            <div className={styles.informatiques}>
               <div className={styles.infoJeu}>IBM i</div>
               <div className={styles.infoJeu}>IBM db2</div>
               <div className={styles.infoJeu}>NodeJS</div>
               <div className={styles.infoJeu}>ExpressJS</div>
               <div className={styles.infoJeu}>Ajax</div>
             </div>
-            <h3>Tools</h3>
-            <div className={styles.informatiquesLast} id="informatique">
+            <h3 className={styles.titreh3}>Tools</h3>
+            <div className={styles.informatiquesLast}>
               <div className={styles.infoJeu}>Git</div>
               <div className={styles.infoJeu}>IBM RDi</div>
               <div className={styles.infoJeu}>ARCAD for IBM i</div>
@@ -618,87 +614,87 @@ class JeuCv extends Component {
             <div id="linkedIn"> </div>
           </div>
           <div className={styles.btp} id="btp">
-            <h3 className="french">Techniques Design</h3>
-            <h3 className="english">Technics Design</h3>
-            <h3 className="spanish">Técnicas diseño</h3>
-            <div className={styles.info, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Techniques Design</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>Technics Design</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Técnicas diseño</h3>
+            <div className={`${styles.info} ${styles.french}`}>
               Réaliser l'étude technique d'un projet
               de construction et en estimer le co&ucirc;t
           </div>
-            <div className={styles.info, styles.english}>
+            <div className={`${styles.info} ${styles.english}`}>
               Conduct the technical study of a construction project and estimate
               the cost
           </div>
-            <div className={styles.info, styles.spanish}>
+            <div className={`${styles.info} ${styles.spanish}`}>
               Estudio técnico de un proyecto de construcción y estimación del
               costo
           </div>
-            <div className={styles.info, styles.french}>
+            <div className={`${styles.info} ${styles.french}`}>
               Réaliser la représentation graphique d'une
               construction ou de design intérieur (Autocad, ArchiCAD,
               VectorWorks, Artlantis)
           </div>
-            <div className={styles.info, styles.english}>
+            <div className={`${styles.info} ${styles.english}`}>
               Realize the graphic representation of a construction or interior
               design (Autocad, ArchiCAD, VectorWorks, Artlantis)
           </div>
-            <div className={styles.info, styles.spanish}>
+            <div className={`${styles.info} ${styles.spanish}`}>
               Realización de representaciónes gráficas de construcción y de
               diseño interiores (Autocad, ArchiCAD, VectorWorks, Artlantis)
           </div>
-            <div className={styles.infolast, styles.french}>
+            <div className={`${styles.infolast} ${styles.french}`}>
               Réaliser un dossier de détails
               d'exécutions de projet (Autocad, VectorWorks)
           </div>
-            <div className={styles.infolast, styles.english}>
+            <div className={`${styles.infolast} ${styles.english}`}>
               Make a project execution details folder (Autocad, VectorWorks)
           </div>
-            <div className={styles.infolast, styles.spanish}>
+            <div className={`${styles.infolast} ${styles.spanish}`}>
               Creación de carpetas de detalles de ejecución de proyectos
               (Autocad, VectorWorks)
           </div>
           </div>
           <div className={styles.commerciales} id="commerciales">
-            <h3>H to H</h3>
-            <div className={styles.info, styles.french}>
+            <h3 className={styles.titreh3}>H to H</h3>
+            <div className={`${styles.info} ${styles.french}`}>
               Assistant régie au Palais des Festivals de Cannes en
               productions télévisuelles
           </div>
-            <div className={styles.info, styles.english}>
+            <div className={`${styles.info} ${styles.english}`}>
               Show management at Palais des Festivals in Cannes and in
               television productions company
           </div>
-            <div className={styles.info, styles.spanish}>
+            <div className={`${styles.info} ${styles.spanish}`}>
               Asistente de dirección en el Palais des Festivals de Cannes y en
               oficina de producciones televisivas
           </div>
-            <div className={styles.info, styles.french}>
+            <div className={`${styles.info} ${styles.french}`}>
               Mener un entretien de négociations de produits ou de
               services
           </div>
-            <div className={styles.info, styles.english}>
+            <div className={`${styles.info} ${styles.english}`}>
               Commercial negotiation of products or services
           </div>
-            <div className={styles.info, styles.spanish}>Negociación de productos o servicios</div>
-            <div className={styles.infolast, styles.french}>
+            <div className={`${styles.info} ${styles.spanish}`}>Negociación de productos o servicios</div>
+            <div className={`${styles.infolast} ${styles.french}`}>
               Accueil, service et conseil commercial
           </div>
-            <div className={styles.infolast, styles.english}>
+            <div className={`${styles.infolast} ${styles.english}`}>
               Front-desk and commercial advicement
           </div>
-            <div className={styles.infolast, styles.spanish}>
+            <div className={`${styles.infolast} ${styles.spanish}`}>
               Recepción, servicio y asesoramiento comercial
           </div>
           </div>
         </div>
         <div className={styles.competen} id="experiences">
-          <h2 className="french">Experiences</h2>
-          <h2 className="english">Experiences</h2>
-          <h2 className="spanish">Experiencia profesional</h2>
+          <h2 className={`${styles.titreh2} ${styles.french}`}>Experiences</h2>
+          <h2 className={`${styles.titreh2} ${styles.english}`}>Experiences</h2>
+          <h2 className={styles.titreh2, styles.spanish}>Experiencia profesional</h2>
           <div className={styles.jobs}>
-            <h3 className="french">Developpeur logiciel IBM i</h3>
-            <h3 className="english">IBM i developer</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Developpeur logiciel IBM i</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>IBM i developer</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad,
               Rdi)
           </div>
@@ -713,9 +709,9 @@ class JeuCv extends Component {
           </div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Ingenieur etude et developpement IBM i</h3>
-            <h3 className="english">IBM i software engineer</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Ingenieur etude et developpement IBM i</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>IBM i software engineer</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad,
               Rdi)
           </div>
@@ -728,8 +724,8 @@ class JeuCv extends Component {
             <div className={styles.lieu}>04/02/2019 =&gt; 04/08/2019: OCSI, Paris I</div>
           </div>
           <div className={styles.jobs}>
-            <h3>Webmaster</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={styles.titreh3}>Webmaster</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Mise &agrave; jour de la base de données site Ecommerce
               (magento)
           </div>
@@ -745,15 +741,15 @@ class JeuCv extends Component {
           </div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Technicien audio-visuel</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Technicien audio-visuel</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               JLA productions, Auteurs Associés, EuropaCorp
           </div>
-            <h3 className="english">Audio-visual technician</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>Audio-visual technician</h3>
             <div className={styles.infojob, styles.english}>
               JLA productions, Auteurs Associés, EuropaCorp
           </div>
-            <h3 className="spanish">Técnico audiovisual</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Técnico audiovisual</h3>
             <div className={styles.infojob, styles.spanish}>
               gerente de apoyos: JLA productions, Martigues
           </div>
@@ -767,38 +763,38 @@ class JeuCv extends Component {
             <div className={styles.lieu}>2013 =&gt; 2015</div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Dessinateur Projeteur HVAC</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Dessinateur Projeteur HVAC</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Etude des projets de construction ERP &quot;Castorama&quot;
               Toulouse Union et Antibes
           </div>
-            <h3 className="english">HVAC designer</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>HVAC designer</h3>
             <div className={styles.infojob, styles.english}>
               Castorama Toulouse and Antibes building materials store
               construction
           </div>
-            <h3 className="spanish">Diseñador de HVAC</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Diseñador de HVAC</h3>
             <div className={styles.infojob, styles.spanish}>
               Estudio de proyectos de construcción de tiendas "Castorama"
               Toulouse Union y Antibes, ingeniería AUXITEC, Hyères
           </div>
-            <div className="lieu english">
+            <div className={styles.lieu, styles.english}>
               09/2012 =&gt; 12/2012: AUXITEC engineering, Hyères
           </div>
-            <div className="lieu french">
+            <div className={styles.lieu, styles.french}>
               09/2012 =&gt; 12/2012: AUXITEC ingénierie, Hy&egrave;res
           </div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Developpeur web</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Developpeur web</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Introduction &agrave; JavaScript (JQuery)
           </div>
-            <h3 className="english">web Developer</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>web Developer</h3>
             <div className={styles.infojob, styles.english}>
               Introduction to JavaScript (JQuery)
           </div>
-            <h3 className="spanish">Desarrollador web</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Desarrollador web</h3>
             <div className={styles.infojob, styles.spanish}>
               introducción a JavaScript (JQuery)
           </div>
@@ -807,56 +803,56 @@ class JeuCv extends Component {
           </div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Technicien etudes en Design et Decoration</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Technicien etudes en Design et Decoration</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Alphabet Stand Service (MIPCOM/MIPTV, MIDEM, FIF, MIPIM...)
           </div>
-            <h3 className="english">Design and Decoration Technician</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>Design and Decoration Technician</h3>
             <div className={styles.infojob, styles.english}>
               Alphabet Stand Service (MIPCOM/MIPTV, MIDEM, FIF, MIPIM...)
           </div>
-            <h3 className="spanish">Técnico de Diseño y Decoración</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Técnico de Diseño y Decoración</h3>
             <div className={styles.infojob, styles.spanish}>
               Alphabet Stand Service (MIPCOM/MIPTV, MIDEM, FIF, MIPIM &mldr;)
           </div>
             <div className={styles.lieu}>09/2010 =&gt; 06/2012: La Garde</div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Vendeur et Technicien Ski</h3>
-            <div className={styles.infojob, styles.french}>Nevada Sports</div>
-            <h3 className="english">Ski Technician</h3>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Vendeur et Technicien Ski</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>Nevada Sports</div>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>Ski Technician</h3>
             <div className={styles.infojob, styles.english}>Nevada Sports</div>
-            <h3 className="spanish">Vendedor de esquí y de material deportivo</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Vendedor de esquí y de material deportivo</h3>
             <div className={styles.infojob, styles.spanish}>Nevada Sports</div>
             <div className={styles.lieu}>
               12/2008 =&gt; 04/2009: l'Alpe d'Huez
           </div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Technicien ADSL</h3>
-            <div className={styles.infojob, styles.french}>British Telecom Critical Systems</div>
-            <h3 className="english">ADSL Technician</h3>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Technicien ADSL</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>British Telecom Critical Systems</div>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>ADSL Technician</h3>
             <div className={styles.infojob, styles.english}>British Telecom Critical Systems</div>
-            <h3 className="spanish">Técnico de ADSL</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Técnico de ADSL</h3>
             <div className={styles.infojob, styles.spanish}>British Telecom Critical Systems</div>
             <div className={styles.lieu}>07/2008 =&gt; 12/2008: Le Plessis-Robinson</div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Technicien Ski et Snowboard</h3>
-            <div className={styles.infojob, styles.french}>Intersport</div>
-            <h3 className="english">Ski and Snowboard Technician</h3>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Technicien Ski et Snowboard</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>Intersport</div>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>Ski and Snowboard Technician</h3>
             <div className={styles.infojob, styles.english}>Intersport</div>
-            <h3 className="spanish">Técnico de esquí y snowboard</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Técnico de esquí y snowboard</h3>
             <div className={styles.infojob, styles.spanish}>Intersport</div>
             <div className={styles.lieu}>
               12/2007 =&gt; 04/2008: l'Alpe d'Huez
           </div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Administrateur systemes et reseaux</h3>
-            <h3 className="english">Systems and Network Administrator</h3>
-            <h3 className="spanish">Administrador de Sistemas y Redes</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Administrateur systemes et reseaux</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>Systems and Network Administrator</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Administrador de Sistemas y Redes</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Administration serveurs Windows, clients LINUX, developpement html
               php
           </div>
@@ -873,10 +869,10 @@ class JeuCv extends Component {
           </div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Technicien Systemes et Reseaux</h3>
-            <h3 className="english">Systems and Network Technician</h3>
-            <h3 className="spanish">Técnico de Sistemas y Redes</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Technicien Systemes et Reseaux</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>Systems and Network Technician</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Técnico de Sistemas y Redes</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Maintenance et installation systemes informatique Developpement
               html php d&apos;un site de devis securisé
           </div>
@@ -890,27 +886,27 @@ class JeuCv extends Component {
             <div className={styles.lieu}>03/2005 =&gt; 06/2005: Emergence, Orléans</div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Adjoint au responsable de magasin</h3>
-            <h3 className="english">Assistant to the store manager</h3>
-            <h3 className="spanish">Asistente del gerente de la tienda</h3>
-            <div className={styles.infojob, styles.french}>Micromania</div>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Adjoint au responsable de magasin</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>Assistant to the store manager</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Asistente del gerente de la tienda</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>Micromania</div>
             <div className={styles.infojob, styles.english}>Micromania</div>
             <div className={styles.infojob, styles.spanish}>Micromania</div>
             <div className={styles.lieu}>06/2003 =&gt; 02/2004: St Jean de la Ruelle</div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Emplois etudiant</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Emplois etudiant</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Conseiller de vente en espace culturel Leclerc, serveur/barman,
               Ouvrier boulanger, Employé polyvalent chez
               Intermarché
           </div>
-            <h3 className="english">Student jobs</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>Student jobs</h3>
             <div className={styles.infojob, styles.english}>
               Seller in espace culturel Leclerc, waiter / bartender, Bakery
               worker, multi-purpose employee at grocery store
           </div>
-            <h3 className="spanish">Trabajos de estudiante</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Trabajos de estudiante</h3>
             <div className={styles.infojob, styles.spanish}>
               Asesor de ventas culturales Leclerc, camarero / camarero,
               trabajador de panadería, empleado multipropósito en Intermarché
@@ -918,22 +914,22 @@ class JeuCv extends Component {
           </div>
         </div>
         <div className={styles.competen} id="formation">
-          <h2 className="french">Formation</h2>
-          <h2 className="english">Training</h2>
-          <h2 className="spanish">Formación</h2>
+          <h2 className={`${styles.titreh2} ${styles.french}`}>Formation</h2>
+          <h2 className={`${styles.titreh2} ${styles.english}`}>Training</h2>
+          <h2 className={styles.titreh2, styles.spanish}>Formación</h2>
           <div className={styles.jobs}>
-            <h3>Pepiniere IBM</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={styles.titreh3}>Pepiniere IBM</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               IBM RPG II, RPGLE, SQL, CLP
           </div>
             <div className={styles.infojob, styles.english}>
               IBM RPG II, RPGLE, SQL, CLP
           </div>
             <div className={styles.infojob, styles.spanish}>RPG II, RPGLE, SQL, CLP</div>
-            <div className={styles.infojob, styles.french}>RDi, SQL for IBM db2, DDS/DDL</div>
+            <div className={`${styles.infojob} ${styles.french}`}>RDi, SQL for IBM db2, DDS/DDL</div>
             <div className={styles.infojob, styles.english}>RDi, SQL for IBM db2, DDS/DDL</div>
             <div className={styles.infojob, styles.spanish}>RDi, SQL for IBM db2, DDS/DDL</div>
-            <div className={styles.infojob, styles.french}>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Webservices and PHP for IBM i series
           </div>
             <div className={styles.infojob, styles.english}>
@@ -945,10 +941,10 @@ class JeuCv extends Component {
             <div className={styles.lieu}>2018 OCSI Paris I</div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Developpeur JavaScript FullStack</h3>
-            <h3 className="english">FullStack Javascript Developer</h3>
-            <h3 className="spanish">Desarollador Javascript de pila completa</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Developpeur JavaScript FullStack</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>FullStack Javascript Developer</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Desarollador Javascript de pila completa</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Développement et management d&apos;un projet web
           </div>
             <div className={styles.infojob, styles.english}>
@@ -957,7 +953,7 @@ class JeuCv extends Component {
             <div className={styles.infojob, styles.spanish}>
               Desarolla y gestión de un proyecto web
           </div>
-            <div className={styles.infojob, styles.french}>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Création de sites web statiques riche front-end JS
           </div>
             <div className={styles.infojob, styles.english}>
@@ -966,7 +962,7 @@ class JeuCv extends Component {
             <div className={styles.infojob, styles.spanish}>
               Creación de sitios web estáticos de front-end JS estáticos
           </div>
-            <div className={styles.infojob, styles.french}>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Création d&apos;applications web et mobiles riche backend
               JS
           </div>
@@ -979,11 +975,11 @@ class JeuCv extends Component {
             <div className={styles.lieu}>2017 IFOCOP Paris XI</div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">TP de technicien etude en batiment option dessin</h3>
-            <h3 className="english">Construction Engineer Assistant</h3>
-            <h3 className="spanish">Técnico de Ingeniería de Construcción</h3>
-            <div className="infojob">Photoshop, Autocad, Archicad, Artlantis</div>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>TP de technicien etude en batiment option dessin</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>Construction Engineer Assistant</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Técnico de Ingeniería de Construcción</h3>
+            <div className={styles.infojob}>Photoshop, Autocad, Archicad, Artlantis</div>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Design, techniques et normes de construction
           </div>
             <div className={styles.infojob, styles.english}>
@@ -992,7 +988,7 @@ class JeuCv extends Component {
             <div className={styles.infojob, styles.spanish}>
               Diseño, técnicas y estándares de construcción
           </div>
-            <div className={styles.infojob, styles.french}>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Notions d&apos;urbanisme et de voirie
           </div>
             <div className={styles.infojob, styles.english}>
@@ -1004,8 +1000,8 @@ class JeuCv extends Component {
             <div className={styles.lieu}>2009 AFPA La Valette-du-var</div>
           </div>
           <div className={styles.jobs}>
-            <h3>DUT informatique genie logiciel</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={styles.titreh3}>DUT informatique genie logiciel</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Administration et
               déploiementent réseau en
               environnement Linux, cli, regexp
@@ -1032,10 +1028,10 @@ class JeuCv extends Component {
             <div className={styles.lieu}>2003 IUT d'Orléans</div>
           </div>
           <div className={styles.jobs}>
-            <h3 className="french">Baccalaureat Scientifique</h3>
-            <h3 className="english">Scientific Baccalaureate Diploma</h3>
-            <h3 className="spanish">Bachillerato Científico</h3>
-            <div className={styles.infojob, styles.french}>
+            <h3 className={`${styles.titreh3} ${styles.french}`}>Baccalaureat Scientifique</h3>
+            <h3 className={`${styles.titreh3} ${styles.english}`}>Scientific Baccalaureate Diploma</h3>
+            <h3 className={`${styles.titreh3} ${styles.spanish}`}>Bachillerato Científico</h3>
+            <div className={`${styles.infojob} ${styles.french}`}>
               Spécialité physique-chimie
           </div>
             <div className={styles.infojob, styles.english}>Specialty physics-chemistry</div>
@@ -1044,7 +1040,7 @@ class JeuCv extends Component {
           </div>
         </div>
         <div className={styles.competen} id="complementaire">
-          <div className={styles.infojob, styles.french}>Permis : auto, moto, monoroue electrique.
+          <div className={`${styles.infojob} ${styles.french}`}>Permis : auto, moto, monoroue electrique.
           <br />
           Sports: gym, sports de glisse, jonglage.
           <br />

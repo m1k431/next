@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'ibm';
+  src: url('/fonts/IBMLogo.ttf');
+  font-weight: bold;
+}
+
 $myFont: monospace;
 
 %videoSoleil {
@@ -7,30 +13,11 @@ $myFont: monospace;
   margin: auto;
 }
 
-#jugglejungle, #s0leil {
-  @extend %videoSoleil;
-}
-
 .jonglage {
   @extend %videoSoleil;
 }
 
-#BtnJs0nPl4Y {
-  position: relative;
-  background-color: transparent;
+.me {
+  font-family: 'ibm';
   color: white;
-  width: 18%;
-  margin-left: 39%;
-  margin-right: 39%;
-  top: -40px;
-  font-family: $myFont;
-  border-radius: 28px;
-  font-size: 1em;
-  padding: 5px 15px 5px 15px;
-}
-
-#BtnJs0nPl4Y:hover {
-  background: #3cb0fd;
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
 }

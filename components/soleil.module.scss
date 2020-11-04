@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'ibm';
+  src: url('/fonts/IBMLogo.ttf');
+  font-weight: bold;
+}
+
 #atari {
   top: 50px;
   height: 70%;
@@ -14,11 +20,9 @@
   margin: auto;
 }
 
-#jugglejungle,
-#s0leil {
-  @extend %videoSoleil;
-}
-
 .soleil {
   @extend %videoSoleil;
+}
+.divsoleil {
+font-family: 'ibm';  
 }
