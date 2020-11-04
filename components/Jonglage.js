@@ -8,9 +8,9 @@ class Jonglage extends Component {
     const bienvenue = 'BIENVENUE DANS MON LABO DE DEV',
     welcome = 'WELCOME TO MY DEVLAB',
     moiFR = 'JE SUIS MIKAEL',
-    metierFR = 'DEVELOPPEUR IBM SQL RPGLE NODEJS',
+    metierFR = 'INGENIEUR LOGICIEL',
     moiUS = 'MY NAME IS MIKAEL',
-    metierUS = 'I AM AN IBM SQL RPGLE NODEJS DEVELOPER'
+    metierUS = 'I AM SOFTWARE ENGINEER'
     return (
       <section id="VideoJonglage" className={styles.me}>
         <h1 className="english">{welcome}</h1>
