@@ -1,9 +1,10 @@
-import Head from 'next/head'
+import Header from '../components/Header'
 import styles from '../styles/Home.module.css'
 import Jonglage from '../components/Jonglage'
 import JeuCv from '../components/JeuCv'
 import Soleil from '../components/soleil'
 import Particles from 'react-particles-js'
+import Footer from '../components/Footer'
 
 const paramParticles = {
   fpsLimit: 60,
@@ -32,10 +33,12 @@ const paramParticles = {
 function HomePage() {
   return (
     <div className="App">
+      <Header></Header>
       <Particles id='Particles' params={paramParticles} />
       <Jonglage></Jonglage>
       <JeuCv></JeuCv>
       <Soleil></Soleil>
+      <Footer></Footer>
     </div>
   )
 }

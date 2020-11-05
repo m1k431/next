@@ -1,0 +1,25 @@
+
+.footer {
+  display: block;
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(29, 17, 122, 0.5);
+  font-size: 1em;
+}
+
+.minilogL {
+  float: left;
+  height: 35px;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+.minilogR {
+  float: right;
+  height: 35px;
+  margin-top: 8px;
+  margin-right: 8px;
+}
