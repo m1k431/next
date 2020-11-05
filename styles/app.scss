@@ -13,15 +13,6 @@ body {
   background-color: $colorBody;
 }
 
-.App {
-  text-align: center;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 60px;
-  margin-bottom: 60px;
-}
-
 #VideoJonglage {
   margin: 20px;
 }
@@ -83,7 +74,7 @@ body {
 }
 
 .french {
-  display: none;
+  display: block;
 }
 
 .spanish {
@@ -91,7 +82,7 @@ body {
 }
 
 .english {
-  display: block;
+  display: none;
 }
 
 .titreh1 {

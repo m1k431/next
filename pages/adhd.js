@@ -7,6 +7,8 @@ import Particles from 'react-particles-js'
 import Footer from '../components/Footer'
 import Adhd from '../components/Adhd'
 
+import Layout from '../components/layout'
+
 const paramParticles = {
   fpsLimit: 60,
   backgroundMode: {
@@ -32,12 +34,12 @@ const paramParticles = {
 
 function HomePage() {
   return (
-    <div className="App">
+    <Layout>
       <Header></Header>
       <Particles id='Particles' params={paramParticles} />
       <Adhd></Adhd>
       <Footer></Footer>
-    </div>
+    </Layout>
   )
 }
 

@@ -5,12 +5,13 @@ import JeuCv from '../components/JeuCv'
 import Soleil from '../components/soleil'
 import Particles from 'react-particles-js'
 import Footer from '../components/Footer'
+import Layout from '../components/layout'
 
 const bienvenue = 'BIENVENUE DANS MON LABO DE DEV',
   welcome = 'WELCOME TO MY DEVLAB',
   moiFR = 'JE SUIS MIKAEL',
   moiUS = 'MY NAME IS MIKAEL',
-  metierFR = 'JE SUIS INGENIEUR LOGICIEL IBM',
+  metierFR = 'INGENIEUR LOGICIEL IBM',
   metierUS = 'I AM AN IBM SOFTWARE ENGINEER',
   intro = 'THIS WEBSITE HOSTS MY EXPERIENCES AND SKILLS'
 
@@ -39,21 +40,21 @@ const paramParticles = {
 
 function HomePage() {
   return (
-    <div className="App">
+    <Layout>
       <Header></Header>
       <Particles id='Particles' params={paramParticles} />
       <h1 className="titreh1 english">{welcome}</h1>
-      <h1 className="titreh1 french">{bienvenue}</h1>
+      <h1 className="titreh1 french">{welcome}</h1>
       <Jonglage></Jonglage>
       <h2 className="titreh2 english">{moiUS}</h2>
       <h2 className="titreh2 english">{metierUS}</h2>
-      <h2 className="titreh2 french">{moiFR}</h2>
-      <h2 className="titreh2 french">{metierFR}</h2>
+      <h2 className="titreh2 french">{moiUS}</h2>
+      <h2 className="titreh2 french">{metierUS}</h2>
       <JeuCv></JeuCv>
-  <h2 className="titreh2">{intro}</h2>
+      <h2 className="titreh2">{intro}</h2>
       <Soleil></Soleil>
       <Footer></Footer>
-    </div>
+    </Layout>
   )
 }
 
