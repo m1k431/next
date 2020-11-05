@@ -85,8 +85,8 @@ class Adhd extends Component {
           <h1 className="french">TDAH et haut potentiel</h1>
         </div>
         <p className="flags">
-          <img id="english" className={styles.imgFlag} src={uk} alt="English" height="30" />
-          <img id="french" className={styles.imgFlag} src={fr} alt="Français" height="30" />
+          <img id="english" className="imgFlag" src={uk} alt="English" height="30" />
+          <img id="french" className='imgFlag' src={fr} alt="Français" height="30" />
         </p>
         <div className="auteurs english">
           Written by: Lynn-nore Chittom

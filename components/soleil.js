@@ -41,7 +41,7 @@ class soleil extends Component {
     //360backnoreverse
     var mon360 = document.createElement('video')
     mon360.style.position = 'absolute'
-    mon360.style.top = '5.5%'
+    mon360.style.top = '7%'
     mon360.style.right = '34%'
     mon360.style.width = '38%'
     mon360.id = 'snowB'

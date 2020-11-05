@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "serverdev": "node server.js",
+    "serverprod": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "jquery": "^3.5.1",
