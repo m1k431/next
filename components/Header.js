@@ -20,10 +20,9 @@ class Header extends Component {
         </Head>
         <nav className={styles.navBar}>
           <ul className={styles.ul}>
-            <li className={styles.li}><a className={`${styles.css3buttonRed} ${styles.a}`} id="intro" rel="preconnect" href="/">Intro</a></li>
-            <li className={styles.li}><a className={styles.css3button} id="resume" rel="preconnect" href="/cv">CV</a></li>
-            <li className={styles.li}><a className={styles.css3button} id="adhd" rel="preconnect" href="/giftedADHD">ADHD</a></li>
-            <li className={styles.li}><a className={styles.css3button} id="leaflet" rel="preconnect" href="/leaflet">ME</a></li>
+            <li className={styles.li}><a className={`css3buttonRed`} id="intro" rel="preconnect" href="/">Intro</a></li>
+            <li className={styles.li}><a className={`css3button`} id="adhd" rel="preconnect" href="/adhd">ADHD</a></li>
+            <li className={styles.li}><a className={`css3button`} id="leaflet" rel="preconnect" href="/leaflet">ME</a></li>
           </ul>
         </nav>
       </div>

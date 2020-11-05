@@ -5,14 +5,7 @@ import JeuCv from '../components/JeuCv'
 import Soleil from '../components/soleil'
 import Particles from 'react-particles-js'
 import Footer from '../components/Footer'
-
-const bienvenue = 'BIENVENUE DANS MON LABO DE DEV',
-  welcome = 'WELCOME TO MY DEVLAB',
-  moiFR = 'JE SUIS MIKAEL',
-  moiUS = 'MY NAME IS MIKAEL',
-  metierFR = 'JE SUIS INGENIEUR LOGICIEL IBM',
-  metierUS = 'I AM AN IBM SOFTWARE ENGINEER',
-  intro = 'THIS WEBSITE HOSTS MY EXPERIENCES AND SKILLS'
+import Adhd from '../components/Adhd'
 
 const paramParticles = {
   fpsLimit: 60,
@@ -42,16 +35,7 @@ function HomePage() {
     <div className="App">
       <Header></Header>
       <Particles id='Particles' params={paramParticles} />
-      <h1 className="titreh1 english">{welcome}</h1>
-      <h1 className="titreh1 french">{bienvenue}</h1>
-      <Jonglage></Jonglage>
-      <h2 className="titreh2 english">{moiUS}</h2>
-      <h2 className="titreh2 english">{metierUS}</h2>
-      <h2 className="titreh2 french">{moiFR}</h2>
-      <h2 className="titreh2 french">{metierFR}</h2>
-      <JeuCv></JeuCv>
-  <h2 className="titreh2">{intro}</h2>
-      <Soleil></Soleil>
+      <Adhd></Adhd>
       <Footer></Footer>
     </div>
   )

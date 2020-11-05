@@ -17,21 +17,17 @@ class JeuCv extends Component {
     $('#metier > h2').fadeOut(375, function () {
       $(this).text('Click or Touch here to START').fadeIn(375)
     })
-    //$('#scoreForm').fadeOut()
     var $div2blink = $('#metier') // Save reference, only look this item up once, then save
     var idInterBlink = setInterval(function () {
       $div2blink.toggleClass('blink')
     }, 700)
 
     //_______________________________Choix_langue____________________________________________________________________________
-    $('.english').fadeIn()
-
     window.document.getElementById('french').onclick = () => {
       //play(flagS)
       $('.english').hide()
       $('.spanish').hide()
       $('.french').hide()
-      $('#competen').css('height', 'auto')
       $('.french').fadeIn()
     }
     window.document.getElementById('english').onclick = () => {
@@ -39,7 +35,6 @@ class JeuCv extends Component {
       $('.french').hide()
       $('.spanish').hide()
       $('.english').hide()
-      $('#competen').css('height', 'auto')
       $('.english').fadeIn()
     }
 
@@ -55,8 +50,6 @@ class JeuCv extends Component {
       var pongB = '/sound/pongB.mp3'
       var pongC = '/sound/pongC.mp3'
       var start = '/sound/start.mp3'
-      //ghibertoStyle
-      //var start = '/sound/ghibertoRJ45.mp3'
       play(start)
       var youWin = '/sound/youWin.mp3'
       var miss = '/sound/miss.mp3'
@@ -65,8 +58,7 @@ class JeuCv extends Component {
       var clickMove = false
       $('#scoreForm').hide()
       $('#highScore').hide()
-      //$('#complementaire').hide()
-
+      
       //____________________INITIALISATION ENVIRONNEMENT________________________________________________________________
       var competences = window.document.getElementById('competen')
       $('#competen').toggleClass(styles.competencesT)
@@ -77,8 +69,12 @@ class JeuCv extends Component {
       clearInterval(idInterBlink)
       $div2blink.removeClass('blink')
       $div2blink.css('background-color', 'rgba(255, 255, 255, 0.4)')
-      $('#metier > h2').text('SCORE: ' + score).fadeIn(375)
-      $('#metier > h2').css('font-size', '1.5em')
+      $('#metier > h2').text('SCORE: ' + score).css({
+        'color': 'black',
+        'font-family': 'sans-serif',
+        'font-size': '1.5em'
+      }).fadeIn(375)
+
 
       //________________________________________DIV FOOTBALL SPRITE_____________________________________________
       var divSprite = window.document.createElement('div')
@@ -108,8 +104,7 @@ class JeuCv extends Component {
       $('#linkedIn').fadeIn(2000)
       window.document.getElementById('linkedIn').style.left = competences.offsetWidth / 2 - 40 + 'px'
       linkedIn.style.top = competences.offsetTop + competences.offsetHeight - 60 + 'px'
-      //complementaire.className = 'complementaireT'
-
+      
       //________________________________________INITIALISTATION BRICKS_______________________________________
       var mesDivInfos = window.document.getElementsByClassName(styles.infoJeu)
       var i = mesDivInfos.length
@@ -395,6 +390,7 @@ class JeuCv extends Component {
           if (ballY + divSprite.offsetHeight > linkedIn.offsetTop && ballY < linkedIn.offsetTop + 5)
             paddle()
         } else {
+          //YOU MISSSSS
           ballDown = false
           clickMove = true
           combo = 1
@@ -404,7 +400,7 @@ class JeuCv extends Component {
           $('#metier > h2').text('SCORE: ' + score).css({
             'color': 'red',
             'font-family': 'sans-serif',
-            'font-size': '2em'
+            'font-size': '1.5em'
           }).fadeIn(375)
           combo = 1
           clearInterval(idL)
@@ -528,12 +524,11 @@ class JeuCv extends Component {
             brickBroken()
             $('#metier > h2').text('SCORE: ' + score).fadeIn()
             jeuTermine()
-
             if (clickMove === false && fuse === 1) {
               $('#metier > h2').text('SCORE: ' + score).css({
                 'color': 'black',
                 'font-family': 'sans-serif',
-                'font-size': '2em'
+                'font-size': '1.5em'
               }).fadeIn(375)
             }
             else {
@@ -562,7 +557,7 @@ class JeuCv extends Component {
     return (
       <section id="JeuCv">
         <div id="metier" onClick={this.varsStart}>
-          <h2 className={styles.titreH2}>{metier}</h2>
+          <h2 className={styles.titreh2}>{metier}</h2>
         </div>
         <p className={styles.flags}>
           <img id="english" className={styles.imgFlag} src={uk} alt="English" height="30" />

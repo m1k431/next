@@ -20,13 +20,13 @@ class soleil extends Component {
     })
     BtnJs0nPl4Y.click()
     $('#jugglejungle').fadeIn(100)
-*/
     //Blue/red menu button
     $('#intro').removeClass('css3button')
     $('#intro').addClass('css3buttonRed')
     //FadeIN page acceuil
     $('#INDEX').fadeIn(100)
     $('#m0ncentrage').fadeIn(100)
+    */
 
     //ELEMENTS HTML---------------------------------------------------------------
     //DIV SOLEILLLLLLLLL
@@ -359,11 +359,10 @@ class soleil extends Component {
 
     var back = false
     var cpt = 0
-    var monkeyDown = function () {
+    var monkeyDown = () => {
       idMD = requestAnimationFrame(monkeyDown)
       if (delta > interval) {
         //code for
-
         if (parseFloat(imgMonkey.style.left) <= 0 && !back) {
           imgMonkey.style.left = parseFloat(imgMonkey.style.left) + 105.52 + 'px'
           cpt++
@@ -482,7 +481,6 @@ class soleil extends Component {
   render() {
     return (
       <section id="Soleil">
-        <h2>THIS WEBSITE HOSTS MY EXPERIENCES AND SKILLS</h2>
         <div id="s0leil" className={styles.soleil}></div>
       </section>
     )

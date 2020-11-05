@@ -5,6 +5,7 @@
 }
 
 $colorBody: rgba(2, 106, 243, 0.99);
+$myFont: 'ibm';
 
 body {
   //display: flex;
@@ -15,10 +16,10 @@ body {
 .App {
   text-align: center;
   max-width: 640px;
-  margin-bottom: 60px;
-  margin-right: auto;
   margin-left: auto;
+  margin-right: auto;
   margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 #VideoJonglage {
@@ -91,4 +92,74 @@ body {
 
 .english {
   display: block;
+}
+
+.titreh1 {
+  color: white;
+  font-family: 'ibm';
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
+  font-size: 1.2em;
+}
+
+.titreh2 {
+  color: white;
+  font-family: 'ibm';
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
+  font-size: 1em;
+}
+
+.titreh3 {
+  color: white;
+  font-family: 'ibm';
+  text-transform: uppercase;
+  margin-bottom: 0em;
+  margin-top: 0.3em;
+  font-size: 0.8em;
+}
+
+%Button {
+  margin: 10px;
+  border-radius: 28px;
+  padding: 5px 10px 5px 10px;
+}
+
+.css3button {
+  @extend %Button;
+  font-family: 'ibm';
+  color: white;
+  background-image: linear-gradient(to bottom, rgba(52, 152, 219, 0.901), rgba(19, 43, 121, 0.5));
+}
+
+.css3buttonRed {
+  @extend %Button;
+  font-family: 'ibm';
+  color: white;
+  text-align: center;
+  background-image: linear-gradient(to bottom, rgba(221, 60, 60, 0.9), rgba(221, 60, 60, 0.9));
+}
+
+.css3button:hover {
+  background-image: linear-gradient(to bottom, rgba(60, 176, 253, 0.49), #3498db);
+  text-decoration: none;
+}
+
+.flags {
+  width: 50%;
+  margin: 0;
+  margin-left: 25%;
+  margin-right: 25%;
+  top: 35px;
+  display: inline-block;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.imgFlag {
+  display: inline-block;
+  margin-left: 8%;
+  margin-right: 8%;
 }
