@@ -22,7 +22,7 @@ class Header extends Component {
           <ul className={styles.ul}>
             <li className={styles.li}><a className={`css3buttonRed`} id="intro" rel="preconnect" href="/">Intro</a></li>
             <li className={styles.li}><a className={`css3button`} id="adhd" rel="preconnect" href="/adhd">ADHD</a></li>
-            <li className={styles.li}><a className={`css3button`} id="leaflet" rel="preconnect" href="/leaflet">ME</a></li>
+            <li className={styles.li}><a className={`css3button`} id="leaflet" rel="preconnect" href="/highscore">ME</a></li>
           </ul>
         </nav>
       </div>

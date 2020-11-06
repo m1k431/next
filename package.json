@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "jquery": "^3.5.1",
+    "mongodb": "^3.6.3",
     "next": "10.0.1",
+    "next-connect": "^0.9.1",
     "next-images": "^1.6.2",
     "next-videos": "^1.4.0",
     "react": "17.0.1",
