@@ -6,6 +6,20 @@ import styles from './Adhd.module.scss'
 
 class Adhd extends Component {
   componentDidMount() {
+    window.document.getElementById('french').onclick = () => {
+      //play(flagS)
+      $('.english').hide()
+      $('.spanish').hide()
+      $('.french').hide()
+      $('.french').fadeIn()
+    }
+    window.document.getElementById('english').onclick = () => {
+      //play(flagS)
+      $('.french').hide()
+      $('.spanish').hide()
+      $('.english').hide()
+      $('.english').fadeIn()
+    }
     $("#intro").removeClass("css3buttonRed")
     $("#intro").addClass("css3button")
     $("#adhd").addClass("css3buttonRed")

@@ -7,7 +7,7 @@ class Header extends Component {
     return (
       <div>
         <Head>
-          <meta charset="utf-8" />
+          <meta charSet="utf-8" />
           <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
           <meta name="viewport" content="width=device-width, initial-scale=0.8" />
           <meta name="theme-color" content="#000000" />
