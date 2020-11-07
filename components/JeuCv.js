@@ -422,7 +422,7 @@ class JeuCv extends Component {
       }
 
       //________________________________________________Verif/Gestion_YouWIN______________________________________________________________________________
-      var jeuTermine = function () {
+      function jeuTermine() {
         var mesInfosT = window.document.getElementsByClassName(styles.infoT)
         //var competences = window.document.getElementById('competen')
         //YOU WIN
@@ -476,7 +476,7 @@ class JeuCv extends Component {
         $('#scoreForm').hide()
         $.ajax({
           type: 'POST',
-          url: '/api/submitscore',
+          url: '/api/highscore',
           dataType: 'json',
           data: {
             visitorName: $('#postName').val(),
@@ -556,6 +556,15 @@ class JeuCv extends Component {
       bouclePrincpale()
     }
   }
+  finJeu() {
+    var mesDivInfos = window.document.getElementsByClassName(styles.infoT)
+    var i = mesDivInfos.length
+    i--
+    while (i >= 0) {
+      mesDivInfos[i].setAttribute('class', styles.infoJeu)
+      i--
+    }
+  }
   componentDidMount() {
     this.jeuBreaker()
   }
@@ -570,12 +579,13 @@ class JeuCv extends Component {
           <img id="english" className={styles.imgFlag} src={uk} alt="English" height="30" />
           <img id="french" className={styles.imgFlag} src={fr} alt="Français" height="30" />
         </p>
+        <button onClick={this.finJeu}>YOUWON</button>
         <div className={styles.competen} id="competen">
           <h2 className={`${styles.titreh2} french`}>Competences</h2>
           <h2 className={`${styles.titreh2} english`}>Skills</h2>
           <h2 className={`${styles.titreh2} spanish`}>Competencias</h2>
           <div className="highscore" id="score">
-            <form id="scoreForm" action="/highscore" method="post">
+            <form id="scoreForm" action="/submitscore" method="post">
               <label className="nom" htmlFor="POST-name">enter your name</label>
               <br />
               <input id="postName" type="text" name="name" />

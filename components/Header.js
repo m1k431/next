@@ -8,7 +8,7 @@ class Header extends Component {
       <div>
         <Head>
           <meta charSet="utf-8" />
-          <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+          <link rel="icon" href="/favicon.ico" />
           <meta name="viewport" content="width=device-width, initial-scale=0.8" />
           <meta name="theme-color" content="#000000" />
           <meta name="description" content="My Javascript Portfolio" />
