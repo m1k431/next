@@ -7,7 +7,9 @@ handler.use(middleware)
 
 handler.get(async (req, res) => {
   const maCollection = await req.db.collection('brickBreaker')
-  const cursorInTab = await maCollection.find().sort({ score: -1 }).toArray()
+  const cursorInTab = await maCollection.find(
+    {}
+  ).sort({ 'score': -1}).toArray()
   console.log(cursorInTab)
   res.json(cursorInTab)
 })
@@ -15,7 +17,7 @@ handler.get(async (req, res) => {
 handler.post(async (req, res) => {
   if (req.body.visitorName) {
     const maCollection = await req.db.collection('brickBreaker')
-    const doc = { visitorName: req.body.visitorName, score: req.body.score }
+    const doc = { visitorName: req.body.visitorName, score: parseInt(req.body.score) }
     console.log(req.body.visitorName + 'score: ' + req.body.score)
     console.log(doc)
     const result = await maCollection.insertOne(doc)
