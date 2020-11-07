@@ -21,5 +21,9 @@
     "react-particles-js": "^3.4.1",
     "redis": "^3.0.2",
     "sass": "^1.28.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-plugin-react": "^7.21.5"
   }
 }

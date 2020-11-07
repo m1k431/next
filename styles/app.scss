@@ -25,6 +25,9 @@ body {
   display: none;
 }
 
+#mesData {
+  margin: auto;
+}
 
 .titreh1 {
   color: white;
@@ -140,7 +143,7 @@ body {
   display: none;
   position: absolute;
   border-radius: 10px;
-  width: 105px;
+  width: 85px;
   height: 35px;
   margin: 5px;
 }
@@ -151,7 +154,7 @@ body {
   position: absolute;
   border-radius: 10px;
   height: 25px;
-  width: 105px;
+  width: 85px;
   margin: 5px;
   background-color: black;
 }

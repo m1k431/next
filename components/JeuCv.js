@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { Component } from 'react'
 import uk from '../public/img/uk.svg'
 import fr from '../public/img/france.svg'
@@ -5,8 +6,13 @@ import $ from 'jquery'
 import styles from './JeuCv.module.scss'
 
 class JeuCv extends Component {
-  jeuBreaker = function () {
+  constructor(props) {
+    super(props)
+  }
+  jeuBreaker() {
     //Sections du cv
+    $('#scoreForm').hide()
+    $('#highScore').hide()
     $('#m0ncentrage').fadeIn(1000)
     $('#competen').fadeIn(500)
     $('#experiences').fadeIn(375)
@@ -58,14 +64,13 @@ class JeuCv extends Component {
       var clickMove = false
       $('#scoreForm').hide()
       $('#highScore').hide()
-      
+
       //____________________INITIALISATION ENVIRONNEMENT________________________________________________________________
       var competences = window.document.getElementById('competen')
       $('#competen').toggleClass(styles.competencesT)
       var informatique = window.document.getElementById('informatique')
       var commerciales = window.document.getElementById('commerciales')
       var linkedIn = window.document.getElementById('linkedIn')
-      var complementaire = window.document.getElementById('complementaire')
       clearInterval(idInterBlink)
       $div2blink.removeClass('blink')
       $div2blink.css('background-color', 'rgba(255, 255, 255, 0.4)')
@@ -102,9 +107,9 @@ class JeuCv extends Component {
       //________________________________________Paddle + hauteur breaker_____________________________________
       linkedIn.className = 'linkedinT'
       $('#linkedIn').fadeIn(2000)
-      window.document.getElementById('linkedIn').style.left = competences.offsetWidth / 2 - 40 + 'px'
-      linkedIn.style.top = competences.offsetTop + competences.offsetHeight - 60 + 'px'
-      
+      window.document.getElementById('linkedIn').style.left = competences.offsetWidth / 2 + competences.offsetLeft + 'px'
+      linkedIn.style.top = competences.offsetTop + competences.offsetHeight - 120 + 'px'
+
       //________________________________________INITIALISTATION BRICKS_______________________________________
       var mesDivInfos = window.document.getElementsByClassName(styles.infoJeu)
       var i = mesDivInfos.length
@@ -116,7 +121,7 @@ class JeuCv extends Component {
       informatique.style.verticalAlign = 'top'
       commerciales.style.verticalAlign = 'top'
       $('html, body').animate({
-        scrollTop: $('#competen').offset().top - 80
+        scrollTop: $('#metier').offset().top - 80
       }, 750)
       $('#btp').fadeOut()
       $('#commerciales').fadeOut()
@@ -183,8 +188,8 @@ class JeuCv extends Component {
 
       //____________________________________TouchMove_eventListener___________________________________
       var box2 = document.getElementById('linkedIn'),
-        boxleft, // left position of moving box
-        startx, // starting x coordinate of touch point
+        boxleft,
+        startx,
         touchobj = null // Touch object holder
       var eTouchStart = function (e) {
         touchobj = e.changedTouches[0] // reference first touch point
@@ -264,7 +269,6 @@ class JeuCv extends Component {
           cancelAnimationFrame(idL)
           idR = requestAnimationFrame(animSpriteR)
       }*/
-
       //__________________________________Intéraction_balle/paddle_AngleBalle_______________________________________________________
       var paddle = function () {
         //Left paddle side
@@ -287,8 +291,10 @@ class JeuCv extends Component {
             angle = 1
           }
         }
+
+
         //Right paddle side
-        else if (ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft && ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth + 5) {
+        else if (ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft && ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth) {
           ballDown = false
           ballLeft = false
           combo += 1
@@ -316,10 +322,10 @@ class JeuCv extends Component {
         let gauche, droite, haut, bas, mini
         while (i >= 0) {
           //inside brick
-          if (ballX + divSprite.offsetWidth > mesInfosT[i].offsetLeft           //left
-            && ballX < mesInfosT[i].offsetLeft + mesInfosT[i].offsetWidth       //right
-            && ballY + divSprite.offsetHeight > mesInfosT[i].offsetTop          //haut
-            && ballY < mesInfosT[i].offsetTop + mesInfosT[i].offsetHeight) {    //bas
+          if (ballX + divSprite.offsetWidth > mesInfosT[i].offsetLeft //left
+            && ballX < mesInfosT[i].offsetLeft + mesInfosT[i].offsetWidth //right
+            && ballY + divSprite.offsetHeight > mesInfosT[i].offsetTop //haut
+            && ballY < mesInfosT[i].offsetTop + mesInfosT[i].offsetHeight) { //bas
 
             gauche = Math.abs(ballX + divSprite.offsetWidth - mesInfosT[i].offsetLeft)
             droite = Math.abs(ballX - mesInfosT[i].offsetLeft - mesInfosT[i].offsetWidth)
@@ -387,7 +393,7 @@ class JeuCv extends Component {
           ballDown = true
           ballY = ballY + 2 * ballSpeed
           divSprite.style.top = ballY + 'px'
-          if (ballY + divSprite.offsetHeight > linkedIn.offsetTop && ballY < linkedIn.offsetTop + 5)
+          if (ballY + divSprite.offsetHeight > linkedIn.offsetTop - 5 && ballY < linkedIn.offsetTop)
             paddle()
         } else {
           //YOU MISSSSS
@@ -437,24 +443,25 @@ class JeuCv extends Component {
           youwin = true
           $('#skills').hide()
           $('#score').fadeIn()
-          $('#btp').fadeIn()
+          //$('#btp').fadeIn()
           $('#informatique').animate({
             width: '33%'
           }, 1000)
+          $('#informatique').hide()
           $('#competen').css('height', 'auto')
-          $('#commerciales').fadeIn()
+          //$('#commerciales').fadeIn()
           $('#scoreForm').fadeIn()
           //Requete AJAX SELECT pour affichage tableau score
           $.ajax({
             type: 'GET',
-            url: '/highscore',
+            url: '/api/highscore',
             dataType: 'json',
             success: function (reponse) {
               console.log('GET success: ' + reponse)
               var tbodyEl = $('tbody')
               tbodyEl.html('')
               reponse.forEach(function (score) {
-                tbodyEl.append(`<tr><td>${score.name}</td><td>${score.score}</td></tr>`)
+                tbodyEl.append(`<tr><td>${score.visitorName}</td><td>${score.score}</td></tr>`)
               })
             }
           })
@@ -469,24 +476,24 @@ class JeuCv extends Component {
         $('#scoreForm').hide()
         $.ajax({
           type: 'POST',
-          url: '/highscore',
+          url: '/api/submitscore',
           dataType: 'json',
           data: {
-            name: $('#postName').val(),
+            visitorName: $('#postName').val(),
             score: score
           },
           complete: function (response) {
             console.log('POST success: ' + response)
             $.ajax({
               type: 'GET',
-              url: '/highscore',
+              url: '/api/highscore',
               dataType: 'json',
               success: function (reponse) {
                 console.log('GET success: ' + reponse)
                 var tbodyEl = $('tbody')
                 tbodyEl.html('')
                 reponse.forEach(function (score) {
-                  tbodyEl.append(`<tr><td>${score.name}</td><td>${score.score}</td></tr>`)
+                  tbodyEl.append(`<tr><td>${score.visitorName}</td><td>${score.score}</td></tr>`)
                 })
               }
             })
@@ -567,6 +574,30 @@ class JeuCv extends Component {
           <h2 className={`${styles.titreh2} french`}>Competences</h2>
           <h2 className={`${styles.titreh2} english`}>Skills</h2>
           <h2 className={`${styles.titreh2} spanish`}>Competencias</h2>
+          <div className="highscore" id="score">
+            <form id="scoreForm" action="/highscore" method="post">
+              <label className="nom" htmlFor="POST-name">enter your name</label>
+              <br />
+              <input id="postName" type="text" name="name" />
+              <input id="postScore" type='hidden' name='score' readOnly='yes' />
+              <br />
+              <input className="css3but" id="subScore" type="submit" value="ok" />
+            </form>
+            <div id="highScore">
+              <h4>HIGH SCORE</h4>
+              <table id="mesData">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/*each player in results*/}
+                </tbody>
+              </table>
+            </div>
+          </div>
           <div className={styles.informatiquesCont} id="informatique">
             <h3 className={styles.titreh3}>Front End</h3>
             <div className={styles.informatiques}>

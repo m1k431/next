@@ -1,19 +1,16 @@
-import nextConnect from 'next-connect';
-import middleware from '../../middleware/database';
+import nextConnect from 'next-connect'
+import middleware from '../../middleware/database'
 
-const handler = nextConnect();
+const handler = nextConnect()
 
-handler.use(middleware);
+handler.use(middleware)
 
 handler.get(async (req, res) => {
-    const cursor = await req.db.collection('brickBreaker').find({})
-    var cart = []
-    console.log("async")
-    for await (const doc of cursor) {
-    console.log(doc)
-    cart.push(doc)
-  }
-  res.json(cart)
-});
+  const maCollection = await req.db.collection('brickBreaker')
+  const cursorInTab = await maCollection.find({}).toArray()
 
-export default handler;
+  console.log(cursorInTab)
+  res.json(cursorInTab)
+})
+
+export default handler
