@@ -1,4 +1,4 @@
-//import styles from '../styles/Home.module.css'
+import React from 'react'
 import Header from '../components/Header'
 import Jonglage from '../components/Jonglage'
 import JeuCv from '../components/JeuCv'
@@ -6,7 +6,6 @@ import Soleil from '../components/soleil'
 import Particles from 'react-particles-js'
 import Footer from '../components/Footer'
 import Layout from '../components/layout'
-import Compteur from '../components/compteur'
 
 const bienvenue = 'BIENVENUE DANS MON LABO DE DEV',
   welcome = 'WELCOME TO MY DEVLAB',
@@ -39,7 +38,7 @@ const paramParticles = {
   }
 }
 
-function HomePage() {
+function Home() {
   return (
     <Layout>
       <Header />
@@ -54,10 +53,9 @@ function HomePage() {
       <JeuCv></JeuCv>
       <h2 className="titreh2">{intro}</h2>
       <Soleil />
-      <Compteur />
       <Footer />
     </Layout>
   )
 }
 
-export default HomePage
+export default Home

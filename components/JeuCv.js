@@ -134,7 +134,7 @@ class JeuCv extends Component {
       var ballY = linkedIn.offsetTop - divSprite.offsetHeight
       divSprite.style.left = ballX + 'px'
       divSprite.style.top = ballY + 'px'
-      var ballLeft = true
+      var ballLeft = false
       var ballDown = false
       var youwin = false
       var angle = 1
@@ -411,6 +411,12 @@ class JeuCv extends Component {
           combo = 1
           clearInterval(idL)
           play(miss)
+          ballX = linkedIn.offsetLeft + linkedIn.offsetWidth / 2 - divSprite.offsetWidth / 2
+          ballY = linkedIn.offsetTop - divSprite.offsetHeight
+          divSprite.style.left = ballX + 'px'
+          divSprite.style.top = ballY + 'px'
+          ballLeft = false
+          angle = 1
         }
         if (ballX + divSprite.offsetWidth > competences.offsetLeft + competences.offsetWidth) {
           play(pongA)
@@ -579,7 +585,7 @@ class JeuCv extends Component {
           <img id="english" className={styles.imgFlag} src={uk} alt="English" height="30" />
           <img id="french" className={styles.imgFlag} src={fr} alt="Français" height="30" />
         </p>
-        {/*<button onClick={this.finJeu}>YOUWON</button>*/}
+        <button onClick={this.finJeu}>YOUWON</button>
         <div className={styles.competen} id="competen">
           <h2 className={`${styles.titreh2} french`}>Competences</h2>
           <h2 className={`${styles.titreh2} english`}>Skills</h2>

@@ -7,8 +7,7 @@ handler.use(middleware)
 
 handler.get(async (req, res) => {
   const maCollection = await req.db.collection('brickBreaker')
-  console.log(req.method)
-  const cursorInTab = await maCollection.find({}).sort({score: 1}).toArray()
+  const cursorInTab = await maCollection.find().sort({ score: -1 }).toArray()
   console.log(cursorInTab)
   res.json(cursorInTab)
 })
