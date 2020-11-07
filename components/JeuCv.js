@@ -579,7 +579,7 @@ class JeuCv extends Component {
           <img id="english" className={styles.imgFlag} src={uk} alt="English" height="30" />
           <img id="french" className={styles.imgFlag} src={fr} alt="Français" height="30" />
         </p>
-        <button onClick={this.finJeu}>YOUWON</button>
+        {/*<button onClick={this.finJeu}>YOUWON</button>*/}
         <div className={styles.competen} id="competen">
           <h2 className={`${styles.titreh2} french`}>Competences</h2>
           <h2 className={`${styles.titreh2} english`}>Skills</h2>
