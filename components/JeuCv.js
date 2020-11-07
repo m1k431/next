@@ -482,7 +482,7 @@ class JeuCv extends Component {
             visitorName: $('#postName').val(),
             score: score
           },
-          complete: function (response) {
+          success: function (response) {
             console.log('POST success: ' + response)
             $.ajax({
               type: 'GET',
