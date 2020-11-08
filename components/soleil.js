@@ -4,7 +4,7 @@ import styles from './soleil.module.scss'
 import { Container, Row, Col } from 'react-bootstrap'
 
 class soleil extends Component {
-  monIntro = function () {
+  monIntro() {
     //ELEMENTS HTML---------------------------------------------------------------
     //DIV SOLEILLLLLLLLL
     var m0nsoleil = document.getElementById('s0leil')
@@ -192,7 +192,6 @@ class soleil extends Component {
     divSonic.id = 'divSonic'
     divSonic.className = 'divsonic'
     divSonic.style.position = 'absolute'
-    divSonic.overflow = 'hidden'
     divSonic.style.height = '48px'
     divSonic.style.width = '48px'
     divSonic.style.top = '250px'
@@ -212,7 +211,6 @@ class soleil extends Component {
     divBird.id = 'divBird'
     divBird.className = 'divbird'
     divBird.style.position = 'absolute'
-    divBird.overflow = 'hidden'
     divBird.style.height = '24px'
     divBird.style.width = '24px'
     divBird.style.top = '240px'

@@ -597,25 +597,26 @@ class JeuCv extends Component {
               <div className={styles.informatiquesCont} id="informatique">
                 <h3 className={styles.titreh3}>Front End</h3>
                 <div className={styles.informatiques}>
-                  <div className={styles.infoJeu}>SQL</div>
-                  <div className={styles.infoJeu}>RPGLE</div>
+                  <div className={styles.infoJeu}>ReactJS</div>
+                  <div className={styles.infoJeu}>HTML5</div>
+                  <div className={styles.infoJeu}>Bootstrap</div>
+                  <div className={styles.infoJeu}>JQUERY</div>
                   <div className={styles.infoJeu}>CLP</div>
                   <div className={styles.infoJeu}>ES6</div>
-                  <div className={styles.infoJeu}>HTML5</div>
                   <div className={styles.infoJeu}>jade/PUG</div>
-                  <div className={styles.infoJeu}>JQUERY</div>
                   <div className={styles.infoJeu}>SCSS</div>
                   <div className={styles.infoJeu}>DOM</div>
-                  <div className={styles.infoJeu}>REACTJS</div>
                 </div>
                 <h3 className={styles.titreh3}>Back End</h3>
                 <div className={styles.informatiques}>
                   <div className={styles.infoJeu}>IBM i</div>
+                  <div className={styles.infoJeu}>RPGLE</div>
                   <div className={styles.infoJeu}>IBM db2</div>
                   <div className={styles.infoJeu}>NodeJS</div>
                   <div className={styles.infoJeu}>ExpressJS</div>
                   <div className={styles.infoJeu}>NextJS</div>
                   <div className={styles.infoJeu}>MongoDB</div>
+                  <div className={styles.infoJeu}>SQL</div>
                   <div className={styles.infoJeu}>Ajax</div>
                 </div>
                 <h3 className={styles.titreh3}>Tools</h3>
