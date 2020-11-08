@@ -706,7 +706,8 @@ class JeuCv extends Component {
           <div id="highScore">
             <h3 className="titreh3">HIGH SCORE</h3>
             <form id="scoreForm" action="/submitscore" method="post">
-              <label className="nom" htmlFor="POST-name">ENTER YOUR NAME: </label>
+              <label className="nom" htmlFor="POST-name">ENTER YOUR NAME:</label>
+              <br />
               <input id="postName" type="text" name="name" />
               <input id="postScore" type='hidden' name='score' readOnly='yes' />
               <input className="css3but" id="subScore" type="submit" value="ok" />
