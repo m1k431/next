@@ -24,6 +24,11 @@ class Adhd extends Component {
     $("#intro").addClass("css3button")
     $("#adhd").addClass("css3buttonRed")
     $("#adhd").removeClass("css3button")
+    $("li").eq(2).css({
+      "background-color": "indigo",
+      color: "white",
+      "font-weight": "500",
+    })
     $("li").eq(3).css({
       "background-color": "violet",
       color: "black",
