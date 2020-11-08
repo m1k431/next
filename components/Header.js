@@ -13,13 +13,13 @@ class Header extends Component {
         <Head>
           <meta charSet="utf-8" />
           <link rel="icon" href="/favicon.ico" />
-          <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+          <meta name="viewport" content="width=device-width, initial-scale=0.7" />
           <meta name="theme-color" content="#000000" />
           <meta name="description" content="My Javascript Portfolio" />
           <meta property="og:title" content="IBM RPG &amp; Javascript Developer" />
           <meta property="og:type" content="image" />
           <meta property="og:url" content="http://www.mikael.ml" />
-          <meta property="og:image" content="//m1k431react.herokuapp.com/img/ogImage.png" />
+          <meta property="og:image" content="/img/ogimage.png" />
           <meta property="og:description" content="My Javascript Portfolio" />
         </Head>
 

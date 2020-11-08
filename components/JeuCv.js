@@ -707,7 +707,7 @@ class JeuCv extends Component {
             </div>
             <div className="highscore" id="score">
               <div id="highScore">
-                <h3 className="titreh3">HIGH SCORE</h3>
+                <h2 className="titreh2">HIGH SCORE</h2>
                 <div id="scoreForm" className="col-sm12 text-center">
                   <Form>
                     <Form.Group>

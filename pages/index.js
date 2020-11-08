@@ -4,9 +4,6 @@ import Jonglage from '../components/Jonglage'
 import JeuCv from '../components/JeuCv'
 import Soleil from '../components/soleil'
 import Particles from 'react-particles-js'
-import Footer from '../components/Footer'
-import Layout from '../components/layout'
-import { Container } from 'react-bootstrap'
 
 const bienvenue = 'BIENVENUE DANS MON LABO DE DEV',
   welcome = 'WELCOME TO MY DEVLAB',
