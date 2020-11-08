@@ -451,10 +451,11 @@ class JeuCv extends Component {
           $('#score').fadeIn()
           //$('#btp').fadeIn()
           $('#informatique').animate({
-            width: '33%'
+            width: '99%'
           }, 1000)
-          $('#informatique').hide()
+          //$('#informatique').hide()
           $('#competen').css('height', 'auto')
+          $('#competen').fadeOut()
           //$('#commerciales').fadeIn()
           $('#scoreForm').fadeIn()
           //Requete AJAX SELECT pour affichage tableau score
@@ -590,30 +591,6 @@ class JeuCv extends Component {
           <h2 className={`${styles.titreh2} french`}>Competences</h2>
           <h2 className={`${styles.titreh2} english`}>Skills</h2>
           <h2 className={`${styles.titreh2} spanish`}>Competencias</h2>
-          <div className="highscore" id="score">
-            <form id="scoreForm" action="/submitscore" method="post">
-              <label className="nom" htmlFor="POST-name">enter your name</label>
-              <br />
-              <input id="postName" type="text" name="name" />
-              <input id="postScore" type='hidden' name='score' readOnly='yes' />
-              <br />
-              <input className="css3but" id="subScore" type="submit" value="ok" />
-            </form>
-            <div id="highScore">
-              <h3 className="titreh3">HIGH SCORE</h3>
-              <table id="mesData">
-                <thead>
-                  <tr>
-                    <th>Nom</th>
-                    <th>Score</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/*each player in results*/}
-                </tbody>
-              </table>
-            </div>
-          </div>
           <div className={styles.informatiquesCont} id="informatique">
             <h3 className={styles.titreh3}>Front End</h3>
             <div className={styles.informatiques}>
@@ -723,6 +700,28 @@ class JeuCv extends Component {
             <div className={`${styles.infolast} spanish`}>
               Recepción, servicio y asesoramiento comercial
           </div>
+          </div>
+        </div>
+        <div className="highscore" id="score">
+          <div id="highScore">
+            <h3 className="titreh3">HIGH SCORE</h3>
+            <form id="scoreForm" action="/submitscore" method="post">
+              <label className="nom" htmlFor="POST-name">ENTER YOUR NAME: </label>
+              <input id="postName" type="text" name="name" />
+              <input id="postScore" type='hidden' name='score' readOnly='yes' />
+              <input className="css3but" id="subScore" type="submit" value="ok" />
+            </form>
+            <table id="mesData">
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/*each player in results*/}
+              </tbody>
+            </table>
           </div>
         </div>
         <div className={styles.competen} id="experiences">
