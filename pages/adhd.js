@@ -1,4 +1,4 @@
-//import styles from '../styles/Home.module.css'
+/* eslint-disable react/react-in-jsx-scope */
 import Header from '../components/Header'
 import Particles from 'react-particles-js'
 import Footer from '../components/Footer'
@@ -28,7 +28,7 @@ const paramParticles = {
   }
 }
 
-function HomePage() {
+function Hyper() {
   return (
     <Layout>
       <Header></Header>
@@ -39,4 +39,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default Hyper

@@ -634,6 +634,8 @@ class JeuCv extends Component {
               <div className={styles.infoJeu}>IBM db2</div>
               <div className={styles.infoJeu}>NodeJS</div>
               <div className={styles.infoJeu}>ExpressJS</div>
+              <div className={styles.infoJeu}>NextJS</div>
+              <div className={styles.infoJeu}>MongoDB</div>
               <div className={styles.infoJeu}>Ajax</div>
             </div>
             <h3 className={styles.titreh3}>Tools</h3>

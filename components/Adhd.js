@@ -95,14 +95,14 @@ class Adhd extends Component {
     return (
       <div>
         <div className="metoo">
-          <h1 className="english">ADHD and High IQ</h1>
-          <h1 className="french">TDAH et haut potentiel</h1>
+          <h1 className="english titreh1">ADHD and High IQ</h1>
+          <h1 className="french titreh1">TDAH et haut potentiel</h1>
         </div>
         <p className="flags">
           <img id="english" className="imgFlag" src={uk} alt="English" height="30" />
           <img id="french" className='imgFlag' src={fr} alt="Français" height="30" />
         </p>
-        <div className="auteurs english">
+        <div className="english">
           Written by: Lynn-nore Chittom
         <br />
           Edited by: Daniel P. McGoldrick
@@ -111,7 +111,7 @@ class Adhd extends Component {
         <br />
           Updated: 25/05/2011
       </div>
-        <div className="auteurs french">Ecrit par: Lynn-nore Chittom
+        <div className="french">Ecrit par: Lynn-nore Chittom
         <br />
           Edité par: Daniel P. McGoldrick
         <br />
@@ -121,11 +121,9 @@ class Adhd extends Component {
         <br />
           Traduit par: Mikael Garcia le 23/05/2020
       </div>
-        <div className="competen">
-          <div className="metoo">
-            <h3 className="english">What is the Connection</h3>
-            <h3 className="french">Quels liens</h3>
-          </div>
+        <div className={styles.camoufle}>
+          <h2 className="english titreh2">What is the Connection</h2>
+          <h2 className="french titreh2">Quels liens</h2>
           <span className="english">Parents sometimes wonder if their children can have both ADHD and High IQ levels. The answer is &nbsp;they can, and they often do. </span>
           <span className="french">Des parents se demandent parfois si leurs enfants peuvent être à la fois Haut Potentiel (HP) et hyperactif (TDAH). La réponse est oui et c'est souvent le cas.</span>
           <br />
@@ -161,7 +159,8 @@ class Adhd extends Component {
           <br />
           <span className="english">Regardless of their intelligence, for children to be diagnosed with ADHD they must present symptoms from the following list for at least six months and symptoms must appear prior to age seven:</span>
           <span className="french">En dépit de leur intelligence, les enfants sont peut-être concernés par le TDAH s'ils présentent des symptômes de la liste suivante pendant plus de six mois avant l'âge de 7ans :</span>
-          <br />
+        </div>
+        <div className={styles.camoufle}>
           <ul className={styles.ul}>
             <li>
               <span className="english">Inability to sustain focus</span>
@@ -170,7 +169,7 @@ class Adhd extends Component {
             </li>
             <li>
               <span className="english">Distractability</span>
-              <span className="french">Distractibilité</span>
+              <span className="french">Distrait</span>
             </li>
             <li>
               <span className="english">Difficulty completing assignments</span>
@@ -178,7 +177,7 @@ class Adhd extends Component {
             </li>
             <li>
               <span className="english">Forgetfulness</span>
-              <span className="french">Distraction</span>
+              <span className="french">Etourdi</span>
             </li>
             <li>
               <span className="english">Frequent shifts in conversation</span>
@@ -186,11 +185,11 @@ class Adhd extends Component {
             </li>
             <li>
               <span className="english">Hyperfocusing on activities of interest to the point of ignoring other responsibilities</span>
-              <span className="french">Hyper-Concentration sur des activités qui l'intéresse au point d'ignorer d'autres responsabilités</span>
+              <span className="french">Hyper-Focus sur des activités qui l'intéresse au point d'ignorer d'autres responsabilités</span>
             </li>
             <li>
               <span className="english">Lack of organizational skills</span>
-              <span className="french">Défault de capacité organisationnelle</span>
+              <span className="french">Manque de capacités organisationnelles</span>
             </li>
             <li>
               <span className="english">Fidgeting or squirming</span>
@@ -202,7 +201,7 @@ class Adhd extends Component {
             </li>
             <li>
               <span className="english">Running or climbing at inappropriate times and in inappropriate places</span>
-              <span className="french">Courent ou escaladent dans des endroits et à des moments inappropriés</span>
+              <span className="french">Court ou escalade dans des lieux et à des moments inappropriés</span>
             </li>
             <li>
               <span className="english">Inability to sit still or play quietly</span>
@@ -218,16 +217,13 @@ class Adhd extends Component {
             </li>
           </ul>
         </div>
-        <div className="competen">
-          <div className="metoo">
-            <h3 className="english">How the ADHD Hides</h3>
-            <h3 className="french">Comment le TDAH se camoufle</h3>
-          </div>
+        <div className={styles.camoufle}>
+          <h2 className="titreh2 english">How the ADHD Hides</h2>
+          <h2 className="titreh2 french">Comment le TDAH se camoufle</h2>
           <span className="english">Children with high IQ levels are often able to circumvent detection
           of their ADHD if it is not caught early.</span>
           <span className="french">Les enfants au QI élevé sont souvent capables de duper la détection
           de leur TDAH s'ils ne sont pas détectés précocement.</span>
-          <br />
           <span className="english">By school time they are very capable of figuring out assignments
           even if they did not hear the directions.</span>
           <span className="french">En milieu scolaire ils sont souvent capables de suivre les consignes même s'ils n'entendent pas les instructions.</span><br /><span className="english">Similarly they may be
@@ -236,7 +232,6 @@ class Adhd extends Component {
           <span className="french">Ils sont également capables d'apprendre seul et d'acquérir les
           notions malgré la distraction, les bavardages ou l'agitation en
           classe.</span>
-          <br />
           <span className="english">Unfortunately, the ADHD eventually catches up with them as
           classwork becomes more challenging and teachers depend more on
           students being organized, self-motivated and attentive.</span>
@@ -303,7 +298,6 @@ class Adhd extends Component {
           ils risquent dans un premier temps de nier leur TDAH, mais souvent
           décident éventuellement de poursuivre un traitement
           d'eux-mêmes.</span>
-          <br />
           <span className="english">Medication can be effective, even if they did not treat their
           ADHD
           in this way during childhood or adolescence.</span>
@@ -321,12 +315,12 @@ class Adhd extends Component {
           briller.</span>
         </div>
         <div className="competen">
-          <h3 className="metoo">References</h3>
-          <a className="refs" rel="preconnect"
-            href="http://psychcentral.com/news/2009/05/25/high-iq-offers-no-protection-from-adhd-effects/6074.html">http://psychcentral.com/news/2009/05/25/high-iq-offers-no-protection-from-adhd-effects/6074.html</a>
-          <a className="refs" rel="preconnect"
-            href="http://www.webmd.com/add-adhd/guide/adhd-symptoms">http://www.webmd.com/add-adhd/guide/adhd-symptoms
-        </a>
+          <h3 className="titreh3">References</h3>
+          <a className={styles.refs} rel="preconnect"
+            href="http://psychcentral.com/news/2009/05/25/high-iq-offers-no-protection-from-adhd-effects/6074.html">
+            www.psychcentral.com: high-iq-offers-no-protection-from-adhd-effects</a>
+          <a className={styles.refs} rel="preconnect" href="http://www.webmd.com/add-adhd/guide/adhd-symptoms">
+            www.webmd.com: add-adhd guide/adhd-symptoms</a>
         </div>
       </div>
     )
