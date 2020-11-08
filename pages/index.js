@@ -6,6 +6,7 @@ import Soleil from '../components/soleil'
 import Particles from 'react-particles-js'
 import Footer from '../components/Footer'
 import Layout from '../components/layout'
+import { Container } from 'react-bootstrap'
 
 const bienvenue = 'BIENVENUE DANS MON LABO DE DEV',
   welcome = 'WELCOME TO MY DEVLAB',
@@ -40,7 +41,7 @@ const paramParticles = {
 
 function Home() {
   return (
-    <Layout>
+    <div>
       <Header />
       <Particles id='Particles' params={paramParticles} />
       <h1 className="titreh1 english">{welcome}</h1>
@@ -53,8 +54,7 @@ function Home() {
       <JeuCv></JeuCv>
       <h2 className="titreh2">{intro}</h2>
       <Soleil />
-      <Footer />
-    </Layout>
+    </div>
   )
 }
 

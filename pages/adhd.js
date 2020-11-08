@@ -30,12 +30,11 @@ const paramParticles = {
 
 function Hyper() {
   return (
-    <Layout>
+    <div>
       <Header></Header>
       <Particles id='Particles' params={paramParticles} />
       <Adhd></Adhd>
-      <Footer></Footer>
-    </Layout>
+    </div>
   )
 }
 

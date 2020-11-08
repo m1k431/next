@@ -4,6 +4,7 @@ import uk from '../public/img/uk.svg'
 import fr from '../public/img/france.svg'
 import $ from 'jquery'
 import styles from './JeuCv.module.scss'
+import { Col, Container, Form, Row, Button } from 'react-bootstrap'
 
 class JeuCv extends Component {
   constructor(props) {
@@ -126,7 +127,7 @@ class JeuCv extends Component {
       $('#btp').fadeOut()
       $('#commerciales').fadeOut()
       $('#informatique').animate({
-        width: '98%'
+        width: '97%'
       }, 1000)
 
       //_________________________________________INITIALISATIION_JEU______________________________________
@@ -477,7 +478,7 @@ class JeuCv extends Component {
       }
 
       //requete AJAX submit score
-      $('#scoreForm').on('submit', function (event) {
+      $('#boutton').on('click', function (event) {
         event.preventDefault()
         console.log($('#postName').val() + '/' + score)
         $('#scoreForm').hide()
@@ -578,526 +579,540 @@ class JeuCv extends Component {
   render() {
     const metier = 'IBM NODEJS DEVELOPER'
     return (
-      <section id="JeuCv">
-        <div id="metier" onClick={this.varsStart}>
-          <h2 className={styles.titreh2}>{metier}</h2>
-        </div>
-        <p className={styles.flags}>
-          <img id="english" className={styles.imgFlag} src={uk} alt="English" height="30" />
-          <img id="french" className={styles.imgFlag} src={fr} alt="Français" height="30" />
-        </p>
-        {/*<button onClick={this.finJeu}>YOUWON</button>*/}
-        <div className={styles.competen} id="competen">
-          <h2 className={`${styles.titreh2} french`}>Competences</h2>
-          <h2 className={`${styles.titreh2} english`}>Skills</h2>
-          <h2 className={`${styles.titreh2} spanish`}>Competencias</h2>
-          <div className={styles.informatiquesCont} id="informatique">
-            <h3 className={styles.titreh3}>Front End</h3>
-            <div className={styles.informatiques}>
-              <div className={styles.infoJeu}>SQL</div>
-              <div className={styles.infoJeu}>RPGLE</div>
-              <div className={styles.infoJeu}>CLP</div>
-              <div className={styles.infoJeu}>ES6</div>
-              <div className={styles.infoJeu}>HTML5</div>
-              <div className={styles.infoJeu}>jade/PUG</div>
-              <div className={styles.infoJeu}>JQUERY</div>
-              <div className={styles.infoJeu}>SCSS</div>
-              <div className={styles.infoJeu}>DOM</div>
-              <div className={styles.infoJeu}>REACTJS</div>
+      <Container>
+        <Row>
+          <Col>
+            <div id="metier" onClick={this.varsStart}>
+              <h2 className={styles.titreh2}>{metier}</h2>
             </div>
-            <h3 className={styles.titreh3}>Back End</h3>
-            <div className={styles.informatiques}>
-              <div className={styles.infoJeu}>IBM i</div>
-              <div className={styles.infoJeu}>IBM db2</div>
-              <div className={styles.infoJeu}>NodeJS</div>
-              <div className={styles.infoJeu}>ExpressJS</div>
-              <div className={styles.infoJeu}>NextJS</div>
-              <div className={styles.infoJeu}>MongoDB</div>
-              <div className={styles.infoJeu}>Ajax</div>
+            <div className="col-sm12 text-center">
+              <img id="english" className={styles.imgFlag} src={uk} alt="English" height="30" />
+              <img id="french" className={styles.imgFlag} src={fr} alt="Français" height="30" />
             </div>
-            <h3 className={styles.titreh3}>Tools</h3>
-            <div className={styles.informatiquesLast}>
-              <div className={styles.infoJeu}>Git</div>
-              <div className={styles.infoJeu}>IBM RDi</div>
-              <div className={styles.infoJeu}>ARCAD for IBM i</div>
-              <div className={styles.infoJeu}>bsh/zsh</div>
-              <div className={styles.infoJeu}>LINUX</div>
-              <div className={styles.infoJeu}>osX</div>
-              <div className={styles.infoJeu}>Photoshop</div>
-              <div className={styles.infoJeu}>Windows</div>
+            {/* <button onClick={this.finJeu}>YOUWON</button>*/}
+            <div className={styles.competen} id="competen">
+              <h2 className={`${styles.titreh2} french`}>Competences</h2>
+              <h2 className={`${styles.titreh2} english`}>Skills</h2>
+              <h2 className={`${styles.titreh2} spanish`}>Competencias</h2>
+              <div className={styles.informatiquesCont} id="informatique">
+                <h3 className={styles.titreh3}>Front End</h3>
+                <div className={styles.informatiques}>
+                  <div className={styles.infoJeu}>SQL</div>
+                  <div className={styles.infoJeu}>RPGLE</div>
+                  <div className={styles.infoJeu}>CLP</div>
+                  <div className={styles.infoJeu}>ES6</div>
+                  <div className={styles.infoJeu}>HTML5</div>
+                  <div className={styles.infoJeu}>jade/PUG</div>
+                  <div className={styles.infoJeu}>JQUERY</div>
+                  <div className={styles.infoJeu}>SCSS</div>
+                  <div className={styles.infoJeu}>DOM</div>
+                  <div className={styles.infoJeu}>REACTJS</div>
+                </div>
+                <h3 className={styles.titreh3}>Back End</h3>
+                <div className={styles.informatiques}>
+                  <div className={styles.infoJeu}>IBM i</div>
+                  <div className={styles.infoJeu}>IBM db2</div>
+                  <div className={styles.infoJeu}>NodeJS</div>
+                  <div className={styles.infoJeu}>ExpressJS</div>
+                  <div className={styles.infoJeu}>NextJS</div>
+                  <div className={styles.infoJeu}>MongoDB</div>
+                  <div className={styles.infoJeu}>Ajax</div>
+                </div>
+                <h3 className={styles.titreh3}>Tools</h3>
+                <div className={styles.informatiquesLast}>
+                  <div className={styles.infoJeu}>Git</div>
+                  <div className={styles.infoJeu}>IBM RDi</div>
+                  <div className={styles.infoJeu}>ARCAD for IBM i</div>
+                  <div className={styles.infoJeu}>bsh/zsh</div>
+                  <div className={styles.infoJeu}>LINUX</div>
+                  <div className={styles.infoJeu}>osX</div>
+                  <div className={styles.infoJeu}>Photoshop</div>
+                  <div className={styles.infoJeu}>Windows</div>
+                </div>
+                <div id="linkedIn"> </div>
+              </div>
+              <div className={styles.btp} id="btp">
+                <h3 className={`${styles.titreh3} french`}>Techniques Design</h3>
+                <h3 className={`${styles.titreh3} english`}>Technics Design</h3>
+                <h3 className={`${styles.titreh3} spanish`}>Técnicas diseño</h3>
+                <div className={`${styles.info} french`}>
+                  Réaliser l'étude technique d'un projet
+                  de construction et en estimer le co&ucirc;t
+          </div>
+                <div className={`${styles.info} english`}>
+                  Conduct the technical study of a construction project and estimate
+                  the cost
+          </div>
+                <div className={`${styles.info} spanish`}>
+                  Estudio técnico de un proyecto de construcción y estimación del
+                  costo
+          </div>
+                <div className={`${styles.info} french`}>
+                  Réaliser la représentation graphique d'une
+                  construction ou de design intérieur (Autocad, ArchiCAD,
+                  VectorWorks, Artlantis)
+          </div>
+                <div className={`${styles.info} english`}>
+                  Realize the graphic representation of a construction or interior
+                  design (Autocad, ArchiCAD, VectorWorks, Artlantis)
+          </div>
+                <div className={`${styles.info} spanish`}>
+                  Realización de representaciónes gráficas de construcción y de
+                  diseño interiores (Autocad, ArchiCAD, VectorWorks, Artlantis)
+          </div>
+                <div className={`${styles.infolast} french`}>
+                  Réaliser un dossier de détails
+                  d'exécutions de projet (Autocad, VectorWorks)
+          </div>
+                <div className={`${styles.infolast} english`}>
+                  Make a project execution details folder (Autocad, VectorWorks)
+          </div>
+                <div className={`${styles.infolast} spanish`}>
+                  Creación de carpetas de detalles de ejecución de proyectos
+                  (Autocad, VectorWorks)
+          </div>
+              </div>
+              <div className={styles.commerciales} id="commerciales">
+                <h3 className={styles.titreh3}>H to H</h3>
+                <div className={`${styles.info} french`}>
+                  Assistant régie au Palais des Festivals de Cannes en
+                  productions télévisuelles
+          </div>
+                <div className={`${styles.info} english`}>
+                  Show management at Palais des Festivals in Cannes and in
+                  television productions company
+          </div>
+                <div className={`${styles.info} spanish`}>
+                  Asistente de dirección en el Palais des Festivals de Cannes y en
+                  oficina de producciones televisivas
+          </div>
+                <div className={`${styles.info} french`}>
+                  Mener un entretien de négociations de produits ou de
+                  services
+          </div>
+                <div className={`${styles.info} english`}>
+                  Commercial negotiation of products or services
+          </div>
+                <div className={`${styles.info} spanish`}>Negociación de productos o servicios</div>
+                <div className={`${styles.infolast} french`}>
+                  Accueil, service et conseil commercial
+          </div>
+                <div className={`${styles.infolast} english`}>
+                  Front-desk and commercial advicement
+          </div>
+                <div className={`${styles.infolast} spanish`}>
+                  Recepción, servicio y asesoramiento comercial
+          </div>
+              </div>
             </div>
-            <div id="linkedIn"> </div>
-          </div>
-          <div className={styles.btp} id="btp">
-            <h3 className={`${styles.titreh3} french`}>Techniques Design</h3>
-            <h3 className={`${styles.titreh3} english`}>Technics Design</h3>
-            <h3 className={`${styles.titreh3} spanish`}>Técnicas diseño</h3>
-            <div className={`${styles.info} french`}>
-              Réaliser l'étude technique d'un projet
-              de construction et en estimer le co&ucirc;t
-          </div>
-            <div className={`${styles.info} english`}>
-              Conduct the technical study of a construction project and estimate
-              the cost
-          </div>
-            <div className={`${styles.info} spanish`}>
-              Estudio técnico de un proyecto de construcción y estimación del
-              costo
-          </div>
-            <div className={`${styles.info} french`}>
-              Réaliser la représentation graphique d'une
-              construction ou de design intérieur (Autocad, ArchiCAD,
-              VectorWorks, Artlantis)
-          </div>
-            <div className={`${styles.info} english`}>
-              Realize the graphic representation of a construction or interior
-              design (Autocad, ArchiCAD, VectorWorks, Artlantis)
-          </div>
-            <div className={`${styles.info} spanish`}>
-              Realización de representaciónes gráficas de construcción y de
-              diseño interiores (Autocad, ArchiCAD, VectorWorks, Artlantis)
-          </div>
-            <div className={`${styles.infolast} french`}>
-              Réaliser un dossier de détails
-              d'exécutions de projet (Autocad, VectorWorks)
-          </div>
-            <div className={`${styles.infolast} english`}>
-              Make a project execution details folder (Autocad, VectorWorks)
-          </div>
-            <div className={`${styles.infolast} spanish`}>
-              Creación de carpetas de detalles de ejecución de proyectos
-              (Autocad, VectorWorks)
-          </div>
-          </div>
-          <div className={styles.commerciales} id="commerciales">
-            <h3 className={styles.titreh3}>H to H</h3>
-            <div className={`${styles.info} french`}>
-              Assistant régie au Palais des Festivals de Cannes en
-              productions télévisuelles
-          </div>
-            <div className={`${styles.info} english`}>
-              Show management at Palais des Festivals in Cannes and in
-              television productions company
-          </div>
-            <div className={`${styles.info} spanish`}>
-              Asistente de dirección en el Palais des Festivals de Cannes y en
-              oficina de producciones televisivas
-          </div>
-            <div className={`${styles.info} french`}>
-              Mener un entretien de négociations de produits ou de
-              services
-          </div>
-            <div className={`${styles.info} english`}>
-              Commercial negotiation of products or services
-          </div>
-            <div className={`${styles.info} spanish`}>Negociación de productos o servicios</div>
-            <div className={`${styles.infolast} french`}>
-              Accueil, service et conseil commercial
-          </div>
-            <div className={`${styles.infolast} english`}>
-              Front-desk and commercial advicement
-          </div>
-            <div className={`${styles.infolast} spanish`}>
-              Recepción, servicio y asesoramiento comercial
-          </div>
-          </div>
-        </div>
-        <div className="highscore" id="score">
-          <div id="highScore">
-            <h3 className="titreh3">HIGH SCORE</h3>
-            <form id="scoreForm" action="/submitscore" method="post">
-              <label className="nom" htmlFor="POST-name">ENTER YOUR NAME:</label>
-              <br />
-              <input id="postName" type="text" name="name" />
-              <input id="postScore" type='hidden' name='score' readOnly='yes' />
-              <input className="css3but" id="subScore" type="submit" value="ok" />
-            </form>
-            <table id="mesData">
-              <thead>
-                <tr>
-                  <th>Nom</th>
-                  <th>Score</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/*each player in results*/}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className={styles.competen} id="experiences">
-          <h2 className={`${styles.titreh2} french`}>Experiences</h2>
-          <h2 className={`${styles.titreh2} english`}>Experiences</h2>
-          <h2 className={`${styles.titreh2} spanish`}>Experiencia profesional</h2>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Developpeur logiciel IBM i</h3>
-            <h3 className={`${styles.titreh3} english`}>IBM i developer</h3>
-            <div className={`${styles.infojob} french`}>
-              Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad,
-              Rdi)
-          </div>
-            <div className={`${styles.infojob} english`}>
-              IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi)
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi)
-          </div>
-            <div className={styles.lieu}>
-              04/08/2019 =&gt; 17/07/2020: Pro A Pro, Montauban
-          </div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Ingenieur etude et developpement IBM i</h3>
-            <h3 className={`${styles.titreh3} english`}>IBM i software engineer</h3>
-            <div className={`${styles.infojob} french`}>
-              Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad,
-              Rdi)
-          </div>
-            <div className={`${styles.infojob} english`}>
-              IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi)
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi)
-          </div>
-            <div className={styles.lieu}>04/02/2019 =&gt; 04/08/2019: OCSI, Paris I</div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={styles.titreh3}>Webmaster</h3>
-            <div className={`${styles.infojob} french`}>
-              Mise &agrave; jour de la base de données site Ecommerce
-              (magento)
-          </div>
-            <div className={`${styles.infojob} english`}>
-              Update of the Ecommerce website database (magento)
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              Actualización de la base de datos del sitio snow-concept.com
-              (magento)
-          </div>
-            <div className={styles.lieu}>
-              06/12/2016 =&gt; 16/01/2017: www.snow-concept.com, l'Alpe d'Huez
-          </div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Technicien audio-visuel</h3>
-            <div className={`${styles.infojob} french`}>
-              JLA productions, Auteurs Associés, EuropaCorp
-          </div>
-            <h3 className={`${styles.titreh3} english`}>Audio-visual technician</h3>
-            <div className={`${styles.infojob} english`}>
-              JLA productions, Auteurs Associés, EuropaCorp
-          </div>
-            <h3 className={`${styles.titreh3} spanish`}>Técnico audiovisual</h3>
-            <div className={`${styles.infojob} spanish`}>
-              gerente de apoyos: JLA productions, Martigues
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              Subgerente: Auteurs Associés, Grasse
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              Refuerzo de decoración y figuración: Gazelle Cie, DEMD,
-              Europacorp, Marseille
-          </div>
-            <div className={styles.lieu}>2013 =&gt; 2015</div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Dessinateur Projeteur HVAC</h3>
-            <div className={`${styles.infojob} french`}>
-              Etude des projets de construction ERP &quot;Castorama&quot;
-              Toulouse Union et Antibes
-          </div>
-            <h3 className={`${styles.titreh3} english`}>HVAC designer</h3>
-            <div className={`${styles.infojob} english`}>
-              Castorama Toulouse and Antibes building materials store
-              construction
-          </div>
-            <h3 className={`${styles.titreh3} spanish`}>Diseñador de HVAC</h3>
-            <div className={`${styles.infojob} spanish`}>
-              Estudio de proyectos de construcción de tiendas "Castorama"
-              Toulouse Union y Antibes, ingeniería AUXITEC, Hyères
-          </div>
-            <div className={styles.lieu, styles.english}>
-              09/2012 =&gt; 12/2012: AUXITEC engineering, Hyères
-          </div>
-            <div className={styles.lieu, styles.french}>
-              09/2012 =&gt; 12/2012: AUXITEC ingénierie, Hy&egrave;res
-          </div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Developpeur web</h3>
-            <div className={`${styles.infojob} french`}>
-              Introduction &agrave; JavaScript (JQuery)
-          </div>
-            <h3 className={`${styles.titreh3} english`}>web Developer</h3>
-            <div className={`${styles.infojob} english`}>
-              Introduction to JavaScript (JQuery)
-          </div>
-            <h3 className={`${styles.titreh3} spanish`}>Desarrollador web</h3>
-            <div className={`${styles.infojob} spanish`}>
-              introducción a JavaScript (JQuery)
-          </div>
-            <div className={styles.lieu}>
-              03/2012 =&gt; 06/2012: Alphabet Stand Service, La Garde
-          </div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Technicien etudes en Design et Decoration</h3>
-            <div className={`${styles.infojob} french`}>
-              Alphabet Stand Service (MIPCOM/MIPTV, MIDEM, FIF, MIPIM...)
-          </div>
-            <h3 className={`${styles.titreh3} english`}>Design and Decoration Technician</h3>
-            <div className={`${styles.infojob} english`}>
-              Alphabet Stand Service (MIPCOM/MIPTV, MIDEM, FIF, MIPIM...)
-          </div>
-            <h3 className={`${styles.titreh3} spanish`}>Técnico de Diseño y Decoración</h3>
-            <div className={`${styles.infojob} spanish`}>
-              Alphabet Stand Service (MIPCOM/MIPTV, MIDEM, FIF, MIPIM &mldr;)
-          </div>
-            <div className={styles.lieu}>09/2010 =&gt; 06/2012: La Garde</div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Vendeur et Technicien Ski</h3>
-            <div className={`${styles.infojob} french`}>Nevada Sports</div>
-            <h3 className={`${styles.titreh3} english`}>Ski Technician</h3>
-            <div className={`${styles.infojob} english`}>Nevada Sports</div>
-            <h3 className={`${styles.titreh3} spanish`}>Vendedor de esquí y de material deportivo</h3>
-            <div className={`${styles.infojob} spanish`}>Nevada Sports</div>
-            <div className={styles.lieu}>
-              12/2008 =&gt; 04/2009: l'Alpe d'Huez
-          </div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Technicien ADSL</h3>
-            <div className={`${styles.infojob} french`}>British Telecom Critical Systems</div>
-            <h3 className={`${styles.titreh3} english`}>ADSL Technician</h3>
-            <div className={`${styles.infojob} english`}>British Telecom Critical Systems</div>
-            <h3 className={`${styles.titreh3} spanish`}>Técnico de ADSL</h3>
-            <div className={`${styles.infojob} spanish`}>British Telecom Critical Systems</div>
-            <div className={styles.lieu}>07/2008 =&gt; 12/2008: Le Plessis-Robinson</div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Technicien Ski et Snowboard</h3>
-            <div className={`${styles.infojob} french`}>Intersport</div>
-            <h3 className={`${styles.titreh3} english`}>Ski and Snowboard Technician</h3>
-            <div className={`${styles.infojob} english`}>Intersport</div>
-            <h3 className={`${styles.titreh3} spanish`}>Técnico de esquí y snowboard</h3>
-            <div className={`${styles.infojob} spanish`}>Intersport</div>
-            <div className={styles.lieu}>
-              12/2007 =&gt; 04/2008: l'Alpe d'Huez
-          </div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Administrateur systemes et reseaux</h3>
-            <h3 className={`${styles.titreh3} english`}>Systems and Network Administrator</h3>
-            <h3 className={`${styles.titreh3} spanish`}>Administrador de Sistemas y Redes</h3>
-            <div className={`${styles.infojob} french`}>
-              Administration serveurs Windows, clients LINUX, developpement html
-              php
-          </div>
-            <div className={`${styles.infojob} english`}>
-              Windows server administration, LINUX clients, html php development
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              Administración de servidores y clientes LINUX Mantenimiento e
-              instalación de sistemas infojobrmáticos, desarollamiento html php
-              (script de copia de seguridad)
-          </div>
-            <div className={styles.lieu}>
-              09/2005 =&gt; 06/2007: SECOB, St Jean-de-la-Ruelle
-          </div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Technicien Systemes et Reseaux</h3>
-            <h3 className={`${styles.titreh3} english`}>Systems and Network Technician</h3>
-            <h3 className={`${styles.titreh3} spanish`}>Técnico de Sistemas y Redes</h3>
-            <div className={`${styles.infojob} french`}>
-              Maintenance et installation systemes informatique Developpement
-              html php d&apos;un site de devis securisé
-          </div>
-            <div className={`${styles.infojob} english`}>
-              System and network Deployment and php dev
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              Mantenimiento e instalación de sistemas infojobrmáticos PHP html
-              desarrollo de un sitio de cotizaciones seguras
-          </div>
-            <div className={styles.lieu}>03/2005 =&gt; 06/2005: Emergence, Orléans</div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Adjoint au responsable de magasin</h3>
-            <h3 className={`${styles.titreh3} english`}>Assistant to the store manager</h3>
-            <h3 className={`${styles.titreh3} spanish`}>Asistente del gerente de la tienda</h3>
-            <div className={`${styles.infojob} french`}>Micromania</div>
-            <div className={`${styles.infojob} english`}>Micromania</div>
-            <div className={`${styles.infojob} spanish`}>Micromania</div>
-            <div className={styles.lieu}>06/2003 =&gt; 02/2004: St Jean de la Ruelle</div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Emplois etudiant</h3>
-            <div className={`${styles.infojob} french`}>
-              Conseiller de vente en espace culturel Leclerc, serveur/barman,
-              Ouvrier boulanger, Employé polyvalent chez
-              Intermarché
-          </div>
-            <h3 className={`${styles.titreh3} english`}>Student jobs</h3>
-            <div className={`${styles.infojob} english`}>
-              Seller in espace culturel Leclerc, waiter / bartender, Bakery
-              worker, multi-purpose employee at grocery store
-          </div>
-            <h3 className={`${styles.titreh3} spanish`}>Trabajos de estudiante</h3>
-            <div className={`${styles.infojob} spanish`}>
-              Asesor de ventas culturales Leclerc, camarero / camarero,
-              trabajador de panadería, empleado multipropósito en Intermarché
-          </div>
-          </div>
-        </div>
-        <div className={styles.competen} id="formation">
-          <h2 className={`${styles.titreh2} french`}>Formation</h2>
-          <h2 className={`${styles.titreh2} english`}>Training</h2>
-          <h2 className={`${styles.titreh2} spanish`}>Formación</h2>
-          <div className={styles.jobs}>
-            <h3 className={styles.titreh3}>Pepiniere IBM</h3>
-            <div className={`${styles.infojob} french`}>
-              IBM RPG II, RPGLE, SQL, CLP
-          </div>
-            <div className={`${styles.infojob} english`}>
-              IBM RPG II, RPGLE, SQL, CLP
-          </div>
-            <div className={`${styles.infojob} spanish`}>RPG II, RPGLE, SQL, CLP</div>
-            <div className={`${styles.infojob} french`}>RDi, SQL for IBM db2, DDS/DDL</div>
-            <div className={`${styles.infojob} english`}>RDi, SQL for IBM db2, DDS/DDL</div>
-            <div className={`${styles.infojob} spanish`}>RDi, SQL for IBM db2, DDS/DDL</div>
-            <div className={`${styles.infojob} french`}>
-              Webservices and PHP for IBM i series
-          </div>
-            <div className={`${styles.infojob} english`}>
-              Webservices and PHP for IBM i series
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              Webservices and PHP for IBM i series
-          </div>
-            <div className={styles.lieu}>2018 OCSI Paris I</div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Developpeur JavaScript FullStack</h3>
-            <h3 className={`${styles.titreh3} english`}>FullStack Javascript Developer</h3>
-            <h3 className={`${styles.titreh3} spanish`}>Desarollador Javascript de pila completa</h3>
-            <div className={`${styles.infojob} french`}>
-              Développement et management d&apos;un projet web
-          </div>
-            <div className={`${styles.infojob} english`}>
-              Development and management of a web project
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              Desarolla y gestión de un proyecto web
-          </div>
-            <div className={`${styles.infojob} french`}>
-              Création de sites web statiques riche front-end JS
-          </div>
-            <div className={`${styles.infojob} english`}>
-              Creating Static Rich Front-end JS Websites
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              Creación de sitios web estáticos de front-end JS estáticos
-          </div>
-            <div className={`${styles.infojob} french`}>
-              Création d&apos;applications web et mobiles riche backend
-              JS
-          </div>
-            <div className={`${styles.infojob} english`}>
-              Creating rich web and mobile applications backend JS
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              Creación de aplicaciones web y móviles ricas en el back-end de JS
-          </div>
-            <div className={styles.lieu}>2017 IFOCOP Paris XI</div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>TP de technicien etude en batiment option dessin</h3>
-            <h3 className={`${styles.titreh3} english`}>Construction Engineer Assistant</h3>
-            <h3 className={`${styles.titreh3} spanish`}>Técnico de Ingeniería de Construcción</h3>
-            <div className={styles.infojob}>Photoshop, Autocad, Archicad, Artlantis</div>
-            <div className={`${styles.infojob} french`}>
-              Design, techniques et normes de construction
-          </div>
-            <div className={`${styles.infojob} english`}>
-              Design, techniques and construction standards
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              Diseño, técnicas y estándares de construcción
-          </div>
-            <div className={`${styles.infojob} french`}>
-              Notions d&apos;urbanisme et de voirie
-          </div>
-            <div className={`${styles.infojob} english`}>
-              Notions of town planning and roads
-          </div>
-            <div className={`${styles.infojob} spanish`}>
-              Nociones de urbanismo y carreteras
-          </div>
-            <div className={styles.lieu}>2009 AFPA La Valette-du-var</div>
-          </div>
-          <div className={styles.jobs}>
-            <h3 className={styles.titreh3}>DUT informatique genie logiciel</h3>
-            <div className={`${styles.infojob} french`}>
-              Administration et
-              déploiementent réseau en
-              environnement Linux, cli, regexp
+            <div className="highscore" id="score">
+              <div id="highScore">
+                <h3 className="titreh3">HIGH SCORE</h3>
+                <div id="scoreForm" className="col-sm12 text-center">
+                  <Form>
+                    <Form.Group>
+                      <Form.Label> Enter your name</Form.Label>
+                      <Form.Row>
+                        <Col></Col>
+                        <Col>
+                          <Form.Control id="postName" type="texte" placeholder="Name" />
+                        </Col>
+                        <Col></Col>
+                      </Form.Row>
+                    </Form.Group>
+                    <Button variant="primary" type="submit" id="boutton">
+                      Submit
+                  </Button>
+                  </Form>
+                </div>
+                <table id="mesData">
+                  <thead>
+                    <tr>
+                      <th>Nom</th>
+                      <th>Score</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/*each player in results*/}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className={styles.competen} id="experiences">
+              <h2 className={`${styles.titreh2} french`}>Experiences</h2>
+              <h2 className={`${styles.titreh2} english`}>Experiences</h2>
+              <h2 className={`${styles.titreh2} spanish`}>Experiencia profesional</h2>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Developpeur logiciel IBM i</h3>
+                <h3 className={`${styles.titreh3} english`}>IBM i developer</h3>
+                <div className={`${styles.infojob} french`}>
+                  Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad,
+                  Rdi)
+          </div>
+                <div className={`${styles.infojob} english`}>
+                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi)
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi)
+          </div>
+                <div className={styles.lieu}>
+                  04/08/2019 =&gt; 17/07/2020: Pro A Pro, Montauban
+          </div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Ingenieur etude et developpement IBM i</h3>
+                <h3 className={`${styles.titreh3} english`}>IBM i software engineer</h3>
+                <div className={`${styles.infojob} french`}>
+                  Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad,
+                  Rdi)
+          </div>
+                <div className={`${styles.infojob} english`}>
+                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi)
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi)
+          </div>
+                <div className={styles.lieu}>04/02/2019 =&gt; 04/08/2019: OCSI, Paris I</div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={styles.titreh3}>Webmaster</h3>
+                <div className={`${styles.infojob} french`}>
+                  Mise &agrave; jour de la base de données site Ecommerce
+                  (magento)
+          </div>
+                <div className={`${styles.infojob} english`}>
+                  Update of the Ecommerce website database (magento)
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  Actualización de la base de datos del sitio snow-concept.com
+                  (magento)
+          </div>
+                <div className={styles.lieu}>
+                  06/12/2016 =&gt; 16/01/2017: www.snow-concept.com, l'Alpe d'Huez
+          </div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Technicien audio-visuel</h3>
+                <div className={`${styles.infojob} french`}>
+                  JLA productions, Auteurs Associés, EuropaCorp
+          </div>
+                <h3 className={`${styles.titreh3} english`}>Audio-visual technician</h3>
+                <div className={`${styles.infojob} english`}>
+                  JLA productions, Auteurs Associés, EuropaCorp
+          </div>
+                <h3 className={`${styles.titreh3} spanish`}>Técnico audiovisual</h3>
+                <div className={`${styles.infojob} spanish`}>
+                  gerente de apoyos: JLA productions, Martigues
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  Subgerente: Auteurs Associés, Grasse
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  Refuerzo de decoración y figuración: Gazelle Cie, DEMD,
+                  Europacorp, Marseille
+          </div>
+                <div className={styles.lieu}>2013 =&gt; 2015</div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Dessinateur Projeteur HVAC</h3>
+                <div className={`${styles.infojob} french`}>
+                  Etude des projets de construction ERP &quot;Castorama&quot;
+                  Toulouse Union et Antibes
+          </div>
+                <h3 className={`${styles.titreh3} english`}>HVAC designer</h3>
+                <div className={`${styles.infojob} english`}>
+                  Castorama Toulouse and Antibes building materials store
+                  construction
+          </div>
+                <h3 className={`${styles.titreh3} spanish`}>Diseñador de HVAC</h3>
+                <div className={`${styles.infojob} spanish`}>
+                  Estudio de proyectos de construcción de tiendas "Castorama"
+                  Toulouse Union y Antibes, ingeniería AUXITEC, Hyères
+          </div>
+                <div className={styles.lieu, styles.english}>
+                  09/2012 =&gt; 12/2012: AUXITEC engineering, Hyères
+          </div>
+                <div className={styles.lieu, styles.french}>
+                  09/2012 =&gt; 12/2012: AUXITEC ingénierie, Hy&egrave;res
+          </div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Developpeur web</h3>
+                <div className={`${styles.infojob} french`}>
+                  Introduction &agrave; JavaScript (JQuery)
+          </div>
+                <h3 className={`${styles.titreh3} english`}>web Developer</h3>
+                <div className={`${styles.infojob} english`}>
+                  Introduction to JavaScript (JQuery)
+          </div>
+                <h3 className={`${styles.titreh3} spanish`}>Desarrollador web</h3>
+                <div className={`${styles.infojob} spanish`}>
+                  introducción a JavaScript (JQuery)
+          </div>
+                <div className={styles.lieu}>
+                  03/2012 =&gt; 06/2012: Alphabet Stand Service, La Garde
+          </div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Technicien etudes en Design et Decoration</h3>
+                <div className={`${styles.infojob} french`}>
+                  Alphabet Stand Service (MIPCOM/MIPTV, MIDEM, FIF, MIPIM...)
+          </div>
+                <h3 className={`${styles.titreh3} english`}>Design and Decoration Technician</h3>
+                <div className={`${styles.infojob} english`}>
+                  Alphabet Stand Service (MIPCOM/MIPTV, MIDEM, FIF, MIPIM...)
+          </div>
+                <h3 className={`${styles.titreh3} spanish`}>Técnico de Diseño y Decoración</h3>
+                <div className={`${styles.infojob} spanish`}>
+                  Alphabet Stand Service (MIPCOM/MIPTV, MIDEM, FIF, MIPIM &mldr;)
+          </div>
+                <div className={styles.lieu}>09/2010 =&gt; 06/2012: La Garde</div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Vendeur et Technicien Ski</h3>
+                <div className={`${styles.infojob} french`}>Nevada Sports</div>
+                <h3 className={`${styles.titreh3} english`}>Ski Technician</h3>
+                <div className={`${styles.infojob} english`}>Nevada Sports</div>
+                <h3 className={`${styles.titreh3} spanish`}>Vendedor de esquí y de material deportivo</h3>
+                <div className={`${styles.infojob} spanish`}>Nevada Sports</div>
+                <div className={styles.lieu}>
+                  12/2008 =&gt; 04/2009: l'Alpe d'Huez
+          </div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Technicien ADSL</h3>
+                <div className={`${styles.infojob} french`}>British Telecom Critical Systems</div>
+                <h3 className={`${styles.titreh3} english`}>ADSL Technician</h3>
+                <div className={`${styles.infojob} english`}>British Telecom Critical Systems</div>
+                <h3 className={`${styles.titreh3} spanish`}>Técnico de ADSL</h3>
+                <div className={`${styles.infojob} spanish`}>British Telecom Critical Systems</div>
+                <div className={styles.lieu}>07/2008 =&gt; 12/2008: Le Plessis-Robinson</div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Technicien Ski et Snowboard</h3>
+                <div className={`${styles.infojob} french`}>Intersport</div>
+                <h3 className={`${styles.titreh3} english`}>Ski and Snowboard Technician</h3>
+                <div className={`${styles.infojob} english`}>Intersport</div>
+                <h3 className={`${styles.titreh3} spanish`}>Técnico de esquí y snowboard</h3>
+                <div className={`${styles.infojob} spanish`}>Intersport</div>
+                <div className={styles.lieu}>
+                  12/2007 =&gt; 04/2008: l'Alpe d'Huez
+          </div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Administrateur systemes et reseaux</h3>
+                <h3 className={`${styles.titreh3} english`}>Systems and Network Administrator</h3>
+                <h3 className={`${styles.titreh3} spanish`}>Administrador de Sistemas y Redes</h3>
+                <div className={`${styles.infojob} french`}>
+                  Administration serveurs Windows, clients LINUX, developpement html
+                  php
+          </div>
+                <div className={`${styles.infojob} english`}>
+                  Windows server administration, LINUX clients, html php development
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  Administración de servidores y clientes LINUX Mantenimiento e
+                  instalación de sistemas infojobrmáticos, desarollamiento html php
+                  (script de copia de seguridad)
+          </div>
+                <div className={styles.lieu}>
+                  09/2005 =&gt; 06/2007: SECOB, St Jean-de-la-Ruelle
+          </div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Technicien Systemes et Reseaux</h3>
+                <h3 className={`${styles.titreh3} english`}>Systems and Network Technician</h3>
+                <h3 className={`${styles.titreh3} spanish`}>Técnico de Sistemas y Redes</h3>
+                <div className={`${styles.infojob} french`}>
+                  Maintenance et installation systemes informatique Developpement
+                  html php d&apos;un site de devis securisé
+          </div>
+                <div className={`${styles.infojob} english`}>
+                  System and network Deployment and php dev
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  Mantenimiento e instalación de sistemas infojobrmáticos PHP html
+                  desarrollo de un sitio de cotizaciones seguras
+          </div>
+                <div className={styles.lieu}>03/2005 =&gt; 06/2005: Emergence, Orléans</div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Adjoint au responsable de magasin</h3>
+                <h3 className={`${styles.titreh3} english`}>Assistant to the store manager</h3>
+                <h3 className={`${styles.titreh3} spanish`}>Asistente del gerente de la tienda</h3>
+                <div className={`${styles.infojob} french`}>Micromania</div>
+                <div className={`${styles.infojob} english`}>Micromania</div>
+                <div className={`${styles.infojob} spanish`}>Micromania</div>
+                <div className={styles.lieu}>06/2003 =&gt; 02/2004: St Jean de la Ruelle</div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Emplois etudiant</h3>
+                <div className={`${styles.infojob} french`}>
+                  Conseiller de vente en espace culturel Leclerc, serveur/barman,
+                  Ouvrier boulanger, Employé polyvalent chez
+                  Intermarché
+          </div>
+                <h3 className={`${styles.titreh3} english`}>Student jobs</h3>
+                <div className={`${styles.infojob} english`}>
+                  Seller in espace culturel Leclerc, waiter / bartender, Bakery
+                  worker, multi-purpose employee at grocery store
+          </div>
+                <h3 className={`${styles.titreh3} spanish`}>Trabajos de estudiante</h3>
+                <div className={`${styles.infojob} spanish`}>
+                  Asesor de ventas culturales Leclerc, camarero / camarero,
+                  trabajador de panadería, empleado multipropósito en Intermarché
+          </div>
+              </div>
+            </div>
+            <div className={styles.competen} id="formation">
+              <h2 className={`${styles.titreh2} french`}>Formation</h2>
+              <h2 className={`${styles.titreh2} english`}>Training</h2>
+              <h2 className={`${styles.titreh2} spanish`}>Formación</h2>
+              <div className={styles.jobs}>
+                <h3 className={styles.titreh3}>Pepiniere IBM</h3>
+                <div className={`${styles.infojob} french`}>
+                  IBM RPG II, RPGLE, SQL, CLP
+          </div>
+                <div className={`${styles.infojob} english`}>
+                  IBM RPG II, RPGLE, SQL, CLP
+          </div>
+                <div className={`${styles.infojob} spanish`}>RPG II, RPGLE, SQL, CLP</div>
+                <div className={`${styles.infojob} french`}>RDi, SQL for IBM db2, DDS/DDL</div>
+                <div className={`${styles.infojob} english`}>RDi, SQL for IBM db2, DDS/DDL</div>
+                <div className={`${styles.infojob} spanish`}>RDi, SQL for IBM db2, DDS/DDL</div>
+                <div className={`${styles.infojob} french`}>
+                  Webservices and PHP for IBM i series
+          </div>
+                <div className={`${styles.infojob} english`}>
+                  Webservices and PHP for IBM i series
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  Webservices and PHP for IBM i series
+          </div>
+                <div className={styles.lieu}>2018 OCSI Paris I</div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Developpeur JavaScript FullStack</h3>
+                <h3 className={`${styles.titreh3} english`}>FullStack Javascript Developer</h3>
+                <h3 className={`${styles.titreh3} spanish`}>Desarollador Javascript de pila completa</h3>
+                <div className={`${styles.infojob} french`}>
+                  Développement et management d&apos;un projet web
+          </div>
+                <div className={`${styles.infojob} english`}>
+                  Development and management of a web project
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  Desarolla y gestión de un proyecto web
+          </div>
+                <div className={`${styles.infojob} french`}>
+                  Création de sites web statiques riche front-end JS
+          </div>
+                <div className={`${styles.infojob} english`}>
+                  Creating Static Rich Front-end JS Websites
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  Creación de sitios web estáticos de front-end JS estáticos
+          </div>
+                <div className={`${styles.infojob} french`}>
+                  Création d&apos;applications web et mobiles riche backend
+                  JS
+          </div>
+                <div className={`${styles.infojob} english`}>
+                  Creating rich web and mobile applications backend JS
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  Creación de aplicaciones web y móviles ricas en el back-end de JS
+          </div>
+                <div className={styles.lieu}>2017 IFOCOP Paris XI</div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>TP de technicien etude en batiment option dessin</h3>
+                <h3 className={`${styles.titreh3} english`}>Construction Engineer Assistant</h3>
+                <h3 className={`${styles.titreh3} spanish`}>Técnico de Ingeniería de Construcción</h3>
+                <div className={styles.infojob}>Photoshop, Autocad, Archicad, Artlantis</div>
+                <div className={`${styles.infojob} french`}>
+                  Design, techniques et normes de construction
+          </div>
+                <div className={`${styles.infojob} english`}>
+                  Design, techniques and construction standards
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  Diseño, técnicas y estándares de construcción
+          </div>
+                <div className={`${styles.infojob} french`}>
+                  Notions d&apos;urbanisme et de voirie
+          </div>
+                <div className={`${styles.infojob} english`}>
+                  Notions of town planning and roads
+          </div>
+                <div className={`${styles.infojob} spanish`}>
+                  Nociones de urbanismo y carreteras
+          </div>
+                <div className={styles.lieu}>2009 AFPA La Valette-du-var</div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={styles.titreh3}>DUT informatique genie logiciel</h3>
+                <div className={`${styles.infojob} french`}>
+                  Administration et
+                  déploiementent réseau en
+                  environnement Linux, cli, regexp
             <br />
             Base de Données: Analyse (merise), conception (MCD, MCT),
             maintenance
             <br />
             Programmation C, C++, SQL, shell script
           </div>
-            <div className={`${styles.infojob} english`}>
-              Systems and Networks: Linux
-              environment, CLI, regexp
+                <div className={`${styles.infojob} english`}>
+                  Systems and Networks: Linux
+                  environment, CLI, regexp
             <br />
             Database: Analysis, design, SQL
             <br />
             Programming: C, C++, shell script
           </div>
-            <div className={`${styles.infojob} spanish`}>
-              Sistemas y Redes: Red de administración e implementación de
-              sistemas en entorno Linux, nociones de ensamblador regexp
-              Base de Datos: Análisis (merise), diseño (MCD, MCT), mantenimiento
-              Programación: Langage C, C++, SQL, bsh, assembly language
+                <div className={`${styles.infojob} spanish`}>
+                  Sistemas y Redes: Red de administración e implementación de
+                  sistemas en entorno Linux, nociones de ensamblador regexp
+                  Base de Datos: Análisis (merise), diseño (MCD, MCT), mantenimiento
+                  Programación: Langage C, C++, SQL, bsh, assembly language
           </div>
-            <div className={styles.lieu}>2003 IUT d'Orléans</div>
+                <div className={styles.lieu}>2003 IUT d'Orléans</div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>Baccalaureat Scientifique</h3>
+                <h3 className={`${styles.titreh3} english`}>Scientific Baccalaureate Diploma</h3>
+                <h3 className={`${styles.titreh3} spanish`}>Bachillerato Científico</h3>
+                <div className={`${styles.infojob} french`}>
+                  Spécialité physique-chimie
           </div>
-          <div className={styles.jobs}>
-            <h3 className={`${styles.titreh3} french`}>Baccalaureat Scientifique</h3>
-            <h3 className={`${styles.titreh3} english`}>Scientific Baccalaureate Diploma</h3>
-            <h3 className={`${styles.titreh3} spanish`}>Bachillerato Científico</h3>
-            <div className={`${styles.infojob} french`}>
-              Spécialité physique-chimie
-          </div>
-            <div className={`${styles.infojob} english`}>Specialty physics-chemistry</div>
-            <div className={`${styles.infojob} spanish`}>Especialidad física-química</div>
-            <div className={styles.lieu}>2001 Orléans</div>
-          </div>
-        </div>
-        <div className={styles.competen} id="complementaire">
-          <div className={`${styles.infojob} french`}>Permis : auto, moto, monoroue electrique.
-          <br />
-          Sports: gym, sports de glisse, jonglage.
-          <br />
-          Hobbies: electronique, décoration, design, rénovation.
-        </div>
-          <div className={`${styles.infojob} english`}>
-            Driving licences: car, motorcycle, electric unicycle.
-          <br />
-          Sports: gym, boardsports, juggling.
-          <br />
-          Hobbies: electronics, decoration, design, renovation.
-        </div>
-          <div className={`${styles.infojob} spanish`}>
-            Permiso: auto, motocicleta.
-            Deporte: gimnasio, deportes de tabla, ciclismo de montaña.
-            Hobbies: electrónica, decoración, diseño, renovación.
-        </div>
-        </div>
-      </section>
+                <div className={`${styles.infojob} english`}>Specialty physics-chemistry</div>
+                <div className={`${styles.infojob} spanish`}>Especialidad física-química</div>
+                <div className={styles.lieu}>2001 Orléans</div>
+              </div>
+            </div>
+            <div className={styles.competen} id="complementaire">
+              <div className={`${styles.infojob} french`}>Permis : auto, moto, monoroue electrique.
+              <br />
+              Sports: gym, sports de glisse, jonglage.
+              <br />
+              Hobbies: electronique, décoration, design, rénovation.
+              </div>
+              <div className={`${styles.infojob} english`}>
+                Driving licences: car, motorcycle, electric unicycle.
+                <br />
+                Sports: gym, boardsports, juggling.
+                <br />
+                Hobbies: electronics, decoration, design, renovation.
+              </div>
+              <div className={`${styles.infojob} spanish`}>
+                Permiso: auto, motocicleta.
+                Deporte: gimnasio, deportes de tabla, ciclismo de montaña.
+                Hobbies: electrónica, decoración, diseño, renovación.
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 }

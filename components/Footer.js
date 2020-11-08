@@ -14,8 +14,7 @@ class Footer extends Component {
           <img src={GitHubR} alt="git" height="35" />
         </a>
         <a className={styles.minilogR} rel="preconnect" href="https://www.linkedin.com/in/mika%C3%ABl-garcia/">
-          <img
-            src={linkedIn} alt="linkedin" height="35" />
+          <img src={linkedIn} alt="linkedin" height="35" />
         </a>
       </footer>
     )

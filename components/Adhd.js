@@ -24,108 +24,90 @@ class Adhd extends Component {
     $("#intro").addClass("css3button")
     $("#adhd").addClass("css3buttonRed")
     $("#adhd").removeClass("css3button")
-    $("li").eq(2).css({
+    $("#rainb > li").eq(0).css({
+      "background-color": "blue",
+      color: "white",
+      "font-weight": "500",
+    })
+    $("#rainb > li").eq(1).css({
       "background-color": "indigo",
       color: "white",
       "font-weight": "500",
     })
-    $("li").eq(3).css({
+    $("#rainb > li").eq(2).css({
       "background-color": "violet",
       color: "black",
       "font-weight": "900",
     })
-    $("li").eq(4).css({
+    $("#rainb > li").eq(3).css({
       "background-color": "red",
       color: "black",
       "font-weight": "900",
     })
-    $("li").eq(5).css({
+    $("#rainb > li").eq(4).css({
       "background-color": "orange",
       color: "black",
       "font-weight": "900",
     })
-    $("li").eq(6).css({
+    $("#rainb > li").eq(5).css({
       "background-color": "yellow",
       color: "black",
       "font-weight": "900",
     })
-    $("li").eq(7).css({
+    $("#rainb > li").eq(6).css({
       "background-color": "green",
       color: "white",
       "font-weight": "500",
     })
-    $("li").eq(8).css({
+    $("#rainb > li").eq(7).css({
       "background-color": "blue",
       color: "white",
       "font-weight": "500",
     })
-    $("li").eq(9).css({
+    $("#rainb > li").eq(8).css({
       "background-color": "indigo",
       color: "white",
       "font-weight": "500",
     })
-    $("li").eq(10).css("background-color", "violet");
-    $("li").eq(11).css({
+    $("#rainb > li").eq(9).css("background-color", "violet");
+    $("#rainb > li").eq(10).css({
       "background-color": "red",
       color: "black",
       "font-weight": "900",
     })
-    $("li").eq(12).css({
+    $("#rainb > li").eq(11).css({
       "background-color": "orange",
       color: "black",
       "font-weight": "900",
     })
-    $("li").eq(13).css({
+    $("#rainb > li").eq(12).css({
       "background-color": "yellow",
       color: "black",
       "font-weight": "900",
-    })
-    $("li").eq(14).css({
-      "background-color": "green",
-      color: "white",
-      "font-weight": "500",
-    })
-    $("li").eq(15).css({
-      "background-color": "blue",
-      color: "white",
-      "font-weight": "500",
-    })
-    $("li").eq(16).css({
-      "background-color": "indigo",
-      color: "white",
-      "font-weight": "500",
     })
   }
   render() {
     return (
       <div>
-        <div className="metoo">
-          <h1 className="english titreh1">ADHD and High IQ</h1>
-          <h1 className="french titreh1">TDAH et haut potentiel</h1>
-        </div>
-        <p className="flags">
+        <h1 className="english titreh1">ADHD and High IQ</h1>
+        <h1 className="french titreh1">TDAH et haut potentiel</h1>
+        <div className="col-sm12 text-center">
           <img id="english" className="imgFlag" src={uk} alt="English" height="30" />
           <img id="french" className='imgFlag' src={fr} alt="Français" height="30" />
-        </p>
-        <div className="english">
-          Written by: Lynn-nore Chittom
-        <br />
-          Edited by: Daniel P. McGoldrick
-        <br />
-          PhD Genome Sciences University of Washington Seattle
-        <br />
-          Updated: 25/05/2011
-      </div>
-        <div className="french">Ecrit par: Lynn-nore Chittom
-        <br />
-          Edité par: Daniel P. McGoldrick
-        <br />
-          Professeur en Sciences Génétiques University of Washington Seattle
-        <br />
-          Mis à jour: 25/05/2011
-        <br />
-          Traduit par: Mikael Garcia le 23/05/2020
-      </div>
+          <ul className={`${styles.ul} english`}>
+            <li>Written by: Lynn-nore Chittom</li>
+            <li>Edited by: Daniel P. McGoldrick</li>
+            <li>PhD Genome Sciences University of Washington Seattle</li>
+            <li>Updated: 25/05/2011</li>
+          </ul>
+          <ul className={`${styles.ul} french`}>
+            <li>Ecrit par: Lynn-nore Chittom</li>
+            <li>Edité par: Daniel P. McGoldrick</li>
+            <li>Professeur en Sciences Génétiques University of Washington Seattle</li>
+            <li>Mis à jour: 25/05/2011</li>
+            <li>Traduit par: Mikael Garcia le 23/05/2020</li>
+          </ul>
+        </div>
         <div className={styles.camoufle}>
           <h2 className="english titreh2">What is the Connection</h2>
           <h2 className="french titreh2">Quels liens</h2>
@@ -166,7 +148,7 @@ class Adhd extends Component {
           <span className="french">En dépit de leur intelligence, les enfants sont peut-être concernés par le TDAH s'ils présentent des symptômes de la liste suivante pendant plus de six mois avant l'âge de 7ans :</span>
         </div>
         <div className={styles.camoufle}>
-          <ul className={styles.ul}>
+          <ul id="rainb" className={styles.ul}>
             <li>
               <span className="english">Inability to sustain focus</span>
               <span className="french">Incapacité à maintenir
@@ -327,7 +309,7 @@ class Adhd extends Component {
           <a className={styles.refs} rel="preconnect" href="http://www.webmd.com/add-adhd/guide/adhd-symptoms">
             www.webmd.com: add-adhd guide/adhd-symptoms</a>
         </div>
-      </div>
+      </div >
     )
   }
 }

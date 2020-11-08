@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import $ from 'jquery'
 import styles from './soleil.module.scss'
+import { Container, Row, Col } from 'react-bootstrap'
 
 class soleil extends Component {
   monIntro = function () {
@@ -190,7 +191,7 @@ class soleil extends Component {
     divMonkey.style.position = 'absolute'
     divMonkey.style.height = '140px'
     divMonkey.style.width = '95px'
-    divMonkey.style.top = '20px'
+    divMonkey.style.top = '50px'
     divMonkey.style.left = '59.55px'
     divMonkey.style.overflow = 'hidden'
     var imgMonkey = document.createElement('img')
@@ -200,6 +201,15 @@ class soleil extends Component {
     imgMonkey.style.height = '100%'
     imgMonkey.style.left = '-2215px'
     imgMonkey.src = '/img/monkey.png'
+    //Palm Tree 
+    var imgSonicPalm = document.createElement('img')
+    imgSonicPalm.id = 'palmTree'
+    imgSonicPalm.className = 'palmTree'
+    imgSonicPalm.style.position = 'absolute'
+    imgSonicPalm.style.height = '65%'
+    imgSonicPalm.style.top = '30px'
+    imgSonicPalm.style.left = '5px'
+    imgSonicPalm.src = '/img/palmTree.png'
 
     //SONIC div
     var divSonic = document.createElement('div')
@@ -212,15 +222,6 @@ class soleil extends Component {
     divSonic.style.top = '250px'
     divSonic.style.left = '-10%'
     divSonic.style.overflow = 'hidden'
-    //SONIC img 1
-    var imgSonicPalm = document.createElement('img')
-    imgSonicPalm.id = 'palmTree'
-    imgSonicPalm.className = 'palmTree'
-    imgSonicPalm.style.position = 'absolute'
-    imgSonicPalm.style.height = '65%'
-    imgSonicPalm.style.top = '0px'
-    imgSonicPalm.style.left = '5px'
-    imgSonicPalm.src = '/img/palmTree.png'
     //SONIC img 2
     var imgSonic = document.createElement('img')
     imgSonic.id = 'sonic'
@@ -480,9 +481,13 @@ class soleil extends Component {
   }
   render() {
     return (
-      <section id="Soleil">
-        <div id="s0leil" className={styles.soleil}></div>
-      </section>
+      <Container>
+        <Row>
+          <Col>
+            <div id="s0leil" className={styles.soleil}></div>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 }

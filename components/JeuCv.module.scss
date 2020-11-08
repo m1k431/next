@@ -34,9 +34,11 @@
   margin-bottom: 0.3em;
   margin-top: 0.3em;
   font-size: 1.2em;
+  text-align: center;
 }
 
 .titreh2 {
+  text-align: center;
   color: white;
   font-family: 'ibm';
   text-transform: uppercase;
@@ -46,6 +48,7 @@
 }
 
 .titreh3 {
+  text-align: center;
   color: white;
   font-family: 'ibm';
   text-transform: uppercase;
@@ -150,10 +153,7 @@
   color: rgba(0, 0, 0, 0.9);
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0.5%;
-  margin-top: 0.5%;
+  margin: 1%;
   text-align: center;
   font-size: 1.2em;
   height: 550px;
@@ -167,7 +167,7 @@
 }
 
 .informatiquesCont {
-  width: 30%;
+  width: 33%;
   text-align: center;
   background-color: rgba(245, 247, 246, 0.2);
   border-radius: 10px;
@@ -239,6 +239,7 @@
 .infojob {
   font-family: monospace;
   font-size: 1em;
+  text-align: center;
 }
 
 .lieu {
@@ -310,7 +311,7 @@
 }
 
 .btp {
-  width: 30%;
+  width: 33%;
   text-align: center;
   background-color: rgba(245, 247, 246, 0.2);
   border-radius: 10px;
@@ -324,7 +325,7 @@
 }
 
 .commerciales {
-  width: 30%;
+  width: 32%;
   color: black;
   text-align: center;
   background-color: rgba(245, 247, 246, 0.2);
