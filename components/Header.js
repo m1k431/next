@@ -5,9 +5,11 @@ import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import GitHubL from '../public/img/gitHubMark.png';
 import GitHubR from '../public/img/gitHubW.png';
 import linkedIn from '../public/img/LinkedIn_Logo.svg';
+import previewImage from '../public/img/ogImage.png'
 
 class Header extends Component {
   render() {
+    const currentURL = "https://www.mikael.ml"
     return (
       <div>
         <Head>
@@ -16,11 +18,11 @@ class Header extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=0.7" />
           <meta name="theme-color" content="#000000" />
           <meta name="description" content="My Javascript Portfolio" />
-          <meta property="og:title" content="IBM RPG &amp; Javascript Developer" />
-          <meta property="og:type" content="image" />
-          <meta property="og:url" content="http://www.mikael.ml" />
-          <meta property="og:image" content="/img/ogimage.png" />
-          <meta property="og:description" content="My Javascript Portfolio" />
+          <meta property="og:url" content={currentURL} key="ogurl" />
+          <meta property="og:image" content={previewImage} key="ogimage" />
+          <meta property="og:site_name" content="m1k431" key="ogsitename" />
+          <meta property="og:title" content="DEV Lab" key="ogtitle" />
+          <meta property="og:description" content="JS portfolio" key="ogdesc" />
         </Head>
 
         <Navbar collapseOnSelect expand="sm" bg="blue" variant="dark">
@@ -41,15 +43,6 @@ class Header extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-
-        {/*
-        <nav className={styles.navBar}>
-          <ul className={styles.ul}>
-            <li className={styles.li}><a className={`css3buttonRed`} id="intro" rel="preconnect" href="/">Intro</a></li>
-            <li className={styles.li}><a className={`css3button`} id="adhd" rel="preconnect" href="/adhd">ADHD</a></li>
-            <li className={styles.li}><a className={`css3button`} id="leaflet" rel="preconnect" href="/api/highscore">ME</a></li>
-          </ul>
-        </nav>*/}
       </div>
     )
   }
