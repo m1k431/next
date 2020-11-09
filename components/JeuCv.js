@@ -600,7 +600,7 @@ class JeuCv extends Component {
                   <div className={styles.infoJeu}>ReactJS</div>
                   <div className={styles.infoJeu}>HTML5</div>
                   <div className={styles.infoJeu}>Bootstrap</div>
-                  <div className={styles.infoJeu}>JQUERY</div>
+                  <div className={styles.infoJeu}>Jquery</div>
                   <div className={styles.infoJeu}>CLP</div>
                   <div className={styles.infoJeu}>ES6</div>
                   <div className={styles.infoJeu}>jade/PUG</div>
@@ -610,7 +610,7 @@ class JeuCv extends Component {
                 <h3 className={styles.titreh3}>Back End</h3>
                 <div className={styles.informatiques}>
                   <div className={styles.infoJeu}>IBM i</div>
-                  <div className={styles.infoJeu}>RPGLE</div>
+                  <div className={styles.infoJeu}>IBM RPG</div>
                   <div className={styles.infoJeu}>IBM db2</div>
                   <div className={styles.infoJeu}>NodeJS</div>
                   <div className={styles.infoJeu}>ExpressJS</div>
@@ -623,9 +623,10 @@ class JeuCv extends Component {
                 <div className={styles.informatiquesLast}>
                   <div className={styles.infoJeu}>Git</div>
                   <div className={styles.infoJeu}>IBM RDi</div>
+                  <div className={styles.infoJeu}>IBM ACS</div>
                   <div className={styles.infoJeu}>ARCAD for IBM i</div>
                   <div className={styles.infoJeu}>bsh/zsh</div>
-                  <div className={styles.infoJeu}>LINUX</div>
+                  <div className={styles.infoJeu}>Linux</div>
                   <div className={styles.infoJeu}>osX</div>
                   <div className={styles.infoJeu}>Photoshop</div>
                   <div className={styles.infoJeu}>Windows</div>

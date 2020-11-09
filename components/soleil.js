@@ -32,7 +32,7 @@ class soleil extends Component {
     //ATARIIIIIIIIII
     var divAtari = document.createElement('div')
     divAtari.style.position = 'absolute'
-    divAtari.style.top = '100px'
+    divAtari.style.top = '55px'
     divAtari.style.right = '5px'
     var m0nimg = document.createElement('img')
     m0nimg.style.position = 'relative'
@@ -97,7 +97,7 @@ class soleil extends Component {
     m4m3r.height = 400
     m4m3r.style.width = '100%'
     m4m3r.style.height = '100%'
-    m4m3r.style.top = '40px'
+    m4m3r.style.top = '50px'
     m4m3r.id = 'm0nC4nvaM3r'
     m4m3r.style.position = 'absolute'
     m4m3r.style.display = 'block'
@@ -107,11 +107,11 @@ class soleil extends Component {
     m4colline.width = 600
     m4colline.height = 400
     m4colline.style.width = '100%'
-    m4colline.style.height = '70%'
+    m4colline.style.height = '100%'
     m4colline.id = 'm0nC4nvaC0lline'
     m4colline.style.display = 'block'
     m4colline.style.position = 'absolute'
-    m4colline.style.top = '100px'
+    m4colline.style.top = '45px'
     m0nsoleil.appendChild(m4colline)
 
     //STYLE des éléments HTML---------------------------------------------------------
@@ -230,11 +230,11 @@ class soleil extends Component {
     m0nsoleil.appendChild(divMonkey)
     m0nsoleil.appendChild(imgSonicPalm)
     divMonkey.appendChild(imgMonkey)
+    m0nsoleil.appendChild(divSonic)
     m0nsoleil.appendChild(divAtari)
     m0nsoleil.appendChild(divBird)
-    m0nsoleil.appendChild(divSonic)
-    divBird.appendChild(imgBird)
     divSonic.appendChild(imgSonic)
+    divBird.appendChild(imgBird)
     divAtari.id = 'atari'
     mon360.appendChild(src360)
     divAtari.appendChild(mon360)

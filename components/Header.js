@@ -1,7 +1,6 @@
-import styles from './Header.module.scss'
 import React, { Component } from 'react';
 import Head from 'next/head'
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap'
 import GitHubL from '../public/img/gitHubMark.png';
 import GitHubR from '../public/img/gitHubW.png';
 import linkedIn from '../public/img/LinkedIn_Logo.svg';
