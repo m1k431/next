@@ -34,7 +34,7 @@ export default function Home({
   }
 }) {
   return (
-    <div>
+    <>
       <Header />
       <Particles id='Particles' params={paramParticles} />
       <h1 className="titreh1 english">{welcome}</h1>
@@ -47,7 +47,7 @@ export default function Home({
       <JeuCv></JeuCv>
       <h2 className="titreh2">{intro}</h2>
       <Soleil />
-    </div>
+    </>
   )
 }
 

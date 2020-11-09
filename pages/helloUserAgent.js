@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import Head from "next/head";
 
 export default function HelloUserAgent({ userAgent = "Nobody" }) {

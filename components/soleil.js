@@ -33,11 +33,11 @@ class soleil extends Component {
     var divAtari = document.createElement('div')
     divAtari.style.position = 'absolute'
     divAtari.style.top = '55px'
-    divAtari.style.right = '5px'
+    divAtari.style.right = '10px'
+    divAtari.id = 'atari'
     var m0nimg = document.createElement('img')
     m0nimg.style.position = 'relative'
     m0nimg.src = '/img/Atari.png'
-    m0nimg.id = 'atari'
     //Cielllllllllllll
     var m0nCiel = document.createElement('canvas')
     m0nCiel.style.position = 'absolute'
@@ -232,13 +232,12 @@ class soleil extends Component {
     divMonkey.appendChild(imgMonkey)
     m0nsoleil.appendChild(divSonic)
     m0nsoleil.appendChild(divAtari)
+    divAtari.appendChild(mon360)
+    divAtari.appendChild(m0nimg)
     m0nsoleil.appendChild(divBird)
     divSonic.appendChild(imgSonic)
     divBird.appendChild(imgBird)
-    divAtari.id = 'atari'
     mon360.appendChild(src360)
-    divAtari.appendChild(mon360)
-    divAtari.appendChild(m0nimg)
 
     //initialisation des variables de travail des fonctions et des id des animations
     var bool1 = false
