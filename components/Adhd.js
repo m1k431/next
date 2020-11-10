@@ -92,8 +92,8 @@ class Adhd extends Component {
         <h1 className="english titreh1">ADHD and High IQ</h1>
         <h1 className="french titreh1">TDAH et haut potentiel</h1>
         <div className="col-sm12 text-center">
-          <img id="english" className="imgFlag" src={uk} alt="English" height="30" />
-          <img id="french" className='imgFlag' src={fr} alt="Français" height="30" />
+          <img id="english" className={styles.imgFlag} src={uk} alt="English" height="30" />
+          <img id="french" className={styles.imgFlag} src={fr} alt="Français" height="30" />
           <ul className={`${styles.ul} english`}>
             <li>Written by: Lynn-nore Chittom</li>
             <li>Edited by: Daniel P. McGoldrick</li>
