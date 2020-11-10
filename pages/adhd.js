@@ -1,8 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
-import Header from '../components/Header'
-import Particles from 'react-particles-js'
-import Adhd from '../components/Adhd'
-
+import Header from "../components/Header"
+import Particles from "react-particles-js"
+import Adhd from "../components/Adhd"
 
 export default function Hyper({
   paramParticles = {
@@ -10,28 +9,28 @@ export default function Hyper({
     backgroundMode: {
       enable: true,
     },
-    "particles": {
-      "number": {
-        "value": 80
+    particles: {
+      number: {
+        value: 80,
       },
-      "size": {
-        "value": 1
-      }
+      size: {
+        value: 1,
+      },
     },
-    "interactivity": {
-      "events": {
-        "onhover": {
-          "enable": true,
-          "mode": "repulse"
-        }
-      }
-    }
-  }
+    interactivity: {
+      events: {
+        onhover: {
+          enable: true,
+          mode: "repulse",
+        },
+      },
+    },
+  },
 }) {
   return (
     <>
       <Header />
-      <Particles id='Particles' params={paramParticles} />
+      <Particles id="Particles" params={paramParticles} />
       <Adhd />
     </>
   )

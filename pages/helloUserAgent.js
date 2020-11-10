@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import Head from "next/head";
+import Head from "next/head"
 
 export default function HelloUserAgent({ userAgent = "Nobody" }) {
   return (
@@ -12,10 +12,10 @@ export default function HelloUserAgent({ userAgent = "Nobody" }) {
         Hi <em>{userAgent}</em> !{" "}
       </p>
     </>
-  );
+  )
 }
 
-export const getServerSideProps = async ({ req }) => {
+export async function getServerSideProps({ req }) {
   return {
     props: {
       userAgent: req.headers["user-agent"],

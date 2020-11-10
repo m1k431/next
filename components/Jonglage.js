@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import VideoJ from '../public/img/theOneFinal.mp4'
-import VideoPoster from '../public/img/kuansiFalls.jpg'
-import styles from './Jonglage.module.scss'
-import { Container, Row, Col } from 'react-bootstrap'
+import React, { Component } from "react"
+import VideoJ from "../public/img/theOneFinal.mp4"
+import VideoPoster from "../public/img/kuansiFalls.jpg"
+import styles from "./Jonglage.module.scss"
+import { Container, Row, Col } from "react-bootstrap"
 
 class Jonglage extends Component {
   render() {
@@ -10,7 +10,14 @@ class Jonglage extends Component {
       <Container>
         <Row>
           <Col>
-            <video className={styles.jonglage} autoPlay loop poster={VideoPoster} playsInline controls>
+            <video
+              className={styles.jonglage}
+              autoPlay
+              loop
+              poster={VideoPoster}
+              playsInline
+              controls
+            >
               <source src={VideoJ} type="video/mp4" />
             </video>
           </Col>

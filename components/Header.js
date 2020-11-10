@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
-import Head from 'next/head'
-import { Nav, Navbar } from 'react-bootstrap'
-import GitHubL from '../public/img/gitHubMark.png';
-import GitHubR from '../public/img/gitHubW.png';
-import linkedIn from '../public/img/LinkedIn_Logo.svg';
+import React, { Component } from "react"
+import Head from "next/head"
+import { Nav, Navbar } from "react-bootstrap"
+import GitHubL from "../public/img/gitHubMark.png"
+import GitHubR from "../public/img/gitHubW.png"
+import linkedIn from "../public/img/LinkedIn_Logo.svg"
 
 class Header extends Component {
   render() {
     const currentURL = "https://www.mikael.ml",
       previewImage = "https://nextfolio.vercel.app/ogimage.png"
     return (
-      <div>
+      <>
         <Head>
           <meta charSet="utf-8" />
           <link rel="icon" href="/favicon.ico" />
-          <meta name="viewport" content="width=device-width, initial-scale=0.7" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=0.7"
+          />
           <meta name="theme-color" content="#000000" />
           <meta name="description" content="My Javascript Portfolio" />
           <meta property="og:title" content="DEV Lab" key="ogtitle" />
@@ -22,7 +25,11 @@ class Header extends Component {
           <meta property="og:description" content="JS portfolio" key="ogdesc" />
           <meta property="og:url" content={currentURL} key="ogurl" />
           <meta property="og:image" content={previewImage} key="ogimage" />
-          <meta property="og:image:secure_url" content={previewImage} key="ogimage" />
+          <meta
+            property="og:image:secure_url"
+            content={previewImage}
+            key="ogimage"
+          />
           <title>My Javascript Portfolio</title>
         </Head>
 
@@ -44,8 +51,8 @@ class Header extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-      </div>
+      </>
     )
   }
 }
-export default Header;
+export default Header
