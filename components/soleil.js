@@ -206,26 +206,6 @@ class soleil extends Component {
     imgSonic.style.top = '-21px'
     imgSonic.src = '/img/sonic2.png'
 
-    //BIRD div
-    var divBird = document.createElement('div')
-    divBird.id = 'divBird'
-    divBird.className = 'divbird'
-    divBird.style.position = 'absolute'
-    divBird.style.height = '24px'
-    divBird.style.width = '24px'
-    divBird.style.top = '240px'
-    divBird.style.left = '-15%'
-    divBird.style.overflow = 'hidden'
-    //BIRD img
-    var imgBird = document.createElement('img')
-    imgBird.id = 'bird'
-    imgBird.className = 'bird'
-    imgBird.style.position = 'relative'
-    imgBird.style.left = '0px'
-    imgBird.style.top = '0px'
-    imgBird.style.height = '100%'
-    imgBird.src = '/img/twitter-bird-sprite.png'
-
     //Ordre des calques
     m0nsoleil.appendChild(divMonkey)
     m0nsoleil.appendChild(imgSonicPalm)
@@ -234,15 +214,12 @@ class soleil extends Component {
     m0nsoleil.appendChild(divAtari)
     divAtari.appendChild(mon360)
     divAtari.appendChild(m0nimg)
-    m0nsoleil.appendChild(divBird)
     divSonic.appendChild(imgSonic)
-    divBird.appendChild(imgBird)
     mon360.appendChild(src360)
 
     //initialisation des variables de travail des fonctions et des id des animations
-    var bool1 = false
-    var bool2 = false
-    var bool3 = false
+    var bool1  = false
+    var bool2  = false
     var idB, idW, idMU, idMD, idM/*, idBird, idCloud*/
     //let i = 4
 
@@ -257,23 +234,6 @@ class soleil extends Component {
         else {
           imgCloud.style.left = '700px'
 
-        }
-      }
-    }
-
-    var animBird = function () {
-      /*idBird = */requestAnimationFrame(animBird)
-      if (delta > interval) {
-        //code for
-        if (bool3 === false) {
-          imgBird.style.left = '0px'
-          bool3 = true
-        }
-        else {
-          if (parseFloat(imgBird.style.left) > -65) {
-            imgBird.style.left = parseFloat(imgBird.style.left) - 24 + 'px'
-          }
-          else bool3 = false
         }
       }
     }
@@ -322,11 +282,9 @@ class soleil extends Component {
         //code for
         if (parseFloat(divSonic.style.left) < 100) {
           divSonic.style.left = parseFloat(divSonic.style.left) + 0.2 + '%'
-          divBird.style.left = parseFloat(divBird.style.left) + 0.2 + '%'
         }
         else {
           divSonic.style.left = '-10%'
-          divBird.style.left = '-15%'
         }
       }
     }
@@ -366,7 +324,6 @@ class soleil extends Component {
     //coordonnées soleil
     var c00rdX = 20
     var c00rdY = 2
-    animBird()
     moveCloud()
     $('#space').animate({
       backgroundColor: '#000000'

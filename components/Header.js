@@ -17,6 +17,7 @@ class Header extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=0.7" />
           <meta name="theme-color" content="#000000" />
           <meta name="description" content="My Javascript Portfolio" />
+          <meta name="title" content="My Javascript Portfolio" />
           <meta property="og:url" content={currentURL} key="ogurl" />
           <meta property="og:image" content={previewImage} key="ogimage" />
           <meta property="og:site_name" content="m1k431" key="ogsitename" />

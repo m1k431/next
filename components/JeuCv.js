@@ -14,7 +14,6 @@ class JeuCv extends Component {
     //Sections du cv
     $('#scoreForm').hide()
     $('#highScore').hide()
-    $('#m0ncentrage').fadeIn(1000)
     $('#competen').fadeIn(500)
     $('#experiences').fadeIn(375)
     $('#formation').fadeIn(250)
@@ -106,7 +105,6 @@ class JeuCv extends Component {
       divSprite.appendChild(imgSoccer)
 
       //________________________________________Paddle + hauteur breaker_____________________________________
-      linkedIn.className = 'linkedinT'
       $('#linkedIn').fadeIn(2000)
       window.document.getElementById('linkedIn').style.left = competences.offsetWidth / 2 + competences.offsetLeft + 'px'
       linkedIn.style.top = competences.offsetTop + competences.offsetHeight - 120 + 'px'
@@ -631,7 +629,7 @@ class JeuCv extends Component {
                   <div className={styles.infoJeu}>Photoshop</div>
                   <div className={styles.infoJeu}>Windows</div>
                 </div>
-                <div id="linkedIn"> </div>
+                <div id="linkedIn" className={styles.linkedinT}> </div>
               </div>
               <div className={styles.btp} id="btp">
                 <h3 className={`${styles.titreh3} french`}>Techniques Design</h3>
@@ -707,38 +705,36 @@ class JeuCv extends Component {
           </div>
               </div>
             </div>
-            <div className="highscore" id="score">
-              <div id="highScore">
-                <h2 className="titreh2">HIGH SCORE</h2>
-                <div id="scoreForm" className="col-sm12 text-center">
-                  <Form>
-                    <Form.Group>
-                      <Form.Label> Enter your name</Form.Label>
-                      <Form.Row>
-                        <Col></Col>
-                        <Col>
-                          <Form.Control id="postName" type="texte" placeholder="Name" />
-                        </Col>
-                        <Col></Col>
-                      </Form.Row>
-                    </Form.Group>
-                    <Button variant="primary" type="submit" id="boutton">
-                      Submit
+            <div id="highScore">
+              <h2 className="titreh2">HIGH SCORE</h2>
+              <div id="scoreForm" className="col-sm12 text-center">
+                <Form>
+                  <Form.Group>
+                    <Form.Label> Enter your name</Form.Label>
+                    <Form.Row>
+                      <Col></Col>
+                      <Col>
+                        <Form.Control id="postName" type="text" placeholder="Name" />
+                      </Col>
+                      <Col></Col>
+                    </Form.Row>
+                  </Form.Group>
+                  <Button variant="primary" type="submit" id="boutton">
+                    Submit
                   </Button>
-                  </Form>
-                </div>
-                <table id="mesData">
-                  <thead>
-                    <tr>
-                      <th>Nom</th>
-                      <th>Score</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {/*each player in results*/}
-                  </tbody>
-                </table>
+                </Form>
               </div>
+              <table id="mesData">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/*each player in results*/}
+                </tbody>
+              </table>
             </div>
             <div className={styles.competen} id="experiences">
               <h2 className={`${styles.titreh2} french`}>Experiences</h2>
@@ -831,10 +827,7 @@ class JeuCv extends Component {
                   Estudio de proyectos de construcción de tiendas "Castorama"
                   Toulouse Union y Antibes, ingeniería AUXITEC, Hyères
           </div>
-                <div className={styles.lieu, styles.english}>
-                  09/2012 =&gt; 12/2012: AUXITEC engineering, Hyères
-          </div>
-                <div className={styles.lieu, styles.french}>
+                <div className={styles.lieu}>
                   09/2012 =&gt; 12/2012: AUXITEC ingénierie, Hy&egrave;res
           </div>
               </div>

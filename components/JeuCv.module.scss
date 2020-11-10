@@ -1,26 +1,3 @@
-@font-face {
-  font-family: 'ibm';
-  src: url('/fonts/IBMLogo.ttf');
-  font-weight: bold;
-}
-
-.french {
-  display: none;
-}
-
-.spanish {
-  display: none;
-}
-
-.english {
-  display: block;
-}
-
-#CV {
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
 .imgFlag {
   display: inline-block;
   margin-left: 8%;
@@ -57,20 +34,15 @@
   font-size: 0.8em;
 }
 
-.moi {
-  margin: 1%;
-  border: 1px solid #ffffff;
-  background-color: rgba(255, 255, 255, 0.3);
+.linkedinT {
+  display: none;
+  border: 2px solid #ffffff;
+  position: absolute;
   border-radius: 10px;
-  //display: none;
-}
-
-.foto {
-  position: relative;
+  height: 25px;
+  width: 85px;
   margin: 5px;
-  border-radius: 10px;
-  height: 98%;
-  float: right;
+  background-color: black;
 }
 
 .complemen {
@@ -78,41 +50,6 @@
   margin: 1%;
   border-radius: 10px;
   //display: none;
-}
-
-.complementaireT {
-  margin: 1%;
-  border: 1px solid #ffffff;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-}
-
-.experiencesT {
-  display: none;
-  border: 1px solid #ffffff;
-  color: rgba(0, 0, 0, 0.9);
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0.5%;
-  margin-top: 0.5%;
-  text-align: center;
-  transform: scale(0, 0) translate(0%, 400%);
-}
-
-.formationT {
-  display: none;
-  border: 1px solid #ffffff;
-  color: rgba(0, 0, 0, 0.9);
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0.5%;
-  margin-top: 0.5%;
-  text-align: center;
-  transform: scale(0, 0) translate(0%, 400%);
 }
 
 .competencesJeu {
@@ -140,14 +77,6 @@
   //display: none;
 }
 
-.competencelast {
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 0;
-  border: 1px solid #ffffff;
-  border-radius: 10px;
-}
-
 .competencesT {
   border: 1px solid #ffffff;
   color: rgba(0, 0, 0, 0.9);
@@ -157,13 +86,6 @@
   text-align: center;
   font-size: 1.2em;
   height: 550px;
-}
-
-.BrickBall {
-  position: absolute;
-  overflow: visible;
-  top: 155px;
-  right: 0;
 }
 
 .informatiquesCont {
@@ -272,18 +194,12 @@
   margin-bottom: 2px;
   font-size: 1em;
   text-align: center;
-  background-color: rgb(245, 11, 11);
-  color: rgb(245, 11, 11);
+  background-color: yellowgreen;
+  color: yellowgreen;
   border-radius: 5px;
   overflow: visible;
   margin-left: 5px;
   margin-right: 5px;
-}
-
-.info:hover,
-.info:focus {
-  transform: scale(1.05);
-  box-shadow: 0 0 65px #f7f9f2 inset, 0 0 20px #beae8c inset, 0 0 15px #b6a684;
 }
 
 .infolast {
@@ -297,18 +213,6 @@
   overflow: visible;
   margin-left: 5px;
   margin-right: 5px;
-}
-
-.infolast:hover,
-.infolast:focus {
-  transform: scale(1.05);
-  box-shadow: 0 0 65px #f7f9f2 inset, 0 0 20px #beae8c inset, 0 0 15px #b6a684;
-}
-
-.infoJeu:hover,
-.infoJeu:focus {
-  transform: scale(1.05);
-  box-shadow: 0 0 65px #f7f9f2 inset, 0 0 20px #beae8c inset, 0 0 15px #b6a684;
 }
 
 .btp {
@@ -340,30 +244,6 @@
   overflow: visible;
 }
 
-.commercialesT {
-  width: 30%;
-  color: black;
-  text-align: center;
-  background-color: rgba(245, 247, 246, 0.6);
-  border-radius: 10px;
-  display: inline-block;
-  margin-top: 0.1%;
-  margin-bottom: 0.1%;
-  vertical-align: top;
-  margin-left: 0.5%;
-  overflow: visible;
-}
-
-#m0ncentrageJeu {
-  display: block;
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 80%;
-  margin-top: 40px;
-  margin-bottom: 60px;
-}
-
 #scoreForm {
   width: 80%;
   max-width: '400px';
@@ -373,25 +253,7 @@
   margin-right: 10%;
 }
 
-#score {
-  display: none;
-}
-
 #mesData {
   margin: auto;
   text-align: left;
-}
-
-.backgroundRed {
-  //background-color: rgba(255, 0, 0, 0.5);
-  text-align: center;
-  font-family: monospace;
-  background-color: rgba(245, 245, 245, 1);
-  border: 1px solid #ffffff;
-  border-radius: 10px;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  margin-left: 15%;
-  margin-right: 15%;
-  overflow: hidden;
 }
