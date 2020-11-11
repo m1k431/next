@@ -567,6 +567,7 @@ class JeuCv extends Component {
           $("#competen").css("height", "auto")
           $("#competen").fadeOut()
           //$('#commerciales').fadeIn()
+          $("#highScore").fadeIn()
           $("#scoreForm").fadeIn()
           //Requete AJAX SELECT pour affichage tableau score
           $.ajax({
@@ -863,8 +864,8 @@ class JeuCv extends Component {
               <table id="mesData">
                 <thead>
                   <tr>
-                    <th>Nom</th>
-                    <th>Score</th>
+                    <th id="nomScore">Nom</th>
+                    <th id="pointScore">Score</th>
                   </tr>
                 </thead>
                 <tbody>{/*each player in results*/}</tbody>

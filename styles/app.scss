@@ -80,3 +80,36 @@ $myFont: 'ibm';
   margin-right: 15%;
   overflow: hidden;
 }
+
+#mesData {
+  margin-top: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  width: 50%;
+}
+
+thead {
+  font-family: 'ibm';
+  font-size: 1.5em;
+}
+
+td:nth-child(even) {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: right;
+}
+
+#pointScore {
+  text-align: right;
+}
+
+#highScore {
+  border: 1px solid #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-family: monospace;
+  font-size: 1.2em;
+  color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  margin: 1%;
+  height: auto;
+  //display: none;
+}
+
