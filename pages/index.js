@@ -46,7 +46,7 @@ export default function Home({
       <h2 className="titreh2 french">{metierUS}</h2>
       <JeuCv></JeuCv>
       <h2 className="titreh2">{intro}</h2>
-      {/*<Soleil />*/}
+      <Soleil />
     </>
   )
 }
