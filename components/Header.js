@@ -13,13 +13,13 @@ class Header extends Component {
       <>
         <Head>
           <meta charSet="utf-8" />
-          <link rel="icon" href="/favicon.ico" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=0.7"
           />
-          <meta name="theme-color" content="#000000" />
+          <title>My Javascript Portfolio</title>
           <meta name="description" content="My Javascript Portfolio" />
+          <link rel="icon" type="image/x-icon" href="/favicon.ico" />
           <meta property="og:title" content="DEV Lab" key="ogtitle" />
           <meta property="og:type" content="article" />
           <meta property="og:description" content="JS portfolio" key="ogdesc" />
@@ -30,7 +30,7 @@ class Header extends Component {
             content={previewImage}
             key="ogimage"
           />
-          <title>My Javascript Portfolio</title>
+          <link rel="manifest" href="/mikael.webmanifest"></link>
         </Head>
 
         <Navbar collapseOnSelect expand="sm" bg="blue" variant="dark">
