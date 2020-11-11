@@ -240,18 +240,28 @@ class JeuCv extends Component {
       bStart.removeEventListener("click", varsStart, true)
 
       //__________________________________Déplacement paddle dans environnement de jeu________________________________________________________________________
+      var divNext = window.document.getElementById("__next")
+
       var movepaddle = function (mon0bjetEvent) {
         if (
-          mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 >
-            competences.offsetLeft &&
+          mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 - 5 >
+            (divNext.offsetWidth - competences.offsetWidth) / 2 +
+              competences.offsetLeft &&
           mon0bjetEvent.clientX + linkedIn.offsetWidth / 2 <
-            competences.offsetWidth + competences.offsetLeft
+            (divNext.offsetWidth - competences.offsetWidth) / 2 +
+              competences.offsetWidth +
+              5
         ) {
           linkedIn.style.left =
-            mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 - 5 + "px"
+            mon0bjetEvent.clientX -
+            linkedIn.offsetWidth / 2 -
+            5 -
+            (divNext.offsetWidth - competences.offsetWidth) / 2 +
+            "px"
         } else if (
           mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 <
-          competences.offsetLeft
+          (divNext.offsetWidth - competences.offsetWidth) / 2 +
+            competences.offsetLeft
         ) {
           linkedIn.style.left = competences.offsetLeft - 5 + "px"
         } else if (
