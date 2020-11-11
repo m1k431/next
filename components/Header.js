@@ -22,7 +22,11 @@ class Header extends Component {
           <link rel="icon" type="image/x-icon" href="/favicon.ico" />
           <meta property="og:title" content="DEV Lab" key="ogtitle" />
           <meta property="og:type" content="article" />
-          <meta property="og:description" content="JS portfolio" key="ogdesc" />
+          <meta
+            property="og:description"
+            content="My name is Mikael. I'm an IBM software engineer. This website hosts my projects, skills and experiences."
+            key="ogdesc"
+          />
           <meta property="og:url" content={currentURL} key="ogurl" />
           <meta property="og:image" content={previewImage} key="ogimage" />
           <meta
