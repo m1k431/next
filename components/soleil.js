@@ -211,10 +211,10 @@ class soleil extends Component {
     divMonkey.appendChild(imgMonkey)
     divSonic.appendChild(imgSonic)
     m0nsoleil.appendChild(divSonic)
-    m0nsoleil.appendChild(divAtari)
+    mon360.appendChild(src360)
     divAtari.appendChild(mon360)
     divAtari.appendChild(m0nimg)
-    mon360.appendChild(src360)
+    m0nsoleil.appendChild(divAtari)
 
     class Sonic {
       constructor() {
@@ -257,7 +257,6 @@ class soleil extends Component {
       }
       sonicSeDeplace() {
         this.idSeDeplace = requestAnimationFrame(this.sonicSeDeplace.bind(this))
-        
         if (delta > interval) {
           //code for
           if (parseFloat(this.div.style.left) < 100) {
@@ -267,11 +266,25 @@ class soleil extends Component {
           }
         }
       }
+      sonicSennuie() {
+        this.idSennuie = requestAnimationFrame(this.sonicSennuie.bind(this))
+      if (delta > interval) {
+        //code for
+        if (this.bool === false) {
+          this.image.style.left = "-55px"
+          this.image.style.top = "-21px"
+          this.bool = true
+        } else {
+          if (parseFloat(this.image.style.left) > -200) {
+            this.image.style.left = parseFloat(this.image.style.left) - 49 + "px"
+          } else this.bool = false
+        }
+      }
+      }
     }
 
     const sonic1 = new Sonic()
     const sonic2 = new Sonic()
-    
 
     //initialisation des variables de travail des fonctions et des id des animations
     var bool1 = false
@@ -413,6 +426,8 @@ class soleil extends Component {
             case 52:
               idMD = monkeyDown()
               cancelAnimationFrame(idB)
+              cancelAnimationFrame(sonic1.idSennuie)
+              cancelAnimationFrame(sonic2.idSennuie)
               sonicWalk()
               sonic1.sonicMarche()
               sonic1.sonicSeDeplace()
@@ -441,6 +456,8 @@ class soleil extends Component {
               cancelAnimationFrame(sonic2.idSeDeplace)
               cancelAnimationFrame(idW)
               sonicBored()
+              sonic1.sonicSennuie()
+              sonic2.sonicSennuie()
               break
             case 100:
               $("#moon").fadeIn(3000)
