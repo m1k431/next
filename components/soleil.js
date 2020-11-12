@@ -209,12 +209,69 @@ class soleil extends Component {
     m0nsoleil.appendChild(divMonkey)
     m0nsoleil.appendChild(imgSonicPalm)
     divMonkey.appendChild(imgMonkey)
+    divSonic.appendChild(imgSonic)
     m0nsoleil.appendChild(divSonic)
     m0nsoleil.appendChild(divAtari)
     divAtari.appendChild(mon360)
     divAtari.appendChild(m0nimg)
-    divSonic.appendChild(imgSonic)
     mon360.appendChild(src360)
+
+    class Sonic {
+      constructor() {
+        //div
+        this.div = document.createElement("div")
+        this.classe = this.div.className = "divSonic"
+        this.pos = this.div.style.position = "absolute"
+        this.haut = this.div.style.height = "48px"
+        this.larg = this.div.style.width = "48px"
+        this.top = this.div.style.top =
+          Math.floor(Math.random() * Math.floor(250)) + "px"
+        this.gauche = this.div.style.left =
+          Math.floor(Math.random() * Math.floor(100)) + "%"
+        this.div.style.overflow = "hidden"
+        //sprite
+        this.image = document.createElement("img")
+        this.image.className = "sonic"
+        this.image.style.position = "relative"
+        this.image.style.left = "-55px"
+        this.image.style.top = "-21px"
+        this.image.src = "/img/sonic2.png"
+        this.div.appendChild(this.image)
+        m0nsoleil.appendChild(this.div)
+      }
+      sonicMarche() {
+        this.idmarche = requestAnimationFrame(this.sonicMarche.bind(this))
+        if (delta > interval) {
+          //code for
+          if (this.bool2 === false) {
+            this.image.style.left = "-50px"
+            this.image.style.top = "-95px"
+            this.bool2 = true
+          } else {
+            if (parseFloat(this.image.style.left) > -200) {
+              this.image.style.left =
+                parseFloat(this.image.style.left) - 49 + "px"
+            } else this.bool2 = false
+          }
+        }
+      }
+      sonicSeDeplace() {
+        this.idSeDeplace = requestAnimationFrame(this.sonicSeDeplace.bind(this))
+        
+        if (delta > interval) {
+          //code for
+          if (parseFloat(this.div.style.left) < 100) {
+            this.div.style.left = parseFloat(this.div.style.left) + 0.2 + "%"
+          } else {
+            this.div.style.left = "-10%"
+          }
+        }
+      }
+    }
+
+    const sonic1 = new Sonic()
+    const sonic2 = new Sonic()
+    
 
     //initialisation des variables de travail des fonctions et des id des animations
     var bool1 = false
@@ -357,6 +414,10 @@ class soleil extends Component {
               idMD = monkeyDown()
               cancelAnimationFrame(idB)
               sonicWalk()
+              sonic1.sonicMarche()
+              sonic1.sonicSeDeplace()
+              sonic2.sonicMarche()
+              sonic2.sonicSeDeplace()
               moveSonicRight()
               //snowBack.play()
               break
@@ -374,6 +435,10 @@ class soleil extends Component {
               break
             case 95:
               cancelAnimationFrame(idM)
+              cancelAnimationFrame(sonic1.idmarche)
+              cancelAnimationFrame(sonic1.idSeDeplace)
+              cancelAnimationFrame(sonic2.idmarche)
+              cancelAnimationFrame(sonic2.idSeDeplace)
               cancelAnimationFrame(idW)
               sonicBored()
               break
