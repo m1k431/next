@@ -5,7 +5,26 @@ import { Container, Row, Col } from "react-bootstrap"
 
 class soleil extends Component {
   monIntro() {
-
+    /*
+    //SONIC div
+    var divSonic = document.createElement("div")
+    divSonic.id = "divSonic"
+    divSonic.className = "divsonic"
+    divSonic.style.position = "absolute"
+    divSonic.style.height = "48px"
+    divSonic.style.width = "48px"
+    divSonic.style.top = "250px"
+    divSonic.style.left = "-10%"
+    divSonic.style.overflow = "hidden"
+    //SONIC img 2
+    var imgSonic = document.createElement("img")
+    imgSonic.id = "sonic"
+    imgSonic.className = "sonic"
+    imgSonic.style.position = "relative"
+    imgSonic.style.left = "-55px"
+    imgSonic.style.top = "-21px"
+    imgSonic.src = "/img/sonic2.png"
+    */
     class Sonic {
       constructor() {
         //div
@@ -14,10 +33,10 @@ class soleil extends Component {
         this.pos = this.div.style.position = "absolute"
         this.haut = this.div.style.height = "48px"
         this.larg = this.div.style.width = "48px"
-        this.top = this.div.style.top =
-          Math.floor(Math.random() * Math.floor(70)) + 180 + "px"
-        this.gauche = this.div.style.left =
-          Math.floor(Math.random() * Math.floor(30)) + "%"
+        this.top = this.div.style.top = 250 + "px"
+        //Math.floor(Math.random() * Math.floor(70)) + 180 + "px"
+        this.gauche = this.div.style.left = "-10%"
+        //Math.floor(Math.random() * Math.floor(30)) + "%"
         this.div.style.overflow = "hidden"
         //sprite
         this.image = document.createElement("img")
@@ -58,7 +77,7 @@ class soleil extends Component {
       }
       sonicSennuie() {
         this.idSennuie = requestAnimationFrame(this.sonicSennuie.bind(this))
-        if (delta > interval * 1.25) {
+        if (delta > interval * 1.4) {
           //code for
           if (this.bool === false) {
             this.image.style.left = "-55px"
@@ -81,7 +100,7 @@ class soleil extends Component {
     m0nsoleil.style.display = "block"
     m0nsoleil.style.overflow = "hidden"
     m0nsoleil.style.height = "300px"
-    
+
     //360backnoreverse
     var mon360 = document.createElement("video")
     mon360.style.position = "absolute"
@@ -174,7 +193,7 @@ class soleil extends Component {
     m4colline.style.display = "block"
     m4colline.style.position = "absolute"
     m4colline.style.top = "45px"
-    
+
     //STYLE des éléments HTML---------------------------------------------------------
     //mer
     var mer = m4m3r.getContext("2d")
@@ -190,7 +209,7 @@ class soleil extends Component {
     mer.closePath()
     mer.stroke()
     mer.fill()
-    
+
     //Colline
     var colline = m4colline.getContext("2d")
     var gradientC0lline = colline.createLinearGradient(0, 0, 0, 600)
@@ -205,7 +224,7 @@ class soleil extends Component {
     colline.closePath()
     colline.stroke()
     colline.fill()
-    
+
     //lune
     var ctxLune = maLune.getContext("2d")
     var gradientLune = ctxLune.createRadialGradient(16, 16, 16, 16, 16, 14)
@@ -246,26 +265,7 @@ class soleil extends Component {
     imgSonicPalm.style.top = "30px"
     imgSonicPalm.style.left = "5px"
     imgSonicPalm.src = "/img/palmTree.png"
-    
-    //SONIC div
-    var divSonic = document.createElement("div")
-    divSonic.id = "divSonic"
-    divSonic.className = "divsonic"
-    divSonic.style.position = "absolute"
-    divSonic.style.height = "48px"
-    divSonic.style.width = "48px"
-    divSonic.style.top = "250px"
-    divSonic.style.left = "-10%"
-    divSonic.style.overflow = "hidden"
-    //SONIC img 2
-    var imgSonic = document.createElement("img")
-    imgSonic.id = "sonic"
-    imgSonic.className = "sonic"
-    imgSonic.style.position = "relative"
-    imgSonic.style.left = "-55px"
-    imgSonic.style.top = "-21px"
-    imgSonic.src = "/img/sonic2.png"
-    
+
     //Ordre des calques
     m0nsoleil.appendChild(m0nCiel)
     m0nsoleil.appendChild(cielNuit)
@@ -277,22 +277,18 @@ class soleil extends Component {
     m0nsoleil.appendChild(divMonkey)
     m0nsoleil.appendChild(imgSonicPalm)
     divMonkey.appendChild(imgMonkey)
-    divSonic.appendChild(imgSonic)
-    m0nsoleil.appendChild(divSonic)
+    //divSonic.appendChild(imgSonic)
+    //m0nsoleil.appendChild(divSonic)
+    const tabSonic = []
+    for (let i = 0; i <= 1; ++i) tabSonic[i] = new Sonic()
     mon360.appendChild(src360)
     divAtari.appendChild(mon360)
     divAtari.appendChild(m0nimg)
     m0nsoleil.appendChild(divAtari)
-    
-    const tabSonic = []
-    for (let i = 0; i < 40; ++i) tabSonic[i] = new Sonic()
-    
+
     //initialisation des variables de travail des fonctions et des id des animations
-    var bool1 = false
-    var bool2 = false
-    var idB, idW, idMU, idMD, idM /*, idBird, idCloud*/
-    //let i = 4
-    
+    var idW, idMU, idMD, idM
+
     //Fonctions animations sprites/img-----------------------------------------------
     var moveCloud = function () {
       /*idCloud = */ requestAnimationFrame(moveCloud)
@@ -305,7 +301,7 @@ class soleil extends Component {
         }
       }
     }
-
+    /*
     var sonicBored = function () {
       idB = requestAnimationFrame(sonicBored)
       if (delta > interval) {
@@ -351,12 +347,12 @@ class soleil extends Component {
         }
       }
     }
-
+*/
     var back = false
     var cpt = 0
     var monkeyDown = () => {
       idMD = requestAnimationFrame(monkeyDown)
-      if (delta > interval) {
+      if (delta > interval * 1.25) {
         //code for
         if (parseFloat(imgMonkey.style.left) <= 0 && !back) {
           imgMonkey.style.left =
@@ -370,7 +366,7 @@ class soleil extends Component {
 
     var monkeyUp = function () {
       idMU = requestAnimationFrame(monkeyUp)
-      if (delta > interval) {
+      if (delta > interval * 1.25) {
         //code for
         if (cpt > 0) {
           imgMonkey.style.left =
@@ -426,13 +422,10 @@ class soleil extends Component {
               break
             case 52:
               idMD = monkeyDown()
-              cancelAnimationFrame(idB)
               for (var i = 0; i < tabSonic.length; ++i)
                 cancelAnimationFrame(tabSonic[i].idSennuie)
-              sonicWalk()
               for (i = 0; i < tabSonic.length; ++i) tabSonic[i].sonicMarche()
               for (i = 0; i < tabSonic.length; ++i) tabSonic[i].sonicSeDeplace()
-              moveSonicRight()
               //snowBack.play()
               break
             case 62:
@@ -448,13 +441,10 @@ class soleil extends Component {
               monkeyUp()
               break
             case 95:
-              cancelAnimationFrame(idM)
               for (i = 0; i < tabSonic.length; ++i)
                 cancelAnimationFrame(tabSonic[i].idmarche)
               for (i = 0; i < tabSonic.length; ++i)
                 cancelAnimationFrame(tabSonic[i].idSeDeplace)
-              cancelAnimationFrame(idW)
-              sonicBored()
               for (i = 0; i < tabSonic.length; ++i) tabSonic[i].sonicSennuie()
               break
             case 100:
