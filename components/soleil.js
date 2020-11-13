@@ -338,7 +338,6 @@ class soleil extends Component {
         this.gradient.addColorStop(0.9, "yellow")
         this.ctx.fillStyle = this.gradient
         this.ciel = new Ciel()
-        this.mer = new Mer()
         this.nuit = new Nuit()
         divSoleil.appendChild(this.canvas)
         $("#nuit").animate(
@@ -346,8 +345,9 @@ class soleil extends Component {
             backgroundColor: "#000000",
           },
           1000
-        )
-        this.lune = new Lune()
+          )
+          this.lune = new Lune()
+          this.mer = new Mer()
         this.hill = new Hill()
         this.nuage = new Nuage()
         this.nuage.moveCloud()
