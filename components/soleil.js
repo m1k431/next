@@ -14,10 +14,10 @@ class soleil extends Component {
         this.pos = this.div.style.position = "absolute"
         this.haut = this.div.style.height = "48px"
         this.larg = this.div.style.width = "48px"
-        this.top = this.div.style.top = 250 + "px"
-        //Math.floor(Math.random() * Math.floor(70)) + 180 + "px"
-        this.gauche = this.div.style.left = "-10%"
-        //Math.floor(Math.random() * Math.floor(30)) + "%"
+        this.top = this.div.style.top = //250 + "px"
+        Math.floor(Math.random() * Math.floor(80)) + 170 + "px"
+        this.gauche = this.div.style.left = //"-10%"
+        Math.floor(Math.random() * Math.floor(100)) + "%"
         this.div.style.overflow = "hidden"
         //sprite
         this.image = document.createElement("img")
@@ -342,11 +342,11 @@ class soleil extends Component {
     var cpt = 0,
       back = false
     const monkey = new Monkey()
-    //Instanciation Sonic
-    const tabSonic = []
-    for (let i = 0; i <= 1; ++i) tabSonic[i] = new Sonic()
     //Instanciation Atari
     const atari = new Atari()
+    //Instanciation Sonic
+    const tabSonic = []
+    for (let i = 0; i <= 12; ++i) tabSonic[i] = new Sonic()
 
     //INITIALISATION ENVIRONNEMENT----------------------------------------------------
     //coordonnées soleil
