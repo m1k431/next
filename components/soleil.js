@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { Component, createElement } from "react"
 import $ from "jquery"
 import styles from "./soleil.module.scss"
@@ -5,6 +6,14 @@ import { Container, Row, Col } from "react-bootstrap"
 
 class soleil extends Component {
   monIntro() {
+    //FPS control
+    var fps = 60,
+      now,
+      then = Date.now(),
+      interval = 1000 / fps,
+      delta
+    var divSoleil = document.getElementById("s0leil")
+
     //Sonic Factory
     class Sonic {
       constructor() {
@@ -15,9 +24,9 @@ class soleil extends Component {
         this.haut = this.div.style.height = "48px"
         this.larg = this.div.style.width = "48px"
         this.top = this.div.style.top = //250 + "px"
-        Math.floor(Math.random() * Math.floor(80)) + 170 + "px"
+          Math.floor(Math.random() * Math.floor(80)) + 170 + "px"
         this.gauche = this.div.style.left = //"-10%"
-        Math.floor(Math.random() * Math.floor(100)) + "%"
+          Math.floor(Math.random() * Math.floor(100)) + "%"
         this.div.style.overflow = "hidden"
         //sprite
         this.image = document.createElement("img")
@@ -27,10 +36,11 @@ class soleil extends Component {
         this.image.style.top = "-21px"
         this.image.src = "/img/sonic2.png"
         this.div.appendChild(this.image)
-        soleil.div.appendChild(this.div)
+        divSoleil.appendChild(this.div)
       }
       sonicMarche() {
         this.idmarche = requestAnimationFrame(this.sonicMarche.bind(this))
+        //FPS control
         if (delta > interval * 1.2) {
           //code for
           if (this.bool2 === false) {
@@ -47,6 +57,7 @@ class soleil extends Component {
       }
       sonicSeDeplace() {
         this.idSeDeplace = requestAnimationFrame(this.sonicSeDeplace.bind(this))
+        //FPS control
         if (delta > interval) {
           //code for
           if (parseFloat(this.div.style.left) < 100) {
@@ -58,6 +69,7 @@ class soleil extends Component {
       }
       sonicSennuie() {
         this.idSennuie = requestAnimationFrame(this.sonicSennuie.bind(this))
+        //FPS control
         if (delta > interval * 1.4) {
           //code for
           if (this.bool === false) {
@@ -102,13 +114,15 @@ class soleil extends Component {
         this.video.appendChild(this.source)
         this.div.appendChild(this.video)
         this.div.appendChild(this.img)
-        soleil.div.appendChild(this.div)
+        divSoleil.appendChild(this.div)
       }
     }
 
     //PALM TREE Factory
     class Monkey {
       constructor() {
+        this.cpt = 0
+        this.back = false
         this.div = document.createElement("div")
         this.div.id = "divMonkey"
         this.div.className = "divMonkey"
@@ -133,35 +147,35 @@ class soleil extends Component {
         this.imgPalm.style.top = "30px"
         this.imgPalm.style.left = "5px"
         this.imgPalm.src = "/img/palmTree.png"
-        soleil.div.appendChild(this.div)
-        soleil.div.appendChild(this.imgPalm)
+        divSoleil.appendChild(this.div)
+        divSoleil.appendChild(this.imgPalm)
         this.div.appendChild(this.imgMonkey)
       }
-
       monkeyDown() {
         this.idMD = requestAnimationFrame(this.monkeyDown.bind(this))
+        //FPS control
         if (delta > interval * 1.25) {
           //code for
-          if (parseFloat(this.imgMonkey.style.left) <= 0 && !back) {
+          if (parseFloat(this.imgMonkey.style.left) <= 0 && !this.back) {
             this.imgMonkey.style.left =
               parseFloat(this.imgMonkey.style.left) + 105.52 + "px"
-            cpt++
+            this.cpt++
           } else {
-            back = true
+            this.back = true
           }
         }
       }
-
       monkeyUp() {
         this.idMU = requestAnimationFrame(this.monkeyUp.bind(this))
+        //FPS control
         if (delta > interval * 1.25) {
           //code for
-          if (cpt > 0) {
+          if (this.cpt > 0) {
             this.imgMonkey.style.left =
               parseFloat(this.imgMonkey.style.left) - 105.52 + "px"
-            cpt--
+            this.cpt--
           } else {
-            back = false
+            this.back = false
           }
         }
       }
@@ -177,10 +191,11 @@ class soleil extends Component {
         this.image.style.top = "-460px"
         this.image.style.height = "200%"
         this.image.src = "/img/cloud.png"
-        soleil.div.appendChild(this.image)
+        divSoleil.appendChild(this.image)
       }
       moveCloud() {
-        /*idCloud = */ requestAnimationFrame(this.moveCloud.bind(this))
+        requestAnimationFrame(this.moveCloud.bind(this))
+        //FPS control
         if (delta > interval) {
           //code for
           if (parseFloat(this.image.style.left) > -1050) {
@@ -192,29 +207,6 @@ class soleil extends Component {
         }
       }
     }
-
-    class Soleil {
-      constructor() {
-        this.div = document.getElementById("s0leil")
-        this.div.style.position = "relative"
-        this.div.style.display = "block"
-        this.div.style.overflow = "hidden"
-        this.div.style.height = "300px"
-        this.canvas = document.createElement("canvas")
-        this.canvas.width = 40
-        this.canvas.height = 40
-        this.canvas.id = "c4nv4"
-        this.canvas.style.width = "40px"
-        this.canvas.style.position = "absolute"
-        this.ctx = this.canvas.getContext("2d")
-        this.gradient = this.ctx.createRadialGradient(16, 16, 16, 16, 16, 14)
-        this.gradient.addColorStop(0, "transparent")
-        this.gradient.addColorStop(0.9, "yellow")
-        this.ctx.fillStyle = this.gradient
-      }
-    }
-    //Instanciation SOLEIL car tout d'abord il faut de la lumière...
-    const soleil = new Soleil()
 
     //CIEL FACTORY
     class Ciel {
@@ -229,7 +221,7 @@ class soleil extends Component {
         this.canvas.style.height = "100%"
         this.canvas.style.margin = 0
         this.canvas.style.backgroundColor = "blue"
-        soleil.div.appendChild(this.canvas)
+        divSoleil.appendChild(this.canvas)
       }
     }
 
@@ -240,13 +232,13 @@ class soleil extends Component {
         this.canvas.height = 400
         this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
-        this.canvas.id = "space"
+        this.canvas.id = "nuit"
         this.canvas.style.position = "absolute"
         this.canvas.style.borderRadius = "10px"
         this.canvas.style.top = "0px"
         this.canvas.style.left = "0px"
         this.canvas.style.backgroundColor = "black"
-        soleil.div.appendChild(this.canvas)
+        divSoleil.appendChild(this.canvas)
       }
     }
 
@@ -265,7 +257,7 @@ class soleil extends Component {
         this.gradient.addColorStop(0, "transparent")
         this.gradient.addColorStop(0.9, "white")
         this.ctx.fillStyle = this.gradient
-        soleil.div.appendChild(this.canvas)
+        divSoleil.appendChild(this.canvas)
       }
     }
 
@@ -293,7 +285,7 @@ class soleil extends Component {
         this.ctx.closePath()
         this.ctx.stroke()
         this.ctx.fill()
-        soleil.div.appendChild(this.canvas)
+        divSoleil.appendChild(this.canvas)
       }
     }
 
@@ -321,120 +313,122 @@ class soleil extends Component {
         this.ctx.closePath()
         this.ctx.stroke()
         this.ctx.fill()
-        soleil.div.appendChild(this.canvas)
+        divSoleil.appendChild(this.canvas)
       }
     }
-
-    //Instanciation Ciel
-    const ciel = new Ciel()
-    //Instanciation Nuit
-    const nuit = new Nuit()
-    soleil.div.appendChild(soleil.canvas)
-    //Instanciation Mer
-    const mer = new Mer()
-    //Instanciation Lune
-    const lune = new Lune()
-    //Instanciation Hill
-    const hill = new Hill()
-    //Instanciation Nuage
-    const nuage = new Nuage()
-    //Instanciation Palm Tree
-    var cpt = 0,
-      back = false
-    const monkey = new Monkey()
-    //Instanciation Atari
-    const atari = new Atari()
-    //Instanciation Sonic
-    const tabSonic = []
-    for (let i = 0; i <= 12; ++i) tabSonic[i] = new Sonic()
-
-    //INITIALISATION ENVIRONNEMENT----------------------------------------------------
-    //coordonnées soleil
-    var c00rdX = 20
-    var c00rdY = 2
-    //nuit + nuage
-    nuage.moveCloud()
-    $("#space").animate(
-      {
-        backgroundColor: "#000000",
-      },
-      1000
-    )
-    //FPS control
-    var fps = 60,
-      now,
-      then = Date.now(),
-      interval = 1000 / fps,
-      delta
-
-    //BOUCLE PRINCIPALE---------------------------------------------------------------
-    var dessinerM0n = (/*m0ntimestamp*/) => {
-      requestAnimationFrame(dessinerM0n)
-      //FPS CONTROL
-      now = Date.now()
-      delta = now - then
-      if (delta > interval) {
-        then = now - (delta % interval)
-        //FPS CONTROL: code for drawing the frame BELOW
-        if (c00rdX < 131) {
-          c00rdY = Math.cos(c00rdX / 24) * 54
-          soleil.canvas.style.top = c00rdY * 1.1 + 60 + "%"
-          soleil.canvas.style.left = c00rdX * 1.3 - 50 + "%"
-          soleil.ctx.clearRect(0, 0, 40, 40)
-          lune.ctx.clearRect(0, 0, 40, 40)
-          switch (c00rdX) {
-            case 30:
-              $("#space").fadeOut(3000)
-              break
-            case 40:
-              $("#moon").fadeOut(3000)
-              break
-            case 52:
-              monkey.monkeyDown()
-              for (var i = 0; i < tabSonic.length; ++i)
-                cancelAnimationFrame(tabSonic[i].idSennuie)
-              for (i = 0; i < tabSonic.length; ++i) tabSonic[i].sonicMarche()
-              for (i = 0; i < tabSonic.length; ++i) tabSonic[i].sonicSeDeplace()
-              //snowBack.play()
-              break
-            case 62:
-              cancelAnimationFrame(monkey.idMD)
-              monkey.monkeyUp()
-              break
-            case 78:
-              cancelAnimationFrame(monkey.idMU)
-              monkey.monkeyDown()
-              break
-            case 90:
-              cancelAnimationFrame(monkey.idMD)
-              monkey.monkeyUp()
-              break
-            case 95:
-              for (i = 0; i < tabSonic.length; ++i)
-                cancelAnimationFrame(tabSonic[i].idmarche)
-              for (i = 0; i < tabSonic.length; ++i)
-                cancelAnimationFrame(tabSonic[i].idSeDeplace)
-              for (i = 0; i < tabSonic.length; ++i) tabSonic[i].sonicSennuie()
-              break
-            case 100:
-              $("#moon").fadeIn(3000)
-              cancelAnimationFrame(monkey.idMU)
-              //snowBack.pause()
-              break
-            case 105:
-              $("#space").fadeIn(3000)
-              break
-            default:
+    class Soleil {
+      constructor() {
+        //coordonnées soleil
+        this.c00rdX = 20
+        this.c00rdY = 2
+        this.div = document.getElementById("s0leil")
+        this.div.style.position = "relative"
+        this.div.style.display = "block"
+        this.div.style.overflow = "hidden"
+        this.div.style.height = "300px"
+        this.canvas = document.createElement("canvas")
+        this.canvas.width = 40
+        this.canvas.height = 40
+        this.canvas.id = "c4nv4"
+        this.canvas.style.width = "40px"
+        this.canvas.style.position = "absolute"
+        this.ctx = this.canvas.getContext("2d")
+        this.gradient = this.ctx.createRadialGradient(16, 16, 16, 16, 16, 14)
+        this.gradient.addColorStop(0, "transparent")
+        this.gradient.addColorStop(0.9, "yellow")
+        this.ctx.fillStyle = this.gradient
+        this.ciel = new Ciel()
+        this.mer = new Mer()
+        this.nuit = new Nuit()
+        divSoleil.appendChild(this.canvas)
+        $("#nuit").animate(
+          {
+            backgroundColor: "#000000",
+          },
+          1000
+        )
+        this.lune = new Lune()
+        this.hill = new Hill()
+        this.nuage = new Nuage()
+        this.nuage.moveCloud()
+        this.monkey = new Monkey()
+        this.atari = new Atari()
+        this.tabSonic = []
+        for (let i = 0; i <= 12; ++i) this.tabSonic[i] = new Sonic()
+        this.bouclePrincpale()
+      }
+      bouclePrincpale(/*m0ntimestamp*/) {
+        requestAnimationFrame(this.bouclePrincpale.bind(this))
+        //FPS CONTROL
+        now = Date.now()
+        delta = now - then
+        if (delta > interval) {
+          then = now - (delta % interval)
+          //FPS CONTROL: code for drawing
+          if (this.c00rdX < 131) {
+            this.c00rdY = Math.cos(this.c00rdX / 24) * 54
+            this.canvas.style.top = this.c00rdY * 1.1 + 60 + "%"
+            this.canvas.style.left = this.c00rdX * 1.3 - 50 + "%"
+            this.ctx.clearRect(0, 0, 40, 40)
+            this.lune.ctx.clearRect(0, 0, 40, 40)
+            switch (this.c00rdX) {
+              case 30:
+                $("#nuit").fadeOut(3000)
+                break
+              case 40:
+                $("#moon").fadeOut(3000)
+                break
+              case 52:
+                this.monkey.monkeyDown()
+                for (var i = 0; i < this.tabSonic.length; ++i)
+                  cancelAnimationFrame(this.tabSonic[i].idSennuie)
+                for (i = 0; i < this.tabSonic.length; ++i)
+                  this.tabSonic[i].sonicMarche()
+                for (i = 0; i < this.tabSonic.length; ++i)
+                  this.tabSonic[i].sonicSeDeplace()
+                //snowBack.play()
+                break
+              case 62:
+                cancelAnimationFrame(this.monkey.idMD)
+                this.monkey.monkeyUp()
+                break
+              case 78:
+                cancelAnimationFrame(this.monkey.idMU)
+                this.monkey.monkeyDown()
+                break
+              case 90:
+                cancelAnimationFrame(this.monkey.idMD)
+                this.monkey.monkeyUp()
+                break
+              case 95:
+                for (i = 0; i < this.tabSonic.length; ++i)
+                  cancelAnimationFrame(this.tabSonic[i].idmarche)
+                for (i = 0; i < this.tabSonic.length; ++i)
+                  cancelAnimationFrame(this.tabSonic[i].idSeDeplace)
+                for (i = 0; i < this.tabSonic.length; ++i)
+                  this.tabSonic[i].sonicSennuie()
+                break
+              case 100:
+                $("#moon").fadeIn(3000)
+                cancelAnimationFrame(monkey.idMU)
+                //snowBack.pause()
+                break
+              case 105:
+                $("#nuit").fadeIn(3000)
+                break
+              default:
+            }
+            this.ctx.fillRect(0, 0, 40, 40)
+            this.lune.ctx.fillRect(0, 0, 40, 40)
+            this.c00rdX = (this.c00rdX * 10 + 0.1 * 10) / 10
+          } else {
+            this.c00rdX = 20
           }
-          soleil.ctx.fillRect(0, 0, 40, 40)
-          lune.ctx.fillRect(0, 0, 40, 40)
-          c00rdX = (c00rdX * 10 + 0.1 * 10) / 10
-        } else {
-          c00rdX = 20
         }
       }
     }
-    dessinerM0n()
+    //Hello W0rld ^^
+    const soleil = new Soleil()
   }
   componentDidMount() {
     this.monIntro()
