@@ -27,7 +27,7 @@ class soleil extends Component {
         this.image.style.top = "-21px"
         this.image.src = "/img/sonic2.png"
         this.div.appendChild(this.image)
-        m0nsoleil.appendChild(this.div)
+        soleil.div.appendChild(this.div)
       }
       sonicMarche() {
         this.idmarche = requestAnimationFrame(this.sonicMarche.bind(this))
@@ -87,26 +87,22 @@ class soleil extends Component {
         this.video.autoplay = true
         this.video.muted = true
         this.video.loop = true
-
         this.source = document.createElement("source")
         this.source.src = "/img/360backnoreverse.mp4"
         this.source.type = "video/mp4"
-
         this.div = document.createElement("div")
         this.div.style.position = "absolute"
         this.div.style.top = "105px"
         this.div.style.right = "10px"
         this.div.id = "atari"
-
         this.img = document.createElement("img")
         this.img.style.position = "relative"
         this.img.src = "/img/Atari.png"
         this.img.style.height = "150px"
-
         this.video.appendChild(this.source)
         this.div.appendChild(this.video)
         this.div.appendChild(this.img)
-        m0nsoleil.appendChild(this.div)
+        soleil.div.appendChild(this.div)
       }
     }
 
@@ -122,7 +118,6 @@ class soleil extends Component {
         this.div.style.top = "50px"
         this.div.style.left = "59.55px"
         this.div.style.overflow = "hidden"
-
         this.imgMonkey = document.createElement("img")
         this.imgMonkey.id = "monkey"
         this.imgMonkey.className = "monkey"
@@ -130,7 +125,6 @@ class soleil extends Component {
         this.imgMonkey.style.height = "100%"
         this.imgMonkey.style.left = "-2215px"
         this.imgMonkey.src = "/img/monkey.png"
-
         this.imgPalm = document.createElement("img")
         this.imgPalm.id = "palmTree"
         this.imgPalm.className = "palmTree"
@@ -139,9 +133,8 @@ class soleil extends Component {
         this.imgPalm.style.top = "30px"
         this.imgPalm.style.left = "5px"
         this.imgPalm.src = "/img/palmTree.png"
-
-        m0nsoleil.appendChild(this.div)
-        m0nsoleil.appendChild(this.imgPalm)
+        soleil.div.appendChild(this.div)
+        soleil.div.appendChild(this.imgPalm)
         this.div.appendChild(this.imgMonkey)
       }
 
@@ -174,133 +167,177 @@ class soleil extends Component {
       }
     }
 
-    //ELEMENTS HTML générés en vanilla JS---------------------------------------------------------------
-    //DIV SOLEILLLLLLLLL
-    var m0nsoleil = document.getElementById("s0leil")
-    m0nsoleil.style.position = "relative"
-    m0nsoleil.style.display = "block"
-    m0nsoleil.style.overflow = "hidden"
-    m0nsoleil.style.height = "300px"
+    class Nuage {
+      constructor() {
+        this.image = document.createElement("img")
+        this.image.id = "cloud"
+        this.image.className = "cloud"
+        this.image.style.position = "absolute"
+        this.image.style.left = "600px"
+        this.image.style.top = "-460px"
+        this.image.style.height = "200%"
+        this.image.src = "/img/cloud.png"
+        soleil.div.appendChild(this.image)
+      }
+      moveCloud() {
+        /*idCloud = */ requestAnimationFrame(this.moveCloud.bind(this))
+        if (delta > interval) {
+          //code for
+          if (parseFloat(this.image.style.left) > -1050) {
+            this.image.style.left =
+              parseFloat(this.image.style.left) - 0.2 + "px"
+          } else {
+            this.image.style.left = "700px"
+          }
+        }
+      }
+    }
 
-    //Cielllllllllllll
-    var m0nCiel = document.createElement("canvas")
-    m0nCiel.style.position = "absolute"
-    m0nCiel.style.display = "block"
-    m0nCiel.width = 600
-    m0nCiel.height = 400
-    m0nCiel.style.width = "100%"
-    m0nCiel.style.height = "100%"
-    m0nCiel.style.margin = 0
-    m0nCiel.style.backgroundColor = "blue"
-    m0nCiel.id = "ci3l"
-    //space
-    var cielNuit = document.createElement("canvas")
-    cielNuit.width = 600
-    cielNuit.height = 400
-    cielNuit.style.width = "100%"
-    cielNuit.style.height = "100%"
-    cielNuit.id = "space"
-    cielNuit.style.position = "absolute"
-    cielNuit.style.borderRadius = "10px"
-    cielNuit.style.top = "0px"
-    cielNuit.style.left = "0px"
-    cielNuit.style.backgroundColor = "black"
-    //soleil
-    var m0nCanva = document.createElement("canvas")
-    m0nCanva.width = 40
-    m0nCanva.height = 40
-    m0nCanva.id = "c4nv4"
-    m0nCanva.style.width = "40px"
-    m0nCanva.style.position = "absolute"
-    //Lune
-    var maLune = document.createElement("canvas")
-    maLune.width = 40
-    maLune.height = 40
-    maLune.style.width = "50px"
-    maLune.id = "moon"
-    maLune.style.position = "absolute"
-    maLune.style.top = "30px"
-    maLune.style.right = "10%"
-    //cloud img
-    var imgCloud = document.createElement("img")
-    imgCloud.id = "cloud"
-    imgCloud.className = "cloud"
-    imgCloud.style.position = "absolute"
-    imgCloud.style.left = "600px"
-    imgCloud.style.top = "-460px"
-    imgCloud.style.height = "200%"
-    imgCloud.src = "/img/cloud.png"
-    //mer
-    var m4m3r = document.createElement("canvas")
-    m4m3r.width = 600
-    m4m3r.height = 400
-    m4m3r.style.width = "100%"
-    m4m3r.style.height = "100%"
-    m4m3r.style.top = "50px"
-    m4m3r.id = "m0nC4nvaM3r"
-    m4m3r.style.position = "absolute"
-    m4m3r.style.display = "block"
-    //colline
-    var m4colline = document.createElement("canvas")
-    m4colline.width = 600
-    m4colline.height = 400
-    m4colline.style.width = "100%"
-    m4colline.style.height = "100%"
-    m4colline.id = "m0nC4nvaC0lline"
-    m4colline.style.display = "block"
-    m4colline.style.position = "absolute"
-    m4colline.style.top = "45px"
+    class Soleil {
+      constructor() {
+        this.div = document.getElementById("s0leil")
+        this.div.style.position = "relative"
+        this.div.style.display = "block"
+        this.div.style.overflow = "hidden"
+        this.div.style.height = "300px"
+        this.canvas = document.createElement("canvas")
+        this.canvas.width = 40
+        this.canvas.height = 40
+        this.canvas.id = "c4nv4"
+        this.canvas.style.width = "40px"
+        this.canvas.style.position = "absolute"
+        this.ctx = this.canvas.getContext("2d")
+        this.gradient = this.ctx.createRadialGradient(16, 16, 16, 16, 16, 14)
+        this.gradient.addColorStop(0, "transparent")
+        this.gradient.addColorStop(0.9, "yellow")
+        this.ctx.fillStyle = this.gradient
+      }
+    }
+    //Instanciation SOLEIL car tout d'abord il faut de la lumière...
+    const soleil = new Soleil()
 
-    //CANVAS DRAW---------------------------------------------------------
-    //mer
-    var mer = m4m3r.getContext("2d")
-    var gradientm3r = mer.createLinearGradient(0, 0, 0, 600)
-    gradientm3r.addColorStop(0, "blue")
-    gradientm3r.addColorStop(0.7, "cyan")
-    mer.fillStyle = gradientm3r
-    mer.beginPath()
-    mer.moveTo(0, 600)
-    mer.lineTo(600, 400)
-    mer.lineTo(600, 170)
-    mer.bezierCurveTo(170, 178, 650, 172, 0, 170)
-    mer.closePath()
-    mer.stroke()
-    mer.fill()
-    //Colline
-    var colline = m4colline.getContext("2d")
-    var gradientC0lline = colline.createLinearGradient(0, 0, 0, 600)
-    gradientC0lline.addColorStop(0, "yellow")
-    gradientC0lline.addColorStop(0.8, "black")
-    colline.fillStyle = gradientC0lline
-    colline.beginPath()
-    colline.moveTo(0, 400)
-    colline.lineTo(600, 400)
-    colline.lineTo(600, 260)
-    colline.bezierCurveTo(150, 150, 250, 130, 0, 200)
-    colline.closePath()
-    colline.stroke()
-    colline.fill()
-    //lune
-    var ctxLune = maLune.getContext("2d")
-    var gradientLune = ctxLune.createRadialGradient(16, 16, 16, 16, 16, 14)
-    gradientLune.addColorStop(0, "transparent")
-    gradientLune.addColorStop(0.9, "white")
-    ctxLune.fillStyle = gradientLune
-    //soleil
-    var ctx = m0nCanva.getContext("2d")
-    var gradient = ctx.createRadialGradient(16, 16, 16, 16, 16, 14)
-    gradient.addColorStop(0, "transparent")
-    gradient.addColorStop(0.9, "yellow")
-    ctx.fillStyle = gradient
+    //CIEL FACTORY
+    class Ciel {
+      constructor() {
+        this.canvas = document.createElement("canvas")
+        this.canvas.id = "ci3l"
+        this.canvas.style.position = "absolute"
+        this.canvas.style.display = "block"
+        this.canvas.width = 600
+        this.canvas.height = 400
+        this.canvas.style.width = "100%"
+        this.canvas.style.height = "100%"
+        this.canvas.style.margin = 0
+        this.canvas.style.backgroundColor = "blue"
+        soleil.div.appendChild(this.canvas)
+      }
+    }
 
-    //Ordre des calques
-    m0nsoleil.appendChild(m0nCiel)
-    m0nsoleil.appendChild(cielNuit)
-    m0nsoleil.appendChild(m0nCanva)
-    m0nsoleil.appendChild(maLune)
-    m0nsoleil.appendChild(imgCloud)
-    m0nsoleil.appendChild(m4m3r)
-    m0nsoleil.appendChild(m4colline)
+    class Nuit {
+      constructor() {
+        this.canvas = document.createElement("canvas")
+        this.canvas.width = 600
+        this.canvas.height = 400
+        this.canvas.style.width = "100%"
+        this.canvas.style.height = "100%"
+        this.canvas.id = "space"
+        this.canvas.style.position = "absolute"
+        this.canvas.style.borderRadius = "10px"
+        this.canvas.style.top = "0px"
+        this.canvas.style.left = "0px"
+        this.canvas.style.backgroundColor = "black"
+        soleil.div.appendChild(this.canvas)
+      }
+    }
+
+    class Lune {
+      constructor() {
+        this.canvas = document.createElement("canvas")
+        this.canvas.width = 40
+        this.canvas.height = 40
+        this.canvas.style.width = "50px"
+        this.canvas.id = "moon"
+        this.canvas.style.position = "absolute"
+        this.canvas.style.top = "30px"
+        this.canvas.style.right = "10%"
+        this.ctx = this.canvas.getContext("2d")
+        this.gradient = this.ctx.createRadialGradient(16, 16, 16, 16, 16, 14)
+        this.gradient.addColorStop(0, "transparent")
+        this.gradient.addColorStop(0.9, "white")
+        this.ctx.fillStyle = this.gradient
+        soleil.div.appendChild(this.canvas)
+      }
+    }
+
+    class Mer {
+      constructor() {
+        this.canvas = document.createElement("canvas")
+        this.canvas.width = 600
+        this.canvas.height = 400
+        this.canvas.style.width = "100%"
+        this.canvas.style.height = "100%"
+        this.canvas.style.top = "50px"
+        this.canvas.id = "m0nC4nvaM3r"
+        this.canvas.style.position = "absolute"
+        this.canvas.style.display = "block"
+        this.ctx = this.canvas.getContext("2d")
+        this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
+        this.gradient.addColorStop(0, "blue")
+        this.gradient.addColorStop(0.7, "cyan")
+        this.ctx.fillStyle = this.gradient
+        this.ctx.beginPath()
+        this.ctx.moveTo(0, 600)
+        this.ctx.lineTo(600, 400)
+        this.ctx.lineTo(600, 170)
+        this.ctx.bezierCurveTo(170, 178, 650, 172, 0, 170)
+        this.ctx.closePath()
+        this.ctx.stroke()
+        this.ctx.fill()
+        soleil.div.appendChild(this.canvas)
+      }
+    }
+
+    class Hill {
+      constructor() {
+        this.canvas = document.createElement("canvas")
+        this.canvas.width = 600
+        this.canvas.height = 400
+        this.canvas.style.width = "100%"
+        this.canvas.style.height = "100%"
+        this.canvas.id = "m0nC4nvaC0lline"
+        this.canvas.style.display = "block"
+        this.canvas.style.position = "absolute"
+        this.canvas.style.top = "45px"
+        this.ctx = this.canvas.getContext("2d")
+        this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
+        this.gradient.addColorStop(0, "yellow")
+        this.gradient.addColorStop(0.8, "black")
+        this.ctx.fillStyle = this.gradient
+        this.ctx.beginPath()
+        this.ctx.moveTo(0, 400)
+        this.ctx.lineTo(600, 400)
+        this.ctx.lineTo(600, 260)
+        this.ctx.bezierCurveTo(150, 150, 250, 130, 0, 200)
+        this.ctx.closePath()
+        this.ctx.stroke()
+        this.ctx.fill()
+        soleil.div.appendChild(this.canvas)
+      }
+    }
+
+    //Instanciation Ciel
+    const ciel = new Ciel()
+    //Instanciation Nuit
+    const nuit = new Nuit()
+    soleil.div.appendChild(soleil.canvas)
+    //Instanciation Mer
+    const mer = new Mer()
+    //Instanciation Lune
+    const lune = new Lune()
+    //Instanciation Hill
+    const hill = new Hill()
+    //Instanciation Nuage
+    const nuage = new Nuage()
     //Instanciation Palm Tree
     var cpt = 0,
       back = false
@@ -311,24 +348,12 @@ class soleil extends Component {
     //Instanciation Atari
     const atari = new Atari()
 
-    //Fonctions animations sprites/img-----------------------------------------------
-    var moveCloud = function () {
-      /*idCloud = */ requestAnimationFrame(moveCloud)
-      if (delta > interval) {
-        //code for
-        if (parseFloat(imgCloud.style.left) > -1050) {
-          imgCloud.style.left = parseFloat(imgCloud.style.left) - 0.2 + "px"
-        } else {
-          imgCloud.style.left = "700px"
-        }
-      }
-    }
-
     //INITIALISATION ENVIRONNEMENT----------------------------------------------------
     //coordonnées soleil
     var c00rdX = 20
     var c00rdY = 2
-    moveCloud()
+    //nuit + nuage
+    nuage.moveCloud()
     $("#space").animate(
       {
         backgroundColor: "#000000",
@@ -353,10 +378,10 @@ class soleil extends Component {
         //FPS CONTROL: code for drawing the frame BELOW
         if (c00rdX < 131) {
           c00rdY = Math.cos(c00rdX / 24) * 54
-          m0nCanva.style.top = c00rdY * 1.1 + 60 + "%"
-          m0nCanva.style.left = c00rdX * 1.3 - 50 + "%"
-          ctx.clearRect(0, 0, 40, 40)
-          ctxLune.clearRect(0, 0, 40, 40)
+          soleil.canvas.style.top = c00rdY * 1.1 + 60 + "%"
+          soleil.canvas.style.left = c00rdX * 1.3 - 50 + "%"
+          soleil.ctx.clearRect(0, 0, 40, 40)
+          lune.ctx.clearRect(0, 0, 40, 40)
           switch (c00rdX) {
             case 30:
               $("#space").fadeOut(3000)
@@ -401,8 +426,8 @@ class soleil extends Component {
               break
             default:
           }
-          ctx.fillRect(0, 0, 40, 40)
-          ctxLune.fillRect(0, 0, 40, 40)
+          soleil.ctx.fillRect(0, 0, 40, 40)
+          lune.ctx.fillRect(0, 0, 40, 40)
           c00rdX = (c00rdX * 10 + 0.1 * 10) / 10
         } else {
           c00rdX = 20
