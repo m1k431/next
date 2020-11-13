@@ -12,6 +12,7 @@ class Jonglage extends Component {
           <Col>
             <video
               className={styles.jonglage}
+              muted
               autoPlay
               loop
               poster={VideoPoster}

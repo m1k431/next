@@ -632,9 +632,6 @@ class JeuCv extends Component {
 
       let fuse = 1
       var stopEvent = false
-      idL = setInterval(animSprite, 60)
-      clearInterval(idL)
-
       clickMove = true
 
       //_____________________MAIN()_____Déplacement_balle_dans_Environnement__________________________
