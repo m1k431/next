@@ -1,30 +1,11 @@
-import React, { Component } from "react"
+import React, { Component, createElement } from "react"
 import $ from "jquery"
 import styles from "./soleil.module.scss"
 import { Container, Row, Col } from "react-bootstrap"
 
 class soleil extends Component {
   monIntro() {
-    /*
-    //SONIC div
-    var divSonic = document.createElement("div")
-    divSonic.id = "divSonic"
-    divSonic.className = "divsonic"
-    divSonic.style.position = "absolute"
-    divSonic.style.height = "48px"
-    divSonic.style.width = "48px"
-    divSonic.style.top = "250px"
-    divSonic.style.left = "-10%"
-    divSonic.style.overflow = "hidden"
-    //SONIC img 2
-    var imgSonic = document.createElement("img")
-    imgSonic.id = "sonic"
-    imgSonic.className = "sonic"
-    imgSonic.style.position = "relative"
-    imgSonic.style.left = "-55px"
-    imgSonic.style.top = "-21px"
-    imgSonic.src = "/img/sonic2.png"
-    */
+    //Sonic Factory
     class Sonic {
       constructor() {
         //div
@@ -93,7 +74,107 @@ class soleil extends Component {
       }
     }
 
-    //ELEMENTS HTML---------------------------------------------------------------
+    //Atari Factory
+    class Atari {
+      constructor() {
+        this.video = document.createElement("video")
+        this.video.style.position = "absolute"
+        this.video.style.top = "7%"
+        this.video.style.right = "34%"
+        this.video.style.width = "38%"
+        this.video.id = "snowB"
+        this.video.playsinline = true
+        this.video.autoplay = true
+        this.video.muted = true
+        this.video.loop = true
+
+        this.source = document.createElement("source")
+        this.source.src = "/img/360backnoreverse.mp4"
+        this.source.type = "video/mp4"
+
+        this.div = document.createElement("div")
+        this.div.style.position = "absolute"
+        this.div.style.top = "105px"
+        this.div.style.right = "10px"
+        this.div.id = "atari"
+
+        this.img = document.createElement("img")
+        this.img.style.position = "relative"
+        this.img.src = "/img/Atari.png"
+        this.img.style.height = "150px"
+
+        this.video.appendChild(this.source)
+        this.div.appendChild(this.video)
+        this.div.appendChild(this.img)
+        m0nsoleil.appendChild(this.div)
+      }
+    }
+
+    //PALM TREE Factory
+    class Monkey {
+      constructor() {
+        this.div = document.createElement("div")
+        this.div.id = "divMonkey"
+        this.div.className = "divMonkey"
+        this.div.style.position = "absolute"
+        this.div.style.height = "140px"
+        this.div.style.width = "95px"
+        this.div.style.top = "50px"
+        this.div.style.left = "59.55px"
+        this.div.style.overflow = "hidden"
+
+        this.imgMonkey = document.createElement("img")
+        this.imgMonkey.id = "monkey"
+        this.imgMonkey.className = "monkey"
+        this.imgMonkey.style.position = "absolute"
+        this.imgMonkey.style.height = "100%"
+        this.imgMonkey.style.left = "-2215px"
+        this.imgMonkey.src = "/img/monkey.png"
+
+        this.imgPalm = document.createElement("img")
+        this.imgPalm.id = "palmTree"
+        this.imgPalm.className = "palmTree"
+        this.imgPalm.style.position = "absolute"
+        this.imgPalm.style.height = "65%"
+        this.imgPalm.style.top = "30px"
+        this.imgPalm.style.left = "5px"
+        this.imgPalm.src = "/img/palmTree.png"
+
+        m0nsoleil.appendChild(this.div)
+        m0nsoleil.appendChild(this.imgPalm)
+        this.div.appendChild(this.imgMonkey)
+      }
+
+      monkeyDown() {
+        this.idMD = requestAnimationFrame(this.monkeyDown.bind(this))
+        if (delta > interval * 1.25) {
+          //code for
+          if (parseFloat(this.imgMonkey.style.left) <= 0 && !back) {
+            this.imgMonkey.style.left =
+              parseFloat(this.imgMonkey.style.left) + 105.52 + "px"
+            cpt++
+          } else {
+            back = true
+          }
+        }
+      }
+
+      monkeyUp() {
+        this.idMU = requestAnimationFrame(this.monkeyUp.bind(this))
+        if (delta > interval * 1.25) {
+          //code for
+          if (cpt > 0) {
+            this.imgMonkey.style.left =
+              parseFloat(this.imgMonkey.style.left) - 105.52 + "px"
+            cpt--
+          } else {
+            back = false
+          }
+        }
+      }
+    }
+
+    //ELEMENTS HTML générés en vanilla JS---------------------------------------------------------------
     //DIV SOLEILLLLLLLLL
     var m0nsoleil = document.getElementById("s0leil")
     m0nsoleil.style.position = "relative"
@@ -101,30 +182,6 @@ class soleil extends Component {
     m0nsoleil.style.overflow = "hidden"
     m0nsoleil.style.height = "300px"
 
-    //360backnoreverse
-    var mon360 = document.createElement("video")
-    mon360.style.position = "absolute"
-    mon360.style.top = "7%"
-    mon360.style.right = "34%"
-    mon360.style.width = "38%"
-    mon360.id = "snowB"
-    mon360.playsinline = true
-    mon360.autoplay = true
-    mon360.muted = true
-    mon360.loop = true
-    var src360 = document.createElement("source")
-    src360.src = "/img/360backnoreverse.mp4"
-    src360.type = "video/mp4"
-    //ATARIIIIIIIIII
-    var divAtari = document.createElement("div")
-    divAtari.style.position = "absolute"
-    divAtari.style.top = "105px"
-    divAtari.style.right = "10px"
-    divAtari.id = "atari"
-    var m0nimg = document.createElement("img")
-    m0nimg.style.position = "relative"
-    m0nimg.src = "/img/Atari.png"
-    m0nimg.style.height = "150px"
     //Cielllllllllllll
     var m0nCiel = document.createElement("canvas")
     m0nCiel.style.position = "absolute"
@@ -152,8 +209,8 @@ class soleil extends Component {
     var m0nCanva = document.createElement("canvas")
     m0nCanva.width = 40
     m0nCanva.height = 40
-    m0nCanva.style.width = "40px"
     m0nCanva.id = "c4nv4"
+    m0nCanva.style.width = "40px"
     m0nCanva.style.position = "absolute"
     //Lune
     var maLune = document.createElement("canvas")
@@ -194,7 +251,7 @@ class soleil extends Component {
     m4colline.style.position = "absolute"
     m4colline.style.top = "45px"
 
-    //STYLE des éléments HTML---------------------------------------------------------
+    //CANVAS DRAW---------------------------------------------------------
     //mer
     var mer = m4m3r.getContext("2d")
     var gradientm3r = mer.createLinearGradient(0, 0, 0, 600)
@@ -209,7 +266,6 @@ class soleil extends Component {
     mer.closePath()
     mer.stroke()
     mer.fill()
-
     //Colline
     var colline = m4colline.getContext("2d")
     var gradientC0lline = colline.createLinearGradient(0, 0, 0, 600)
@@ -224,47 +280,18 @@ class soleil extends Component {
     colline.closePath()
     colline.stroke()
     colline.fill()
-
     //lune
     var ctxLune = maLune.getContext("2d")
     var gradientLune = ctxLune.createRadialGradient(16, 16, 16, 16, 16, 14)
     gradientLune.addColorStop(0, "transparent")
     gradientLune.addColorStop(0.9, "white")
     ctxLune.fillStyle = gradientLune
-
     //soleil
     var ctx = m0nCanva.getContext("2d")
     var gradient = ctx.createRadialGradient(16, 16, 16, 16, 16, 14)
     gradient.addColorStop(0, "transparent")
     gradient.addColorStop(0.9, "yellow")
     ctx.fillStyle = gradient
-
-    //SONIC PALM TREE
-    var divMonkey = document.createElement("div")
-    divMonkey.id = "divMonkey"
-    divMonkey.className = "divMonkey"
-    divMonkey.style.position = "absolute"
-    divMonkey.style.height = "140px"
-    divMonkey.style.width = "95px"
-    divMonkey.style.top = "50px"
-    divMonkey.style.left = "59.55px"
-    divMonkey.style.overflow = "hidden"
-    var imgMonkey = document.createElement("img")
-    imgMonkey.id = "monkey"
-    imgMonkey.className = "monkey"
-    imgMonkey.style.position = "absolute"
-    imgMonkey.style.height = "100%"
-    imgMonkey.style.left = "-2215px"
-    imgMonkey.src = "/img/monkey.png"
-    //Palm Tree
-    var imgSonicPalm = document.createElement("img")
-    imgSonicPalm.id = "palmTree"
-    imgSonicPalm.className = "palmTree"
-    imgSonicPalm.style.position = "absolute"
-    imgSonicPalm.style.height = "65%"
-    imgSonicPalm.style.top = "30px"
-    imgSonicPalm.style.left = "5px"
-    imgSonicPalm.src = "/img/palmTree.png"
 
     //Ordre des calques
     m0nsoleil.appendChild(m0nCiel)
@@ -274,20 +301,15 @@ class soleil extends Component {
     m0nsoleil.appendChild(imgCloud)
     m0nsoleil.appendChild(m4m3r)
     m0nsoleil.appendChild(m4colline)
-    m0nsoleil.appendChild(divMonkey)
-    m0nsoleil.appendChild(imgSonicPalm)
-    divMonkey.appendChild(imgMonkey)
-    //divSonic.appendChild(imgSonic)
-    //m0nsoleil.appendChild(divSonic)
+    //Instanciation Palm Tree
+    var cpt = 0,
+      back = false
+    const monkey = new Monkey()
+    //Instanciation Sonic
     const tabSonic = []
     for (let i = 0; i <= 1; ++i) tabSonic[i] = new Sonic()
-    mon360.appendChild(src360)
-    divAtari.appendChild(mon360)
-    divAtari.appendChild(m0nimg)
-    m0nsoleil.appendChild(divAtari)
-
-    //initialisation des variables de travail des fonctions et des id des animations
-    var idW, idMU, idMD, idM
+    //Instanciation Atari
+    const atari = new Atari()
 
     //Fonctions animations sprites/img-----------------------------------------------
     var moveCloud = function () {
@@ -298,82 +320,6 @@ class soleil extends Component {
           imgCloud.style.left = parseFloat(imgCloud.style.left) - 0.2 + "px"
         } else {
           imgCloud.style.left = "700px"
-        }
-      }
-    }
-    /*
-    var sonicBored = function () {
-      idB = requestAnimationFrame(sonicBored)
-      if (delta > interval) {
-        //code for
-        if (bool1 === false) {
-          imgSonic.style.left = "-55px"
-          imgSonic.style.top = "-21px"
-          bool1 = true
-        } else {
-          if (parseFloat(imgSonic.style.left) > -200) {
-            imgSonic.style.left = parseFloat(imgSonic.style.left) - 49 + "px"
-          } else bool1 = false
-        }
-      }
-    }
-
-    var sonicWalk = function () {
-      idW = requestAnimationFrame(sonicWalk)
-
-      if (delta > interval) {
-        //code for
-        if (bool2 === false) {
-          imgSonic.style.left = "-50px"
-          imgSonic.style.top = "-95px"
-          bool2 = true
-        } else {
-          if (parseFloat(imgSonic.style.left) > -200) {
-            imgSonic.style.left = parseFloat(imgSonic.style.left) - 49 + "px"
-          } else bool2 = false
-        }
-      }
-    }
-
-    var moveSonicRight = function () {
-      idM = requestAnimationFrame(moveSonicRight)
-
-      if (delta > interval) {
-        //code for
-        if (parseFloat(divSonic.style.left) < 100) {
-          divSonic.style.left = parseFloat(divSonic.style.left) + 0.2 + "%"
-        } else {
-          divSonic.style.left = "-10%"
-        }
-      }
-    }
-*/
-    var back = false
-    var cpt = 0
-    var monkeyDown = () => {
-      idMD = requestAnimationFrame(monkeyDown)
-      if (delta > interval * 1.25) {
-        //code for
-        if (parseFloat(imgMonkey.style.left) <= 0 && !back) {
-          imgMonkey.style.left =
-            parseFloat(imgMonkey.style.left) + 105.52 + "px"
-          cpt++
-        } else {
-          back = true
-        }
-      }
-    }
-
-    var monkeyUp = function () {
-      idMU = requestAnimationFrame(monkeyUp)
-      if (delta > interval * 1.25) {
-        //code for
-        if (cpt > 0) {
-          imgMonkey.style.left =
-            parseFloat(imgMonkey.style.left) - 105.52 + "px"
-          cpt--
-        } else {
-          back = false
         }
       }
     }
@@ -417,11 +363,9 @@ class soleil extends Component {
               break
             case 40:
               $("#moon").fadeOut(3000)
-              cancelAnimationFrame(idW)
-              cancelAnimationFrame(idM)
               break
             case 52:
-              idMD = monkeyDown()
+              monkey.monkeyDown()
               for (var i = 0; i < tabSonic.length; ++i)
                 cancelAnimationFrame(tabSonic[i].idSennuie)
               for (i = 0; i < tabSonic.length; ++i) tabSonic[i].sonicMarche()
@@ -429,16 +373,16 @@ class soleil extends Component {
               //snowBack.play()
               break
             case 62:
-              cancelAnimationFrame(idMD)
-              monkeyUp()
+              cancelAnimationFrame(monkey.idMD)
+              monkey.monkeyUp()
               break
             case 78:
-              cancelAnimationFrame(idMU)
-              monkeyDown()
+              cancelAnimationFrame(monkey.idMU)
+              monkey.monkeyDown()
               break
             case 90:
-              cancelAnimationFrame(idMD)
-              monkeyUp()
+              cancelAnimationFrame(monkey.idMD)
+              monkey.monkeyUp()
               break
             case 95:
               for (i = 0; i < tabSonic.length; ++i)
@@ -449,7 +393,7 @@ class soleil extends Component {
               break
             case 100:
               $("#moon").fadeIn(3000)
-              cancelAnimationFrame(idMU)
+              cancelAnimationFrame(monkey.idMU)
               //snowBack.pause()
               break
             case 105:
