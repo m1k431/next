@@ -316,6 +316,7 @@ class soleil extends Component {
         divSoleil.appendChild(this.canvas)
       }
     }
+
     class Soleil {
       constructor() {
         //coordonnées soleil
@@ -345,9 +346,9 @@ class soleil extends Component {
             backgroundColor: "#000000",
           },
           1000
-          )
-          this.lune = new Lune()
-          this.mer = new Mer()
+        )
+        this.lune = new Lune()
+        this.mer = new Mer()
         this.hill = new Hill()
         this.nuage = new Nuage()
         this.nuage.moveCloud()
@@ -410,7 +411,7 @@ class soleil extends Component {
                 break
               case 100:
                 $("#moon").fadeIn(3000)
-                cancelAnimationFrame(monkey.idMU)
+                cancelAnimationFrame(this.monkey.idMU)
                 //snowBack.pause()
                 break
               case 105:
