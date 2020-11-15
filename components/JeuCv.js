@@ -121,7 +121,7 @@ class JeuCv extends Component {
         animSprite() {
           this.idSprite = requestAnimationFrame(this.animSprite.bind(this))
           //FPS control
-          if (delta > interval * 1.4) {
+          if (delta > interval * 1.2) {
             //code to animate
             if (parseFloat(this.image.style.left) > -72) {
               this.image.style.left =
@@ -485,7 +485,7 @@ class JeuCv extends Component {
       }
 
       var deplacerBalle = function () {
-        var ballSpeed = 2.5
+        var ballSpeed = 2
         ball.div.style.top = ball.ballY + "px"
         //ball move left right limit
         if (
