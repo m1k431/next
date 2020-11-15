@@ -11,12 +11,6 @@ class JeuCv extends Component {
     super(props)
   }
   jeuBreaker() {
-    //FPS control
-    var fps = 60,
-      now,
-      then = Date.now(),
-      interval = 1000 / fps,
-      delta
     //Sections du cv
     $("#scoreForm").hide()
     $("#highScore").hide()
@@ -36,12 +30,14 @@ class JeuCv extends Component {
 
     //_______________________________Choix_langue____________________________________________________________________________
     window.document.getElementById("french").onclick = () => {
+      //play(flagS)
       $(".english").hide()
       $(".spanish").hide()
       $(".french").hide()
       $(".french").fadeIn()
     }
     window.document.getElementById("english").onclick = () => {
+      //play(flagS)
       $(".french").hide()
       $(".spanish").hide()
       $(".english").hide()
@@ -74,7 +70,7 @@ class JeuCv extends Component {
       $("#competen").toggleClass(styles.competencesT)
       var informatique = window.document.getElementById("informatique")
       var commerciales = window.document.getElementById("commerciales")
-      //var raquette.div = window.document.getElementById("linkedIn")
+      var linkedIn = window.document.getElementById("linkedIn")
       clearInterval(idInterBlink)
       $div2blink.removeClass("blink")
       $div2blink.css("background-color", "rgba(255, 255, 255, 0.4)")
@@ -87,87 +83,34 @@ class JeuCv extends Component {
         })
         .fadeIn(375)
 
-      class Ball {
-        constructor() {
-          this.ballX = 0
-          this.ballY = 0
-          this.ballLeft = false
-          this.ballDown = false
-          this.angle = 1
-          this.div = document.createElement("div")
-          this.div.style.left = this.ballX + "px"
-          this.div.style.top = this.ballY + "px"
-          this.div.id = "divSprite"
-          this.div.className = "divsprite"
-          this.div.style.position = "absolute"
-          this.div.style.height = "25px"
-          this.div.style.width = "25px"
-          //this.div.style.border = "1px solid #ffffff"
-          this.div.style.borderRadius = "12.5px"
-          this.div.style.overflow = "hidden"
-          competences.appendChild(this.div)
-          this.image = document.createElement("img")
-          this.image.id = "imgSoccer"
-          this.image.className = "imgsoccer"
-          this.image.style.position = "absolute"
-          this.image.style.height = "100px"
-          this.image.style.left = "-13px"
-          this.image.style.top = "-18px"
-          this.image.src = "/img/soccerBall.png"
-          this.image.style.backgroundColor = "none"
-          this.div.appendChild(this.image)
-        }
-        animSprite() {
-          this.idSprite = requestAnimationFrame(this.animSprite.bind(this))
-          //FPS control
-          if (delta > interval * 1.5) {
-            //code to animate
-            if (parseFloat(this.image.style.left) > -72) {
-              this.image.style.left =
-                parseFloat(this.image.style.left) - 39 + "px"
-            } else if (parseFloat(this.image.style.top) > -50) {
-              this.image.style.left = -13 + "px"
-              this.image.style.top =
-                parseFloat(this.image.style.top) - 40 + "px"
-            } else {
-              this.image.style.left = -13 + "px"
-              this.image.style.top = -18 + "px"
-            }
-          }
-        }
-      }
-
-      class Paddle {
-        constructor() {
-          this.div = document.createElement("div")
-          this.div.id = "linkedIn"
-          this.div.style.display = "none"
-          this.div.style.border = "2px solid #ffffff"
-          this.div.style.position = "absolute"
-          this.div.style.borderRadius = "10px"
-          this.div.style.height = "25px"
-          this.div.style.width = "85px"
-          this.div.style.margin = "5px"
-          this.div.style.backgroundColor = "black"
-          this.div.style.left =
-            competences.offsetWidth / 2 + competences.offsetLeft + "px"
-          this.div.style.top =
-            competences.offsetTop + competences.offsetHeight - 120 + "px"
-          competences.appendChild(this.div)
-        }
-      }
-
-      const ball = new Ball()
-      const raquette = new Paddle()
-      var idAni
       //________________________________________DIV FOOTBALL SPRITE_____________________________________________
-      //var ball.div = window.document.createElement("div")
+      var divSprite = window.document.createElement("div")
+      divSprite.id = "divSprite"
+      divSprite.className = "divsprite"
+      divSprite.style.position = "absolute"
+      divSprite.style.height = "25px"
+      divSprite.style.width = "25px"
+      divSprite.style.overflow = "hidden"
+      competences.appendChild(divSprite)
 
       //________________________________________footBall Sprite_________________________________________________
-      //var ball.image = window.document.createElement("img")
+      var imgSoccer = window.document.createElement("img")
+      imgSoccer.id = "imgSoccer"
+      imgSoccer.className = "imgsoccer"
+      imgSoccer.style.position = "absolute"
+      imgSoccer.style.height = "100px"
+      imgSoccer.style.left = "-13px"
+      imgSoccer.style.top = "-18px"
+      imgSoccer.src = "/img/soccerBall.png"
+      imgSoccer.style.backgroundColor = "none"
+      divSprite.appendChild(imgSoccer)
 
       //________________________________________Paddle + hauteur breaker_____________________________________
       $("#linkedIn").fadeIn(2000)
+      window.document.getElementById("linkedIn").style.left =
+        competences.offsetWidth / 2 + competences.offsetLeft + "px"
+      linkedIn.style.top =
+        competences.offsetTop + competences.offsetHeight - 120 + "px"
 
       //________________________________________INITIALISTATION BRICKS_______________________________________
       var mesDivInfos = window.document.getElementsByClassName(styles.infoJeu)
@@ -177,7 +120,6 @@ class JeuCv extends Component {
         mesDivInfos[i].setAttribute("class", styles.infoT)
         i--
       }
-      //_________________________________________INITIALISATIION_JEU______________________________________
       informatique.style.verticalAlign = "top"
       commerciales.style.verticalAlign = "top"
       $("html, body").animate(
@@ -194,14 +136,20 @@ class JeuCv extends Component {
         },
         1000
       )
-      ball.ballX =
-        raquette.div.offsetLeft +
-        raquette.div.offsetWidth / 2 -
-        ball.div.offsetWidth / 2
-      ball.ballY = raquette.div.offsetTop - ball.div.offsetHeight
-      ball.div.style.left = ball.ballX + "px"
-      ball.div.style.top = ball.ballY + "px"
+
+      //_________________________________________INITIALISATIION_JEU______________________________________
+      var ballX =
+        linkedIn.offsetLeft +
+        linkedIn.offsetWidth / 2 -
+        divSprite.offsetWidth / 2
+      var ballY = linkedIn.offsetTop - divSprite.offsetHeight
+      divSprite.style.left = ballX + "px"
+      divSprite.style.top = ballY + "px"
+      var ballLeft = false
+      var ballDown = false
       var youwin = false
+      var angle = 1
+      var idAni, idL
 
       //__________________________________________WEB_Audio_API___________________________________________________________
       function play(url) {
@@ -248,7 +196,6 @@ class JeuCv extends Component {
         }
       }
 
-      //__________________________________DEPLACEMENT PADDLE RAQUETTE_________________________________
       //____________________________________TouchMove_eventListener___________________________________
       var box2 = document.getElementById("linkedIn"),
         boxleft,
@@ -267,23 +214,23 @@ class JeuCv extends Component {
           boxleft + dist >
           competences.offsetLeft +
             competences.offsetWidth -
-            raquette.div.offsetWidth
+            linkedIn.offsetWidth
             ? competences.offsetLeft +
               competences.offsetWidth -
-              raquette.div.offsetWidth -
+              linkedIn.offsetWidth -
               5 +
               "px"
             : boxleft + dist < competences.offsetLeft
             ? competences.offsetLeft - 5 + "px"
             : boxleft + dist - 5 + "px"
         if (clickMove === true) {
-          ball.ballX =
-            raquette.div.offsetLeft +
-            raquette.div.offsetWidth / 2 -
-            ball.div.offsetWidth / 2
-          ball.ballY = raquette.div.offsetTop - ball.div.offsetHeight
-          ball.div.style.left = ball.ballX + "px"
-          ball.div.style.top = ball.ballY + "px"
+          ballX =
+            linkedIn.offsetLeft +
+            linkedIn.offsetWidth / 2 -
+            divSprite.offsetWidth / 2
+          ballY = linkedIn.offsetTop - divSprite.offsetHeight
+          divSprite.style.left = ballX + "px"
+          divSprite.style.top = ballY + "px"
         }
       }
 
@@ -291,130 +238,154 @@ class JeuCv extends Component {
       window.document.addEventListener("touchmove", eTouchMove, true)
       bStart.removeEventListener("click", varsStart, true)
 
-      //__________________________________Mouse Move EVENT___________________________________________
+      //__________________________________Déplacement paddle dans environnement de jeu________________________________________________________________________
       var divNext = window.document.getElementById("__next")
 
       var movepaddle = function (mon0bjetEvent) {
         if (
-          mon0bjetEvent.clientX - raquette.div.offsetWidth / 2 - 5 >
+          mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 - 5 >
             (divNext.offsetWidth - competences.offsetWidth) / 2 +
               competences.offsetLeft &&
-          mon0bjetEvent.clientX + raquette.div.offsetWidth / 2 <
+          mon0bjetEvent.clientX + linkedIn.offsetWidth / 2 <
             (divNext.offsetWidth - competences.offsetWidth) / 2 +
               competences.offsetWidth +
               5
         ) {
-          raquette.div.style.left =
+          linkedIn.style.left =
             mon0bjetEvent.clientX -
-            raquette.div.offsetWidth / 2 -
+            linkedIn.offsetWidth / 2 -
             5 -
             (divNext.offsetWidth - competences.offsetWidth) / 2 +
             "px"
         } else if (
-          mon0bjetEvent.clientX - raquette.div.offsetWidth / 2 <
+          mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 <
           (divNext.offsetWidth - competences.offsetWidth) / 2 +
             competences.offsetLeft
         ) {
-          raquette.div.style.left = competences.offsetLeft - 5 + "px"
+          linkedIn.style.left = competences.offsetLeft - 5 + "px"
         } else if (
-          mon0bjetEvent.clientX + raquette.div.offsetWidth / 2 >
+          mon0bjetEvent.clientX + linkedIn.offsetWidth / 2 >
           competences.offsetWidth + competences.offsetLeft
         ) {
-          raquette.div.style.left =
+          linkedIn.style.left =
             competences.offsetLeft +
             competences.offsetWidth -
-            raquette.div.offsetWidth -
+            linkedIn.offsetWidth -
             5 +
             "px"
         }
         if (clickMove === true) {
-          ball.ballX =
-            raquette.div.offsetLeft +
-            raquette.div.offsetWidth / 2 -
-            ball.div.offsetWidth / 2
-          ball.ballY = raquette.div.offsetTop - ball.div.offsetHeight
-          ball.div.style.left = ball.ballX + "px"
-          ball.div.style.top = ball.ballY + "px"
+          ballX =
+            linkedIn.offsetLeft +
+            linkedIn.offsetWidth / 2 -
+            divSprite.offsetWidth / 2
+          ballY = linkedIn.offsetTop - divSprite.offsetHeight
+          divSprite.style.left = ballX + "px"
+          divSprite.style.top = ballY + "px"
         }
       }
       window.document.addEventListener("mousemove", movepaddle, true)
 
+      //____________________________________ANIMATION_Ball_Sprite______________________________________
+      var animSprite = function () {
+        if (parseFloat(imgSoccer.style.left) > -72) {
+          imgSoccer.style.left = parseFloat(imgSoccer.style.left) - 39 + "px"
+        } else if (parseFloat(imgSoccer.style.top) > -50) {
+          imgSoccer.style.left = -13 + "px"
+          imgSoccer.style.top = parseFloat(imgSoccer.style.top) - 40 + "px"
+        } else {
+          imgSoccer.style.left = -13 + "px"
+          imgSoccer.style.top = -18 + "px"
+        }
+      }
+
       //gestion reprise jeu après click
       var animMoveBall = function () {
         clickMove = false
-        ball.animSprite()
+        idL = setInterval(animSprite, 60)
         window.document.removeEventListener("click", animMoveBall, true)
         bouclePrincpale()
       }
-
+      /*
+      var animSpriteR = function() {
+          if (parseFloat(imgSoccer.style.left) < -2) {
+              imgSoccer.style.left = parseFloat(imgSoccer.style.left) + 17.5 + 'px'
+          }
+          else {
+              imgSoccer.style.left = -141.8 + 'px'
+          }
+          cancelAnimationFrame(idL)
+          idR = requestAnimationFrame(animSpriteR)
+      }*/
       //__________________________________Intéraction_balle/paddle_AngleBalle_______________________________________________________
       var paddle = function () {
         //Left paddle side
         if (
-          ball.ballX + ball.div.offsetWidth / 2 > raquette.div.offsetLeft &&
-          ball.ballX + ball.div.offsetWidth / 2 <
-            raquette.div.offsetLeft + raquette.div.offsetWidth / 2
+          ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft &&
+          ballX + divSprite.offsetWidth / 2 <
+            linkedIn.offsetLeft + linkedIn.offsetWidth / 2
         ) {
-          ball.ballDown = false
-          ball.ballLeft = true
+          ballDown = false
+          ballLeft = true
           combo += 1
           play(pongB)
           //angle renvoi balle
           if (
-            ball.ballX + ball.div.offsetWidth / 2 <
-            raquette.div.offsetLeft + raquette.div.offsetWidth / 8
+            ballX + divSprite.offsetWidth / 2 <
+            linkedIn.offsetLeft + linkedIn.offsetWidth / 8
           ) {
-            ball.angle = 4
+            angle = 4
           } else if (
-            ball.ballX + ball.div.offsetWidth / 2 <
-            raquette.div.offsetLeft + raquette.div.offsetWidth / 4
+            ballX + divSprite.offsetWidth / 2 <
+            linkedIn.offsetLeft + linkedIn.offsetWidth / 4
           ) {
-            ball.angle = 3
+            angle = 3
           } else if (
-            ball.ballX + ball.div.offsetWidth / 2 <
-            raquette.div.offsetLeft +
-              raquette.div.offsetWidth / 4 +
-              raquette.div.offsetWidth / 8
+            ballX + divSprite.offsetWidth / 2 <
+            linkedIn.offsetLeft +
+              linkedIn.offsetWidth / 4 +
+              linkedIn.offsetWidth / 8
           ) {
-            ball.angle = 2
+            angle = 2
           } else if (
-            ball.ballX + ball.div.offsetWidth / 2 <
-            raquette.div.offsetLeft + raquette.div.offsetWidth / 2
+            ballX + divSprite.offsetWidth / 2 <
+            linkedIn.offsetLeft + linkedIn.offsetWidth / 2
           ) {
-            ball.angle = 1
+            angle = 1
           }
         }
+
         //Right paddle side
         else if (
-          ball.ballX + ball.div.offsetWidth / 2 > raquette.div.offsetLeft &&
-          ball.ballX + ball.div.offsetWidth / 2 <
-            raquette.div.offsetLeft + raquette.div.offsetWidth
+          ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft &&
+          ballX + divSprite.offsetWidth / 2 <
+            linkedIn.offsetLeft + linkedIn.offsetWidth
         ) {
-          ball.ballDown = false
-          ball.ballLeft = false
+          ballDown = false
+          ballLeft = false
           combo += 1
           play(pongB)
           //angle renvoi balle
           if (
-            ball.ballX + ball.div.offsetWidth / 2 <
-            raquette.div.offsetLeft + (raquette.div.offsetWidth * 5) / 8
+            ballX + divSprite.offsetWidth / 2 <
+            linkedIn.offsetLeft + (linkedIn.offsetWidth * 5) / 8
           ) {
-            ball.angle = 1
+            angle = 1
           } else if (
-            ball.ballX + ball.div.offsetWidth / 2 <
-            raquette.div.offsetLeft + (raquette.div.offsetWidth * 6) / 8
+            ballX + divSprite.offsetWidth / 2 <
+            linkedIn.offsetLeft + (linkedIn.offsetWidth * 6) / 8
           ) {
-            ball.angle = 2
+            angle = 2
           } else if (
-            ball.ballX + ball.div.offsetWidth / 2 <
-            raquette.div.offsetLeft + (raquette.div.offsetWidth * 7) / 8
+            ballX + divSprite.offsetWidth / 2 <
+            linkedIn.offsetLeft + (linkedIn.offsetWidth * 7) / 8
           ) {
-            ball.angle = 3
+            angle = 3
           } else if (
-            ball.ballX + ball.div.offsetWidth / 2 <
-            raquette.div.offsetLeft + raquette.div.offsetWidth
+            ballX + divSprite.offsetWidth / 2 <
+            linkedIn.offsetLeft + linkedIn.offsetWidth
           ) {
-            ball.angle = 4
+            angle = 4
           }
         }
       }
@@ -427,40 +398,42 @@ class JeuCv extends Component {
         while (i >= 0) {
           //inside brick
           if (
-            ball.ballX + ball.div.offsetWidth > mesInfosT[i].offsetLeft && //left
-            ball.ballX < mesInfosT[i].offsetLeft + mesInfosT[i].offsetWidth && //right
-            ball.ballY + ball.div.offsetHeight > mesInfosT[i].offsetTop && //haut
-            ball.ballY < mesInfosT[i].offsetTop + mesInfosT[i].offsetHeight //bas
+            ballX + divSprite.offsetWidth > mesInfosT[i].offsetLeft && //left
+            ballX < mesInfosT[i].offsetLeft + mesInfosT[i].offsetWidth && //right
+            ballY + divSprite.offsetHeight > mesInfosT[i].offsetTop && //haut
+            ballY < mesInfosT[i].offsetTop + mesInfosT[i].offsetHeight
           ) {
+            //bas
+
             gauche = Math.abs(
-              ball.ballX + ball.div.offsetWidth - mesInfosT[i].offsetLeft
+              ballX + divSprite.offsetWidth - mesInfosT[i].offsetLeft
             )
             droite = Math.abs(
-              ball.ballX - mesInfosT[i].offsetLeft - mesInfosT[i].offsetWidth
+              ballX - mesInfosT[i].offsetLeft - mesInfosT[i].offsetWidth
             )
             haut = Math.abs(
-              ball.ballY + ball.div.offsetHeight - mesInfosT[i].offsetTop
+              ballY + divSprite.offsetHeight - mesInfosT[i].offsetTop
             )
             bas = Math.abs(
-              ball.ballY - mesInfosT[i].offsetTop - mesInfosT[i].offsetHeight
+              ballY - mesInfosT[i].offsetTop - mesInfosT[i].offsetHeight
             )
             mini = Math.min(gauche, droite, haut, bas)
 
             switch (mini) {
               case gauche:
-                ball.ballLeft = true
+                ballLeft = true
                 destroyBrick(i)
                 break
               case droite:
-                ball.ballLeft = false
+                ballLeft = false
                 destroyBrick(i)
                 break
               case haut:
-                ball.ballDown = false
+                ballDown = false
                 destroyBrick(i)
                 break
               case bas:
-                ball.ballDown = true
+                ballDown = true
                 destroyBrick(i)
                 break
               default:
@@ -484,45 +457,45 @@ class JeuCv extends Component {
       }
 
       var deplacerBalle = function () {
-        var ballSpeed = 2
-        ball.div.style.top = ball.ballY + "px"
+        var ballSpeed = 2.5
+        divSprite.style.top = ballY + "px"
         //ball move left right limit
         if (
-          ball.ballX <
+          ballX <
             competences.offsetLeft +
               competences.offsetWidth -
-              ball.div.offsetWidth &&
-          !ball.ballLeft
+              divSprite.offsetWidth &&
+          !ballLeft
         ) {
-          ball.ballX = ball.ballX + ball.angle * ballSpeed
-          ball.div.style.left = ball.ballX + "px"
-        } else if (ball.ballX > competences.offsetLeft) {
-          ball.ballLeft = true
-          ball.ballX = ball.ballX - ball.angle * ballSpeed
-          ball.div.style.left = ball.ballX + "px"
+          ballX = ballX + angle * ballSpeed
+          divSprite.style.left = ballX + "px"
+        } else if (ballX > competences.offsetLeft) {
+          ballLeft = true
+          ballX = ballX - angle * ballSpeed
+          divSprite.style.left = ballX + "px"
         } else {
-          ball.ballLeft = false
+          ballLeft = false
           play(pongA)
         }
         //ball move up down limit
-        if (ball.ballY >= competences.offsetTop && !ball.ballDown) {
-          ball.ballY = ball.ballY - 2 * ballSpeed
-          ball.div.style.top = ball.ballY + "px"
+        if (ballY >= competences.offsetTop && !ballDown) {
+          ballY = ballY - 2 * ballSpeed
+          divSprite.style.top = ballY + "px"
         } else if (
-          ball.ballY <
+          ballY <
           competences.offsetTop + competences.offsetHeight - 30
         ) {
-          ball.ballDown = true
-          ball.ballY = ball.ballY + 2 * ballSpeed
-          ball.div.style.top = ball.ballY + "px"
+          ballDown = true
+          ballY = ballY + 2 * ballSpeed
+          divSprite.style.top = ballY + "px"
           if (
-            ball.ballY + ball.div.offsetHeight > raquette.div.offsetTop - 5 &&
-            ball.ballY < raquette.div.offsetTop
+            ballY + divSprite.offsetHeight > linkedIn.offsetTop - 5 &&
+            ballY < linkedIn.offsetTop
           )
             paddle()
         } else {
           //YOU MISSSSS
-          ball.ballDown = false
+          ballDown = false
           clickMove = true
           combo = 1
           //------------Short hand style if---------------
@@ -537,25 +510,25 @@ class JeuCv extends Component {
             })
             .fadeIn(375)
           combo = 1
-          cancelAnimationFrame(ball.idSprite)
+          clearInterval(idL)
           play(miss)
-          ball.ballX =
-            raquette.div.offsetLeft +
-            raquette.div.offsetWidth / 2 -
-            ball.div.offsetWidth / 2
-          ball.ballY = raquette.div.offsetTop - ball.div.offsetHeight
-          ball.div.style.left = ball.ballX + "px"
-          ball.div.style.top = ball.ballY + "px"
-          ball.ballLeft = false
-          ball.angle = 1
+          ballX =
+            linkedIn.offsetLeft +
+            linkedIn.offsetWidth / 2 -
+            divSprite.offsetWidth / 2
+          ballY = linkedIn.offsetTop - divSprite.offsetHeight
+          divSprite.style.left = ballX + "px"
+          divSprite.style.top = ballY + "px"
+          ballLeft = false
+          angle = 1
         }
         if (
-          ball.ballX + ball.div.offsetWidth >
+          ballX + divSprite.offsetWidth >
           competences.offsetLeft + competences.offsetWidth
         ) {
           play(pongA)
         }
-        if (ball.ballY < competences.offsetTop) {
+        if (ballY < competences.offsetTop) {
           play(pongA)
         }
       }
@@ -563,30 +536,36 @@ class JeuCv extends Component {
       //________________________________________________Verif/Gestion_YouWIN______________________________________________________________________________
       function jeuTermine() {
         var mesInfosT = window.document.getElementsByClassName(styles.infoT)
+        //var competences = window.document.getElementById('competen')
         //YOU WIN
         if (!mesInfosT.length && fuse === 1) {
           fuse--
           stopEvent = true
           play(youWin)
-          raquette.div.style.left = "auto"
-          ball.ballY = raquette.div.offsetTop
-          raquette.div.className = "linkedin"
+          //competences.removeChild(divSprite)
+          linkedIn.style.left = "auto"
+          ballY = linkedIn.offsetTop
+          linkedIn.className = "linkedin"
           $("#linkedIn").hide()
           $("#imgSoccer").hide()
           $("#competen").toggleClass(styles.competen)
+          //$('#informatique').fadeOut()
           informatique.style.verticalAlign = "middle"
           commerciales.style.verticalAlign = "middle"
           youwin = true
           $("#skills").hide()
           $("#score").fadeIn()
+          //$('#btp').fadeIn()
           $("#informatique").animate(
             {
               width: "99%",
             },
             1000
           )
+          //$('#informatique').hide()
           $("#competen").css("height", "auto")
           $("#competen").fadeOut()
+          //$('#commerciales').fadeIn()
           $("#highScore").fadeIn()
           $("#scoreForm").fadeIn()
           //Requete AJAX SELECT pour affichage tableau score
@@ -643,10 +622,18 @@ class JeuCv extends Component {
         })
       })
 
-      //_____________________MAIN()_____Déplacement_balle_dans_Environnement__________________________
+      //----------------------------FPS control
+      var fps = 60,
+        now,
+        then = Date.now(),
+        interval = 1000 / fps,
+        delta
+
       let fuse = 1
       var stopEvent = false
       clickMove = true
+
+      //_____________________MAIN()_____Déplacement_balle_dans_Environnement__________________________
       var bouclePrincpale = function () {
         idAni = requestAnimationFrame(bouclePrincpale)
         //fps control
@@ -686,6 +673,15 @@ class JeuCv extends Component {
         }
       }
       bouclePrincpale()
+    }
+  }
+  finJeu() {
+    var mesDivInfos = window.document.getElementsByClassName(styles.infoT)
+    var i = mesDivInfos.length
+    i--
+    while (i >= 0) {
+      mesDivInfos[i].setAttribute("class", styles.infoJeu)
+      i--
     }
   }
   componentDidMount() {
@@ -757,6 +753,9 @@ class JeuCv extends Component {
                   <div className={styles.infoJeu}>osX</div>
                   <div className={styles.infoJeu}>Photoshop</div>
                   <div className={styles.infoJeu}>Windows</div>
+                </div>
+                <div id="linkedIn" className={styles.linkedinT}>
+                  {" "}
                 </div>
               </div>
               <div className={styles.btp} id="btp">
