@@ -121,7 +121,7 @@ class JeuCv extends Component {
         animSprite() {
           this.idSprite = requestAnimationFrame(this.animSprite.bind(this))
           //FPS control
-          if (delta > interval * 1.2) {
+          if (delta > interval * 1.5) {
             //code to animate
             if (parseFloat(this.image.style.left) > -72) {
               this.image.style.left =
