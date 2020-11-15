@@ -421,20 +421,28 @@ class JeuCv extends Component {
 
             switch (mini) {
               case gauche:
-                ballLeft = true
-                destroyBrick(i)
+                if (ballLeft === false) {
+                  ballLeft = true
+                  destroyBrick(i)
+                }
                 break
               case droite:
-                ballLeft = false
-                destroyBrick(i)
+                if (ballLeft === true) {
+                  ballLeft = false
+                  destroyBrick(i)
+                }
                 break
               case haut:
-                ballDown = false
-                destroyBrick(i)
+                if (ballDown === true) {
+                  ballDown = false
+                  destroyBrick(i)
+                }
                 break
               case bas:
-                ballDown = true
-                destroyBrick(i)
+                if (ballDown === false) {
+                  ballDown = true
+                  destroyBrick(i)
+                }
                 break
               default:
             }
