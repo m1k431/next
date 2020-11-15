@@ -112,8 +112,7 @@ class JeuCv extends Component {
           this.image.style.position = "absolute"
           this.image.style.height = "100px"
           this.image.style.left = "-13px"
-          this.image.style.top = -18 + "px"
-          this.image.style.top = "-px"
+          this.image.style.top = "-18px"
           this.image.src = "/img/soccerBall.png"
           this.image.style.backgroundColor = "none"
           this.div.appendChild(this.image)
