@@ -731,17 +731,19 @@ class JeuCv extends Component {
                   <div className={styles.infoJeu}>ReactJS</div>
                   <div className={styles.infoJeu}>HTML5</div>
                   <div className={styles.infoJeu}>Bootstrap</div>
-                  <div className={styles.infoJeu}>Jquery</div>
-                  <div className={styles.infoJeu}>CLP</div>
-                  <div className={styles.infoJeu}>ES6</div>
                   <div className={styles.infoJeu}>jade/PUG</div>
+                  <div className={styles.infoJeu}>w3c DOM</div>
                   <div className={styles.infoJeu}>SCSS</div>
-                  <div className={styles.infoJeu}>DOM</div>
+                  <div className={styles.infoJeu}>Jquery</div>
+                  <div className={styles.infoJeu}>ES6</div>
+                  <div className={styles.infoJeu}>IBM dspf</div>
+                  <div className={styles.infoJeu}>IBM prtf</div>
                 </div>
                 <h3 className={styles.titreh3}>Back End</h3>
                 <div className={styles.informatiques}>
                   <div className={styles.infoJeu}>IBM i</div>
                   <div className={styles.infoJeu}>IBM RPG</div>
+                  <div className={styles.infoJeu}>IBM CLP</div>
                   <div className={styles.infoJeu}>IBM db2</div>
                   <div className={styles.infoJeu}>NodeJS</div>
                   <div className={styles.infoJeu}>ExpressJS</div>
@@ -756,6 +758,7 @@ class JeuCv extends Component {
                   <div className={styles.infoJeu}>IBM RDi</div>
                   <div className={styles.infoJeu}>IBM ACS</div>
                   <div className={styles.infoJeu}>ARCAD for IBM i</div>
+                  <div className={styles.infoJeu}>ADELIA for IBM i</div>
                   <div className={styles.infoJeu}>bsh/zsh</div>
                   <div className={styles.infoJeu}>Linux</div>
                   <div className={styles.infoJeu}>osX</div>
@@ -881,6 +884,25 @@ class JeuCv extends Component {
               <h2 className={`${styles.titreh2} spanish`}>
                 Experiencia profesional
               </h2>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>
+                  Developpeur logiciel IBM i
+                </h3>
+                <h3 className={`${styles.titreh3} english`}>IBM i developer</h3>
+                <div className={`${styles.infojob} french`}>
+                  Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG II,
+                  Adelia for iseries)
+                </div>
+                <div className={`${styles.infojob} english`}>
+                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Adelia for iseries)
+                </div>
+                <div className={`${styles.infojob} spanish`}>
+                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Adelia for iseries)
+                </div>
+                <div className={styles.lieu}>
+                  Depuis le 25/11/2020: Guarani, Bordeaux
+                </div>
+              </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
                   Developpeur logiciel IBM i

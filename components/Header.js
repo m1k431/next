@@ -46,6 +46,7 @@ class Header extends Component {
             <Nav className="mr-auto">
               <Nav.Link href="/">Dev LAB</Nav.Link>
               <Nav.Link href="/adhd">ADHD</Nav.Link>
+              <Nav.Link href="/pong">pongJS</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link eventKey={2} href="https://github.com/m1k431">
