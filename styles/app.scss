@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'ibm';
-  src: url('/fonts/IBMLogo.ttf');
+  font-family: "ibm";
+  src: url("/fonts/IBMLogo.ttf");
   font-weight: bold;
 }
 
-$myFont: 'ibm';
+$myFont: "ibm";
 
 .french {
   display: block;
@@ -20,11 +20,14 @@ $myFont: 'ibm';
 
 #mesData {
   margin: auto;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1em;
+  width: 50%;
 }
 
 .titreh1 {
   color: white;
-  font-family: 'ibm';
+  font-family: "ibm";
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 0.3em;
@@ -34,7 +37,7 @@ $myFont: 'ibm';
 
 .titreh2 {
   color: white;
-  font-family: 'ibm';
+  font-family: "ibm";
   text-align: center;
   text-transform: uppercase;
   margin-bottom: 0.3em;
@@ -45,7 +48,7 @@ $myFont: 'ibm';
 .titreh3 {
   color: white;
   text-align: center;
-  font-family: 'ibm';
+  font-family: "ibm";
   text-transform: uppercase;
   margin-bottom: 0em;
   margin-top: 0.3em;
@@ -81,18 +84,12 @@ $myFont: 'ibm';
   overflow: hidden;
 }
 
-#mesData {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 0.8em;
-  width: 50%;
-}
-
 thead {
-  font-family: 'ibm';
+  font-family: "ibm";
 }
 
 td:nth-child(even) {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-align: right;
 }
 
@@ -111,4 +108,3 @@ td:nth-child(even) {
   height: auto;
   //display: none;
 }
-

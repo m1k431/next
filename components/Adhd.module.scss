@@ -7,6 +7,7 @@
 .refs {
   display: block;
   text-align: center;
+  color: white;
 }
 
 .camoufle {
@@ -25,4 +26,18 @@
   padding: 0;
   list-style-type: none;
   text-align: center;
+}
+
+.competen {
+  border: 1px solid #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-family: monospace;
+  font-size: 1.2em;
+  color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 80%;
+  margin-left: 10%;
+  height: auto;
 }

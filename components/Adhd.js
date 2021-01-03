@@ -88,7 +88,7 @@ class Adhd extends Component {
   }
   render() {
     return (
-      <div>
+      <div className={styles.competen}>
         <h1 className="english titreh1">ADHD and High IQ</h1>
         <h1 className="french titreh1">TDAH et haut potentiel</h1>
         <div className="col-sm12 text-center">
