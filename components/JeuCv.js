@@ -890,14 +890,13 @@ class JeuCv extends Component {
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>IBM i developer</h3>
                 <div className={`${styles.infojob} french`}>
-                  Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG III,
-                  Adelia for iseries)
+                  QSH, CL, CLP, SQLRGPLE, RPG III, Adelia for iseries
                 </div>
                 <div className={`${styles.infojob} english`}>
-                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG III, Adelia for iseries)
+                  QSH, CL, CLP, SQLRGPLE, RPG III, Adelia for iseries
                 </div>
                 <div className={`${styles.infojob} spanish`}>
-                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG III, Adelia for iseries)
+                  QSH, CL, CLP, SQLRGPLE, RPG III, Adelia for iseries
                 </div>
                 <div className={styles.lieu}>
                   Depuis le 25/11/2020: Guarani, Bordeaux
@@ -909,14 +908,13 @@ class JeuCv extends Component {
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>IBM i developer</h3>
                 <div className={`${styles.infojob} french`}>
-                  Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG III,
-                  Arcad, Rdi)
+                  QSH, CL, CLP, SQLRGPLE, RPG III, Arcad, Rdi
                 </div>
                 <div className={`${styles.infojob} english`}>
-                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG III, Arcad, Rdi)
+                  QSH, CL, CLP, SQLRGPLE, RPG III, Arcad, Rdi
                 </div>
                 <div className={`${styles.infojob} spanish`}>
-                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG III, Arcad, Rdi)
+                  QSH, CL, CLP, SQLRGPLE, RPG III, Arcad, Rdi
                 </div>
                 <div className={styles.lieu}>
                   04/08/2019 =&gt; 17/07/2020: Pro A Pro, Montauban
@@ -930,14 +928,13 @@ class JeuCv extends Component {
                   IBM i software engineer
                 </h3>
                 <div className={`${styles.infojob} french`}>
-                  Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG II,
-                  Arcad, Rdi)
+                  QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi
                 </div>
                 <div className={`${styles.infojob} english`}>
-                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi)
+                  QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi
                 </div>
                 <div className={`${styles.infojob} spanish`}>
-                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi)
+                  QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi
                 </div>
                 <div className={styles.lieu}>
                   04/02/2019 =&gt; 04/08/2019: OCSI, Paris I
