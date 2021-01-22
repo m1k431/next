@@ -720,7 +720,28 @@ class JeuCv extends Component {
                 height="30"
               />
             </div>
-            {/* <button onClick={this.finJeu}>YOUWON</button>*/}
+           {/* <button onClick={this.finJeu}>YOUWON</button>*/}
+            <div id="scoreForm" className="col-sm12 text-center">
+              <Form>
+                <Form.Group>
+                  {/* <Form.Label>Enter your name</Form.Label> */}
+                  <Form.Row>
+                    <Col></Col>
+                    <Col>
+                      <Form.Control
+                        id="postName"
+                        type="text"
+                        placeholder="Name"
+                      />
+                    </Col>
+                    <Col></Col>
+                  </Form.Row>
+                </Form.Group>
+                <Button variant="primary" type="submit" id="boutton">
+                  Submit
+                </Button>
+              </Form>
+            </div>
             <div className={styles.competen} id="competen">
               <h2 className={`${styles.titreh2} french`}>Competences</h2>
               <h2 className={`${styles.titreh2} english`}>Skills</h2>
@@ -856,27 +877,6 @@ class JeuCv extends Component {
                 </thead>
                 <tbody>{/*each player in results*/}</tbody>
               </table>
-              <div id="scoreForm" className="col-sm12 text-center">
-                <Form>
-                  <Form.Group>
-                    <Form.Label>Enter your name</Form.Label>
-                    <Form.Row>
-                      <Col></Col>
-                      <Col>
-                        <Form.Control
-                          id="postName"
-                          type="text"
-                          placeholder="Name"
-                        />
-                      </Col>
-                      <Col></Col>
-                    </Form.Row>
-                  </Form.Group>
-                  <Button variant="primary" type="submit" id="boutton">
-                    Submit
-                  </Button>
-                </Form>
-              </div>
             </div>
             <div className={styles.competen} id="experiences">
               <h2 className={`${styles.titreh2} french`}>Experiences</h2>
