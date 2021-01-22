@@ -846,11 +846,20 @@ class JeuCv extends Component {
               </div>
             </div>
             <div id="highScore">
-              <h2 className="titreh2">HIGH SCORE</h2>
+              <h2 className="titreh2">High Score</h2>
+              <table id="mesData">
+                <thead>
+                  <tr>
+                    <th id="nomScore">Nom</th>
+                    <th id="pointScore">Score</th>
+                  </tr>
+                </thead>
+                <tbody>{/*each player in results*/}</tbody>
+              </table>
               <div id="scoreForm" className="col-sm12 text-center">
                 <Form>
                   <Form.Group>
-                    <Form.Label> Enter your name</Form.Label>
+                    <Form.Label>Enter your name</Form.Label>
                     <Form.Row>
                       <Col></Col>
                       <Col>
@@ -868,15 +877,6 @@ class JeuCv extends Component {
                   </Button>
                 </Form>
               </div>
-              <table id="mesData">
-                <thead>
-                  <tr>
-                    <th id="nomScore">Nom</th>
-                    <th id="pointScore">Score</th>
-                  </tr>
-                </thead>
-                <tbody>{/*each player in results*/}</tbody>
-              </table>
             </div>
             <div className={styles.competen} id="experiences">
               <h2 className={`${styles.titreh2} french`}>Experiences</h2>
@@ -886,18 +886,18 @@ class JeuCv extends Component {
               </h2>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Developpeur logiciel IBM i
+                  Analyste Programmeur IBM i
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>IBM i developer</h3>
                 <div className={`${styles.infojob} french`}>
-                  Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG II,
+                  Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG III,
                   Adelia for iseries)
                 </div>
                 <div className={`${styles.infojob} english`}>
-                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Adelia for iseries)
+                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG III, Adelia for iseries)
                 </div>
                 <div className={`${styles.infojob} spanish`}>
-                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Adelia for iseries)
+                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG III, Adelia for iseries)
                 </div>
                 <div className={styles.lieu}>
                   Depuis le 25/11/2020: Guarani, Bordeaux
@@ -905,18 +905,18 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Developpeur logiciel IBM i
+                  Analyste Programmeur IBM i
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>IBM i developer</h3>
                 <div className={`${styles.infojob} french`}>
-                  Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG II,
+                  Développement sur IBM i (QSH, CL, CLP, SQLRGPLE, RPG III,
                   Arcad, Rdi)
                 </div>
                 <div className={`${styles.infojob} english`}>
-                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi)
+                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG III, Arcad, Rdi)
                 </div>
                 <div className={`${styles.infojob} spanish`}>
-                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi)
+                  IBM i Developer (QSH, CL, CLP, SQLRGPLE, RPG III, Arcad, Rdi)
                 </div>
                 <div className={styles.lieu}>
                   04/08/2019 =&gt; 17/07/2020: Pro A Pro, Montauban
@@ -924,7 +924,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Ingenieur etude et developpement IBM i
+                  Ingénieur étude et développement IBM i
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>
                   IBM i software engineer

@@ -24,7 +24,7 @@ class soleil extends Component {
         this.haut = this.div.style.height = "48px"
         this.larg = this.div.style.width = "48px"
         this.top = this.div.style.top = //250 + "px"
-          Math.floor(Math.random() * Math.floor(80)) + 170 + "px"
+          Math.floor(Math.random() * Math.floor(50)) + 200 + "px"
         this.gauche = this.div.style.left = //"-10%"
           Math.floor(Math.random() * Math.floor(100)) + "%"
         this.div.style.overflow = "hidden"
@@ -355,7 +355,7 @@ class soleil extends Component {
         this.monkey = new Monkey()
         this.atari = new Atari()
         this.tabSonic = []
-        for (let i = 0; i <= 12; ++i) this.tabSonic[i] = new Sonic()
+        for (let i = 0; i <= 21; ++i) this.tabSonic[i] = new Sonic()
         this.bouclePrincpale()
       }
       bouclePrincpale(/*m0ntimestamp*/) {
@@ -379,42 +379,36 @@ class soleil extends Component {
               case 40:
                 $("#moon").fadeOut(3000)
                 break
-              case 52:
+              case 44:
                 this.monkey.monkeyDown()
-                for (var i = 0; i < this.tabSonic.length; ++i)
-                  cancelAnimationFrame(this.tabSonic[i].idSennuie)
-                for (i = 0; i < this.tabSonic.length; ++i)
+                for (var i = 0; i < this.tabSonic.length; ++i) {
                   this.tabSonic[i].sonicMarche()
-                for (i = 0; i < this.tabSonic.length; ++i)
                   this.tabSonic[i].sonicSeDeplace()
+                  cancelAnimationFrame(this.tabSonic[i].idSennuie)
+                }
                 //snowBack.play()
                 break
               case 62:
                 cancelAnimationFrame(this.monkey.idMD)
                 this.monkey.monkeyUp()
                 break
-              case 78:
+              case 82:
                 cancelAnimationFrame(this.monkey.idMU)
                 this.monkey.monkeyDown()
                 break
-              case 90:
+              case 100:
                 cancelAnimationFrame(this.monkey.idMD)
                 this.monkey.monkeyUp()
-                break
-              case 95:
-                for (i = 0; i < this.tabSonic.length; ++i)
-                  cancelAnimationFrame(this.tabSonic[i].idmarche)
-                for (i = 0; i < this.tabSonic.length; ++i)
-                  cancelAnimationFrame(this.tabSonic[i].idSeDeplace)
-                for (i = 0; i < this.tabSonic.length; ++i)
-                  this.tabSonic[i].sonicSennuie()
-                break
-              case 100:
-                $("#moon").fadeIn(3000)
-                cancelAnimationFrame(this.monkey.idMU)
                 //snowBack.pause()
                 break
               case 105:
+                cancelAnimationFrame(this.monkey.idMU)
+                for (i = 0; i < this.tabSonic.length; ++i) {
+                  cancelAnimationFrame(this.tabSonic[i].idmarche)
+                  this.tabSonic[i].sonicSennuie()
+                  cancelAnimationFrame(this.tabSonic[i].idSeDeplace)
+                }
+                $("#moon").fadeIn(3000)
                 $("#nuit").fadeIn(3000)
                 break
               default:
