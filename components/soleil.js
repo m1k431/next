@@ -398,6 +398,7 @@ class soleil extends Component {
                 break
               case 100:
                 cancelAnimationFrame(this.monkey.idMD)
+                $("#moon").fadeIn(3000)
                 this.monkey.monkeyUp()
                 //snowBack.pause()
                 break
@@ -409,7 +410,6 @@ class soleil extends Component {
                   this.tabSonic[i].sonicSennuie()
                   cancelAnimationFrame(this.tabSonic[i].idSeDeplace)
                 }
-                $("#moon").fadeIn(3000)
                 break
               default:
             }
