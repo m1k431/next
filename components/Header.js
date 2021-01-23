@@ -49,7 +49,7 @@ class Header extends Component {
               <Nav.Link href="/pong">pongJS</Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link eventKey={2} href="https://github.com/m1k431">
+              <Nav.Link eventKey={2} href="https://github.com/m1k431/next">
                 <img src={GitHubL} alt="git" height="35" />
                 <img src={GitHubR} alt="git" height="35" />
               </Nav.Link>
