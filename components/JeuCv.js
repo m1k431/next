@@ -763,12 +763,13 @@ class JeuCv extends Component {
                 <h3 className={styles.titreh3}>Back End</h3>
                 <div className={styles.informatiques}>
                   <div className={styles.infoJeu}>IBM i</div>
-                  <div className={styles.infoJeu}>IBM RPG</div>
+                  <div className={styles.infoJeu}>IBM RPG IV</div>
                   <div className={styles.infoJeu}>IBM CLP</div>
                   <div className={styles.infoJeu}>IBM db2</div>
+                  <div className={styles.infoJeu}>IBM QSH</div>
+                  <div className={styles.infoJeu}>NextJS</div>
                   <div className={styles.infoJeu}>NodeJS</div>
                   <div className={styles.infoJeu}>ExpressJS</div>
-                  <div className={styles.infoJeu}>NextJS</div>
                   <div className={styles.infoJeu}>MongoDB</div>
                   <div className={styles.infoJeu}>SQL</div>
                   <div className={styles.infoJeu}>Ajax</div>
@@ -778,8 +779,9 @@ class JeuCv extends Component {
                   <div className={styles.infoJeu}>Git</div>
                   <div className={styles.infoJeu}>IBM RDi</div>
                   <div className={styles.infoJeu}>IBM ACS</div>
-                  <div className={styles.infoJeu}>ARCAD for IBM i</div>
-                  <div className={styles.infoJeu}>ADELIA for IBM i</div>
+                  <div className={styles.infoJeu}>ARCAD for i</div>
+                  <div className={styles.infoJeu}>ADELIA for i</div> 
+                  <div className={styles.infoJeu}>IBM DPA</div> 
                   <div className={styles.infoJeu}>bsh/zsh</div>
                   <div className={styles.infoJeu}>Linux</div>
                   <div className={styles.infoJeu}>osX</div>
@@ -890,13 +892,13 @@ class JeuCv extends Component {
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>IBM i developer</h3>
                 <div className={`${styles.infojob} french`}>
-                  QSH, CL, CLP, SQLRGPLE, RPG III, Adelia for iseries
+                  Programme d'anonymisation des données personnelles (RGPD) sur IBM db2 en ADELIA/SQL
                 </div>
                 <div className={`${styles.infojob} english`}>
-                  QSH, CL, CLP, SQLRGPLE, RPG III, Adelia for iseries
+                Programme d'anonymisation des données personnelles (RGPD) sur IBM db2 en ADELIA/SQL
                 </div>
                 <div className={`${styles.infojob} spanish`}>
-                  QSH, CL, CLP, SQLRGPLE, RPG III, Adelia for iseries
+                Programme d'anonymisation des données personnelles (RGPD) sur IBM db2 en ADELIA/SQL
                 </div>
                 <div className={styles.lieu}>
                   Depuis le 25/11/2020: Guarani, Bordeaux
