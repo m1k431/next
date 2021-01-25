@@ -8,7 +8,7 @@ import linkedIn from "../public/img/LinkedIn_Logo.svg"
 class Header extends Component {
   render() {
     const currentURL = "https://nextfolio.vercel.app",
-      previewImage = "//nextfolio.vercel.app/ogimage.png"
+      previewImage = "https://m1k431.netlify.app/img/ogimage.png"
     return (
       <>
         <Head>
