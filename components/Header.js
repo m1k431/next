@@ -17,23 +17,29 @@ class Header extends Component {
             name="viewport"
             content="width=device-width, initial-scale=0.8"
           />
-          <title>My Javascript Portfolio</title>
-          <meta name="description" content="My Javascript Portfolio" />
           <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-          <meta property="og:title" content="DEV Lab" key="ogtitle" />
-          <meta property="og:type" content="article" />
+          <title>My nextJs portfolio</title>
+          <meta name="title" content="My nextJs portfolio" />
+          <meta
+            name="description"
+            content="I switched from react to NextJs to test serverless functions"
+          />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={currentURL} />
+          <meta property="og:title" content="My nextJs portfolio" />
           <meta
             property="og:description"
-            content="My name is Mikael. I'm an IBM software engineer. This website hosts my projects, skills and experiences."
-            key="ogdesc"
+            content="I switched from react to NextJs to test serverless functions"
           />
-          <meta property="og:url" content={currentURL} key="ogurl" />
-          <meta property="og:image" content={previewImage} key="ogimage" />
+          <meta property="og:image" content={previewImage} />
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content={currentURL} />
+          <meta property="twitter:title" content="My nextJs portfolio" />
           <meta
-            property="og:image:secure_url"
-            content={previewImage}
-            key="ogimage"
+            property="twitter:description"
+            content="I switched from react to NextJs to test serverless functions"
           />
+          <meta property="twitter:image" content={previewImage} />
           <link rel="manifest" href="/mikael.webmanifest"></link>
         </Head>
 
