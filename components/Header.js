@@ -34,6 +34,7 @@ class Header extends Component {
             content={previewImage}
             key="ogimage"
           />
+          <link rel="manifest" href="/mikael.webmanifest"></link>
         </Head>
 
         <Navbar collapseOnSelect expand="sm" bg="blue" variant="dark">
