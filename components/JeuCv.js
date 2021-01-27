@@ -930,13 +930,13 @@ class JeuCv extends Component {
                   IBM i software engineer
                 </h3>
                 <div className={`${styles.infojob} french`}>
-                  QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi
+                  QSH, CL, CLP, SQLRGPLE, RPG III, Arcad, Rdi
                 </div>
                 <div className={`${styles.infojob} english`}>
-                  QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi
+                  QSH, CL, CLP, SQLRGPLE, RPG III, Arcad, Rdi
                 </div>
                 <div className={`${styles.infojob} spanish`}>
-                  QSH, CL, CLP, SQLRGPLE, RPG II, Arcad, Rdi
+                  QSH, CL, CLP, SQLRGPLE, RPG III, Arcad, Rdi
                 </div>
                 <div className={styles.lieu}>
                   04/02/2019 =&gt; 04/08/2019: OCSI, Paris I
@@ -1202,13 +1202,13 @@ class JeuCv extends Component {
               <div className={styles.jobs}>
                 <h3 className={styles.titreh3}>Pepiniere IBM</h3>
                 <div className={`${styles.infojob} french`}>
-                  IBM RPG II, RPGLE, SQL, CLP
+                  IBM RPG III, RPGLE, SQL, CLP
                 </div>
                 <div className={`${styles.infojob} english`}>
-                  IBM RPG II, RPGLE, SQL, CLP
+                  IBM RPG III, RPGLE, SQL, CLP
                 </div>
                 <div className={`${styles.infojob} spanish`}>
-                  RPG II, RPGLE, SQL, CLP
+                  RPG III, RPGLE, SQL, CLP
                 </div>
                 <div className={`${styles.infojob} french`}>
                   RDi, SQL for IBM db2, DDS/DDL
