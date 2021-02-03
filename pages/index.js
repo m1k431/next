@@ -13,7 +13,7 @@ export default function Home({
   metierUS = "I am a developer",
   metierFR = "Je suis developpeur",
   intro = "This website hosts my experiences and skills",
-  introFR = "Ce site web heberge mes experiences and competences",
+  introFR = "Ce site web heberge mes experiences et competences",
   paramParticles = {
     fpsLimit: 60,
     backgroundMode: {

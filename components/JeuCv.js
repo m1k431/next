@@ -924,7 +924,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Ingénieur étude et développement IBM i
+                  Ingenieur etude et developpement IBM i
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>
                   IBM i software engineer
