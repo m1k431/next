@@ -768,7 +768,7 @@ class JeuCv extends Component {
                   <div className={styles.infoJeu}>IBM db2</div>
                   <div className={styles.infoJeu}>IBM QSH</div>
                   <div className={styles.infoJeu}>NextJS</div>
-                  <div className={styles.infoJeu}>NodeJS</div>
+                  <div className={styles.infoJeu}>nodeJS</div>
                   <div className={styles.infoJeu}>ExpressJS</div>
                   <div className={styles.infoJeu}>MongoDB</div>
                   <div className={styles.infoJeu}>SQL</div>
@@ -777,7 +777,7 @@ class JeuCv extends Component {
                 <h3 className={styles.titreh3}>Tools</h3>
                 <div className={styles.informatiquesLast}>
                   <div className={styles.infoJeu}>Git</div>
-                  <div className={styles.infoJeu}>IBM RDi</div>
+                  <div className={styles.infoJeu}>IBM Rdi</div>
                   <div className={styles.infoJeu}>IBM ACS</div>
                   <div className={styles.infoJeu}>ARCAD for i</div>
                   <div className={styles.infoJeu}>ADELIA for i</div> 
