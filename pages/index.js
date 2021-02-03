@@ -6,10 +6,14 @@ import Soleil from "../components/soleil"
 import Particles from "react-particles-js"
 
 export default function Home({
-  welcome = "welcome to my dev lab",
-  moiUS = "my name is Mikael",
-  metierUS = "i am a developer",
+  welcome = "Welcome to my dev lab",
+  welcomefr = "Bienvenue dans mon labo de developpement",
+  moiUS = "My name is Mikael",
+  moiFR = "Mon nom est Mikael",
+  metierUS = "I am a developer",
+  metierFR = "Je suis developpeur",
   intro = "This website hosts my experiences and skills",
+  introFR = "Ce site web heberge mes experiences and competences",
   paramParticles = {
     fpsLimit: 60,
     backgroundMode: {
@@ -38,14 +42,15 @@ export default function Home({
       <Header />
       <Particles id="Particles" params={paramParticles} />
       <h1 className="titreh1 english">{welcome}</h1>
-      <h1 className="titreh1 french">{welcome}</h1>
+      <h1 className="titreh1 french">{welcomefr}</h1>
       <Jonglage />
       <h2 className="titreh1 english">{moiUS}</h2>
       <h2 className="titreh1 english">{metierUS}</h2>
-      <h2 className="titreh1 french">{moiUS}</h2>
-      <h2 className="titreh1 french">{metierUS}</h2>
+      <h2 className="titreh1 french">{moiFR}</h2>
+      <h2 className="titreh1 french">{metierFR}</h2>
       <JeuCv></JeuCv>
-      <h2 className="titreh1">{intro}</h2>
+      <h2 className="titreh1 english">{intro}</h2>
+      <h2 className="titreh1 french">{introFR}</h2>
       <Soleil />
     </>
   )

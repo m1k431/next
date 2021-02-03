@@ -465,7 +465,7 @@ class JeuCv extends Component {
       }
 
       var deplacerBalle = function () {
-        var ballSpeed = 2.5
+        var ballSpeed = 2
         divSprite.style.top = ballY + "px"
         //ball move left right limit
         if (
