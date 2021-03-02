@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'ibm';
-  src: url('/fonts/IBMLogo.ttf');
+  font-family: "ibm";
+  src: url("/fonts/IBMLogo.ttf");
   font-weight: bold;
 }
 
-$myFont: 'ibm';
+$myFont: "ibm";
 
 %Button {
   border-radius: 28px;
@@ -34,5 +34,5 @@ $myFont: 'ibm';
 
 .github {
   position: absolute;
-  float: right;
+  right: 0;
 }
