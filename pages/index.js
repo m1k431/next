@@ -40,6 +40,7 @@ export default function Home({
   return (
     <>
       <Particles id="Particles" params={paramParticles} />
+      <br />
       <h1 className="titreh1 english">{welcome}</h1>
       <h1 className="titreh1 french">{welcomefr}</h1>
       <Jonglage />

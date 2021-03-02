@@ -38,13 +38,17 @@ class Header extends Component {
           <link rel="manifest" href="/mikael.webmanifest"></link>
         </Head>
         <Nav>
-          <Navbar.Brand href="https://www.linkedin.com/in/mika%C3%ABl-garcia/">
-            <img src={linkedIn} alt="linkedin" height="35" className={styles.linkedIn}/>
+          <Navbar.Brand href="https://github.com/m1k431/next">
+            <img src={GitHubL} alt="gitL" height="35" className={styles.linkedIn} />
+            <img src={GitHubR} alt="gitR" height="35" />
           </Navbar.Brand>
           <div className={styles.github}>
-            <Navbar.Brand href="https://github.com/m1k431/next">
-              <img src={GitHubL} alt="gitL" height="35" />
-              <img src={GitHubR} alt="gitR" height="35" />
+            <Navbar.Brand href="https://www.linkedin.com/in/mika%C3%ABl-garcia/">
+              <img
+                src={linkedIn}
+                alt="linkedin"
+                height="35"
+              />
             </Navbar.Brand>
           </div>
         </Nav>
