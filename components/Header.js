@@ -39,7 +39,7 @@ class Header extends Component {
         </Head>
         <Nav>
           <Navbar.Brand href="https://www.linkedin.com/in/mika%C3%ABl-garcia/">
-            <img src={linkedIn} alt="linkedin" height="35" />
+            <img src={linkedIn} alt="linkedin" height="35" className={styles.linkedIn}/>
           </Navbar.Brand>
           <div className={styles.github}>
             <Navbar.Brand href="https://github.com/m1k431/next">

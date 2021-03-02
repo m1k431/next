@@ -39,7 +39,6 @@ export default function Home({
 }) {
   return (
     <>
-      <Header />
       <Particles id="Particles" params={paramParticles} />
       <h1 className="titreh1 english">{welcome}</h1>
       <h1 className="titreh1 french">{welcomefr}</h1>
@@ -52,6 +51,7 @@ export default function Home({
       <h2 className="titreh1 english">{intro}</h2>
       <h2 className="titreh1 french">{introFR}</h2>
       <Soleil />
+      <Header />
     </>
   )
 }
