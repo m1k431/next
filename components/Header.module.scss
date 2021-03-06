@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'ibm';
-  src: url('/fonts/IBMLogo.ttf');
+  font-family: "ibm";
+  src: url("/fonts/IBMLogo.ttf");
   font-weight: bold;
 }
 
-$myFont: 'ibm';
+$myFont: "ibm";
 
 %Button {
   border-radius: 28px;
@@ -30,4 +30,13 @@ $myFont: 'ibm';
   left: 0;
   height: 50px;
   z-index: 1;
+}
+
+.github {
+  position: absolute;
+  right: 0;
+}
+
+.linkedIn {
+  margin-left: 1em;
 }

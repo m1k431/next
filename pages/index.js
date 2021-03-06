@@ -7,7 +7,7 @@ import Particles from "react-particles-js"
 
 export default function Home({
   welcome = "Welcome to my dev lab",
-  welcomefr = "Bienvenue dans mon labo de developpement",
+  welcomefr = "Welcome to my dev lab",
   moiUS = "My name is Mikael",
   moiFR = "Mon nom est Mikael",
   metierUS = "I am a developer",
@@ -39,8 +39,8 @@ export default function Home({
 }) {
   return (
     <>
-      <Header />
       <Particles id="Particles" params={paramParticles} />
+      <br />
       <h1 className="titreh1 english">{welcome}</h1>
       <h1 className="titreh1 french">{welcomefr}</h1>
       <Jonglage />
@@ -52,6 +52,7 @@ export default function Home({
       <h2 className="titreh1 english">{intro}</h2>
       <h2 className="titreh1 french">{introFR}</h2>
       <Soleil />
+      <Header />
     </>
   )
 }
