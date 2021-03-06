@@ -4,7 +4,6 @@ import { Nav, Navbar } from "react-bootstrap"
 import GitHubL from "../public/img/gitHubMark.png"
 import GitHubR from "../public/img/gitHubW.png"
 import linkedIn from "../public/img/LinkedIn_Logo.svg"
-import styles from "./Header.module.scss"
 
 class Header extends Component {
   render() {
@@ -37,21 +36,26 @@ class Header extends Component {
           />
           <link rel="manifest" href="/mikael.webmanifest"></link>
         </Head>
-        <Nav>
-          <Navbar.Brand href="https://github.com/m1k431/next">
-            <img src={GitHubL} alt="gitL" height="35" className={styles.linkedIn} />
-            <img src={GitHubR} alt="gitR" height="35" />
+
+        <Navbar collapseOnSelect expand="sm" bg="blue" variant="dark">
+          <Navbar.Brand href="https://www.linkedin.com/in/mika%C3%ABl-garcia/">
+            <img src={linkedIn} alt="linkedin" height="35" />
           </Navbar.Brand>
-          <div className={styles.github}>
-            <Navbar.Brand href="https://www.linkedin.com/in/mika%C3%ABl-garcia/">
-              <img
-                src={linkedIn}
-                alt="linkedin"
-                height="35"
-              />
-            </Navbar.Brand>
-          </div>
-        </Nav>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="/">Dev LAB</Nav.Link>
+              <Nav.Link href="/adhd">ADHD</Nav.Link>
+              {/*<Nav.Link href="/pong">pongJS</Nav.Link>*/}
+            </Nav>
+            <Nav>
+              <Nav.Link eventKey={2} href="https://github.com/m1k431/next">
+                <img src={GitHubL} alt="git" height="35" />
+                <img src={GitHubR} alt="git" height="35" />
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       </>
     )
   }

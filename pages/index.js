@@ -7,7 +7,7 @@ import Particles from "react-particles-js"
 
 export default function Home({
   welcome = "Welcome to my dev lab",
-  welcomefr = "Welcome to my dev lab",
+  welcomefr = "Bienvenue dans mon labo de developpement",
   moiUS = "My name is Mikael",
   moiFR = "Mon nom est Mikael",
   metierUS = "I am a developer",
