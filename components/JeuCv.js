@@ -212,17 +212,17 @@ class JeuCv extends Component {
         var dist = parseInt(touchobj.pageX) - startx // calculate dist traveled by touch point
         box2.style.left =
           boxleft + dist >
-          competences.offsetLeft +
+            competences.offsetLeft +
             competences.offsetWidth -
             linkedIn.offsetWidth
             ? competences.offsetLeft +
-              competences.offsetWidth -
-              linkedIn.offsetWidth -
-              5 +
-              "px"
+            competences.offsetWidth -
+            linkedIn.offsetWidth -
+            5 +
+            "px"
             : boxleft + dist < competences.offsetLeft
-            ? competences.offsetLeft - 5 + "px"
-            : boxleft + dist - 5 + "px"
+              ? competences.offsetLeft - 5 + "px"
+              : boxleft + dist - 5 + "px"
         if (clickMove === true) {
           ballX =
             linkedIn.offsetLeft +
@@ -244,12 +244,12 @@ class JeuCv extends Component {
       var movepaddle = function (mon0bjetEvent) {
         if (
           mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 - 5 >
-            (divNext.offsetWidth - competences.offsetWidth) / 2 +
-              competences.offsetLeft &&
+          (divNext.offsetWidth - competences.offsetWidth) / 2 +
+          competences.offsetLeft &&
           mon0bjetEvent.clientX + linkedIn.offsetWidth / 2 <
-            (divNext.offsetWidth - competences.offsetWidth) / 2 +
-              competences.offsetWidth +
-              5
+          (divNext.offsetWidth - competences.offsetWidth) / 2 +
+          competences.offsetWidth +
+          5
         ) {
           linkedIn.style.left =
             mon0bjetEvent.clientX -
@@ -260,7 +260,7 @@ class JeuCv extends Component {
         } else if (
           mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 <
           (divNext.offsetWidth - competences.offsetWidth) / 2 +
-            competences.offsetLeft
+          competences.offsetLeft
         ) {
           linkedIn.style.left = competences.offsetLeft - 5 + "px"
         } else if (
@@ -323,7 +323,7 @@ class JeuCv extends Component {
         if (
           ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft &&
           ballX + divSprite.offsetWidth / 2 <
-            linkedIn.offsetLeft + linkedIn.offsetWidth / 2
+          linkedIn.offsetLeft + linkedIn.offsetWidth / 2
         ) {
           ballDown = false
           ballLeft = true
@@ -343,8 +343,8 @@ class JeuCv extends Component {
           } else if (
             ballX + divSprite.offsetWidth / 2 <
             linkedIn.offsetLeft +
-              linkedIn.offsetWidth / 4 +
-              linkedIn.offsetWidth / 8
+            linkedIn.offsetWidth / 4 +
+            linkedIn.offsetWidth / 8
           ) {
             angle = 2
           } else if (
@@ -359,7 +359,7 @@ class JeuCv extends Component {
         else if (
           ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft &&
           ballX + divSprite.offsetWidth / 2 <
-            linkedIn.offsetLeft + linkedIn.offsetWidth
+          linkedIn.offsetLeft + linkedIn.offsetWidth
         ) {
           ballDown = false
           ballLeft = false
@@ -470,9 +470,9 @@ class JeuCv extends Component {
         //ball move left right limit
         if (
           ballX <
-            competences.offsetLeft +
-              competences.offsetWidth -
-              divSprite.offsetWidth &&
+          competences.offsetLeft +
+          competences.offsetWidth -
+          divSprite.offsetWidth &&
           !ballLeft
         ) {
           ballX = ballX + angle * ballSpeed
@@ -720,7 +720,7 @@ class JeuCv extends Component {
                 height="30"
               />
             </div>
-           {/* <button onClick={this.finJeu}>YOUWON</button>*/}
+            {/* <button onClick={this.finJeu}>YOUWON</button>*/}
             <div id="scoreForm" className="col-sm12 text-center">
               <Form>
                 <Form.Group>
@@ -780,8 +780,8 @@ class JeuCv extends Component {
                   <div className={styles.infoJeu}>IBM Rdi</div>
                   <div className={styles.infoJeu}>IBM ACS</div>
                   <div className={styles.infoJeu}>ARCAD for i</div>
-                  <div className={styles.infoJeu}>ADELIA for i</div> 
-                  <div className={styles.infoJeu}>IBM DPA</div> 
+                  <div className={styles.infoJeu}>ADELIA for i</div>
+                  <div className={styles.infoJeu}>IBM DPA</div>
                   <div className={styles.infoJeu}>bsh/zsh</div>
                   <div className={styles.infoJeu}>Linux</div>
                   <div className={styles.infoJeu}>osX</div>
@@ -888,20 +888,38 @@ class JeuCv extends Component {
               </h2>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Analyste Programmeur IBM i
+                  Developpeur IBM i
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>IBM i developer</h3>
                 <div className={`${styles.infojob} french`}>
-                  Programme d'anonymisation des données personnelles (RGPD) sur IBM db2 en ADELIA/SQL
+                  Editique AS400, virements bancaires, facturation, bordereaux, dématérialisation.
                 </div>
                 <div className={`${styles.infojob} english`}>
-                Programme d'anonymisation des données personnelles (RGPD) sur IBM db2 en ADELIA/SQL
+                  Editique AS400, virements bancaires, facturation, bordereaux, dématérialisation.
                 </div>
                 <div className={`${styles.infojob} spanish`}>
-                Programme d'anonymisation des données personnelles (RGPD) sur IBM db2 en ADELIA/SQL
+                  Editique AS400, virements bancaires, facturation, bordereaux, dématérialisation.
                 </div>
                 <div className={styles.lieu}>
-                  Depuis le 25/11/2020: Guarani, Bordeaux
+                  Depuis le 22/02/2021: SCP Cambron et Associés, Bordeaux
+                </div>
+              </div>
+              <div className={styles.jobs}>
+                <h3 className={`${styles.titreh3} french`}>
+                  Developpeur IBM i
+                </h3>
+                <h3 className={`${styles.titreh3} english`}>AS400 developer</h3>
+                <div className={`${styles.infojob} french`}>
+                  Programme d'anonymisation des données personnelles sur demande clients (RGPD).
+                </div>
+                <div className={`${styles.infojob} english`}>
+                  Programme d'anonymisation des données personnelles sur demande clients (RGPD).
+                </div>
+                <div className={`${styles.infojob} spanish`}>
+                  Programme d'anonymisation des données personnelles sur demande clients (RGPD).
+                </div>
+                <div className={styles.lieu}>
+                  25/11/2020: mission de 3 mois chez Filhet-Allard, Guarani, Bordeaux
                 </div>
               </div>
               <div className={styles.jobs}>
@@ -939,7 +957,7 @@ class JeuCv extends Component {
                   QSH, CL, CLP, SQLRGPLE, RPG III, Arcad, Rdi
                 </div>
                 <div className={styles.lieu}>
-                  04/02/2019 =&gt; 04/08/2019: OCSI, Paris I
+                  04/02/2019: mission de 6 mois chez Pro à Pro, OCSI, Paris I
                 </div>
               </div>
               <div className={styles.jobs}>
@@ -956,7 +974,7 @@ class JeuCv extends Component {
                   (magento)
                 </div>
                 <div className={styles.lieu}>
-                  06/12/2016 =&gt; 16/01/2017: www.snow-concept.com, l'Alpe
+                  06/12/2016: mission de 2 mois pour www.snow-concept.com, l'Alpe
                   d'Huez
                 </div>
               </div>
@@ -1009,7 +1027,7 @@ class JeuCv extends Component {
                   Toulouse Union y Antibes, ingeniería AUXITEC, Hyères
                 </div>
                 <div className={styles.lieu}>
-                  09/2012 =&gt; 12/2012: AUXITEC ingénierie, Hy&egrave;res
+                  09/2012: cdd de 3 mois chez AUXITEC ingénierie, Hy&egrave;res
                 </div>
               </div>
               <div className={styles.jobs}>
@@ -1067,7 +1085,7 @@ class JeuCv extends Component {
                 </h3>
                 <div className={`${styles.infojob} spanish`}>Nevada Sports</div>
                 <div className={styles.lieu}>
-                  12/2008 =&gt; 04/2009: l'Alpe d'Huez
+                  12/2008: contrat saisonnier à l'Alpe d'Huez
                 </div>
               </div>
               <div className={styles.jobs}>
@@ -1084,7 +1102,7 @@ class JeuCv extends Component {
                   British Telecom Critical Systems
                 </div>
                 <div className={styles.lieu}>
-                  07/2008 =&gt; 12/2008: Le Plessis-Robinson
+                  06/2008: cdd de 6 mois au Plessis-Robinson
                 </div>
               </div>
               <div className={styles.jobs}>
@@ -1101,7 +1119,7 @@ class JeuCv extends Component {
                 </h3>
                 <div className={`${styles.infojob} spanish`}>Intersport</div>
                 <div className={styles.lieu}>
-                  12/2007 =&gt; 04/2008: l'Alpe d'Huez
+                  12/2007: contrat saisonnier à l'Alpe d'Huez
                 </div>
               </div>
               <div className={styles.jobs}>
@@ -1153,7 +1171,7 @@ class JeuCv extends Component {
                   html desarrollo de un sitio de cotizaciones seguras
                 </div>
                 <div className={styles.lieu}>
-                  03/2005 =&gt; 06/2005: Emergence, Orléans
+                  03/2005: cdd de 3 mois chez Emergence, Orléans
                 </div>
               </div>
               <div className={styles.jobs}>
