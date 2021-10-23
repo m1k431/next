@@ -12,18 +12,3 @@
 #snowB {
   margin-top: 50px;
 }
-
-%videoSoleil {
-  //display: none;
-  width: 100%;
-  border-radius: 10px;
-  margin: auto;
-}
-
-.soleil {
-  @extend %videoSoleil;
-}
-
-.divsoleil {
-  font-family: 'ibm';
-}

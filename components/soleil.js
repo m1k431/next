@@ -26,7 +26,7 @@ class soleil extends Component {
         this.top = this.div.style.top = //250 + "px"
           Math.floor(Math.random() * Math.floor(50)) + 200 + "px"
         this.gauche = this.div.style.left = //"-10%"
-          Math.floor(Math.random() * Math.floor(100)) + "%"
+          Math.floor(Math.random() * Math.floor(96)) + "%"
         this.div.style.overflow = "hidden"
         //sprite
         this.image = document.createElement("img")
@@ -60,7 +60,7 @@ class soleil extends Component {
         //FPS control
         if (delta > interval) {
           //code for
-          if (parseFloat(this.div.style.left) < 100) {
+          if (parseFloat(this.div.style.left) < 95) {
             this.div.style.left = parseFloat(this.div.style.left) + 0.2 + "%"
           } else {
             this.div.style.left = "-10%"
@@ -217,20 +217,21 @@ class soleil extends Component {
         this.canvas.style.display = "block"
         this.canvas.width = 600
         this.canvas.height = 400
-        this.canvas.style.width = "100%"
+        this.canvas.style.width = "99%"
         this.canvas.style.height = "100%"
+        this.canvas.style.borderRadius = "10px"
         this.canvas.style.margin = 0
         this.canvas.style.backgroundColor = "blue"
         divSoleil.appendChild(this.canvas)
       }
     }
-
+    
     class Nuit {
       constructor() {
         this.canvas = document.createElement("canvas")
         this.canvas.width = 600
         this.canvas.height = 400
-        this.canvas.style.width = "100%"
+        this.canvas.style.width = "99%"
         this.canvas.style.height = "100%"
         this.canvas.id = "nuit"
         this.canvas.style.position = "absolute"
@@ -241,7 +242,7 @@ class soleil extends Component {
         divSoleil.appendChild(this.canvas)
       }
     }
-
+    
     class Lune {
       constructor() {
         this.canvas = document.createElement("canvas")
@@ -260,15 +261,16 @@ class soleil extends Component {
         divSoleil.appendChild(this.canvas)
       }
     }
-
+    
     class Mer {
       constructor() {
         this.canvas = document.createElement("canvas")
         this.canvas.width = 600
         this.canvas.height = 400
-        this.canvas.style.width = "100%"
+        this.canvas.style.width = "99%"
         this.canvas.style.height = "100%"
-        this.canvas.style.top = "50px"
+        this.canvas.style.borderRadius = "10px"
+        //this.canvas.style.top = "50px"
         this.canvas.id = "m0nC4nvaM3r"
         this.canvas.style.position = "absolute"
         this.canvas.style.display = "block"
@@ -280,26 +282,27 @@ class soleil extends Component {
         this.ctx.beginPath()
         this.ctx.moveTo(0, 600)
         this.ctx.lineTo(600, 400)
-        this.ctx.lineTo(600, 170)
-        this.ctx.bezierCurveTo(170, 178, 650, 172, 0, 170)
+        this.ctx.lineTo(600, 220)
+        this.ctx.bezierCurveTo(220, 228, 650, 222, 0, 220)
         this.ctx.closePath()
         this.ctx.stroke()
         this.ctx.fill()
         divSoleil.appendChild(this.canvas)
       }
     }
-
+    
     class Hill {
       constructor() {
         this.canvas = document.createElement("canvas")
         this.canvas.width = 600
         this.canvas.height = 400
-        this.canvas.style.width = "100%"
+        this.canvas.style.width = "99%"
         this.canvas.style.height = "100%"
+        this.canvas.style.borderRadius = "10px"
         this.canvas.id = "m0nC4nvaC0lline"
         this.canvas.style.display = "block"
         this.canvas.style.position = "absolute"
-        this.canvas.style.top = "45px"
+        //this.canvas.style.top = "45px"
         this.ctx = this.canvas.getContext("2d")
         this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
         this.gradient.addColorStop(0, "yellow")
@@ -308,8 +311,8 @@ class soleil extends Component {
         this.ctx.beginPath()
         this.ctx.moveTo(0, 400)
         this.ctx.lineTo(600, 400)
-        this.ctx.lineTo(600, 260)
-        this.ctx.bezierCurveTo(150, 150, 250, 130, 0, 200)
+        this.ctx.lineTo(600, 320)
+        this.ctx.bezierCurveTo(300, 300, 250, 150, 0, 300)
         this.ctx.closePath()
         this.ctx.stroke()
         this.ctx.fill()
@@ -327,6 +330,7 @@ class soleil extends Component {
         this.div.style.display = "block"
         this.div.style.overflow = "hidden"
         this.div.style.height = "300px"
+        //this.div.style.margin = "1%"
         this.canvas = document.createElement("canvas")
         this.canvas.width = 40
         this.canvas.height = 40
@@ -357,7 +361,7 @@ class soleil extends Component {
         this.tabSonic = []
         for (let i = 0; i <= 21; ++i) this.tabSonic[i] = new Sonic()
         this.bouclePrincpale()
-      }
+      } 
       bouclePrincpale(/*m0ntimestamp*/) {
         requestAnimationFrame(this.bouclePrincpale.bind(this))
         //FPS CONTROL
@@ -366,9 +370,9 @@ class soleil extends Component {
         if (delta > interval) {
           then = now - (delta % interval)
           //FPS CONTROL: code for drawing
-          if (this.c00rdX < 131) {
+          if (this.c00rdX < 112) {
             this.c00rdY = Math.cos(this.c00rdX / 24) * 54
-            this.canvas.style.top = this.c00rdY * 1.1 + 60 + "%"
+            this.canvas.style.top = this.c00rdY * 1.05 + 60 + "%"
             this.canvas.style.left = this.c00rdX * 1.3 - 50 + "%"
             this.ctx.clearRect(0, 0, 40, 40)
             this.lune.ctx.clearRect(0, 0, 40, 40)
