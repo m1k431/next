@@ -99,18 +99,18 @@ class soleil extends Component {
         this.source = document.createElement("source")
         this.source.src = "/img/360backnoreverse.mp4"
         this.source.type = "video/mp4"
-        
+
         this.div = document.createElement("div")
         this.div.id = "atari"
         this.div.style.position = "absolute"
         this.div.style.top = "105px"
         this.div.style.right = "10px"
-        
+
         this.img = document.createElement("img")
         this.img.src = "/img/Atari.png"
         this.img.style.position = "relative"
         this.img.style.height = "150px"
-        
+
         //Génération des éléments html
         this.video.appendChild(this.source)
         this.div.appendChild(this.video)
@@ -118,13 +118,13 @@ class soleil extends Component {
         divSoleil.appendChild(this.div)
       }
     }
-    
+
     //PALM TREE Factory
     class Monkey {
       constructor() {
         this.cpt = 0
         this.back = false
-        
+
         this.div = document.createElement("div")
         this.div.id = "divMonkey"
         this.div.className = "divMonkey"
@@ -134,7 +134,7 @@ class soleil extends Component {
         this.div.style.top = "50px"
         this.div.style.left = "59.55px"
         this.div.style.overflow = "hidden"
-        
+
         this.imgMonkey = document.createElement("img")
         this.imgMonkey.src = "/img/monkey.png"
         this.imgMonkey.id = "monkey"
@@ -142,7 +142,7 @@ class soleil extends Component {
         this.imgMonkey.style.position = "absolute"
         this.imgMonkey.style.height = "100%"
         this.imgMonkey.style.left = "-2215px"
-        
+
         this.imgPalm = document.createElement("img")
         this.imgPalm.src = "/img/palmTree.png"
         this.imgPalm.id = "palmTree"
@@ -151,7 +151,7 @@ class soleil extends Component {
         this.imgPalm.style.height = "65%"
         this.imgPalm.style.top = "30px"
         this.imgPalm.style.left = "5px"
-        
+
         //SINGE: Génération des éléments html
         divSoleil.appendChild(this.div)
         divSoleil.appendChild(this.imgPalm)
@@ -280,10 +280,12 @@ class soleil extends Component {
         this.canvas.style.position = "absolute"
         this.canvas.style.display = "block"
         this.ctx = this.canvas.getContext("2d")
+
         this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
         this.gradient.addColorStop(0, "blue")
         this.gradient.addColorStop(0.7, "cyan")
         this.ctx.fillStyle = this.gradient
+
         this.ctx.beginPath()
         this.ctx.moveTo(0, 600)
         this.ctx.lineTo(600, 400)
@@ -308,9 +310,11 @@ class soleil extends Component {
         this.canvas.style.display = "block"
         this.canvas.style.position = "absolute"
         this.ctx = this.canvas.getContext("2d")
+
         this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
         this.gradient.addColorStop(0, "yellow")
         this.gradient.addColorStop(0.8, "black")
+
         this.ctx.fillStyle = this.gradient
         this.ctx.beginPath()
         this.ctx.moveTo(0, 400)
@@ -331,6 +335,7 @@ class soleil extends Component {
         this.div.style.display = "block"
         this.div.style.overflow = "hidden"
         this.div.style.height = "300px"
+
         this.canvas = document.createElement("canvas")
         this.canvas.width = 40
         this.canvas.height = 40
@@ -338,10 +343,12 @@ class soleil extends Component {
         this.canvas.style.width = "40px"
         this.canvas.style.position = "absolute"
         this.ctx = this.canvas.getContext("2d")
+
         this.gradient = this.ctx.createRadialGradient(16, 16, 16, 16, 16, 14)
         this.gradient.addColorStop(0, "transparent")
         this.gradient.addColorStop(0.9, "yellow")
         this.ctx.fillStyle = this.gradient
+        divSoleil.appendChild(this.canvas)
 
         //coordonnées soleil
         this.c00rdX = 20
@@ -350,7 +357,6 @@ class soleil extends Component {
         //Création de l'environnement 
         this.ciel = new Ciel()
         this.nuit = new Nuit()
-        divSoleil.appendChild(this.canvas)
         this.lune = new Lune()
         this.mer = new Mer()
         this.hill = new Hill()
@@ -362,6 +368,7 @@ class soleil extends Component {
         for (let i = 0; i <= 21; ++i) this.tabSonic[i] = new Sonic()
         this.bouclePrincpale()
       }
+      // Mouvement du soleil avec animation des objets selon sa position (this.c00rdX)
       bouclePrincpale(/*m0ntimestamp*/) {
         requestAnimationFrame(this.bouclePrincpale.bind(this))
         //FPS CONTROL
