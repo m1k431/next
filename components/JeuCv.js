@@ -781,7 +781,6 @@ class JeuCv extends Component {
                   <div className={styles.infoJeu}>IBM Rdi</div>
                   <div className={styles.infoJeu}>IBM ACS</div>
                   <div className={styles.infoJeu}>ARCAD for i</div>
-                  <div className={styles.infoJeu}>ADELIA for i</div>
                   <div className={styles.infoJeu}>IBM DPA</div>
                   <div className={styles.infoJeu}>bsh/zsh</div>
                   <div className={styles.infoJeu}>Linux</div>
@@ -893,7 +892,7 @@ class JeuCv extends Component {
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>IBM i developer</h3>
                 <div className={`${styles.infojob} french`}>
-                  Editique AS400, virements bancaires, facturation, bordereaux, dématérialisation.
+                  Editique AS400, virements bancaires, facturation, bordereaux, dématèrialisation.
                 </div>
                 <div className={`${styles.infojob} english`}>
                   Editique AS400, virements bancaires, facturation, bordereaux, dématérialisation.

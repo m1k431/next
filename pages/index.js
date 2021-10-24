@@ -4,16 +4,17 @@ import Jonglage from "../components/Jonglage"
 import JeuCv from "../components/JeuCv"
 import Soleil from "../components/soleil"
 import Particles from "react-particles-js"
+import LogoNextJs from "../public/img/nextJs.png"
 
 export default function Home({
-  welcome = "Welcome to my dev lab",
-  welcomefr = "Bienvenue dans mon labo de developpement",
-  moiUS = "My name is Mikael",
-  moiFR = "Mon nom est Mikael",
-  metierUS = "I am a developer",
+  welcome = "Welcome",
+  welcomefr = "Bienvenue",
+  moiUS = "I am Mikael",
+  moiFR = "Je suis Mikael",
+  metierUS = "I am a javascript developer",
   metierFR = "Je suis developpeur",
-  intro = "This website hosts my experiences and skills",
-  introFR = "Ce site web heberge mes experiences et competences",
+  intro = "This website is made with ",
+  introFR = "Ce site est fait avec ",
   paramParticles = {
     fpsLimit: 60,
     backgroundMode: {
@@ -52,6 +53,9 @@ export default function Home({
       <JeuCv></JeuCv>
       <h2 className="titreh1 english">{intro}</h2>
       <h2 className="titreh1 french">{introFR}</h2>
+      <a href="https://nextjs.org/">
+        <img src={LogoNextJs} alt="NextJS" height="35" style={{ width: "40%", marginLeft: "30%", height: "auto" }} />
+      </a>
       <Soleil />
     </>
   )
