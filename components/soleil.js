@@ -187,6 +187,7 @@ class soleil extends Component {
         this.image.id = "cloud"
         this.image.className = "cloud"
         this.image.style.position = "absolute"
+        this.image.style.width = "98%"
         this.image.style.left = "600px"
         this.image.style.top = "-460px"
         this.image.style.height = "200%"
@@ -217,7 +218,7 @@ class soleil extends Component {
         this.canvas.style.display = "block"
         this.canvas.width = 600
         this.canvas.height = 400
-        this.canvas.style.width = "99%"
+        this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
         this.canvas.style.borderRadius = "10px"
         this.canvas.style.margin = 0
@@ -231,7 +232,7 @@ class soleil extends Component {
         this.canvas = document.createElement("canvas")
         this.canvas.width = 600
         this.canvas.height = 400
-        this.canvas.style.width = "99%"
+        this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
         this.canvas.id = "nuit"
         this.canvas.style.position = "absolute"
@@ -267,7 +268,7 @@ class soleil extends Component {
         this.canvas = document.createElement("canvas")
         this.canvas.width = 600
         this.canvas.height = 400
-        this.canvas.style.width = "99%"
+        this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
         this.canvas.style.borderRadius = "10px"
         //this.canvas.style.top = "50px"
@@ -296,7 +297,7 @@ class soleil extends Component {
         this.canvas = document.createElement("canvas")
         this.canvas.width = 600
         this.canvas.height = 400
-        this.canvas.style.width = "99%"
+        this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
         this.canvas.style.borderRadius = "10px"
         this.canvas.id = "m0nC4nvaC0lline"
