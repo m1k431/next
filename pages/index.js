@@ -54,7 +54,7 @@ export default function Home({
       <h2 className="titreh1 english">{intro}</h2>
       <h2 className="titreh1 french">{introFR}</h2>
       <a href="https://nextjs.org/">
-        <img src={LogoNextJs} alt="NextJS" height="35" style={{ width: "40%", marginLeft: "30%", height: "auto" }} />
+        <img src={LogoNextJs} alt="NextJS" height="35" style={{ width: "20%", marginLeft: "40%", height: "auto" }} />
       </a>
       <Soleil />
     </>
