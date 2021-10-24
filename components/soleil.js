@@ -57,7 +57,7 @@ class soleil extends Component {
         //FPS control
         if (delta > interval) {
           //code for
-          if (parseFloat(this.div.style.left) < 95) {
+          if (parseFloat(this.div.style.left) < 100) {
             this.div.style.left = parseFloat(this.div.style.left) + 0.2 + "%"
           } else {
             this.div.style.left = "-10%"
@@ -348,16 +348,16 @@ class soleil extends Component {
         this.gradient.addColorStop(0, "transparent")
         this.gradient.addColorStop(0.9, "yellow")
         this.ctx.fillStyle = this.gradient
-        divSoleil.appendChild(this.canvas)
-
+        
         //coordonnées soleil
         this.c00rdX = 20
         this.c00rdY = 2
-
+        
         //Création de l'environnement 
         this.ciel = new Ciel()
         this.nuit = new Nuit()
         this.lune = new Lune()
+        divSoleil.appendChild(this.canvas)
         this.mer = new Mer()
         this.hill = new Hill()
         // this.nuage = new Nuage()
