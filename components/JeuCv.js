@@ -701,7 +701,7 @@ class JeuCv extends Component {
       <Container>
         <Row>
           <Col>
-            <div id="metier" onClick={this.varsStart}>
+            <div id="metier" className={styles.metier} onClick={this.varsStart}>
               <h2 className={styles.titreh2}>{metier}</h2>
             </div>
             <div className="col-sm12 text-center">
@@ -720,7 +720,8 @@ class JeuCv extends Component {
                 height="30"
               />
             </div>
-            {/* <button onClick={this.finJeu}>YOUWON</button>*/}
+            {/* For testing */}
+            {/* <button onClick={this.finJeu}>YOUWON</button> */}
             <div id="scoreForm" className="col-sm12 text-center">
               <Form>
                 <Form.Group>
