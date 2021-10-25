@@ -11,10 +11,10 @@ export default function Home({
   welcomefr = "Bienvenue",
   moiUS = "I am Mikael",
   moiFR = "Je suis Mikael",
-  metierUS = "I am a javascript developer",
-  metierFR = "Je suis developpeur",
-  intro = "This website is made with ",
-  introFR = "Ce site est fait avec ",
+  metierUS = "I am an IBM fullstack developer",
+  metierFR = "Je suis un developpeur IBM fullstack",
+  outro = "This website is made with",
+  outroFR = "Ce site est fait avec",
   paramParticles = {
     fpsLimit: 60,
     backgroundMode: {
@@ -45,18 +45,23 @@ export default function Home({
       <br />
       <h1 className="titreh1 english">{welcome}</h1>
       <h1 className="titreh1 french">{welcomefr}</h1>
-      <Jonglage />
       <h2 className="titreh1 english">{moiUS}</h2>
-      <h2 className="titreh1 english">{metierUS}</h2>
       <h2 className="titreh1 french">{moiFR}</h2>
+      <Jonglage />
+      <h2 className="titreh1 english">{metierUS}</h2>
       <h2 className="titreh1 french">{metierFR}</h2>
       <JeuCv></JeuCv>
-      <h2 className="titreh1 english">{intro}</h2>
-      <h2 className="titreh1 french">{introFR}</h2>
+      <br />
+      <a href="https://github.com/m1k431/next/blob/master/components/soleil.js" style={{ fontSize: "2em", color: "yellowgreen" }}>
+        <center style={{ textDecoration: "underline"}}>Programation Objets:</center>
+        <center>https://github.com/m1k431/next/blob/master/components/soleil.js</center>
+      </a>
+      <Soleil />
+      <h2 className="titreh1 english">{outro}</h2>
+      <h2 className="titreh1 french">{outroFR}</h2>
       <a href="https://nextjs.org/">
         <img src={LogoNextJs} alt="NextJS" height="35" style={{ width: "20%", marginLeft: "40%", height: "auto" }} />
       </a>
-      <Soleil />
     </>
   )
 }

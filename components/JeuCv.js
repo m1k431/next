@@ -21,7 +21,7 @@ class JeuCv extends Component {
     $(".moi").fadeIn()
     $(".metier").fadeIn()
     $("#metier > h2").fadeOut(375, function () {
-      $(this).text("Click or Touch here to START").fadeIn(375)
+      $(this).text("Click or Touch here to START my BrickBreaker javascript game").fadeIn(375)
     })
     var $div2blink = $("#metier") // Save reference, only look this item up once, then save
     var idInterBlink = setInterval(function () {
@@ -837,12 +837,12 @@ class JeuCv extends Component {
               <div className={styles.commerciales} id="commerciales">
                 <h3 className={styles.titreh3}>H to H</h3>
                 <div className={`${styles.info} french`}>
-                  Assistant régie au Palais des Festivals de Cannes en
+                  Assistant régie pour le Palais des Festivals de Cannes et en
                   productions télévisuelles
                 </div>
                 <div className={`${styles.info} english`}>
                   Show management at Palais des Festivals in Cannes and in
-                  television productions company
+                  television productions companies
                 </div>
                 <div className={`${styles.info} spanish`}>
                   Asistente de dirección en el Palais des Festivals de Cannes y
