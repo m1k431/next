@@ -743,6 +743,7 @@ class JeuCv extends Component {
                 </Button>
               </Form>
             </div>
+            <h1>Curiculum Vitae</h1>
             <div className={styles.competen} id="competen">
               <h2 className={`${styles.titreh2} french`}>Competences</h2>
               <h2 className={`${styles.titreh2} english`}>Skills</h2>
