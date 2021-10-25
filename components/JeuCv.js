@@ -765,7 +765,7 @@ class JeuCv extends Component {
                 <h3 className={styles.titreh3}>Back End</h3>
                 <div className={styles.informatiques}>
                   <div className={styles.infoJeu}>IBM i</div>
-                  <div className={styles.infoJeu}>IBM RPG IV</div>
+                  <div className={styles.infoJeu}>IBM RPG</div>
                   <div className={styles.infoJeu}>IBM CLP</div>
                   <div className={styles.infoJeu}>IBM db2</div>
                   <div className={styles.infoJeu}>IBM QSH</div>
@@ -782,12 +782,13 @@ class JeuCv extends Component {
                   <div className={styles.infoJeu}>IBM Rdi</div>
                   <div className={styles.infoJeu}>IBM ACS</div>
                   <div className={styles.infoJeu}>ARCAD for i</div>
-                  <div className={styles.infoJeu}>IBM DPA</div>
+                  <div className={styles.infoJeu}>IBM PDM</div>
                   <div className={styles.infoJeu}>bsh/zsh</div>
                   <div className={styles.infoJeu}>Linux</div>
-                  <div className={styles.infoJeu}>osX</div>
-                  <div className={styles.infoJeu}>Photoshop</div>
-                  <div className={styles.infoJeu}>Windows</div>
+                  <div className={styles.infoJeu}>Mac osX</div>
+                  <div className={styles.infoJeu}>Adobe Photoshop</div>
+                  <div className={styles.infoJeu}>Ms Windows</div>
+                  <div className={styles.infoJeu}>Ms Office</div>
                 </div>
                 <div id="linkedIn" className={styles.linkedinT}>
                   {" "}
