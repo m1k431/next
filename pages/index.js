@@ -54,7 +54,7 @@ export default function Home({
       <br />
       <a href="https://github.com/m1k431/next/blob/master/components/soleil.js" style={{ fontSize: "2em", color: "yellowgreen" }}>
         <center style={{ textDecoration: "underline"}}>Programation Objets:</center>
-        <center>https://github.com/m1k431/next/blob/master/components/soleil.js</center>
+        <center>https://github.com/m1k431/soleil.js</center>
       </a>
       <Soleil />
       <h2 className="titreh1 english">{outro}</h2>
