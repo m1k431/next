@@ -6,7 +6,7 @@
     "dev": "set NODE_OPTIONS=--openssl-legacy-provider & next dev",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider & next build",
     "start": "set NODE_OPTIONS=--openssl-legacy-provider & next start",
-    "serverdev": "node server.js",
+    "serverdev": "set NODE_OPTIONS=--openssl-legacy-provider & node server.js",
     "serverprod": "NODE_ENV=production node server.js"
   },
   "dependencies": {
