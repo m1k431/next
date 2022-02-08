@@ -21,7 +21,7 @@ class JeuCv extends Component {
     $(".moi").fadeIn()
     $(".metier").fadeIn()
     $("#metier > h2").fadeOut(375, function () {
-      $(this).text("Click or Touch here to START my BrickBreaker javascript game").fadeIn(375)
+      $(this).text("Click or Touch here to PLAY a BrickBreaker javascript game").fadeIn(375)
     })
     var $div2blink = $("#metier") // Save reference, only look this item up once, then save
     var idInterBlink = setInterval(function () {
@@ -743,7 +743,7 @@ class JeuCv extends Component {
                 </Button>
               </Form>
             </div>
-            <h1>Curriculum Vitae</h1>
+            <h1 className="titreh1">Curriculum Vitae</h1>
             <div className={styles.competen} id="competen">
               <h2 className={`${styles.titreh2} french`}>Competences</h2>
               <h2 className={`${styles.titreh2} english`}>Skills</h2>
