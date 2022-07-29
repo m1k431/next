@@ -8,7 +8,7 @@ import linkedIn from "../public/img/LinkedIn_Logo.svg"
 class Header extends Component {
   render() {
     const currentURL = "https://nextfolio.vercel.app",
-      previewImage = "//nextfolio.vercel.app/ogimage.png"
+      previewImage = "/ogimage.png"
     return (
       <>
         <Head>
@@ -19,7 +19,7 @@ class Header extends Component {
           />
           <title>My Javascript Portfolio</title>
           <meta name="description" content="My Javascript Portfolio" />
-          <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+          {/*<link rel="icon" type="image/x-icon" href="/favicon.ico" /> */}
           <meta property="og:title" content="DEV Lab" key="ogtitle" />
           <meta property="og:type" content="article" />
           <meta
@@ -45,8 +45,8 @@ class Header extends Component {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link href="/">Dev LAB</Nav.Link>
-              <Nav.Link href="/adhd">ADHD</Nav.Link>
-              {/*<Nav.Link href="/pong">pongJS</Nav.Link>*/}
+             {/* <Nav.Link href="/adhd">ADHD</Nav.Link> */}
+             {/* <Nav.Link href="/pong">pongJS</Nav.Link> */}
             </Nav>
             <Nav>
               <Nav.Link eventKey={2} href="https://github.com/m1k431/next">
