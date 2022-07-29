@@ -20,20 +20,11 @@ class Header extends Component {
           <title>My Javascript Portfolio</title>
           <meta name="description" content="My Javascript Portfolio" />
           {/*<link rel="icon" type="image/x-icon" href="/favicon.ico" /> */}
-          <meta property="og:title" content="DEV Lab" key="ogtitle" />
-          <meta property="og:type" content="article" />
-          <meta
-            property="og:description"
-            content="My name is Mikael. I'm an IBM software engineer. This website hosts my projects, skills and experiences."
-            key="ogdesc"
-          />
           <meta property="og:url" content={currentURL} key="ogurl" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Portfolio Mikael" key="ogtitle" />
+          <meta property="og:description" content="My name is Mikael. I'm an IBM software engineer. This website hosts my projects, skills and experiences." />
           <meta property="og:image" content={previewImage} key="ogimage" />
-          <meta
-            property="og:image:secure_url"
-            content={previewImage}
-            key="ogimage"
-          />
           <link rel="manifest" href="/mikael.webmanifest"></link>
         </Head>
 
@@ -45,8 +36,8 @@ class Header extends Component {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link href="/">Dev LAB</Nav.Link>
-             {/* <Nav.Link href="/adhd">ADHD</Nav.Link> */}
-             {/* <Nav.Link href="/pong">pongJS</Nav.Link> */}
+              {/* <Nav.Link href="/adhd">ADHD</Nav.Link> */}
+              {/* <Nav.Link href="/pong">pongJS</Nav.Link> */}
             </Nav>
             <Nav>
               <Nav.Link eventKey={2} href="https://github.com/m1k431/next">
