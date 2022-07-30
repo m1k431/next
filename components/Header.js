@@ -13,10 +13,7 @@ class Header extends Component {
       <>
         <Head>
           <meta charSet="utf-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=0.8"
-          />
+          <meta name="viewport" content="width=device-width, initial-scale=0.8" />
           <title>My Javascript Portfolio</title>
           <meta name="description" content="My Javascript Portfolio" />
           {/*<link rel="icon" type="image/x-icon" href="/favicon.ico" /> */}
@@ -28,19 +25,18 @@ class Header extends Component {
           <link rel="manifest" href="/mikael.webmanifest"></link>
         </Head>
 
-        <Navbar collapseOnSelect expand="sm" bg="blue" variant="dark">
+        <Navbar bg="blue" variant="dark">
           <Navbar.Brand href="https://www.linkedin.com/in/mika%C3%ABl-garcia/">
-            <img src={linkedIn} alt="linkedin" height="35" />
+            <img src={linkedIn} alt="linkedin" height="35" style={{ marginLeft: "10px"}} />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
+          <Navbar.Collapse className="justify-content-end">
+            <Nav>
               <Nav.Link href="/">Dev LAB</Nav.Link>
               {/* <Nav.Link href="/adhd">ADHD</Nav.Link> */}
               {/* <Nav.Link href="/pong">pongJS</Nav.Link> */}
             </Nav>
             <Nav>
-              <Nav.Link eventKey={2} href="https://github.com/m1k431/next">
+              <Nav.Link href="https://github.com/m1k431/next">
                 <img src={GitHubL} alt="git" height="35" />
                 <img src={GitHubR} alt="git" height="35" />
               </Nav.Link>

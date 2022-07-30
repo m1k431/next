@@ -726,17 +726,13 @@ class JeuCv extends Component {
               <Form>
                 <Form.Group>
                   {/* <Form.Label>Enter your name</Form.Label> */}
-                  <Form.Row>
+                  <Row>
                     <Col></Col>
                     <Col>
-                      <Form.Control
-                        id="postName"
-                        type="text"
-                        placeholder="Name"
-                      />
+                      <Form.Control id="postName" type="text" placeholder="Name" />
                     </Col>
                     <Col></Col>
-                  </Form.Row>
+                  </Row>
                 </Form.Group>
                 <Button variant="primary" type="submit" id="boutton">
                   Submit
@@ -766,7 +762,7 @@ class JeuCv extends Component {
                 <div className={styles.informatiques}>
                   <div className={styles.infoJeu}>IBM i</div>
                   <div className={styles.infoJeu}>IBM RPG</div>
-                  <div className={styles.infoJeu}>IBM CLP</div>
+                  <div className={styles.infoJeu}>IBM CL</div>
                   <div className={styles.infoJeu}>IBM db2</div>
                   <div className={styles.infoJeu}>IBM QSH</div>
                   <div className={styles.infoJeu}>NextJS</div>

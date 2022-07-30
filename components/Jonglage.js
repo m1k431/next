@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import VideoJ from "../public/img/theOneFinal.mp4"
+//import VideoJ from "../public/img/theOneFinal.mp4"
 import VideoPoster from "../public/img/kuansiFalls.jpg"
 import styles from "./Jonglage.module.scss"
 import { Container, Row, Col } from "react-bootstrap"
@@ -10,7 +10,7 @@ class Jonglage extends Component {
       <Container>
         <Row>
           <Col>
-            <video
+            {/* <video
               className={styles.jonglage}
               muted
               autoPlay
@@ -20,7 +20,7 @@ class Jonglage extends Component {
               controls
             >
               <source src={VideoJ} type="video/mp4" />
-            </video>
+    </video> */ }
           </Col>
         </Row>
       </Container>
