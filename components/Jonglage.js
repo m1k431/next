@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 //import VideoJ from "../public/img/theOneFinal.mp4"
-import VideoPoster from "../public/img/kuansiFalls.jpg"
-import styles from "./Jonglage.module.scss"
+//import VideoPoster from "../public/img/kuansiFalls.jpg"
+//import styles from "./Jonglage.module.scss"
 import { Container, Row, Col } from "react-bootstrap"
 
 class Jonglage extends Component {

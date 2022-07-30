@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from "react"
 import $ from "jquery"
 import uk from "../public/img/uk.svg"

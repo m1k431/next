@@ -1,4 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
 import Header from "../components/Header"
 //import Jonglage from "../components/Jonglage"
 import JeuCv from "../components/JeuCv"

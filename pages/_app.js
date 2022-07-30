@@ -1,4 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
 import "../styles/globals.css"
 import "../styles/app.scss"
 import "../styles/customBootstrap.scss"
