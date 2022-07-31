@@ -20,7 +20,7 @@ export default (req, res) => {
         backend: [
           "IBM i",
           "IBM RPG IV",
-          "IBM CLP",
+          "IBM CL",
           "IBM db2",
           "IBM QSH",
           "NextJS",

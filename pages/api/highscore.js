@@ -28,4 +28,5 @@ handler.post(async (req, res) => {
     res.json(doc)
   }
 })
+
 export default handler
