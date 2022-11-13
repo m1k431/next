@@ -14,8 +14,8 @@ export default function Home({
   metierUS = "I am an IBM fullstack developer",
   metierFR = "Je suis un developpeur IBM fullstack",
   outro = "This website is made with",
-  outroFR = "Ce site est fait avec",
-  paramParticles = {
+  outroFR = "Ce site est fait avec"
+  /*paramParticles = {
     fpsLimit: 60,
     backgroundMode: {
       enable: true,
@@ -36,7 +36,7 @@ export default function Home({
         },
       },
     },
-  },
+  },*/
 }) {
   return (
     <>
