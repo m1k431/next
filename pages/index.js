@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import Header from "../components/Header"
-//import Jonglage from "../components/Jonglage"
+import Jonglage from "../components/Jonglage"
 import JeuCv from "../components/JeuCv"
 import Soleil from "../components/soleil"
-import Particles from "react-particles-js"
+//import Particles from "react-particles-js"
 import LogoNextJs from "../public/img/nextJs.png"
 
 export default function Home({
@@ -40,14 +40,14 @@ export default function Home({
 }) {
   return (
     <>
-      <Particles id="Particles" params={paramParticles} />
+      { /* <Particles id="Particles" params={paramParticles} /> */ }
       <Header />
       <br />
       <h1 className="titreh1 english">{welcome}</h1>
       <h1 className="titreh1 french">{welcomefr}</h1>
       <h2 className="titreh1 english">{moiUS}</h2>
       <h2 className="titreh1 french">{moiFR}</h2>
-      { /* <Jonglage /> */ }
+      <Jonglage />
       <h2 className="titreh1 english">{metierUS}</h2>
       <h2 className="titreh1 french">{metierFR}</h2>
       <JeuCv></JeuCv>
