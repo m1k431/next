@@ -377,7 +377,7 @@ class soleil extends Component {
         if (delta > interval) {
           then = now - (delta % interval)
           //FPS CONTROL: code for drawing
-          if (this.c00rdX < 120) {
+          if (this.c00rdX < 110) {
             this.c00rdY = Math.cos(this.c00rdX / 24) * 54
             this.canvas.style.top = this.c00rdY * 1.05 + 60 + "%"
             this.canvas.style.left = this.c00rdX * 1.3 - 50 + "%"
@@ -386,9 +386,9 @@ class soleil extends Component {
             switch (this.c00rdX) {
               case 40:
                 $("#nuit").fadeOut(1000)
-                $("#moon").fadeOut(2000)
                 break
               case 44:
+                $("#moon").fadeOut(2000)
                 cancelAnimationFrame(this.monkey.idMU)
                 this.monkey.monkeyDown()
                 for (var i = 0; i < this.tabSonic.length; ++i) {
@@ -398,17 +398,19 @@ class soleil extends Component {
                 }
                 //snowBack.play()
                 break
-              case 62:
+              case 69:
                 cancelAnimationFrame(this.monkey.idMD)
                 this.monkey.monkeyUp()
                 break
-              case 82:
+              case 87:
                 cancelAnimationFrame(this.monkey.idMU)
                 this.monkey.monkeyDown()
                 break
-              case 110:
+              case 105:
+                $("#moon").fadeIn(2000)
+                break
+              case 107:
                 //snowBack.pause()
-                $("#nuit").fadeIn(1000)
                 cancelAnimationFrame(this.monkey.idMD)
                 this.monkey.monkeyUp()
                 for (i = 0; i < this.tabSonic.length; ++i) {
@@ -417,8 +419,8 @@ class soleil extends Component {
                   this.tabSonic[i].sonicSennuie()
                 }
                 break
-              case 111:
-                $("#moon").fadeIn(2000)
+              case 108:
+                $("#nuit").fadeIn(1000)
                 break
               default:
             }
