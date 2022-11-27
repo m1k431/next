@@ -377,7 +377,7 @@ class soleil extends Component {
         if (delta > interval) {
           then = now - (delta % interval)
           //FPS CONTROL: code for drawing
-          if (this.c00rdX < 112) {
+          if (this.c00rdX < 120) {
             this.c00rdY = Math.cos(this.c00rdX / 24) * 54
             this.canvas.style.top = this.c00rdY * 1.05 + 60 + "%"
             this.canvas.style.left = this.c00rdX * 1.3 - 50 + "%"
@@ -389,6 +389,7 @@ class soleil extends Component {
                 $("#moon").fadeOut(2000)
                 break
               case 44:
+                cancelAnimationFrame(this.monkey.idMU)
                 this.monkey.monkeyDown()
                 for (var i = 0; i < this.tabSonic.length; ++i) {
                   cancelAnimationFrame(this.tabSonic[i].idSennuie)
@@ -422,7 +423,6 @@ class soleil extends Component {
                 break
               case 111:
                 $("#moon").fadeIn(2000)
-                cancelAnimationFrame(this.monkey.idMU)
                 break
               default:
             }
