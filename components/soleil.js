@@ -36,48 +36,39 @@ class soleil extends Component {
         this.div.appendChild(this.image)
         divSoleil.appendChild(this.div)
       }
+
       sonicMarche() {
         this.idmarche = requestAnimationFrame(this.sonicMarche.bind(this))
-        //FPS control
-        if (delta > interval) {
-          //code for
-          if (this.bool2 === false) {
-            this.image.style.left = "-50px"
-            this.image.style.top = "-95px"
-            this.bool2 = true
-          } else {
-            if (parseFloat(this.image.style.left) > -200) {
-              this.image.style.left = parseFloat(this.image.style.left) - 49 + "px"
-            } else this.bool2 = false
-          }
+        if (this.bool2 === false) {
+          this.image.style.left = "-50px"
+          this.image.style.top = "-95px"
+          this.bool2 = true
+        } else {
+          if (parseFloat(this.image.style.left) > -200) {
+            this.image.style.left = parseFloat(this.image.style.left) - 49 + "px"
+          } else this.bool2 = false
         }
       }
+
       sonicSeDeplace() {
         this.idSeDeplace = requestAnimationFrame(this.sonicSeDeplace.bind(this))
-        //FPS control
-        if (delta > interval) {
-          //code for
-          if (parseFloat(this.div.style.left) < 100) {
-            this.div.style.left = parseFloat(this.div.style.left) + 0.2 + "%"
-          } else {
-            this.div.style.left = "-10%"
-          }
+        if (parseFloat(this.div.style.left) < 100) {
+          this.div.style.left = parseFloat(this.div.style.left) + 0.2 + "%"
+        } else {
+          this.div.style.left = "-10%"
         }
       }
+
       sonicSennuie() {
         this.idSennuie = requestAnimationFrame(this.sonicSennuie.bind(this))
-        //FPS control
-        if (delta > interval) {
-          //code for
-          if (this.bool === false) {
-            this.image.style.left = "-55px"
-            this.image.style.top = "-21px"
-            this.bool = true
-          } else {
-            if (parseFloat(this.image.style.left) > -200) {
-              this.image.style.left = parseFloat(this.image.style.left) - 49 + "px"
-            } else this.bool = false
-          }
+        if (this.bool === false) {
+          this.image.style.left = "-55px"
+          this.image.style.top = "-21px"
+          this.bool = true
+        } else {
+          if (parseFloat(this.image.style.left) > -200) {
+            this.image.style.left = parseFloat(this.image.style.left) - 49 + "px"
+          } else this.bool = false
         }
       }
     }
@@ -157,32 +148,26 @@ class soleil extends Component {
         divSoleil.appendChild(this.imgPalm)
         this.div.appendChild(this.imgMonkey)
       }
+
       monkeyDown() {
         this.idMD = requestAnimationFrame(this.monkeyDown.bind(this))
-        //FPS control
-        if (delta > interval) {
-          //code for
-          if (parseFloat(this.imgMonkey.style.left) <= 0 && !this.back) {
-            this.imgMonkey.style.left =
-              parseFloat(this.imgMonkey.style.left) + 105.52 + "px"
-            this.cpt++
-          } else {
-            this.back = true
-          }
+        if (parseFloat(this.imgMonkey.style.left) <= 0 && !this.back) {
+          this.imgMonkey.style.left =
+            parseFloat(this.imgMonkey.style.left) + 105.52 + "px"
+          this.cpt++
+        } else {
+          this.back = true
         }
       }
+
       monkeyUp() {
         this.idMU = requestAnimationFrame(this.monkeyUp.bind(this))
-        //FPS control
-        if (delta > interval) {
-          //code for
-          if (this.cpt > 0) {
-            this.imgMonkey.style.left =
-              parseFloat(this.imgMonkey.style.left) - 105.52 + "px"
-            this.cpt--
-          } else {
-            this.back = false
-          }
+        if (this.cpt > 0) {
+          this.imgMonkey.style.left =
+            parseFloat(this.imgMonkey.style.left) - 105.52 + "px"
+          this.cpt--
+        } else {
+          this.back = false
         }
       }
     }
@@ -413,14 +398,14 @@ class soleil extends Component {
                 //snowBack.pause()
                 cancelAnimationFrame(this.monkey.idMD)
                 this.monkey.monkeyUp()
+                break
+              case 108:
+                $("#nuit").fadeIn(1000)
                 for (i = 0; i < this.tabSonic.length; ++i) {
                   cancelAnimationFrame(this.tabSonic[i].idmarche)
                   cancelAnimationFrame(this.tabSonic[i].idSeDeplace)
                   this.tabSonic[i].sonicSennuie()
                 }
-                break
-              case 108:
-                $("#nuit").fadeIn(1000)
                 break
               default:
             }
