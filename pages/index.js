@@ -11,8 +11,8 @@ export default function Home({
   welcomefr = "Bienvenue",
   moiUS = "I am Mikael",
   moiFR = "Je suis Mikael",
-  metierUS = "I am an IBM fullstack developer",
-  metierFR = "Je suis un developpeur IBM fullstack",
+  metierUS = "IBM and JavaScript fullstack developer",
+  metierFR = "Developpeur IBM et JavaScript fullstack",
   outro = "This website is made with",
   outroFR = "Ce site est fait avec"
   /*paramParticles = {
@@ -52,9 +52,8 @@ export default function Home({
       <h2 className="titreh1 french">{metierFR}</h2>
       <JeuCv></JeuCv>
       <br />
-      <a href="https://github.com/m1k431/next/blob/master/components/soleil.js" style={{ fontSize: "2em", color: "yellowgreen" }}>
-        <center style={{ textDecoration: "underline"}}>Programmation Objets:</center>
-        <center>https://github.com/m1k431/soleil.js</center>
+      <a className="titreh1" href="https://github.com/m1k431/next/blob/master/components/soleil.js" style={{ textDecoration: "none" }}>
+        <center>Programmation Objets</center>
       </a>
       <Soleil />
       <h2 className="titreh1 english">{outro}</h2>

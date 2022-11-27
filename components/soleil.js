@@ -348,11 +348,11 @@ class soleil extends Component {
         this.gradient.addColorStop(0, "transparent")
         this.gradient.addColorStop(0.9, "yellow")
         this.ctx.fillStyle = this.gradient
-        
+
         //coordonnées soleil
         this.c00rdX = 20
         this.c00rdY = 2
-        
+
         //Création de l'environnement 
         this.ciel = new Ciel()
         this.nuit = new Nuit()
@@ -384,11 +384,9 @@ class soleil extends Component {
             this.ctx.clearRect(0, 0, 40, 40)
             this.lune.ctx.clearRect(0, 0, 40, 40)
             switch (this.c00rdX) {
-              case 30:
-                $("#nuit").fadeOut(3000)
-                break
               case 40:
-                $("#moon").fadeOut(3000)
+                $("#nuit").fadeOut(1000)
+                $("#moon").fadeOut(2000)
                 break
               case 44:
                 this.monkey.monkeyDown()
@@ -407,20 +405,24 @@ class soleil extends Component {
                 cancelAnimationFrame(this.monkey.idMU)
                 this.monkey.monkeyDown()
                 break
-              case 108:
-                $("#moon").fadeIn(3000)
+              case 99:
                 cancelAnimationFrame(this.monkey.idMD)
                 this.monkey.monkeyUp()
-                //snowBack.pause()
                 break
-              case 109:
-                $("#nuit").fadeIn(3000)
-                cancelAnimationFrame(this.monkey.idMU)
+              case 107:
                 for (i = 0; i < this.tabSonic.length; ++i) {
                   cancelAnimationFrame(this.tabSonic[i].idmarche)
                   cancelAnimationFrame(this.tabSonic[i].idSeDeplace)
                   this.tabSonic[i].sonicSennuie()
                 }
+                break
+              case 110:
+                //snowBack.pause()
+                $("#nuit").fadeIn(1000)
+                break
+              case 111:
+                $("#moon").fadeIn(2000)
+                cancelAnimationFrame(this.monkey.idMU)
                 break
               default:
             }

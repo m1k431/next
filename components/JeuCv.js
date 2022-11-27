@@ -886,9 +886,9 @@ class JeuCv extends Component {
               </h2>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Developpeur IBM i
+                Ingénieur d'étude et développement IBM i
                 </h3>
-                <h3 className={`${styles.titreh3} english`}>IBM i developer</h3>
+                <h3 className={`${styles.titreh3} english`}>IBM i software engineer</h3>
                 <div className={`${styles.infojob} french`}>
                   Editique AS400, virements bancaires, facturation, bordereaux, dématèrialisation.
                 </div>
@@ -904,9 +904,9 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Developpeur IBM i
+                Ingénieur d'étude et développement IBM i (ADELIA)
                 </h3>
-                <h3 className={`${styles.titreh3} english`}>AS400 developer</h3>
+                <h3 className={`${styles.titreh3} english`}>IBM i software engineer (ADELIA)</h3>
                 <div className={`${styles.infojob} french`}>
                   Programme d'anonymisation des données personnelles sur demande clients (RGPD).
                 </div>
@@ -922,9 +922,9 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Analyste Programmeur IBM i
+                Ingénieur d'étude et développement IBM i
                 </h3>
-                <h3 className={`${styles.titreh3} english`}>IBM i developer</h3>
+                <h3 className={`${styles.titreh3} english`}>IBM i software engineer</h3>
                 <div className={`${styles.infojob} french`}>
                   QSH, CL, CLP, SQLRGPLE, RPG III, Arcad, Rdi
                 </div>
@@ -940,7 +940,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Ingenieur etude et developpement IBM i
+                  Ingénieur d'étude et développement IBM i
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>
                   IBM i software engineer
@@ -1006,7 +1006,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Dessinateur Projeteur HVAC
+                  Dessinateur projeteur HVAC
                 </h3>
                 <div className={`${styles.infojob} french`}>
                   Etude des projets de construction ERP &quot;Castorama&quot;
@@ -1049,7 +1049,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Technicien etudes en Design et Decoration
+                  Technicien d'étude en design et décoration
                 </h3>
                 <div className={`${styles.infojob} french`}>
                   Alphabet Stand Service (MIPCOM/MIPTV, MIDEM, FIF, MIPIM...)
@@ -1073,7 +1073,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Vendeur et Technicien Ski
+                  Vendeur et technicien Ski
                 </h3>
                 <div className={`${styles.infojob} french`}>Nevada Sports</div>
                 <h3 className={`${styles.titreh3} english`}>Ski Technician</h3>
@@ -1105,7 +1105,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Technicien Ski et Snowboard
+                  Technicien ski et snowboard
                 </h3>
                 <div className={`${styles.infojob} french`}>Intersport</div>
                 <h3 className={`${styles.titreh3} english`}>
@@ -1149,7 +1149,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Technicien Systemes et Reseaux
+                  Technicien systèmes et réseaux
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>
                   Systems and Network Technician
@@ -1190,7 +1190,7 @@ class JeuCv extends Component {
                 </div>
               </div>
               <div className={styles.jobs}>
-                <h3 className={`${styles.titreh3} french`}>Emplois etudiant</h3>
+                <h3 className={`${styles.titreh3} french`}>Emplois étudiant</h3>
                 <div className={`${styles.infojob} french`}>
                   Conseiller de vente en espace culturel Leclerc,
                   serveur/barman, Ouvrier boulanger, Employé polyvalent chez
@@ -1216,7 +1216,7 @@ class JeuCv extends Component {
               <h2 className={`${styles.titreh2} english`}>Training</h2>
               <h2 className={`${styles.titreh2} spanish`}>Formación</h2>
               <div className={styles.jobs}>
-                <h3 className={styles.titreh3}>Pepiniere IBM</h3>
+                <h3 className={styles.titreh3}>Pépinière IBM i</h3>
                 <div className={`${styles.infojob} french`}>
                   IBM RPG III, RPGLE, SQL, CLP
                 </div>
@@ -1248,7 +1248,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Developpeur JavaScript FullStack
+                  Développeur JavaScript FullStack
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>
                   FullStack Javascript Developer
@@ -1288,7 +1288,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  TP de technicien etude en batiment option dessin
+                  TP de technicien d'étude en batiment option dessin
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>
                   Construction Engineer Assistant
@@ -1321,7 +1321,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={styles.titreh3}>
-                  DUT informatique genie logiciel
+                  DUT informatique génie logiciel
                 </h3>
                 <div className={`${styles.infojob} french`}>
                   Administration et déploiementent réseau en environnement
@@ -1349,7 +1349,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                  Baccalaureat Scientifique
+                  Baccalauréat scientifique
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>
                   Scientific Baccalaureate Diploma
@@ -1375,7 +1375,7 @@ class JeuCv extends Component {
                 <br />
                 Sports: gym, sports de glisse, jonglage.
                 <br />
-                Hobbies: electronique, décoration, design, rénovation.
+                Hobbies: électronique, décoration, design, rénovation.
               </div>
               <div className={`${styles.infojob} english`}>
                 Driving licences: car, motorcycle, electric unicycle.
