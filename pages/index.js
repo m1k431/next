@@ -50,7 +50,7 @@ export default function Home({
       <Jonglage />
       <h2 className="titreh1 english">{metierUS}</h2>
       <h2 className="titreh1 french">{metierFR}</h2>
-      <JeuCv></JeuCv>
+      <JeuCv />
       <br />
       <a className="titreh1" href="https://github.com/m1k431/next/blob/master/components/soleil.js" style={{ textDecoration: "none" }}>
         <center>Programmation Objets</center>

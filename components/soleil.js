@@ -6,17 +6,18 @@ import { Container, Row, Col } from "react-bootstrap"
 
 class soleil extends Component {
   monIntro() {
-    //FPS control
-    var fps = 60,
-      now,
-      then = Date.now(),
-      interval = 1000 / fps,
-      delta
     var divSoleil = document.getElementById("s0leil")
 
     //Sonic Factory
     class Sonic {
       constructor() {
+        //FPS control
+        this.fps = 20
+        this.now = Date.now()
+        this.then = Date.now()
+        this.interval = 1000 / this.fps
+        this.delta
+
         //div
         this.div = document.createElement("div")
         this.classe = this.div.className = "divSonic"
@@ -36,11 +37,15 @@ class soleil extends Component {
         this.div.appendChild(this.image)
         divSoleil.appendChild(this.div)
       }
+
       sonicMarche() {
         this.idmarche = requestAnimationFrame(this.sonicMarche.bind(this))
         //FPS control
-        if (delta > interval) {
-          //code for
+        this.now = Date.now()
+        this.delta = this.now - this.then
+        if (this.delta > this.interval) {
+          this.then = this.now - (this.delta % this.interval)
+          //FPS CONTROL: code for drawing
           if (this.bool2 === false) {
             this.image.style.left = "-50px"
             this.image.style.top = "-95px"
@@ -52,23 +57,24 @@ class soleil extends Component {
           }
         }
       }
+
       sonicSeDeplace() {
         this.idSeDeplace = requestAnimationFrame(this.sonicSeDeplace.bind(this))
-        //FPS control
-        if (delta > interval) {
-          //code for
-          if (parseFloat(this.div.style.left) < 100) {
-            this.div.style.left = parseFloat(this.div.style.left) + 0.2 + "%"
-          } else {
-            this.div.style.left = "-10%"
-          }
+        if (parseFloat(this.div.style.left) < 100) {
+          this.div.style.left = parseFloat(this.div.style.left) + 0.2 + "%"
+        } else {
+          this.div.style.left = "-10%"
         }
       }
+
       sonicSennuie() {
         this.idSennuie = requestAnimationFrame(this.sonicSennuie.bind(this))
         //FPS control
-        if (delta > interval) {
-          //code for
+        this.now = Date.now()
+        this.delta = this.now - this.then
+        if (this.delta > this.interval) {
+          this.then = this.now - (this.delta % this.interval)
+          //FPS CONTROL: code for drawing
           if (this.bool === false) {
             this.image.style.left = "-55px"
             this.image.style.top = "-21px"
@@ -125,6 +131,13 @@ class soleil extends Component {
         this.cpt = 0
         this.back = false
 
+        //FPS control
+        this.fps = 10
+        this.now = Date.now()
+        this.then = Date.now()
+        this.interval = 1000 / this.fps
+        this.delta
+
         this.div = document.createElement("div")
         this.div.id = "divMonkey"
         this.div.className = "divMonkey"
@@ -157,11 +170,15 @@ class soleil extends Component {
         divSoleil.appendChild(this.imgPalm)
         this.div.appendChild(this.imgMonkey)
       }
+
       monkeyDown() {
         this.idMD = requestAnimationFrame(this.monkeyDown.bind(this))
         //FPS control
-        if (delta > interval) {
-          //code for
+        this.now = Date.now()
+        this.delta = this.now - this.then
+        if (this.delta > this.interval) {
+          this.then = this.now - (this.delta % this.interval)
+          //FPS CONTROL: code for drawing
           if (parseFloat(this.imgMonkey.style.left) <= 0 && !this.back) {
             this.imgMonkey.style.left =
               parseFloat(this.imgMonkey.style.left) + 105.52 + "px"
@@ -171,11 +188,15 @@ class soleil extends Component {
           }
         }
       }
+
       monkeyUp() {
         this.idMU = requestAnimationFrame(this.monkeyUp.bind(this))
         //FPS control
-        if (delta > interval) {
-          //code for
+        this.now = Date.now()
+        this.delta = this.now - this.then
+        if (this.delta > this.interval) {
+          this.then = this.now - (this.delta % this.interval)
+          //FPS CONTROL: code for drawing
           if (this.cpt > 0) {
             this.imgMonkey.style.left =
               parseFloat(this.imgMonkey.style.left) - 105.52 + "px"
@@ -330,6 +351,13 @@ class soleil extends Component {
 
     class Soleil {
       constructor() {
+        //FPS control
+        this.fps = 60
+        this.now = Date.now()
+        this.then = Date.now()
+        this.interval = 1000 / this.fps
+        this.delta
+
         this.div = document.getElementById("s0leil")
         this.div.style.position = "relative"
         this.div.style.display = "block"
@@ -372,10 +400,11 @@ class soleil extends Component {
       bouclePrincpale(/*m0ntimestamp*/) {
         requestAnimationFrame(this.bouclePrincpale.bind(this))
         //FPS CONTROL
-        now = Date.now()
-        delta = now - then
-        if (delta > interval) {
-          then = now - (delta % interval)
+        this.now = Date.now()
+        this.delta = this.now - this.then
+
+        if (this.delta > this.interval) {
+          this.then = this.now - (this.delta % this.interval)
           //FPS CONTROL: code for drawing
           if (this.c00rdX < 110) {
             this.c00rdY = Math.cos(this.c00rdX / 24) * 54
@@ -386,12 +415,12 @@ class soleil extends Component {
             switch (this.c00rdX) {
               case 40:
                 $("#nuit").fadeOut(1000)
+                $("#moon").fadeOut(2000)
                 break
               case 44:
-                $("#moon").fadeOut(2000)
                 cancelAnimationFrame(this.monkey.idMU)
                 this.monkey.monkeyDown()
-                for (var i = 0; i < this.tabSonic.length; ++i) {
+                for (let i = 0; i < this.tabSonic.length; ++i) {
                   cancelAnimationFrame(this.tabSonic[i].idSennuie)
                   this.tabSonic[i].sonicMarche()
                   this.tabSonic[i].sonicSeDeplace()
@@ -414,7 +443,7 @@ class soleil extends Component {
                 $("#nuit").fadeIn(1000)
                 cancelAnimationFrame(this.monkey.idMD)
                 this.monkey.monkeyUp()
-                for (i = 0; i < this.tabSonic.length; ++i) {
+                for (let i = 0; i < this.tabSonic.length; ++i) {
                   cancelAnimationFrame(this.tabSonic[i].idmarche)
                   cancelAnimationFrame(this.tabSonic[i].idSeDeplace)
                   this.tabSonic[i].sonicSennuie()
