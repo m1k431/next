@@ -39,7 +39,7 @@ class soleil extends Component {
       sonicMarche() {
         this.idmarche = requestAnimationFrame(this.sonicMarche.bind(this))
         //FPS control
-        if (delta > interval * 1.2) {
+        if (delta > interval) {
           //code for
           if (this.bool2 === false) {
             this.image.style.left = "-50px"
@@ -67,7 +67,7 @@ class soleil extends Component {
       sonicSennuie() {
         this.idSennuie = requestAnimationFrame(this.sonicSennuie.bind(this))
         //FPS control
-        if (delta > interval * 1.4) {
+        if (delta > interval) {
           //code for
           if (this.bool === false) {
             this.image.style.left = "-55px"
@@ -160,7 +160,7 @@ class soleil extends Component {
       monkeyDown() {
         this.idMD = requestAnimationFrame(this.monkeyDown.bind(this))
         //FPS control
-        if (delta > interval * 1.25) {
+        if (delta > interval) {
           //code for
           if (parseFloat(this.imgMonkey.style.left) <= 0 && !this.back) {
             this.imgMonkey.style.left =
@@ -174,7 +174,7 @@ class soleil extends Component {
       monkeyUp() {
         this.idMU = requestAnimationFrame(this.monkeyUp.bind(this))
         //FPS control
-        if (delta > interval * 1.25) {
+        if (delta > interval) {
           //code for
           if (this.cpt > 0) {
             this.imgMonkey.style.left =
