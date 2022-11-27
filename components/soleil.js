@@ -6,8 +6,6 @@ import { Container, Row, Col } from "react-bootstrap"
 
 class soleil extends Component {
   monIntro() {
-    var divSoleil = document.getElementById("s0leil")
-
     //Sonic Factory
     class Sonic {
       constructor() {
@@ -35,7 +33,6 @@ class soleil extends Component {
         this.image.style.left = "-55px"
         this.image.style.top = "-21px"
         this.div.appendChild(this.image)
-        divSoleil.appendChild(this.div)
       }
 
       sonicMarche() {
@@ -98,7 +95,6 @@ class soleil extends Component {
         this.video.style.right = "34%"
         this.video.style.width = "38%"
         this.video.playsinline = true
-        this.video.autoplay = true
         this.video.muted = true
         this.video.loop = true
 
@@ -121,7 +117,6 @@ class soleil extends Component {
         this.video.appendChild(this.source)
         this.div.appendChild(this.video)
         this.div.appendChild(this.img)
-        divSoleil.appendChild(this.div)
       }
     }
 
@@ -165,9 +160,6 @@ class soleil extends Component {
         this.imgPalm.style.top = "30px"
         this.imgPalm.style.left = "5px"
 
-        //SINGE: Génération des éléments html
-        divSoleil.appendChild(this.div)
-        divSoleil.appendChild(this.imgPalm)
         this.div.appendChild(this.imgMonkey)
       }
 
@@ -208,36 +200,7 @@ class soleil extends Component {
       }
     }
 
-    // class Nuage {
-    //   constructor() {
-    //     this.image = document.createElement("img")
-    //     this.image.id = "cloud"
-    //     this.image.src = "/img/cloud.png"
-    //     this.image.className = "cloud"
-    //     this.image.style.position = "absolute"
-    //     this.image.style.width = "100%"
-    //     this.image.style.left = "600px"
-    //     this.image.style.top = "-460px"
-    //     this.image.style.height = "200%"
-    //     this.image.style.borderRadius = "10px"
-    //     divSoleil.appendChild(this.image)
-    //   }
-    //   moveCloud() {
-    //     requestAnimationFrame(this.moveCloud.bind(this))
-    //     //FPS control
-    //     if (delta > interval) {
-    //       //code for
-    //       if (parseFloat(this.image.style.left) > -1050) {
-    //         this.image.style.left =
-    //           parseFloat(this.image.style.left) - 0.2 + "px"
-    //       } else {
-    //         this.image.style.left = "700px"
-    //       }
-    //     }
-    //   }
-    // }
 
-    //CIEL FACTORY
     class Ciel {
       constructor() {
         this.canvas = document.createElement("canvas")
@@ -251,7 +214,6 @@ class soleil extends Component {
         this.canvas.style.borderRadius = "10px"
         this.canvas.style.margin = 0
         this.canvas.style.backgroundColor = "blue"
-        divSoleil.appendChild(this.canvas)
       }
     }
 
@@ -266,7 +228,6 @@ class soleil extends Component {
         this.canvas.style.position = "absolute"
         this.canvas.style.borderRadius = "10px"
         this.canvas.style.backgroundColor = "black"
-        divSoleil.appendChild(this.canvas)
       }
     }
 
@@ -285,7 +246,6 @@ class soleil extends Component {
         this.gradient.addColorStop(0, "transparent")
         this.gradient.addColorStop(0.9, "white")
         this.ctx.fillStyle = this.gradient
-        divSoleil.appendChild(this.canvas)
       }
     }
 
@@ -315,7 +275,6 @@ class soleil extends Component {
         this.ctx.closePath()
         this.ctx.stroke()
         this.ctx.fill()
-        divSoleil.appendChild(this.canvas)
       }
     }
 
@@ -345,7 +304,6 @@ class soleil extends Component {
         this.ctx.closePath()
         this.ctx.stroke()
         this.ctx.fill()
-        divSoleil.appendChild(this.canvas)
       }
     }
 
@@ -383,19 +341,31 @@ class soleil extends Component {
 
         //Création de l'environnement 
         this.ciel = new Ciel()
+        this.div.appendChild(this.ciel.canvas)
         this.nuit = new Nuit()
+        this.div.appendChild(this.nuit.canvas)
         this.lune = new Lune()
-        divSoleil.appendChild(this.canvas)
+        this.div.appendChild(this.lune.canvas)
+        this.div.appendChild(this.canvas)
         this.mer = new Mer()
+        this.div.appendChild(this.mer.canvas)
         this.hill = new Hill()
-        // this.nuage = new Nuage()
-        // this.nuage.moveCloud()
+        this.div.appendChild(this.hill.canvas)
         this.monkey = new Monkey()
+        this.div.appendChild(this.monkey.div)
+        this.div.appendChild(this.monkey.imgPalm)
         this.atari = new Atari()
+        this.div.appendChild(this.atari.div)
+
         this.tabSonic = []
-        for (let i = 0; i <= 21; ++i) this.tabSonic[i] = new Sonic()
+        for (let i = 0; i <= 21; ++i) {
+          this.tabSonic[i] = new Sonic()
+          this.div.appendChild(this.tabSonic[i].div)
+        }
+
         this.bouclePrincpale()
       }
+
       // Mouvement du soleil avec animation des objets selon sa position (this.c00rdX)
       bouclePrincpale(/*m0ntimestamp*/) {
         requestAnimationFrame(this.bouclePrincpale.bind(this))
@@ -425,7 +395,7 @@ class soleil extends Component {
                   this.tabSonic[i].sonicMarche()
                   this.tabSonic[i].sonicSeDeplace()
                 }
-                //snowBack.play()
+                this.atari.video.play()
                 break
               case 60:
                 cancelAnimationFrame(this.monkey.idMD)
@@ -439,7 +409,7 @@ class soleil extends Component {
                 $("#moon").fadeIn(2000)
                 break
               case 107:
-                //snowBack.pause()
+                this.atari.video.pause()
                 $("#nuit").fadeIn(1000)
                 cancelAnimationFrame(this.monkey.idMD)
                 this.monkey.monkeyUp()
