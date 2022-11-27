@@ -406,20 +406,16 @@ class soleil extends Component {
                 cancelAnimationFrame(this.monkey.idMU)
                 this.monkey.monkeyDown()
                 break
-              case 99:
+              case 110:
+                //snowBack.pause()
+                $("#nuit").fadeIn(1000)
                 cancelAnimationFrame(this.monkey.idMD)
                 this.monkey.monkeyUp()
-                break
-              case 107:
                 for (i = 0; i < this.tabSonic.length; ++i) {
                   cancelAnimationFrame(this.tabSonic[i].idmarche)
                   cancelAnimationFrame(this.tabSonic[i].idSeDeplace)
                   this.tabSonic[i].sonicSennuie()
                 }
-                break
-              case 110:
-                //snowBack.pause()
-                $("#nuit").fadeIn(1000)
                 break
               case 111:
                 $("#moon").fadeIn(2000)
