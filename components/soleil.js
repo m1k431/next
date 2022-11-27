@@ -132,7 +132,7 @@ class soleil extends Component {
         this.back = false
 
         //FPS control
-        this.fps = 10
+        this.fps = 15
         this.now = Date.now()
         this.then = Date.now()
         this.interval = 1000 / this.fps
@@ -427,11 +427,11 @@ class soleil extends Component {
                 }
                 //snowBack.play()
                 break
-              case 69:
+              case 60:
                 cancelAnimationFrame(this.monkey.idMD)
                 this.monkey.monkeyUp()
                 break
-              case 87:
+              case 80:
                 cancelAnimationFrame(this.monkey.idMU)
                 this.monkey.monkeyDown()
                 break
