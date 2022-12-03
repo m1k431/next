@@ -8,10 +8,8 @@ class soleil extends Component {
     class Sonic {
       constructor() {
         //FPS control
-        this.now
         this.then = Date.now()
-        this.delta
-
+        
         //div
         this.div = document.createElement("div")
         this.classe = this.div.className = "divSonic"
@@ -352,10 +350,7 @@ class soleil extends Component {
     class univers {
       constructor() {
         //FPS control
-        this.now
         this.then = Date.now()
-        this.delta
-        this.fps
 
         this.div = document.getElementById('univers')
         this.div.style.position = "relative"
@@ -396,7 +391,6 @@ class soleil extends Component {
         //FPS control
         this.fps = 50
         this.interval = 1000 / this.fps
-        this.then
 
         //FPS control
         this.now = Date.now()
@@ -406,13 +400,13 @@ class soleil extends Component {
           this.soleil.moveSoleil()
 
           switch (Math.floor(this.soleil.c00rdX)) {
-            case 35:
-              this.monkey.monkeyDown()
-              break
-
             case 37:
               $("#nuit").fadeOut(3000)
               $("#moon").fadeOut(2000)
+              break
+
+            case 38:
+              this.monkey.monkeyDown()
               break
 
             case 45:
