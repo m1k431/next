@@ -298,7 +298,12 @@ class soleil extends Component {
     }
 
     class Soleil {
+      //FPS control
       constructor() {
+        this.then = Date.now()
+        this.fps = 60
+        this.interval = 1000 / this.fps
+
         //coordonnées soleil
         this.c00rdX = 10
         this.c00rdY = 200
@@ -318,26 +323,26 @@ class soleil extends Component {
       }
 
       moveSoleil() {
-        if (this.c00rdX < 145) {
-          this.c00rdY = Math.cos(this.c00rdX / 28) * 54
-          this.canvas.style.top = this.c00rdY + 60 + "%"
-          this.canvas.style.left = this.c00rdX - 40 + "%"
-          this.c00rdX = this.c00rdX + 0.2
+        //FPS control
+        this.now = Date.now()
+        this.delta = this.now - this.then
+        this.then = this.now - (this.delta % this.interval)
+        if (this.delta > this.interval) {
+          if (this.c00rdX < 145) {
+            this.c00rdY = Math.cos(this.c00rdX / 28) * 54
+            this.canvas.style.top = this.c00rdY + 60 + "%"
+            this.canvas.style.left = this.c00rdX - 40 + "%"
+            this.c00rdX = this.c00rdX + 0.2
+          }
+          else {
+            this.c00rdX = 10
+          }
         }
-        else {
-          this.c00rdX = 10
-        }
-        //}
       }
     }
 
     class univers {
       constructor() {
-        //FPS control
-        this.then = Date.now()
-        this.fps = 60
-        this.interval = 1000 / this.fps
-
         this.div = document.createElement("div")
         this.div.style.position = "relative"
         this.div.style.display = "block"
@@ -374,14 +379,7 @@ class soleil extends Component {
       universMove() {
         this.idUniversMove = requestAnimationFrame(this.universMove.bind(this))
 
-        //FPS control
-        this.now = Date.now()
-        this.delta = this.now - this.then
-        this.then = this.now - (this.delta % this.interval)
-        if (this.delta > this.interval) {
-          this.soleil.moveSoleil()
-        }
-
+        this.soleil.moveSoleil()
         switch (Math.floor(this.soleil.c00rdX)) {
           case 37:
             $(".nuit").fadeOut(3000)
