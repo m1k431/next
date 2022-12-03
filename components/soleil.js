@@ -10,11 +10,10 @@ class soleil extends Component {
     class Sonic {
       constructor() {
         //FPS control
-        this.fps = 20
-        this.now = Date.now()
+        this.now
         this.then = Date.now()
-        this.interval = 1000 / this.fps
         this.delta
+        this.fps
 
         //div
         this.div = document.createElement("div")
@@ -36,13 +35,17 @@ class soleil extends Component {
       }
 
       sonicMarche() {
+        this.fps = 40
+        this.interval = 1000 / this.fps
+
+        cancelAnimationFrame(this.idSennuie)
         this.idmarche = requestAnimationFrame(this.sonicMarche.bind(this))
         //FPS control
         this.now = Date.now()
         this.delta = this.now - this.then
         if (this.delta > this.interval) {
           this.then = this.now - (this.delta % this.interval)
-          //FPS CONTROL: code for drawing
+          //Animation sprite sonic marche
           if (this.bool2 === false) {
             this.image.style.left = "-50px"
             this.image.style.top = "-95px"
@@ -53,18 +56,19 @@ class soleil extends Component {
             } else this.bool2 = false
           }
         }
-      }
-
-      sonicSeDeplace() {
-        this.idSeDeplace = requestAnimationFrame(this.sonicSeDeplace.bind(this))
+        //sonic se déplace
         if (parseFloat(this.div.style.left) < 100) {
-          this.div.style.left = parseFloat(this.div.style.left) + 0.2 + "%"
+          this.div.style.left = parseFloat(this.div.style.left) + 0.04 + "%"
         } else {
           this.div.style.left = "-10%"
         }
       }
 
       sonicSennuie() {
+        this.fps = 10
+        this.interval = 1000 / this.fps
+
+        cancelAnimationFrame(this.idmarche)
         this.idSennuie = requestAnimationFrame(this.sonicSennuie.bind(this))
         //FPS control
         this.now = Date.now()
@@ -87,7 +91,7 @@ class soleil extends Component {
 
     //Atari Factory
     class Atari {
-      constructor() {
+      constructor(posX, posY, size) {
         this.video = document.createElement("video")
         this.video.id = "snowB"
         this.video.style.position = "absolute"
@@ -105,13 +109,13 @@ class soleil extends Component {
         this.div = document.createElement("div")
         this.div.id = "atari"
         this.div.style.position = "absolute"
-        this.div.style.top = "105px"
-        this.div.style.right = "10px"
+        this.div.style.right = posX + 'px'
+        this.div.style.top = posY + 'px'
 
         this.img = document.createElement("img")
         this.img.src = "/img/Atari.png"
         this.img.style.position = "relative"
-        this.img.style.height = "150px"
+        this.img.style.height = size + 'px'
 
         //Génération des éléments html
         this.video.appendChild(this.source)
@@ -128,9 +132,9 @@ class soleil extends Component {
 
         //FPS control
         this.fps = 15
-        this.now = Date.now()
-        this.then = Date.now()
         this.interval = 1000 / this.fps
+        this.now
+        this.then = Date.now()
         this.delta
 
         this.div = document.createElement("div")
@@ -139,8 +143,8 @@ class soleil extends Component {
         this.div.style.position = "absolute"
         this.div.style.height = "140px"
         this.div.style.width = "95px"
-        this.div.style.top = "50px"
         this.div.style.left = "59.55px"
+        this.div.style.top = "50px"
         this.div.style.overflow = "hidden"
 
         this.imgMonkey = document.createElement("img")
@@ -164,6 +168,7 @@ class soleil extends Component {
       }
 
       monkeyDown() {
+        cancelAnimationFrame(this.idMU)
         this.idMD = requestAnimationFrame(this.monkeyDown.bind(this))
         //FPS control
         this.now = Date.now()
@@ -182,6 +187,7 @@ class soleil extends Component {
       }
 
       monkeyUp() {
+        cancelAnimationFrame(this.idMD)
         this.idMU = requestAnimationFrame(this.monkeyUp.bind(this))
         //FPS control
         this.now = Date.now()
@@ -213,7 +219,13 @@ class soleil extends Component {
         this.canvas.style.height = "100%"
         this.canvas.style.borderRadius = "10px"
         this.canvas.style.margin = 0
-        this.canvas.style.backgroundColor = "blue"
+        
+        this.ctx = this.canvas.getContext('2d')
+        this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
+        this.gradient.addColorStop(0, "blue")
+        this.gradient.addColorStop(0.5, "white")
+        this.ctx.fillStyle = this.gradient
+        this.ctx.fillRect(0, 0, 600, 400)
       }
     }
 
@@ -246,6 +258,7 @@ class soleil extends Component {
         this.gradient.addColorStop(0, "transparent")
         this.gradient.addColorStop(0.9, "white")
         this.ctx.fillStyle = this.gradient
+        this.ctx.fillRect(0, 0, 40, 40)
       }
     }
 
@@ -263,15 +276,15 @@ class soleil extends Component {
         this.ctx = this.canvas.getContext("2d")
 
         this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
-        this.gradient.addColorStop(0, "blue")
-        this.gradient.addColorStop(0.7, "cyan")
+        this.gradient.addColorStop(0, "navy")
+        this.gradient.addColorStop(0.9, "navy")
         this.ctx.fillStyle = this.gradient
 
         this.ctx.beginPath()
         this.ctx.moveTo(0, 600)
         this.ctx.lineTo(600, 400)
-        this.ctx.lineTo(600, 220)
-        this.ctx.bezierCurveTo(220, 220, 600, 220, 0, 220)
+        this.ctx.lineTo(600, 250)
+        this.ctx.bezierCurveTo(250, 250, 600, 250, 0, 250)
         this.ctx.closePath()
         this.ctx.stroke()
         this.ctx.fill()
@@ -299,8 +312,8 @@ class soleil extends Component {
         this.ctx.beginPath()
         this.ctx.moveTo(0, 400)
         this.ctx.lineTo(600, 400)
-        this.ctx.lineTo(600, 320)
-        this.ctx.bezierCurveTo(300, 300, 280, 200, 0, 300)
+        this.ctx.lineTo(600, 300)
+        this.ctx.bezierCurveTo(300, 250, 280, 200, 0, 300)
         this.ctx.closePath()
         this.ctx.stroke()
         this.ctx.fill()
@@ -311,9 +324,9 @@ class soleil extends Component {
       constructor() {
         //FPS control
         this.fps = 60
-        this.now = Date.now()
-        this.then = Date.now()
         this.interval = 1000 / this.fps
+        this.now
+        this.then = Date.now()
         this.delta
 
         this.div = document.getElementById("s0leil")
@@ -334,6 +347,7 @@ class soleil extends Component {
         this.gradient.addColorStop(0, "transparent")
         this.gradient.addColorStop(0.9, "yellow")
         this.ctx.fillStyle = this.gradient
+        this.ctx.fillRect(0, 0, 40, 40)
 
         //coordonnées soleil
         this.c00rdX = 20
@@ -354,7 +368,7 @@ class soleil extends Component {
         this.monkey = new Monkey()
         this.div.appendChild(this.monkey.div)
         this.div.appendChild(this.monkey.imgPalm)
-        this.atari = new Atari()
+        this.atari = new Atari(40, 100, 175)
         this.div.appendChild(this.atari.div)
 
         this.tabSonic = []
@@ -376,55 +390,49 @@ class soleil extends Component {
         if (this.delta > this.interval) {
           this.then = this.now - (this.delta % this.interval)
           //FPS CONTROL: code for drawing
-          if (this.c00rdX < 110) {
-            this.c00rdY = Math.cos(this.c00rdX / 24) * 54
-            this.canvas.style.top = this.c00rdY * 1.05 + 60 + "%"
-            this.canvas.style.left = this.c00rdX * 1.3 - 50 + "%"
-            this.ctx.clearRect(0, 0, 40, 40)
-            this.lune.ctx.clearRect(0, 0, 40, 40)
-            switch (this.c00rdX) {
-              case 40:
-                $("#nuit").fadeOut(1000)
-                $("#moon").fadeOut(2000)
+          if (this.c00rdX < 145) {
+            this.c00rdY = Math.cos(this.c00rdX / 28) * 54
+            this.canvas.style.top = this.c00rdY + 60 + "%"
+            this.canvas.style.left = this.c00rdX - 40 + "%"
+
+            switch (Math.floor(this.c00rdX)) {
+              case 30:
+                $("#nuit").fadeOut(3000)
+                $("#moon").fadeOut(3000)
                 break
+
               case 44:
-                cancelAnimationFrame(this.monkey.idMU)
                 this.monkey.monkeyDown()
                 for (let i = 0; i < this.tabSonic.length; ++i) {
-                  cancelAnimationFrame(this.tabSonic[i].idSennuie)
                   this.tabSonic[i].sonicMarche()
-                  this.tabSonic[i].sonicSeDeplace()
                 }
                 this.atari.video.play()
                 break
-              case 60:
-                cancelAnimationFrame(this.monkey.idMD)
+
+              case 75:
                 this.monkey.monkeyUp()
                 break
-              case 80:
-                cancelAnimationFrame(this.monkey.idMU)
+
+              case 95:
                 this.monkey.monkeyDown()
                 break
-              case 105:
-                $("#moon").fadeIn(2000)
-                break
-              case 107:
-                this.atari.video.pause()
-                $("#nuit").fadeIn(1000)
-                cancelAnimationFrame(this.monkey.idMD)
+
+              case 125:
+                $("#moon").fadeIn(3000)
                 this.monkey.monkeyUp()
+                break
+
+              case 130:
+                this.atari.video.pause()
+                $("#nuit").fadeIn(3000)
                 for (let i = 0; i < this.tabSonic.length; ++i) {
-                  cancelAnimationFrame(this.tabSonic[i].idmarche)
-                  cancelAnimationFrame(this.tabSonic[i].idSeDeplace)
                   this.tabSonic[i].sonicSennuie()
                 }
                 break
-              default:
             }
-            this.ctx.fillRect(0, 0, 40, 40)
-            this.lune.ctx.fillRect(0, 0, 40, 40)
-            this.c00rdX = (this.c00rdX * 10 + 0.1 * 10) / 10
-          } else {
+            this.c00rdX = this.c00rdX + 0.2
+          }
+          else {
             this.c00rdX = 20
           }
         }
