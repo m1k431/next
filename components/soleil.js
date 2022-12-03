@@ -8,10 +8,13 @@ class soleil extends Component {
     class Sonic {
       constructor() {
         //FPS control
+        this.now
         this.then = Date.now()
+        this.delta
 
         //div
         this.div = document.createElement("div")
+        this.classe = this.div.className = "divSonic"
         this.div.style.overflow = "hidden"
         this.pos = this.div.style.position = "absolute"
         this.haut = this.div.style.height = "48px"
@@ -22,6 +25,7 @@ class soleil extends Component {
         //sprite
         this.image = document.createElement("img")
         this.image.src = "/img/sonic2.png"
+        this.image.className = "sonic"
         this.image.style.position = "relative"
         this.image.style.left = "-55px"
         this.image.style.top = "-21px"
@@ -86,6 +90,7 @@ class soleil extends Component {
     class Atari {
       constructor(posX, posY, size) {
         this.video = document.createElement("video")
+        this.video.id = "snowB"
         this.video.style.position = "absolute"
         this.video.style.top = "7%"
         this.video.style.right = "34%"
@@ -99,6 +104,7 @@ class soleil extends Component {
         this.source.type = "video/mp4"
 
         this.div = document.createElement("div")
+        this.div.id = "atari"
         this.div.style.position = "absolute"
         this.div.style.right = posX + 'px'
         this.div.style.top = posY + 'px'
@@ -123,9 +129,13 @@ class soleil extends Component {
         //FPS control
         this.fps = 20
         this.interval = 1000 / this.fps
+        this.now
         this.then = Date.now()
+        this.delta
 
         this.div = document.createElement("div")
+        this.div.id = "divMonkey"
+        this.div.className = "divMonkey"
         this.div.style.position = "absolute"
         this.div.style.height = "140px"
         this.div.style.width = "95px"
@@ -135,12 +145,16 @@ class soleil extends Component {
 
         this.imgMonkey = document.createElement("img")
         this.imgMonkey.src = "/img/monkey.png"
+        this.imgMonkey.id = "monkey"
+        this.imgMonkey.className = "monkey"
         this.imgMonkey.style.position = "absolute"
         this.imgMonkey.style.height = "100%"
         this.imgMonkey.style.left = "-2215px"
 
         this.imgPalm = document.createElement("img")
         this.imgPalm.src = "/img/palmTree.png"
+        this.imgPalm.id = "palmTree"
+        this.imgPalm.className = "palmTree"
         this.imgPalm.style.position = "absolute"
         this.imgPalm.style.height = "65%"
         this.imgPalm.style.top = "30px"
@@ -190,6 +204,7 @@ class soleil extends Component {
     class Ciel {
       constructor() {
         this.canvas = document.createElement("canvas")
+        this.canvas.id = "ci3l"
         this.canvas.style.position = "absolute"
         this.canvas.style.display = "block"
         this.canvas.width = 600
@@ -211,11 +226,11 @@ class soleil extends Component {
     class Nuit {
       constructor() {
         this.canvas = document.createElement("canvas")
-        this.canvas.className = "nuit"
         this.canvas.width = 600
         this.canvas.height = 400
         this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
+        this.canvas.id = "nuit"
         this.canvas.style.position = "absolute"
         this.canvas.style.borderRadius = "10px"
         this.canvas.style.backgroundColor = "rgba(0, 0, 0, 0.90)"
@@ -225,10 +240,10 @@ class soleil extends Component {
     class Lune {
       constructor() {
         this.canvas = document.createElement("canvas")
-        this.canvas.className = "moon"
         this.canvas.width = 40
         this.canvas.height = 40
         this.canvas.style.width = "50px"
+        this.canvas.id = "moon"
         this.canvas.style.position = "absolute"
         this.canvas.style.top = "30px"
         this.canvas.style.right = "10%"
@@ -249,6 +264,7 @@ class soleil extends Component {
         this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
         this.canvas.style.borderRadius = "10px"
+        this.canvas.id = "m0nC4nvaM3r"
         this.canvas.style.position = "absolute"
         this.canvas.style.display = "block"
         this.ctx = this.canvas.getContext("2d")
@@ -277,6 +293,7 @@ class soleil extends Component {
         this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
         this.canvas.style.borderRadius = "10px"
+        this.canvas.id = "m0nC4nvaC0lline"
         this.canvas.style.display = "block"
         this.canvas.style.position = "absolute"
         this.ctx = this.canvas.getContext("2d")
@@ -298,19 +315,15 @@ class soleil extends Component {
     }
 
     class Soleil {
-      //FPS control
       constructor() {
-        this.then = Date.now()
-        this.fps = 60
-        this.interval = 1000 / this.fps
-
         //coordonnées soleil
         this.c00rdX = 10
-        this.c00rdY = 200
+        this.c00rdY = 2
 
         this.canvas = document.createElement("canvas")
         this.canvas.width = 40
         this.canvas.height = 40
+        this.canvas.id = "c4nv4"
         this.canvas.style.width = "40px"
         this.canvas.style.position = "absolute"
         this.ctx = this.canvas.getContext("2d")
@@ -323,27 +336,28 @@ class soleil extends Component {
       }
 
       moveSoleil() {
-        //FPS control
-        this.now = Date.now()
-        this.delta = this.now - this.then
-        this.then = this.now - (this.delta % this.interval)
-        if (this.delta > this.interval) {
-          if (this.c00rdX < 145) {
-            this.c00rdY = Math.cos(this.c00rdX / 28) * 54
-            this.canvas.style.top = this.c00rdY + 60 + "%"
-            this.canvas.style.left = this.c00rdX - 40 + "%"
-            this.c00rdX = this.c00rdX + 0.2
-          }
-          else {
-            this.c00rdX = 10
-          }
+        if (this.c00rdX < 145) {
+          this.c00rdY = Math.cos(this.c00rdX / 28) * 54
+          this.canvas.style.top = this.c00rdY + 60 + "%"
+          this.canvas.style.left = this.c00rdX - 40 + "%"
+          this.c00rdX = this.c00rdX + 0.2
         }
+        else {
+          this.c00rdX = 10
+        }
+        //}
       }
     }
 
     class univers {
       constructor() {
-        this.div = document.createElement("div")
+        //FPS control
+        this.now
+        this.then = Date.now()
+        this.delta
+        this.fps
+
+        this.div = document.getElementById('univers')
         this.div.style.position = "relative"
         this.div.style.display = "block"
         this.div.style.overflow = "hidden"
@@ -379,53 +393,62 @@ class soleil extends Component {
       universMove() {
         this.idUniversMove = requestAnimationFrame(this.universMove.bind(this))
 
-        this.soleil.moveSoleil()
-        switch (Math.floor(this.soleil.c00rdX)) {
-          case 37:
-            $(".nuit").fadeOut(3000)
-            $(".moon").fadeOut(2000)
-            break
+        //FPS control
+        this.fps = 50
+        this.interval = 1000 / this.fps
+        this.then
 
-          case 38:
-            this.monkey.monkeyDown()
-            break
+        //FPS control
+        this.now = Date.now()
+        this.delta = this.now - this.then
+        this.then = this.now - (this.delta % this.interval)
+        if (this.delta > this.interval) {
+          this.soleil.moveSoleil()
 
-          case 45:
-            for (let i = 0; i < this.tabSonic.length; ++i) {
-              this.tabSonic[i].sonicMarche()
-            }
-            this.atari.video.play()
-            break
+          switch (Math.floor(this.soleil.c00rdX)) {
+            case 35:
+              this.monkey.monkeyDown()
+              break
 
-          case 70:
-            this.monkey.monkeyUp()
-            break
+            case 37:
+              $("#nuit").fadeOut(3000)
+              $("#moon").fadeOut(2000)
+              break
 
-          case 95:
-            this.monkey.monkeyDown()
-            break
+            case 45:
+              for (let i = 0; i < this.tabSonic.length; ++i) {
+                this.tabSonic[i].sonicMarche()
+              }
+              this.atari.video.play()
+              break
 
-          case 125:
-            $(".moon").fadeIn(3000)
-            this.monkey.monkeyUp()
-            break
+            case 70:
+              this.monkey.monkeyUp()
+              break
 
-          case 130:
-            $(".nuit").fadeIn(3000)
-            this.atari.video.pause()
-            for (let i = 0; i < this.tabSonic.length; ++i) {
-              this.tabSonic[i].sonicSennuie()
-            }
-            break
+            case 95:
+              this.monkey.monkeyDown()
+              break
+
+            case 125:
+              $("#moon").fadeIn(3000)
+              this.monkey.monkeyUp()
+              break
+
+            case 130:
+              this.atari.video.pause()
+              $("#nuit").fadeIn(3000)
+              for (let i = 0; i < this.tabSonic.length; ++i) {
+                this.tabSonic[i].sonicSennuie()
+              }
+              break
+          }
         }
       }
     }
 
     //FULL OBJECT done----------------------------------------
-    let divHtml = document.getElementById('univers')
-
     let univers1 = new univers()
-    divHtml.appendChild(univers1.div)
     univers1.universMove()
 
   }
