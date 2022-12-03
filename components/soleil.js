@@ -9,7 +9,7 @@ class soleil extends Component {
       constructor() {
         //FPS control
         this.then = Date.now()
-        
+
         //div
         this.div = document.createElement("div")
         this.classe = this.div.className = "divSonic"
@@ -39,8 +39,8 @@ class soleil extends Component {
         //FPS control
         this.now = Date.now()
         this.delta = this.now - this.then
-        this.then = this.now - (this.delta % this.interval)
         if (this.delta > this.interval) {
+          this.then = this.now - (this.delta % this.interval)
           //Animation sprite sonic marche
           if (this.bool2 === false) {
             this.image.style.left = "-50px"
@@ -70,8 +70,8 @@ class soleil extends Component {
         //FPS control
         this.now = Date.now()
         this.delta = this.now - this.then
-        this.then = this.now - (this.delta % this.interval)
         if (this.delta > this.interval) {
+          this.then = this.now - (this.delta % this.interval)
           if (this.bool === false) {
             this.image.style.left = "-55px"
             this.image.style.top = "-21px"
@@ -167,8 +167,8 @@ class soleil extends Component {
         //FPS control
         this.now = Date.now()
         this.delta = this.now - this.then
-        this.then = this.now - (this.delta % this.interval)
         if (this.delta > this.interval) {
+          this.then = this.now - (this.delta % this.interval)
           if (parseFloat(this.imgMonkey.style.left) <= 0 && !this.back) {
             this.imgMonkey.style.left =
               parseFloat(this.imgMonkey.style.left) + 105.52 + "px"
@@ -185,8 +185,8 @@ class soleil extends Component {
         //FPS control
         this.now = Date.now()
         this.delta = this.now - this.then
-        this.then = this.now - (this.delta % this.interval)
         if (this.delta > this.interval) {
+          this.then = this.now - (this.delta % this.interval)
           if (this.cpt > 0) {
             this.imgMonkey.style.left =
               parseFloat(this.imgMonkey.style.left) - 105.52 + "px"
@@ -395,8 +395,8 @@ class soleil extends Component {
         //FPS control
         this.now = Date.now()
         this.delta = this.now - this.then
-        this.then = this.now - (this.delta % this.interval)
         if (this.delta > this.interval) {
+          this.then = this.now - (this.delta % this.interval)
           this.soleil.moveSoleil()
 
           switch (Math.floor(this.soleil.c00rdX)) {
