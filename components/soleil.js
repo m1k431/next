@@ -1,33 +1,27 @@
 /* eslint-disable no-unused-vars */
 import React, { Component, createElement } from "react"
-import $ from "jquery"
-import styles from "./soleil.module.scss"
 import { Container, Row, Col } from "react-bootstrap"
+import $ from "jquery"
 
 class soleil extends Component {
   monIntro() {
-    //Sonic Factory
     class Sonic {
       constructor() {
         //FPS control
-        this.now
         this.then = Date.now()
-        this.delta
-        this.fps
 
         //div
         this.div = document.createElement("div")
-        this.classe = this.div.className = "divSonic"
         this.div.style.overflow = "hidden"
         this.pos = this.div.style.position = "absolute"
         this.haut = this.div.style.height = "48px"
         this.larg = this.div.style.width = "48px"
         this.top = this.div.style.top = Math.floor(Math.random() * Math.floor(50)) + 200 + "px"
         this.gauche = this.div.style.left = Math.floor(Math.random() * Math.floor(96)) + "%"
+
         //sprite
         this.image = document.createElement("img")
         this.image.src = "/img/sonic2.png"
-        this.image.className = "sonic"
         this.image.style.position = "relative"
         this.image.style.left = "-55px"
         this.image.style.top = "-21px"
@@ -43,8 +37,8 @@ class soleil extends Component {
         //FPS control
         this.now = Date.now()
         this.delta = this.now - this.then
+        this.then = this.now - (this.delta % this.interval)
         if (this.delta > this.interval) {
-          this.then = this.now - (this.delta % this.interval)
           //Animation sprite sonic marche
           if (this.bool2 === false) {
             this.image.style.left = "-50px"
@@ -56,6 +50,7 @@ class soleil extends Component {
             } else this.bool2 = false
           }
         }
+
         //sonic se déplace
         if (parseFloat(this.div.style.left) < 100) {
           this.div.style.left = parseFloat(this.div.style.left) + 0.04 + "%"
@@ -73,9 +68,8 @@ class soleil extends Component {
         //FPS control
         this.now = Date.now()
         this.delta = this.now - this.then
+        this.then = this.now - (this.delta % this.interval)
         if (this.delta > this.interval) {
-          this.then = this.now - (this.delta % this.interval)
-          //FPS CONTROL: code for drawing
           if (this.bool === false) {
             this.image.style.left = "-55px"
             this.image.style.top = "-21px"
@@ -89,11 +83,9 @@ class soleil extends Component {
       }
     }
 
-    //Atari Factory
     class Atari {
       constructor(posX, posY, size) {
         this.video = document.createElement("video")
-        this.video.id = "snowB"
         this.video.style.position = "absolute"
         this.video.style.top = "7%"
         this.video.style.right = "34%"
@@ -107,7 +99,6 @@ class soleil extends Component {
         this.source.type = "video/mp4"
 
         this.div = document.createElement("div")
-        this.div.id = "atari"
         this.div.style.position = "absolute"
         this.div.style.right = posX + 'px'
         this.div.style.top = posY + 'px'
@@ -124,22 +115,17 @@ class soleil extends Component {
       }
     }
 
-    //PALM TREE Factory
     class Monkey {
       constructor() {
         this.cpt = 0
         this.back = false
 
         //FPS control
-        this.fps = 15
+        this.fps = 20
         this.interval = 1000 / this.fps
-        this.now
         this.then = Date.now()
-        this.delta
 
         this.div = document.createElement("div")
-        this.div.id = "divMonkey"
-        this.div.className = "divMonkey"
         this.div.style.position = "absolute"
         this.div.style.height = "140px"
         this.div.style.width = "95px"
@@ -149,16 +135,12 @@ class soleil extends Component {
 
         this.imgMonkey = document.createElement("img")
         this.imgMonkey.src = "/img/monkey.png"
-        this.imgMonkey.id = "monkey"
-        this.imgMonkey.className = "monkey"
         this.imgMonkey.style.position = "absolute"
         this.imgMonkey.style.height = "100%"
         this.imgMonkey.style.left = "-2215px"
 
         this.imgPalm = document.createElement("img")
         this.imgPalm.src = "/img/palmTree.png"
-        this.imgPalm.id = "palmTree"
-        this.imgPalm.className = "palmTree"
         this.imgPalm.style.position = "absolute"
         this.imgPalm.style.height = "65%"
         this.imgPalm.style.top = "30px"
@@ -173,9 +155,8 @@ class soleil extends Component {
         //FPS control
         this.now = Date.now()
         this.delta = this.now - this.then
+        this.then = this.now - (this.delta % this.interval)
         if (this.delta > this.interval) {
-          this.then = this.now - (this.delta % this.interval)
-          //FPS CONTROL: code for drawing
           if (parseFloat(this.imgMonkey.style.left) <= 0 && !this.back) {
             this.imgMonkey.style.left =
               parseFloat(this.imgMonkey.style.left) + 105.52 + "px"
@@ -192,9 +173,8 @@ class soleil extends Component {
         //FPS control
         this.now = Date.now()
         this.delta = this.now - this.then
+        this.then = this.now - (this.delta % this.interval)
         if (this.delta > this.interval) {
-          this.then = this.now - (this.delta % this.interval)
-          //FPS CONTROL: code for drawing
           if (this.cpt > 0) {
             this.imgMonkey.style.left =
               parseFloat(this.imgMonkey.style.left) - 105.52 + "px"
@@ -210,7 +190,6 @@ class soleil extends Component {
     class Ciel {
       constructor() {
         this.canvas = document.createElement("canvas")
-        this.canvas.id = "ci3l"
         this.canvas.style.position = "absolute"
         this.canvas.style.display = "block"
         this.canvas.width = 600
@@ -219,11 +198,11 @@ class soleil extends Component {
         this.canvas.style.height = "100%"
         this.canvas.style.borderRadius = "10px"
         this.canvas.style.margin = 0
-        
+
         this.ctx = this.canvas.getContext('2d')
         this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
         this.gradient.addColorStop(0, "blue")
-        this.gradient.addColorStop(0.5, "white")
+        this.gradient.addColorStop(0.6, "white")
         this.ctx.fillStyle = this.gradient
         this.ctx.fillRect(0, 0, 600, 400)
       }
@@ -232,24 +211,24 @@ class soleil extends Component {
     class Nuit {
       constructor() {
         this.canvas = document.createElement("canvas")
+        this.canvas.className = "nuit"
         this.canvas.width = 600
         this.canvas.height = 400
         this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
-        this.canvas.id = "nuit"
         this.canvas.style.position = "absolute"
         this.canvas.style.borderRadius = "10px"
-        this.canvas.style.backgroundColor = "black"
+        this.canvas.style.backgroundColor = "rgba(0, 0, 0, 0.90)"
       }
     }
 
     class Lune {
       constructor() {
         this.canvas = document.createElement("canvas")
+        this.canvas.className = "moon"
         this.canvas.width = 40
         this.canvas.height = 40
         this.canvas.style.width = "50px"
-        this.canvas.id = "moon"
         this.canvas.style.position = "absolute"
         this.canvas.style.top = "30px"
         this.canvas.style.right = "10%"
@@ -270,7 +249,6 @@ class soleil extends Component {
         this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
         this.canvas.style.borderRadius = "10px"
-        this.canvas.id = "m0nC4nvaM3r"
         this.canvas.style.position = "absolute"
         this.canvas.style.display = "block"
         this.ctx = this.canvas.getContext("2d")
@@ -299,7 +277,6 @@ class soleil extends Component {
         this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
         this.canvas.style.borderRadius = "10px"
-        this.canvas.id = "m0nC4nvaC0lline"
         this.canvas.style.display = "block"
         this.canvas.style.position = "absolute"
         this.ctx = this.canvas.getContext("2d")
@@ -322,23 +299,13 @@ class soleil extends Component {
 
     class Soleil {
       constructor() {
-        //FPS control
-        this.fps = 60
-        this.interval = 1000 / this.fps
-        this.now
-        this.then = Date.now()
-        this.delta
-
-        this.div = document.getElementById("s0leil")
-        this.div.style.position = "relative"
-        this.div.style.display = "block"
-        this.div.style.overflow = "hidden"
-        this.div.style.height = "300px"
+        //coordonnées soleil
+        this.c00rdX = 10
+        this.c00rdY = 200
 
         this.canvas = document.createElement("canvas")
         this.canvas.width = 40
         this.canvas.height = 40
-        this.canvas.id = "c4nv4"
         this.canvas.style.width = "40px"
         this.canvas.style.position = "absolute"
         this.ctx = this.canvas.getContext("2d")
@@ -348,27 +315,51 @@ class soleil extends Component {
         this.gradient.addColorStop(0.9, "yellow")
         this.ctx.fillStyle = this.gradient
         this.ctx.fillRect(0, 0, 40, 40)
+      }
 
-        //coordonnées soleil
-        this.c00rdX = 20
-        this.c00rdY = 2
+      moveSoleil() {
+        if (this.c00rdX < 145) {
+          this.c00rdY = Math.cos(this.c00rdX / 28) * 54
+          this.canvas.style.top = this.c00rdY + 60 + "%"
+          this.canvas.style.left = this.c00rdX - 40 + "%"
+          this.c00rdX = this.c00rdX + 0.2
+        }
+        else {
+          this.c00rdX = 10
+        }
+        //}
+      }
+    }
+
+    class univers {
+      constructor() {
+        //FPS control
+        this.then = Date.now()
+
+        this.div = document.createElement("div")
+        this.div.style.position = "relative"
+        this.div.style.display = "block"
+        this.div.style.overflow = "hidden"
+        this.div.style.height = "300px"
 
         //Création de l'environnement 
         this.ciel = new Ciel()
-        this.div.appendChild(this.ciel.canvas)
         this.nuit = new Nuit()
-        this.div.appendChild(this.nuit.canvas)
         this.lune = new Lune()
-        this.div.appendChild(this.lune.canvas)
-        this.div.appendChild(this.canvas)
+        this.soleil = new Soleil()
         this.mer = new Mer()
-        this.div.appendChild(this.mer.canvas)
         this.hill = new Hill()
-        this.div.appendChild(this.hill.canvas)
         this.monkey = new Monkey()
+        this.atari = new Atari(40, 100, 175)
+
+        this.div.appendChild(this.ciel.canvas)
+        this.div.appendChild(this.nuit.canvas)
+        this.div.appendChild(this.lune.canvas)
+        this.div.appendChild(this.soleil.canvas)
+        this.div.appendChild(this.mer.canvas)
+        this.div.appendChild(this.hill.canvas)
         this.div.appendChild(this.monkey.div)
         this.div.appendChild(this.monkey.imgPalm)
-        this.atari = new Atari(40, 100, 175)
         this.div.appendChild(this.atari.div)
 
         this.tabSonic = []
@@ -377,69 +368,68 @@ class soleil extends Component {
           this.div.appendChild(this.tabSonic[i].div)
         }
 
-        this.bouclePrincpale()
       }
+      universMove() {
+        this.idUniversMove = requestAnimationFrame(this.universMove.bind(this))
 
-      // Mouvement du soleil avec animation des objets selon sa position (this.c00rdX)
-      bouclePrincpale(/*m0ntimestamp*/) {
-        requestAnimationFrame(this.bouclePrincpale.bind(this))
-        //FPS CONTROL
+        //FPS control
+        this.fps = 40
+        this.interval = 1000 / this.fps
         this.now = Date.now()
         this.delta = this.now - this.then
-
+        this.then = this.now - (this.delta % this.interval)
         if (this.delta > this.interval) {
-          this.then = this.now - (this.delta % this.interval)
-          //FPS CONTROL: code for drawing
-          if (this.c00rdX < 145) {
-            this.c00rdY = Math.cos(this.c00rdX / 28) * 54
-            this.canvas.style.top = this.c00rdY + 60 + "%"
-            this.canvas.style.left = this.c00rdX - 40 + "%"
+          this.soleil.moveSoleil()
 
-            switch (Math.floor(this.c00rdX)) {
-              case 30:
-                $("#nuit").fadeOut(3000)
-                $("#moon").fadeOut(3000)
-                break
+          switch (Math.floor(this.soleil.c00rdX)) {
+            case 37:
+              $(".nuit").fadeOut(3000)
+              $(".moon").fadeOut(2000)
+              break
 
-              case 44:
-                this.monkey.monkeyDown()
-                for (let i = 0; i < this.tabSonic.length; ++i) {
-                  this.tabSonic[i].sonicMarche()
-                }
-                this.atari.video.play()
-                break
+            case 38:
+              this.monkey.monkeyDown()
+              break
 
-              case 75:
-                this.monkey.monkeyUp()
-                break
+            case 45:
+              for (let i = 0; i < this.tabSonic.length; ++i) {
+                this.tabSonic[i].sonicMarche()
+              }
+              this.atari.video.play()
+              break
 
-              case 95:
-                this.monkey.monkeyDown()
-                break
+            case 70:
+              this.monkey.monkeyUp()
+              break
 
-              case 125:
-                $("#moon").fadeIn(3000)
-                this.monkey.monkeyUp()
-                break
+            case 95:
+              this.monkey.monkeyDown()
+              break
 
-              case 130:
-                this.atari.video.pause()
-                $("#nuit").fadeIn(3000)
-                for (let i = 0; i < this.tabSonic.length; ++i) {
-                  this.tabSonic[i].sonicSennuie()
-                }
-                break
-            }
-            this.c00rdX = this.c00rdX + 0.2
-          }
-          else {
-            this.c00rdX = 20
+            case 125:
+              $(".moon").fadeIn(3000)
+              this.monkey.monkeyUp()
+              break
+
+            case 130:
+              $(".nuit").fadeIn(3000)
+              this.atari.video.pause()
+              for (let i = 0; i < this.tabSonic.length; ++i) {
+                this.tabSonic[i].sonicSennuie()
+              }
+              break
           }
         }
       }
     }
-    //H3ll0 W0r1d ^^
-    const soleil = new Soleil()
+
+    //FULL OBJECT done----------------------------------------
+    let divHtml = document.getElementById('univers')
+
+    let univers1 = new univers()
+    divHtml.appendChild(univers1.div)
+    univers1.universMove()
+
   }
   componentDidMount() {
     this.monIntro()
@@ -449,7 +439,7 @@ class soleil extends Component {
       <Container>
         <Row>
           <Col>
-            <div id="s0leil" className={styles.soleil}></div>
+            <div id="univers"></div>
           </Col>
         </Row>
       </Container>
