@@ -51,13 +51,13 @@ class soleil extends Component {
               this.image.style.left = parseFloat(this.image.style.left) - 49 + "px"
             } else this.bool2 = false
           }
-        }
-
-        //sonic se déplace
-        if (parseFloat(this.div.style.left) < 100) {
-          this.div.style.left = parseFloat(this.div.style.left) + 0.04 + "%"
-        } else {
-          this.div.style.left = "-10%"
+          
+          //sonic se déplace
+          if (parseFloat(this.div.style.left) < 100) {
+            this.div.style.left = parseFloat(this.div.style.left) + 0.5 + "%"
+          } else {
+            this.div.style.left = "-10%"
+          }
         }
       }
 
