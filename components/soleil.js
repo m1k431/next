@@ -335,6 +335,8 @@ class soleil extends Component {
       constructor() {
         //FPS control
         this.then = Date.now()
+        this.fps = 60
+        this.interval = 1000 / this.fps
 
         this.div = document.createElement("div")
         this.div.style.position = "relative"
@@ -373,52 +375,50 @@ class soleil extends Component {
         this.idUniversMove = requestAnimationFrame(this.universMove.bind(this))
 
         //FPS control
-        this.fps = 40
-        this.interval = 1000 / this.fps
         this.now = Date.now()
         this.delta = this.now - this.then
         this.then = this.now - (this.delta % this.interval)
         if (this.delta > this.interval) {
           this.soleil.moveSoleil()
+        }
 
-          switch (Math.floor(this.soleil.c00rdX)) {
-            case 37:
-              $(".nuit").fadeOut(3000)
-              $(".moon").fadeOut(2000)
-              break
+        switch (Math.floor(this.soleil.c00rdX)) {
+          case 37:
+            $(".nuit").fadeOut(3000)
+            $(".moon").fadeOut(2000)
+            break
 
-            case 38:
-              this.monkey.monkeyDown()
-              break
+          case 38:
+            this.monkey.monkeyDown()
+            break
 
-            case 45:
-              for (let i = 0; i < this.tabSonic.length; ++i) {
-                this.tabSonic[i].sonicMarche()
-              }
-              this.atari.video.play()
-              break
+          case 45:
+            for (let i = 0; i < this.tabSonic.length; ++i) {
+              this.tabSonic[i].sonicMarche()
+            }
+            this.atari.video.play()
+            break
 
-            case 70:
-              this.monkey.monkeyUp()
-              break
+          case 70:
+            this.monkey.monkeyUp()
+            break
 
-            case 95:
-              this.monkey.monkeyDown()
-              break
+          case 95:
+            this.monkey.monkeyDown()
+            break
 
-            case 125:
-              $(".moon").fadeIn(3000)
-              this.monkey.monkeyUp()
-              break
+          case 125:
+            $(".moon").fadeIn(3000)
+            this.monkey.monkeyUp()
+            break
 
-            case 130:
-              $(".nuit").fadeIn(3000)
-              this.atari.video.pause()
-              for (let i = 0; i < this.tabSonic.length; ++i) {
-                this.tabSonic[i].sonicSennuie()
-              }
-              break
-          }
+          case 130:
+            $(".nuit").fadeIn(3000)
+            this.atari.video.pause()
+            for (let i = 0; i < this.tabSonic.length; ++i) {
+              this.tabSonic[i].sonicSennuie()
+            }
+            break
         }
       }
     }
