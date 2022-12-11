@@ -204,9 +204,7 @@ class soleil extends Component {
         this.canvas.height = 400
         this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
-        this.canvas.style.borderRadius = "10px"
-        this.canvas.style.margin = 0
-
+        
         this.ctx = this.canvas.getContext('2d')
         this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
         this.gradient.addColorStop(0, "blue")
@@ -225,7 +223,6 @@ class soleil extends Component {
         this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
         this.canvas.style.position = "absolute"
-        this.canvas.style.borderRadius = "10px"
         this.canvas.style.backgroundColor = "rgba(0, 0, 0, 0.90)"
       }
     }
@@ -236,8 +233,8 @@ class soleil extends Component {
         this.img.className = 'matrix'
         this.img.src = "/img/matrixRain.gif"
         this.img.style.position = "absolute"
-        this.img.width = 600
-        this.img.height = 400
+        this.img.style.width = '100%'
+        this.img.style.height = '100%'
       }
     }
 
@@ -268,7 +265,6 @@ class soleil extends Component {
         this.canvas.height = 400
         this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
-        this.canvas.style.borderRadius = "10px"
         this.canvas.style.position = "absolute"
         this.canvas.style.display = "block"
         this.ctx = this.canvas.getContext("2d")
@@ -297,7 +293,6 @@ class soleil extends Component {
         this.canvas.height = 400
         this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
-        this.canvas.style.borderRadius = "10px"
         this.canvas.style.display = "block"
         this.canvas.style.position = "absolute"
         this.ctx = this.canvas.getContext("2d")
@@ -364,6 +359,7 @@ class soleil extends Component {
         this.div.style.overflow = "hidden"
         this.div.style.height = "300px"
         this.div.style.marginLeft = "1%"
+        this.div.style.borderRadius = "10px"
 
         //Création de l'environnement 
         this.ciel = new Ciel()
@@ -409,13 +405,13 @@ class soleil extends Component {
           this.soleil.moveSoleil()
 
           switch (Math.floor(this.soleil.c00rdX)) {
-            case 37:
+            case 31:
               $(".nuit").fadeOut(3000)
               $(".matrix").fadeOut(3000)
               $(".moon").fadeOut(2000)
               break
 
-            case 38:
+            case 42:
               this.monkey.monkeyDown()
               break
 
