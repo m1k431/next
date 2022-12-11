@@ -82,6 +82,16 @@ class JeuCv extends Component {
           "font-size": "1.5em",
         })
         .fadeIn(375)
+      informatique.style.verticalAlign = "top"
+      commerciales.style.verticalAlign = "top"
+      $("html, body").animate({ scrollTop: $("#metier").offset().top - 80 }, 750)
+      $("#btp").fadeOut()
+      $("#commerciales").fadeOut()
+      $("#informatique").animate({ width: "97%" }, 1000)
+
+      //Disable vertical scrolling during game
+      document.body.style.height = "100%"
+      document.body.style.overflow = "hidden"
 
       //________________________________________DIV FOOTBALL SPRITE_____________________________________________
       var divSprite = window.document.createElement("div")
@@ -118,22 +128,7 @@ class JeuCv extends Component {
         mesDivInfos[i].setAttribute("class", styles.infoT)
         i--
       }
-      informatique.style.verticalAlign = "top"
-      commerciales.style.verticalAlign = "top"
-      $("html, body").animate(
-        {
-          scrollTop: $("#metier").offset().top - 80,
-        },
-        750
-      )
-      $("#btp").fadeOut()
-      $("#commerciales").fadeOut()
-      $("#informatique").animate(
-        {
-          width: "97%",
-        },
-        1000
-      )
+
 
       //_________________________________________INITIALISATIION_JEU______________________________________
       var ballX = linkedIn.offsetLeft + linkedIn.offsetWidth / 2 - divSprite.offsetWidth / 2
@@ -500,6 +495,9 @@ class JeuCv extends Component {
             }
           })
           $("#highScore").fadeIn()
+          //Enable vertical scrolling after game end
+          document.body.style.height = "auto"
+          document.body.style.overflow = "visible"
         }
       }
 
@@ -549,6 +547,7 @@ class JeuCv extends Component {
       //_____________________MAIN()_____Déplacement_balle_dans_Environnement__________________________
       var bouclePrincpale = function () {
         idAni = requestAnimationFrame(bouclePrincpale)
+
         //fps control
         now = Date.now()
         delta = now - then
@@ -677,13 +676,13 @@ class JeuCv extends Component {
                 </div>
                 <h3 className={styles.titreh3}>Tools</h3>
                 <div className={styles.informatiquesLast}>
-                <div className={styles.infoJeu}>IBM Rdi</div>
-                <div className={styles.infoJeu}>IBM ACS</div>
-                <div className={styles.infoJeu}>ARCAD for i</div>
-                <div className={styles.infoJeu}>Launcher AS400</div>
-                <div className={styles.infoJeu}>IBM PDM</div>
-                <div className={styles.infoJeu}>bsh/zsh</div>
-                <div className={styles.infoJeu}>Git</div>
+                  <div className={styles.infoJeu}>IBM Rdi</div>
+                  <div className={styles.infoJeu}>IBM ACS</div>
+                  <div className={styles.infoJeu}>ARCAD for i</div>
+                  <div className={styles.infoJeu}>Launcher AS400</div>
+                  <div className={styles.infoJeu}>IBM PDM</div>
+                  <div className={styles.infoJeu}>bsh/zsh</div>
+                  <div className={styles.infoJeu}>Git</div>
                   <div className={styles.infoJeu}>Linux</div>
                   <div className={styles.infoJeu}>Mac osX</div>
                   <div className={styles.infoJeu}>Adobe Photoshop</div>
