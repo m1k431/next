@@ -363,7 +363,7 @@ class soleil extends Component {
         this.div.style.display = "block"
         this.div.style.overflow = "hidden"
         this.div.style.height = "300px"
-        this.div.style.margin = "1%"
+        this.div.style.marginLeft = "1%"
 
         //Création de l'environnement 
         this.ciel = new Ciel()
