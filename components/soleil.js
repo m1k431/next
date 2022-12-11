@@ -14,11 +14,11 @@ class soleil extends Component {
         this.div = document.createElement("div")
         this.div.className = "divSonic"
         this.div.style.overflow = "hidden"
-        this.pos = this.div.style.position = "absolute"
-        this.haut = this.div.style.height = "48px"
-        this.larg = this.div.style.width = "48px"
-        this.top = this.div.style.top = Math.floor(Math.random() * Math.floor(50)) + 200 + "px"
-        this.gauche = this.div.style.left = Math.floor(Math.random() * Math.floor(96)) + "%"
+        this.div.style.position = "absolute"
+        this.div.style.height = "48px"
+        this.div.style.width = "48px"
+        this.div.style.top = Math.floor(Math.random() * Math.floor(50)) + 200 + "px"
+        this.div.style.left = Math.floor(Math.random() * Math.floor(96)) + "%"
 
         //sprite
         this.image = document.createElement("img")
@@ -110,7 +110,6 @@ class soleil extends Component {
         this.img.style.position = "relative"
         this.img.style.height = size + 'px'
 
-        //Génération des éléments html
         this.video.appendChild(this.source)
         this.div.appendChild(this.video)
         this.div.appendChild(this.img)
@@ -149,9 +148,7 @@ class soleil extends Component {
         //FPS control
         this.fps = 20
         this.interval = 1000 / this.fps
-        this.now
         this.then = Date.now()
-        this.delta
 
         this.div.appendChild(this.imgMonkey)
       }
@@ -193,7 +190,6 @@ class soleil extends Component {
       }
     }
 
-
     class Ciel {
       constructor() {
         this.canvas = document.createElement("canvas")
@@ -204,12 +200,13 @@ class soleil extends Component {
         this.canvas.height = 400
         this.canvas.style.width = "100%"
         this.canvas.style.height = "100%"
-        
+
         this.ctx = this.canvas.getContext('2d')
         this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
         this.gradient.addColorStop(0, "blue")
         this.gradient.addColorStop(0.6, "white")
         this.ctx.fillStyle = this.gradient
+        
         this.ctx.fillRect(0, 0, 600, 400)
       }
     }
@@ -248,11 +245,13 @@ class soleil extends Component {
         this.canvas.style.position = "absolute"
         this.canvas.style.top = "30px"
         this.canvas.style.right = "10%"
+
         this.ctx = this.canvas.getContext("2d")
         this.gradient = this.ctx.createRadialGradient(16, 16, 16, 16, 16, 14)
         this.gradient.addColorStop(0, "transparent")
         this.gradient.addColorStop(0.9, "white")
         this.ctx.fillStyle = this.gradient
+
         this.ctx.fillRect(0, 0, 40, 40)
       }
     }
@@ -267,8 +266,8 @@ class soleil extends Component {
         this.canvas.style.height = "100%"
         this.canvas.style.position = "absolute"
         this.canvas.style.display = "block"
-        this.ctx = this.canvas.getContext("2d")
 
+        this.ctx = this.canvas.getContext("2d")
         this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
         this.gradient.addColorStop(0, "navy")
         this.gradient.addColorStop(0.9, "navy")
@@ -295,13 +294,13 @@ class soleil extends Component {
         this.canvas.style.height = "100%"
         this.canvas.style.display = "block"
         this.canvas.style.position = "absolute"
-        this.ctx = this.canvas.getContext("2d")
 
+        this.ctx = this.canvas.getContext("2d")
         this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
         this.gradient.addColorStop(0, "yellow")
         this.gradient.addColorStop(0.8, "black")
-
         this.ctx.fillStyle = this.gradient
+
         this.ctx.beginPath()
         this.ctx.moveTo(0, 400)
         this.ctx.lineTo(600, 400)
@@ -316,9 +315,9 @@ class soleil extends Component {
     class Soleil {
       constructor() {
         //coordonnées soleil
-        this.c00rdX = 10
-        this.c00rdY = 2
-        
+        this.c00rdX = 0
+        this.c00rdY = 0
+
         this.canvas = document.createElement("canvas")
         this.canvas.className = "soleil"
         this.canvas.width = 40
@@ -342,9 +341,8 @@ class soleil extends Component {
           this.c00rdX = this.c00rdX + 0.2
         }
         else {
-          this.c00rdX = 10
+          this.c00rdX = 0
         }
-        //}
       }
     }
 
@@ -352,8 +350,10 @@ class soleil extends Component {
       constructor() {
         //FPS control
         this.then = Date.now()
+        this.fps = 60
+        this.interval = 1000 / this.fps
 
-        this.div = document.getElementById('univers')
+        this.div = document.createElement("div")
         this.div.style.position = "relative"
         this.div.style.display = "block"
         this.div.style.overflow = "hidden"
@@ -394,10 +394,6 @@ class soleil extends Component {
         this.idUniversMove = requestAnimationFrame(this.universMove.bind(this))
 
         //FPS control
-        this.fps = 50
-        this.interval = 1000 / this.fps
-
-        //FPS control
         this.now = Date.now()
         this.delta = this.now - this.then
         if (this.delta > this.interval) {
@@ -406,9 +402,9 @@ class soleil extends Component {
 
           switch (Math.floor(this.soleil.c00rdX)) {
             case 31:
+              $(".matrix").fadeOut(2000)
               $(".nuit").fadeOut(3000)
-              $(".matrix").fadeOut(3000)
-              $(".moon").fadeOut(2000)
+              $(".moon").fadeOut(3000)
               break
 
             case 42:
@@ -435,13 +431,16 @@ class soleil extends Component {
               this.monkey.monkeyUp()
               break
 
+            case 129:
+              for (let i = 0; i < this.tabSonic.length; ++i) {
+                this.tabSonic[i].sonicSennuie()
+              }
+              break
+
             case 130:
               this.atari.video.pause()
               $(".nuit").fadeIn(3000)
               $(".matrix").fadeIn(3000)
-              for (let i = 0; i < this.tabSonic.length; ++i) {
-                this.tabSonic[i].sonicSennuie()
-              }
               break
           }
         }
@@ -450,8 +449,8 @@ class soleil extends Component {
 
     //FULL OBJECT done----------------------------------------
     let univers1 = new univers()
+    document.getElementById('univers').appendChild(univers1.div)
     univers1.universMove()
-
   }
   componentDidMount() {
     this.monIntro()
