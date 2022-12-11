@@ -40,7 +40,7 @@ export default function Home({
 }) {
   return (
     <>
-      { /* <Particles id="Particles" params={paramParticles} /> */ }
+      { /* <Particles id="Particles" params={paramParticles} /> */}
       <Header />
       <br />
       <h1 className="titreh1 english">{welcome}</h1>
@@ -50,12 +50,9 @@ export default function Home({
       <Jonglage />
       <h2 className="titreh1 english">{metierUS}</h2>
       <h2 className="titreh1 french">{metierFR}</h2>
+      <Soleil />
       <JeuCv />
       <br />
-      <a className="titreh1" href="https://github.com/m1k431/next/blob/master/components/soleil.js" style={{ textDecoration: "none" }}>
-        <center>Programmation Objets</center>
-      </a>
-      <Soleil />
       <h2 className="titreh1 english">{outro}</h2>
       <h2 className="titreh1 french">{outroFR}</h2>
       <a href="https://nextjs.org/">

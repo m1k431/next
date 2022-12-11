@@ -107,10 +107,8 @@ class JeuCv extends Component {
 
       //________________________________________Paddle + hauteur breaker_____________________________________
       $("#linkedIn").fadeIn(2000)
-      window.document.getElementById("linkedIn").style.left =
-        competences.offsetWidth / 2 + competences.offsetLeft + "px"
-      linkedIn.style.top =
-        competences.offsetTop + competences.offsetHeight - 120 + "px"
+      linkedIn.style.left = competences.offsetWidth / 2 + competences.offsetLeft + "px"
+      linkedIn.style.top = competences.offsetTop + competences.offsetHeight - 120 + "px"
 
       //________________________________________INITIALISTATION BRICKS_______________________________________
       var mesDivInfos = window.document.getElementsByClassName(styles.infoJeu)
@@ -138,13 +136,8 @@ class JeuCv extends Component {
       )
 
       //_________________________________________INITIALISATIION_JEU______________________________________
-      var ballX =
-        linkedIn.offsetLeft +
-        linkedIn.offsetWidth / 2 -
-        divSprite.offsetWidth / 2
+      var ballX = linkedIn.offsetLeft + linkedIn.offsetWidth / 2 - divSprite.offsetWidth / 2
       var ballY = linkedIn.offsetTop - divSprite.offsetHeight
-      divSprite.style.left = ballX + "px"
-      divSprite.style.top = ballY + "px"
       var ballLeft = false
       var ballDown = false
       var youwin = false
@@ -157,28 +150,27 @@ class JeuCv extends Component {
         var nextTime = 0
         fetch(url).then(function (response) {
           var reader = response.body.getReader()
-          function read() {
-            return reader.read().then(({ value, done }) => {
-              if (done) {
-                //console.log('done');
-                return
-              } else {
-                //console.log(value, done);
-                context.decodeAudioData(
-                  value.buffer,
-                  function (buffer) {
-                    audioStack.push(buffer)
-                    if (audioStack.length) {
-                      scheduleBuffers()
-                    }
-                  },
-                  function (err) {
-                    console.log("err(decodeAudioData): " + err)
+          async function read() {
+            const { value, done } = await reader.read()
+            if (done) {
+              //console.log('done');
+              return
+            } else {
+              //console.log(value, done);
+              context.decodeAudioData(
+                value.buffer,
+                function (buffer) {
+                  audioStack.push(buffer)
+                  if (audioStack.length) {
+                    scheduleBuffers()
                   }
-                )
-              }
-              read()
-            })
+                },
+                function (err) {
+                  console.log("err(decodeAudioData): " + err)
+                }
+              )
+            }
+            read()
           }
           read()
         })
@@ -242,43 +234,21 @@ class JeuCv extends Component {
       var divNext = window.document.getElementById("__next")
 
       var movepaddle = function (mon0bjetEvent) {
-        if (
-          mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 - 5 >
-          (divNext.offsetWidth - competences.offsetWidth) / 2 +
-          competences.offsetLeft &&
-          mon0bjetEvent.clientX + linkedIn.offsetWidth / 2 <
-          (divNext.offsetWidth - competences.offsetWidth) / 2 +
-          competences.offsetWidth +
-          5
-        ) {
-          linkedIn.style.left =
-            mon0bjetEvent.clientX -
-            linkedIn.offsetWidth / 2 -
-            5 -
-            (divNext.offsetWidth - competences.offsetWidth) / 2 +
-            "px"
-        } else if (
-          mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 <
-          (divNext.offsetWidth - competences.offsetWidth) / 2 +
-          competences.offsetLeft
-        ) {
+        if (mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 - 5
+          > (divNext.offsetWidth - competences.offsetWidth) / 2 + competences.offsetLeft
+          && mon0bjetEvent.clientX + linkedIn.offsetWidth / 2
+          < (divNext.offsetWidth - competences.offsetWidth) / 2 + competences.offsetWidth + 5) {
+          linkedIn.style.left = mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 - 5 - (divNext.offsetWidth - competences.offsetWidth) / 2 + "px"
+        }
+        else if (mon0bjetEvent.clientX - linkedIn.offsetWidth / 2
+          < (divNext.offsetWidth - competences.offsetWidth) / 2 + competences.offsetLeft) {
           linkedIn.style.left = competences.offsetLeft - 5 + "px"
-        } else if (
-          mon0bjetEvent.clientX + linkedIn.offsetWidth / 2 >
-          competences.offsetWidth + competences.offsetLeft
-        ) {
-          linkedIn.style.left =
-            competences.offsetLeft +
-            competences.offsetWidth -
-            linkedIn.offsetWidth -
-            5 +
-            "px"
+        }
+        else if (mon0bjetEvent.clientX + linkedIn.offsetWidth / 2 > competences.offsetWidth + competences.offsetLeft) {
+          linkedIn.style.left = competences.offsetLeft + competences.offsetWidth - linkedIn.offsetWidth - 5 + "px"
         }
         if (clickMove === true) {
-          ballX =
-            linkedIn.offsetLeft +
-            linkedIn.offsetWidth / 2 -
-            divSprite.offsetWidth / 2
+          ballX = linkedIn.offsetLeft + linkedIn.offsetWidth / 2 - divSprite.offsetWidth / 2
           ballY = linkedIn.offsetTop - divSprite.offsetHeight
           divSprite.style.left = ballX + "px"
           divSprite.style.top = ballY + "px"
@@ -290,10 +260,12 @@ class JeuCv extends Component {
       var animSprite = function () {
         if (parseFloat(imgSoccer.style.left) > -72) {
           imgSoccer.style.left = parseFloat(imgSoccer.style.left) - 39 + "px"
-        } else if (parseFloat(imgSoccer.style.top) > -50) {
+        }
+        else if (parseFloat(imgSoccer.style.top) > -50) {
           imgSoccer.style.left = -13 + "px"
           imgSoccer.style.top = parseFloat(imgSoccer.style.top) - 40 + "px"
-        } else {
+        }
+        else {
           imgSoccer.style.left = -13 + "px"
           imgSoccer.style.top = -18 + "px"
         }
@@ -320,71 +292,45 @@ class JeuCv extends Component {
       //__________________________________Intéraction_balle/paddle_AngleBalle_______________________________________________________
       var paddle = function () {
         //Left paddle side
-        if (
-          ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft &&
-          ballX + divSprite.offsetWidth / 2 <
-          linkedIn.offsetLeft + linkedIn.offsetWidth / 2
-        ) {
+        if (ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft && ballX + divSprite.offsetWidth / 2
+          < linkedIn.offsetLeft + linkedIn.offsetWidth / 2) {
           ballDown = false
           ballLeft = true
           combo += 1
           play(pongB)
           //angle renvoi balle
-          if (
-            ballX + divSprite.offsetWidth / 2 <
-            linkedIn.offsetLeft + linkedIn.offsetWidth / 8
-          ) {
+          if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 8) {
             angle = 4
-          } else if (
-            ballX + divSprite.offsetWidth / 2 <
-            linkedIn.offsetLeft + linkedIn.offsetWidth / 4
-          ) {
+          }
+          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 4) {
             angle = 3
-          } else if (
-            ballX + divSprite.offsetWidth / 2 <
-            linkedIn.offsetLeft +
-            linkedIn.offsetWidth / 4 +
-            linkedIn.offsetWidth / 8
-          ) {
+          }
+          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 4 + linkedIn.offsetWidth / 8) {
             angle = 2
-          } else if (
-            ballX + divSprite.offsetWidth / 2 <
-            linkedIn.offsetLeft + linkedIn.offsetWidth / 2
-          ) {
+          }
+          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 2) {
             angle = 1
           }
         }
 
         //Right paddle side
-        else if (
-          ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft &&
-          ballX + divSprite.offsetWidth / 2 <
-          linkedIn.offsetLeft + linkedIn.offsetWidth
-        ) {
+        else if (ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft && ballX + divSprite.offsetWidth / 2
+          < linkedIn.offsetLeft + linkedIn.offsetWidth) {
           ballDown = false
           ballLeft = false
           combo += 1
           play(pongB)
           //angle renvoi balle
-          if (
-            ballX + divSprite.offsetWidth / 2 <
-            linkedIn.offsetLeft + (linkedIn.offsetWidth * 5) / 8
-          ) {
+          if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + (linkedIn.offsetWidth * 5) / 8) {
             angle = 1
-          } else if (
-            ballX + divSprite.offsetWidth / 2 <
-            linkedIn.offsetLeft + (linkedIn.offsetWidth * 6) / 8
-          ) {
+          }
+          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + (linkedIn.offsetWidth * 6) / 8) {
             angle = 2
-          } else if (
-            ballX + divSprite.offsetWidth / 2 <
-            linkedIn.offsetLeft + (linkedIn.offsetWidth * 7) / 8
-          ) {
+          }
+          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + (linkedIn.offsetWidth * 7) / 8) {
             angle = 3
-          } else if (
-            ballX + divSprite.offsetWidth / 2 <
-            linkedIn.offsetLeft + linkedIn.offsetWidth
-          ) {
+          }
+          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth) {
             angle = 4
           }
         }
@@ -397,26 +343,15 @@ class JeuCv extends Component {
         let gauche, droite, haut, bas, mini
         while (i >= 0) {
           //inside brick
-          if (
-            ballX + divSprite.offsetWidth > mesInfosT[i].offsetLeft && //left
-            ballX < mesInfosT[i].offsetLeft + mesInfosT[i].offsetWidth && //right
-            ballY + divSprite.offsetHeight > mesInfosT[i].offsetTop && //haut
-            ballY < mesInfosT[i].offsetTop + mesInfosT[i].offsetHeight
-          ) {
-            //bas
+          if (ballX + divSprite.offsetWidth > mesInfosT[i].offsetLeft  //left
+            && ballX < mesInfosT[i].offsetLeft + mesInfosT[i].offsetWidth //right
+            && ballY + divSprite.offsetHeight > mesInfosT[i].offsetTop //haut
+            && ballY < mesInfosT[i].offsetTop + mesInfosT[i].offsetHeight) { //bas
 
-            gauche = Math.abs(
-              ballX + divSprite.offsetWidth - mesInfosT[i].offsetLeft
-            )
-            droite = Math.abs(
-              ballX - mesInfosT[i].offsetLeft - mesInfosT[i].offsetWidth
-            )
-            haut = Math.abs(
-              ballY + divSprite.offsetHeight - mesInfosT[i].offsetTop
-            )
-            bas = Math.abs(
-              ballY - mesInfosT[i].offsetTop - mesInfosT[i].offsetHeight
-            )
+            gauche = Math.abs(ballX + divSprite.offsetWidth - mesInfosT[i].offsetLeft)
+            droite = Math.abs(ballX - mesInfosT[i].offsetLeft - mesInfosT[i].offsetWidth)
+            haut = Math.abs(ballY + divSprite.offsetHeight - mesInfosT[i].offsetTop)
+            bas = Math.abs(ballY - mesInfosT[i].offsetTop - mesInfosT[i].offsetHeight)
             mini = Math.min(gauche, droite, haut, bas)
 
             switch (mini) {
@@ -454,12 +389,7 @@ class JeuCv extends Component {
       var destroyBrick = function (i) {
         var mesInfosT = window.document.getElementsByClassName(styles.infoT)
         play(pongC)
-        $(mesInfosT[i]).animate(
-          {
-            backgroundColor: "rgba(255, 255, 255, 0.4)",
-          },
-          500
-        )
+        $(mesInfosT[i]).animate({ backgroundColor: "rgba(255, 255, 255, 0.4)" }, 500)
         mesInfosT[i].className = styles.infoJeu
         score += 50 * combo
       }
@@ -467,41 +397,34 @@ class JeuCv extends Component {
       var deplacerBalle = function () {
         var ballSpeed = 2
         divSprite.style.top = ballY + "px"
+
         //ball move left right limit
-        if (
-          ballX <
-          competences.offsetLeft +
-          competences.offsetWidth -
-          divSprite.offsetWidth &&
-          !ballLeft
-        ) {
+        if (ballX < competences.offsetLeft + competences.offsetWidth - divSprite.offsetWidth && !ballLeft) {
           ballX = ballX + angle * ballSpeed
           divSprite.style.left = ballX + "px"
-        } else if (ballX > competences.offsetLeft) {
+        }
+        else if (ballX > competences.offsetLeft) {
           ballLeft = true
           ballX = ballX - angle * ballSpeed
           divSprite.style.left = ballX + "px"
-        } else {
+        }
+        else {
           ballLeft = false
           play(pongA)
         }
+
         //ball move up down limit
         if (ballY >= competences.offsetTop && !ballDown) {
           ballY = ballY - 2 * ballSpeed
           divSprite.style.top = ballY + "px"
-        } else if (
-          ballY <
-          competences.offsetTop + competences.offsetHeight - 30
-        ) {
+        }
+        else if (ballY < competences.offsetTop + competences.offsetHeight - 30) {
           ballDown = true
           ballY = ballY + 2 * ballSpeed
           divSprite.style.top = ballY + "px"
-          if (
-            ballY + divSprite.offsetHeight > linkedIn.offsetTop - 5 &&
-            ballY < linkedIn.offsetTop
-          )
-            paddle()
-        } else {
+          if (ballY + divSprite.offsetHeight > linkedIn.offsetTop - 5 && ballY < linkedIn.offsetTop) paddle()
+        }
+        else {
           //YOU MISSSSS
           ballDown = false
           clickMove = true
@@ -511,29 +434,20 @@ class JeuCv extends Component {
           //----------------------------------------------
           $("#metier > h2")
             .text("SCORE: " + score)
-            .css({
-              color: "red",
-              "font-family": "sans-serif",
-              "font-size": "1.5em",
-            })
+            .css({ color: "red", "font-family": "sans-serif", "font-size": "1.5em", })
             .fadeIn(375)
           combo = 1
           clearInterval(idL)
           play(miss)
-          ballX =
-            linkedIn.offsetLeft +
-            linkedIn.offsetWidth / 2 -
-            divSprite.offsetWidth / 2
+          ballX = linkedIn.offsetLeft + linkedIn.offsetWidth / 2 - divSprite.offsetWidth / 2
           ballY = linkedIn.offsetTop - divSprite.offsetHeight
           divSprite.style.left = ballX + "px"
           divSprite.style.top = ballY + "px"
           ballLeft = false
           angle = 1
         }
-        if (
-          ballX + divSprite.offsetWidth >
-          competences.offsetLeft + competences.offsetWidth
-        ) {
+
+        if (ballX + divSprite.offsetWidth > competences.offsetLeft + competences.offsetWidth) {
           play(pongA)
         }
         if (ballY < competences.offsetTop) {
@@ -564,12 +478,7 @@ class JeuCv extends Component {
           $("#skills").hide()
           $("#score").fadeIn()
           //$('#btp').fadeIn()
-          $("#informatique").animate(
-            {
-              width: "99%",
-            },
-            1000
-          )
+          $("#informatique").animate({ width: "99%" }, 1000)
           //$('#informatique').hide()
           $("#competen").css("height", "auto")
           $("#competen").fadeOut()
@@ -586,11 +495,9 @@ class JeuCv extends Component {
               var tbodyEl = $("tbody")
               tbodyEl.html("")
               reponse.forEach(function (score) {
-                tbodyEl.append(
-                  `<tr><td>${score.visitorName}</td><td>${score.score}</td></tr>`
-                )
+                tbodyEl.append(`<tr><td>${score.visitorName}</td><td>${score.score}</td></tr>`)
               })
-            },
+            }
           })
           $("#highScore").fadeIn()
         }
@@ -620,13 +527,11 @@ class JeuCv extends Component {
                 var tbodyEl = $("tbody")
                 tbodyEl.html("")
                 reponse.forEach(function (score) {
-                  tbodyEl.append(
-                    `<tr><td>${score.visitorName}</td><td>${score.score}</td></tr>`
-                  )
+                  tbodyEl.append(`<tr><td>${score.visitorName}</td><td>${score.score}</td></tr>`)
                 })
-              },
+              }
             })
-          },
+          }
         })
       })
 
@@ -649,7 +554,6 @@ class JeuCv extends Component {
         delta = now - then
         if (delta > interval) {
           then = now - (delta % interval)
-          //code for drawing the frame
           if (!youwin || !clickMove) {
             deplacerBalle()
             brickBroken()
@@ -660,11 +564,7 @@ class JeuCv extends Component {
             if (clickMove === false && fuse === 1) {
               $("#metier > h2")
                 .text("SCORE: " + score)
-                .css({
-                  color: "black",
-                  "font-family": "sans-serif",
-                  "font-size": "1.5em",
-                })
+                .css({ color: "black", "font-family": "sans-serif", "font-size": "1.5em" })
                 .fadeIn(375)
             } else {
               cancelAnimationFrame(idAni)
@@ -683,6 +583,7 @@ class JeuCv extends Component {
       bouclePrincpale()
     }
   }
+
   finJeu() {
     var mesDivInfos = window.document.getElementsByClassName(styles.infoT)
     var i = mesDivInfos.length
@@ -692,9 +593,11 @@ class JeuCv extends Component {
       i--
     }
   }
+
   componentDidMount() {
     this.jeuBreaker()
   }
+
   render() {
     const metier = "IBM NODEJS DEVELOPER"
     return (
@@ -774,12 +677,13 @@ class JeuCv extends Component {
                 </div>
                 <h3 className={styles.titreh3}>Tools</h3>
                 <div className={styles.informatiquesLast}>
-                  <div className={styles.infoJeu}>Git</div>
-                  <div className={styles.infoJeu}>IBM Rdi</div>
-                  <div className={styles.infoJeu}>IBM ACS</div>
-                  <div className={styles.infoJeu}>ARCAD for i</div>
-                  <div className={styles.infoJeu}>IBM PDM</div>
-                  <div className={styles.infoJeu}>bsh/zsh</div>
+                <div className={styles.infoJeu}>IBM Rdi</div>
+                <div className={styles.infoJeu}>IBM ACS</div>
+                <div className={styles.infoJeu}>ARCAD for i</div>
+                <div className={styles.infoJeu}>Launcher AS400</div>
+                <div className={styles.infoJeu}>IBM PDM</div>
+                <div className={styles.infoJeu}>bsh/zsh</div>
+                <div className={styles.infoJeu}>Git</div>
                   <div className={styles.infoJeu}>Linux</div>
                   <div className={styles.infoJeu}>Mac osX</div>
                   <div className={styles.infoJeu}>Adobe Photoshop</div>
@@ -886,7 +790,7 @@ class JeuCv extends Component {
               </h2>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                Ingénieur d'étude et développement IBM i
+                  Ingénieur d'étude et développement IBM i
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>IBM i software engineer</h3>
                 <div className={`${styles.infojob} french`}>
@@ -904,7 +808,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                Ingénieur d'étude et développement IBM i (ADELIA)
+                  Ingénieur d'étude et développement IBM i (ADELIA)
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>IBM i software engineer (ADELIA)</h3>
                 <div className={`${styles.infojob} french`}>
@@ -922,7 +826,7 @@ class JeuCv extends Component {
               </div>
               <div className={styles.jobs}>
                 <h3 className={`${styles.titreh3} french`}>
-                Ingénieur d'étude et développement IBM i
+                  Ingénieur d'étude et développement IBM i
                 </h3>
                 <h3 className={`${styles.titreh3} english`}>IBM i software engineer</h3>
                 <div className={`${styles.infojob} french`}>
