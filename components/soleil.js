@@ -17,7 +17,8 @@ class soleil extends Component {
         this.div.style.position = "absolute"
         this.div.style.height = "48px"
         this.div.style.width = "48px"
-        this.div.style.top = Math.floor(Math.random() * Math.floor(50)) + 200 + "px"
+        //this.div.style.top = Math.floor(Math.random() * Math.floor(50)) + 200 + "px"
+        this.div.style.top = Math.floor(Math.random() * Math.floor(10)) + 70 + "%"
         this.div.style.left = Math.floor(Math.random() * Math.floor(96)) + "%"
 
         //sprite
@@ -102,8 +103,8 @@ class soleil extends Component {
 
         this.div = document.createElement("div")
         this.div.style.position = "absolute"
-        this.div.style.right = posX + 'px'
-        this.div.style.top = posY + 'px'
+        this.div.style.right = posX + '%'
+        this.div.style.top = posY + '%'
 
         this.img = document.createElement("img")
         this.img.src = "/img/Atari.png"
@@ -123,8 +124,8 @@ class soleil extends Component {
         this.div.style.position = "absolute"
         this.div.style.height = "140px"
         this.div.style.width = "95px"
-        this.div.style.left = "59.55px"
-        this.div.style.top = "50px"
+        this.div.style.left = "59.3px"
+        this.div.style.top = "16%"
         this.div.style.overflow = "hidden"
 
         this.imgMonkey = document.createElement("img")
@@ -138,9 +139,9 @@ class soleil extends Component {
         this.imgPalm.className = "palmTree"
         this.imgPalm.src = "/img/palmTree.png"
         this.imgPalm.style.position = "absolute"
-        this.imgPalm.style.height = "65%"
-        this.imgPalm.style.top = "30px"
-        this.imgPalm.style.left = "5px"
+        this.imgPalm.style.height = "200px"
+        this.imgPalm.style.top = "10%"
+        this.imgPalm.style.left = "3px"
 
         this.cpt = 0
         this.back = false
@@ -206,7 +207,7 @@ class soleil extends Component {
         this.gradient.addColorStop(0, "blue")
         this.gradient.addColorStop(0.6, "white")
         this.ctx.fillStyle = this.gradient
-        
+
         this.ctx.fillRect(0, 0, 600, 400)
       }
     }
@@ -357,9 +358,12 @@ class soleil extends Component {
         this.div.style.position = "relative"
         this.div.style.display = "block"
         this.div.style.overflow = "hidden"
-        this.div.style.height = "300px"
-        this.div.style.marginLeft = "1%"
-        this.div.style.borderRadius = "10px"
+        this.div.style.height = "350px"
+        this.div.style.width = "350px"
+        this.div.style.marginLeft = "auto"
+        this.div.style.marginRight = "auto"
+        this.div.style.marginBottom = "2%"
+        this.div.style.borderRadius = "175px"
 
         //Création de l'environnement 
         this.ciel = new Ciel()
@@ -370,7 +374,7 @@ class soleil extends Component {
         this.mer = new Mer()
         this.hill = new Hill()
         this.monkey = new Monkey()
-        this.atari = new Atari(40, 100, 175)
+        this.atari = new Atari(-10, 31, 175)
 
         this.div.appendChild(this.ciel.canvas)
         this.div.appendChild(this.nuit.canvas)
@@ -412,10 +416,13 @@ class soleil extends Component {
               break
 
             case 45:
+              this.atari.video.play()
+              break
+
+            case 50:
               for (let i = 0; i < this.tabSonic.length; ++i) {
                 this.tabSonic[i].sonicMarche()
               }
-              this.atari.video.play()
               break
 
             case 70:

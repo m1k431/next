@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Header from "../components/Header"
-import Jonglage from "../components/Jonglage"
+//import Jonglage from "../components/Jonglage"
 import JeuCv from "../components/JeuCv"
 import Soleil from "../components/soleil"
 //import Particles from "react-particles-js"
@@ -47,10 +47,10 @@ export default function Home({
       <h1 className="titreh1 french">{welcomefr}</h1>
       <h2 className="titreh1 english">{moiUS}</h2>
       <h2 className="titreh1 french">{moiFR}</h2>
-      <Jonglage />
+      {/*<Jonglage />*/}
+      <Soleil />
       <h2 className="titreh1 english">{metierUS}</h2>
       <h2 className="titreh1 french">{metierFR}</h2>
-      <Soleil />
       <JeuCv />
       <br />
       <h2 className="titreh1 english">{outro}</h2>

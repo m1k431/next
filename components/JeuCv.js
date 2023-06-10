@@ -1251,15 +1251,9 @@ class JeuCv extends Component {
                 <div className={styles.lieu}>2003 IUT d'Orléans</div>
               </div>
               <div className={styles.jobs}>
-                <h3 className={`${styles.titreh3} french`}>
-                  Baccalauréat scientifique
-                </h3>
-                <h3 className={`${styles.titreh3} english`}>
-                  Scientific Baccalaureate Diploma
-                </h3>
-                <h3 className={`${styles.titreh3} spanish`}>
-                  Bachillerato Científico
-                </h3>
+                <h3 className={`${styles.titreh3} french`}>Baccalauréat scientifique</h3>
+                <h3 className={`${styles.titreh3} english`}>Scientific Baccalaureate Diploma</h3>
+                <h3 className={`${styles.titreh3} spanish`}>Bachillerato Científico</h3>
                 <div className={`${styles.infojob} french`}>
                   Spécialité physique-chimie
                 </div>
@@ -1282,9 +1276,7 @@ class JeuCv extends Component {
               </div>
               <div className={`${styles.infojob} english`}>
                 Driving licences: car, motorcycle, electric unicycle.
-                <br />
                 Sports: gym, boardsports, juggling.
-                <br />
                 Hobbies: electronics, decoration, design, renovation.
               </div>
               <div className={`${styles.infojob} spanish`}>
