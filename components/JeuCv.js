@@ -21,7 +21,7 @@ class JeuCv extends Component {
     $(".moi").fadeIn()
     $(".metier").fadeIn()
     $("#metier > h2").fadeOut(375, function () {
-      $(this).text("Click or Touch here to PLAY a BrickBreaker javascript game").fadeIn(375)
+      $(this).text("Click or Touch here to PLAY BrickBreaker and discover my CV").fadeIn(375)
     })
     var $div2blink = $("#metier") // Save reference, only look this item up once, then save
     var idInterBlink = setInterval(function () {
@@ -129,7 +129,6 @@ class JeuCv extends Component {
         i--
       }
 
-
       //_________________________________________INITIALISATIION_JEU______________________________________
       var ballX = linkedIn.offsetLeft + linkedIn.offsetWidth / 2 - divSprite.offsetWidth / 2
       var ballY = linkedIn.offsetTop - divSprite.offsetHeight
@@ -183,7 +182,7 @@ class JeuCv extends Component {
         }
       }
 
-      //____________________________________TouchMove_eventListener___________________________________
+      //____________________________________TouchMove_eventListener_paddle___________________________________
       var box2 = document.getElementById("linkedIn"),
         boxleft,
         startx,
@@ -197,24 +196,13 @@ class JeuCv extends Component {
       var eTouchMove = function (e) {
         touchobj = e.changedTouches[0] // reference first touch point for this event
         var dist = parseInt(touchobj.pageX) - startx // calculate dist traveled by touch point
-        box2.style.left =
-          boxleft + dist >
-            competences.offsetLeft +
-            competences.offsetWidth -
-            linkedIn.offsetWidth
-            ? competences.offsetLeft +
-            competences.offsetWidth -
-            linkedIn.offsetWidth -
-            5 +
-            "px"
-            : boxleft + dist < competences.offsetLeft
-              ? competences.offsetLeft - 5 + "px"
-              : boxleft + dist - 5 + "px"
+        box2.style.left = boxleft + dist > competences.offsetLeft + competences.offsetWidth - linkedIn.offsetWidth
+          ? competences.offsetLeft + competences.offsetWidth - linkedIn.offsetWidth - 5 + "px"
+          : boxleft + dist < competences.offsetLeft
+            ? competences.offsetLeft - 5 + "px"
+            : boxleft + dist - 5 + "px"
         if (clickMove === true) {
-          ballX =
-            linkedIn.offsetLeft +
-            linkedIn.offsetWidth / 2 -
-            divSprite.offsetWidth / 2
+          ballX = linkedIn.offsetLeft + linkedIn.offsetWidth / 2 - divSprite.offsetWidth / 2
           ballY = linkedIn.offsetTop - divSprite.offsetHeight
           divSprite.style.left = ballX + "px"
           divSprite.style.top = ballY + "px"
@@ -225,20 +213,19 @@ class JeuCv extends Component {
       window.document.addEventListener("touchmove", eTouchMove, true)
       bStart.removeEventListener("click", varsStart, true)
 
-      //__________________________________Déplacement paddle dans environnement de jeu________________________________________________________________________
+      //__________________________________ MouseMove_eventListener_Paddle ________________________________________________________________________
       var divNext = window.document.getElementById("__next")
 
       var movepaddle = function (mon0bjetEvent) {
-        if (mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 - 5
-          > (divNext.offsetWidth - competences.offsetWidth) / 2 + competences.offsetLeft
-          && mon0bjetEvent.clientX + linkedIn.offsetWidth / 2
-          < (divNext.offsetWidth - competences.offsetWidth) / 2 + competences.offsetWidth + 5) {
-          linkedIn.style.left = mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 - 5 - (divNext.offsetWidth - competences.offsetWidth) / 2 + "px"
+        if (mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 > (divNext.offsetWidth - competences.offsetWidth) / 2
+          && mon0bjetEvent.clientX + linkedIn.offsetWidth / 2 < (divNext.offsetWidth - competences.offsetWidth) / 2 + competences.offsetWidth) {
+          linkedIn.style.left = mon0bjetEvent.clientX - linkedIn.offsetWidth / 2 + 'px'
         }
-        else if (mon0bjetEvent.clientX - linkedIn.offsetWidth / 2
-          < (divNext.offsetWidth - competences.offsetWidth) / 2 + competences.offsetLeft) {
+        //Limite Déplacement vers la gauche
+        else if (mon0bjetEvent.clientX - linkedIn.offsetWidth < (divNext.offsetWidth - competences.offsetWidth) / 2 + competences.offsetLeft) {
           linkedIn.style.left = competences.offsetLeft - 5 + "px"
         }
+        //Limite Déplacement vers la droite
         else if (mon0bjetEvent.clientX + linkedIn.offsetWidth / 2 > competences.offsetWidth + competences.offsetLeft) {
           linkedIn.style.left = competences.offsetLeft + competences.offsetWidth - linkedIn.offsetWidth - 5 + "px"
         }
@@ -287,47 +274,29 @@ class JeuCv extends Component {
       //__________________________________Intéraction_balle/paddle_AngleBalle_______________________________________________________
       var paddle = function () {
         //Left paddle side
-        if (ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft && ballX + divSprite.offsetWidth / 2
-          < linkedIn.offsetLeft + linkedIn.offsetWidth / 2) {
+        if (ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft && ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 2) {
           ballDown = false
           ballLeft = true
           combo += 1
           play(pongB)
           //angle renvoi balle
-          if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 8) {
-            angle = 4
-          }
-          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 4) {
-            angle = 3
-          }
-          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 4 + linkedIn.offsetWidth / 8) {
-            angle = 2
-          }
-          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 2) {
-            angle = 1
-          }
+          if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 8) { angle = 4 }
+          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 4) { angle = 3 }
+          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 4 + linkedIn.offsetWidth / 8) { angle = 2 }
+          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth / 2) { angle = 1 }
         }
 
         //Right paddle side
-        else if (ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft && ballX + divSprite.offsetWidth / 2
-          < linkedIn.offsetLeft + linkedIn.offsetWidth) {
+        else if (ballX + divSprite.offsetWidth / 2 > linkedIn.offsetLeft && ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth) {
           ballDown = false
           ballLeft = false
           combo += 1
           play(pongB)
           //angle renvoi balle
-          if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + (linkedIn.offsetWidth * 5) / 8) {
-            angle = 1
-          }
-          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + (linkedIn.offsetWidth * 6) / 8) {
-            angle = 2
-          }
-          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + (linkedIn.offsetWidth * 7) / 8) {
-            angle = 3
-          }
-          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth) {
-            angle = 4
-          }
+          if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + (linkedIn.offsetWidth * 5) / 8) { angle = 1 }
+          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + (linkedIn.offsetWidth * 6) / 8) { angle = 2 }
+          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + (linkedIn.offsetWidth * 7) / 8) { angle = 3 }
+          else if (ballX + divSprite.offsetWidth / 2 < linkedIn.offsetLeft + linkedIn.offsetWidth) { angle = 4 }
         }
       }
 

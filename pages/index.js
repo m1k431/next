@@ -11,8 +11,8 @@ export default function Home({
   welcomefr = "Bienvenue",
   moiUS = "I am Mikael",
   moiFR = "Je suis Mikael",
-  metierUS = "IBM and JavaScript fullstack developer",
-  metierFR = "Developpeur IBM et JavaScript fullstack",
+  metierUS = "IBMi and nodeJS developer",
+  metierFR = "Developpeur IBMi et nodeJS",
   outro = "This website is made with",
   outroFR = "Ce site est fait avec"
   /*paramParticles = {
