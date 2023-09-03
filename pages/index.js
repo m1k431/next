@@ -12,7 +12,7 @@ export default function Home({
   moiUS = "I am Mikael",
   moiFR = "Je suis Mikael",
   metierUS = "IBMi and nodeJS developer",
-  metierFR = "Developpeur IBMi et nodeJS",
+  metierFR = "Développeur IBMi et nodeJS",
   outro = "This website is made with",
   outroFR = "Ce site est fait avec"
   /*paramParticles = {
@@ -42,19 +42,18 @@ export default function Home({
     <>
       { /* <Particles id="Particles" params={paramParticles} /> */}
       <Header />
-      <br />
-      <h1 className="titreh1 english">{welcome}</h1>
-      <h1 className="titreh1 french">{welcomefr}</h1>
-      <h2 className="titreh1 english">{moiUS}</h2>
-      <h2 className="titreh1 french">{moiFR}</h2>
+      <h1 className="titreh2 english">{welcome}</h1>
+      <h1 className="titreh2 french">{welcomefr}</h1>
+      <h2 className="titreh2 english">{moiUS}</h2>
+      <h2 className="titreh2 french">{moiFR}</h2>
       {/*<Jonglage />*/}
+      <h2 className="titreh3 english">{metierUS}</h2>
+      <h2 className="titreh3 french">{metierFR}</h2>
       <Soleil />
-      <h2 className="titreh1 english">{metierUS}</h2>
-      <h2 className="titreh1 french">{metierFR}</h2>
       <JeuCv />
       <br />
-      <h2 className="titreh1 english">{outro}</h2>
-      <h2 className="titreh1 french">{outroFR}</h2>
+      <h2 className="titreh2 english">{outro}</h2>
+      <h2 className="titreh2 french">{outroFR}</h2>
       <a href="https://nextjs.org/">
         <img src={LogoNextJs} alt="NextJS" height="35" style={{ width: "20%", marginLeft: "40%", height: "auto" }} />
       </a>
