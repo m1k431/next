@@ -91,14 +91,14 @@ class soleil extends Component {
         this.video = document.createElement("video")
         this.video.style.position = "absolute"
         this.video.style.top = "7%"
-        this.video.style.right = "34%"
-        this.video.style.width = "38%"
+        this.video.style.right = "33%"
+        this.video.style.width = "37%"
         this.video.playsinline = true
         this.video.muted = true
         this.video.loop = true
 
         this.source = document.createElement("source")
-        this.source.src = "/img/360backnoreverse.mp4"
+        this.source.src = "/img/jungleJuggle.mp4"
         this.source.type = "video/mp4"
 
         this.div = document.createElement("div")

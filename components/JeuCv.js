@@ -14,14 +14,11 @@ class JeuCv extends Component {
     //Sections du cv
     $("#scoreForm").hide()
     $("#highScore").hide()
-    $("#competen").fadeIn(500)
-    $("#experiences").fadeIn(375)
-    $("#formation").fadeIn(250)
-    $("#complementaire").fadeIn(125)
-    $(".moi").fadeIn()
-    $(".metier").fadeIn()
+    $("#experiences").hide()
+    $("#formation").hide()
+    $("#complementaire").hide()
     $("#metier > h2").fadeOut(375, function () {
-      $(this).text("Click or Touch here to PLAY BrickBreaker and discover my CV").fadeIn(375)
+      $(this).text("Click or Touch here to PLAY BrickBreaker and see my Curriculum Vitae").fadeIn(375)
     })
     var $div2blink = $("#metier") // Save reference, only look this item up once, then save
     var idInterBlink = setInterval(function () {
@@ -428,27 +425,23 @@ class JeuCv extends Component {
           fuse--
           stopEvent = true
           play(youWin)
-          //competences.removeChild(divSprite)
           linkedIn.style.left = "auto"
           ballY = linkedIn.offsetTop
           linkedIn.className = "linkedin"
           $("#linkedIn").hide()
           $("#imgSoccer").hide()
           $("#competen").toggleClass(styles.competen)
-          //$('#informatique').fadeOut()
           informatique.style.verticalAlign = "middle"
           commerciales.style.verticalAlign = "middle"
           youwin = true
-          $("#skills").hide()
           $("#score").fadeIn()
-          //$('#btp').fadeIn()
-          $("#informatique").animate({ width: "99%" }, 1000)
-          //$('#informatique').hide()
+          $('#btp').fadeIn()
+          $("#informatique").animate({ width: "32%" }, 1000)
           $("#competen").css("height", "auto")
-          $("#competen").fadeOut()
-          //$('#commerciales').fadeIn()
+          $('#commerciales').fadeIn()
           $("#highScore").fadeIn()
           $("#scoreForm").fadeIn()
+
           //Requete AJAX SELECT pour affichage tableau score
           $.ajax({
             type: "GET",
@@ -472,9 +465,12 @@ class JeuCv extends Component {
 
       //requete AJAX submit score
       $("#boutton").on("click", function (event) {
-        event.preventDefault()
-        console.log($("#postName").val() + "/" + score)
-        $("#scoreForm").hide()
+        if ($("#postName").val() != "") {
+
+          
+          event.preventDefault()
+          //console.log($("#postName").val() + "/" + score)
+          $("#scoreForm").hide()
         $.ajax({
           type: "POST",
           url: "/api/highscore",
@@ -484,7 +480,10 @@ class JeuCv extends Component {
             score: score,
           },
           success: function (response) {
-            console.log("POST success: " + response)
+            //console.log("POST success: " + response)
+            $("#experiences").fadeIn()
+            $("#formation").fadeIn()
+            $("#complementaire").fadeIn()
             $.ajax({
               type: "GET",
               url: "/api/highscore",
@@ -496,10 +495,20 @@ class JeuCv extends Component {
                 reponse.forEach(function (score) {
                   tbodyEl.append(`<tr><td>${score.visitorName}</td><td>${score.score}</td></tr>`)
                 })
+                $("#highScore").fadeOut()
+                $("#scoreForm").fadeOut()
+                $("#metier > h2")
+                .text("Curriculum Vitae")
+                .css({
+                  color: "white",
+                  "font-family": "ibm",
+                  "font-size": "1.5em",
+                })
               }
             })
           }
         })
+      }
       })
 
       //----------------------------FPS control
@@ -592,25 +601,39 @@ class JeuCv extends Component {
               />
             </div>
             {/* For testing */}
-            {/* <button onClick={this.finJeu}>YOUWON</button> */}
-            <div id="scoreForm" className="col-sm12 text-center">
-              <Form>
-                <Form.Group>
-                  {/* <Form.Label>Enter your name</Form.Label> */}
-                  <Row>
-                    <Col></Col>
-                    <Col>
-                      <Form.Control id="postName" type="text" placeholder="Name" />
-                    </Col>
-                    <Col></Col>
-                  </Row>
-                </Form.Group>
-                <Button variant="primary" type="submit" id="boutton">
-                  Submit
-                </Button>
-              </Form>
+            {/*
+             <button onClick={this.finJeu}>YOUWON</button>
+             */}
+            <div id="highScore">
+              <h2 className="titreh2">High Score</h2>
+              <div id="scoreForm" className="col-sm6 text-center">
+                <Form>
+                  <Form.Group>
+                    {/* <Form.Label>Enter your name</Form.Label> */}
+                    <Row>
+                      <Col></Col>
+                      <Col>
+                        <Form.Control id="postName" type="text" placeholder="Enter your Name" />
+                      </Col>
+                      <Col></Col>
+                    </Row>
+                  </Form.Group>
+                  <Button variant="primary" type="submit" id="boutton">
+                    Submit
+                  </Button>
+                </Form>
+              </div>
+              <br></br>
+              <table id="mesData">
+                <thead>
+                  <tr>
+                    <th id="nomScore">Nom</th>
+                    <th id="pointScore">Score</th>
+                  </tr>
+                </thead>
+                <tbody>{/*each player in results*/}</tbody>
+              </table>
             </div>
-            <h1 className="titreh1">Curriculum Vitae</h1>
             <div className={styles.competen} id="competen">
               <h2 className={`${styles.titreh2} french`}>Competences</h2>
               <h2 className={`${styles.titreh2} english`}>Skills</h2>
@@ -738,18 +761,7 @@ class JeuCv extends Component {
                 </div>
               </div>
             </div>
-            <div id="highScore">
-              <h2 className="titreh2">High Score</h2>
-              <table id="mesData">
-                <thead>
-                  <tr>
-                    <th id="nomScore">Nom</th>
-                    <th id="pointScore">Score</th>
-                  </tr>
-                </thead>
-                <tbody>{/*each player in results*/}</tbody>
-              </table>
-            </div>
+
             <div className={styles.competen} id="experiences">
               <h2 className={`${styles.titreh2} french`}>Experiences</h2>
               <h2 className={`${styles.titreh2} english`}>Experiences</h2>
