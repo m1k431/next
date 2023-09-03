@@ -9,10 +9,10 @@ import LogoNextJs from "../public/img/nextJs.png"
 export default function Home({
   welcome = "Welcome",
   welcomefr = "Bienvenue",
-  moiUS = "I am Mikael",
-  moiFR = "Je suis Mikael",
+  moiUS = "Welcome, I am Mikael",
+  moiFR = "Bienvenue, je suis Mikael",
   metierUS = "IBMi and nodeJS developer",
-  metierFR = "Développeur IBMi et nodeJS",
+  metierFR = "Developpeur IBMi et nodeJS",
   outro = "This website is made with",
   outroFR = "Ce site est fait avec"
   /*paramParticles = {
@@ -42,13 +42,11 @@ export default function Home({
     <>
       { /* <Particles id="Particles" params={paramParticles} /> */}
       <Header />
-      <h1 className="titreh2 english">{welcome}</h1>
-      <h1 className="titreh2 french">{welcomefr}</h1>
       <h2 className="titreh2 english">{moiUS}</h2>
       <h2 className="titreh2 french">{moiFR}</h2>
       {/*<Jonglage />*/}
-      <h2 className="titreh3 english">{metierUS}</h2>
-      <h2 className="titreh3 french">{metierFR}</h2>
+      <h2 className="titreh2 english">{metierUS}</h2>
+      <h2 className="titreh2 french">{metierFR}</h2>
       <Soleil />
       <JeuCv />
       <br />

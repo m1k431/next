@@ -359,7 +359,7 @@ class soleil extends Component {
         this.div.style.display = "block"
         this.div.style.overflow = "hidden"
         this.div.style.height = "350px"
-        this.div.style.width = "70%"
+        this.div.style.width = "98%"
         this.div.style.marginLeft = "auto"
         this.div.style.marginRight = "auto"
         this.div.style.marginBottom = "2%"
