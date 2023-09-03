@@ -298,15 +298,15 @@ class soleil extends Component {
 
         this.ctx = this.canvas.getContext("2d")
         this.gradient = this.ctx.createLinearGradient(0, 0, 0, 600)
-        this.gradient.addColorStop(0, "yellow")
-        this.gradient.addColorStop(0.8, "black")
+        this.gradient.addColorStop(0, "gold")
+        this.gradient.addColorStop(0.99, "black")
         this.ctx.fillStyle = this.gradient
 
         this.ctx.beginPath()
         this.ctx.moveTo(0, 400)
         this.ctx.lineTo(600, 400)
         this.ctx.lineTo(600, 300)
-        this.ctx.bezierCurveTo(300, 250, 280, 200, 0, 300)
+        this.ctx.bezierCurveTo(300, 200, 210, 210, 0, 265)
         this.ctx.closePath()
         this.ctx.stroke()
         this.ctx.fill()
@@ -359,12 +359,12 @@ class soleil extends Component {
         this.div.style.display = "block"
         this.div.style.overflow = "hidden"
         this.div.style.height = "350px"
-        this.div.style.width = "350px"
+        this.div.style.width = "70%"
         this.div.style.marginLeft = "auto"
         this.div.style.marginRight = "auto"
         this.div.style.marginBottom = "2%"
-        this.div.style.borderRadius = "50%"
-
+        this.div.style.borderRadius = "3%"
+        
         //Création de l'environnement 
         this.ciel = new Ciel()
         this.nuit = new Nuit()
@@ -374,7 +374,7 @@ class soleil extends Component {
         this.mer = new Mer()
         this.hill = new Hill()
         this.monkey = new Monkey()
-        this.atari = new Atari(-10, 31, 175)
+        this.atari = new Atari(0, 17, 240)
 
         this.div.appendChild(this.ciel.canvas)
         this.div.appendChild(this.nuit.canvas)

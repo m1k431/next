@@ -479,7 +479,7 @@ class JeuCv extends Component {
             visitorName: $("#postName").val(),
             score: score,
           },
-          success: function (response) {
+          success: function () {
             //console.log("POST success: " + response)
             $("#experiences").fadeIn()
             $("#formation").fadeIn()
