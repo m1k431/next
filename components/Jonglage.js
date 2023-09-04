@@ -10,16 +10,14 @@ class Jonglage extends Component {
       <Container>
         <Row>
           <Col>
-            <video
-              className={styles.jonglage}
+            <video className={styles.jonglage}
               muted
               autoPlay
               loop
               poster={VideoPoster}
               playsInline
-              controls
-            >
-              <source src="/img/theOneFinal.mp4" type="video/mp4" />
+              controls>
+              <source src="/img/jungleJuggle.mp4" type="video/mp4" />
             </video>
           </Col>
         </Row>

@@ -2,6 +2,7 @@
 import React, { Component, createElement } from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import $ from "jquery"
+//import VideoAtari from "../public/img/jungleJuggle.mp4"
 
 class soleil extends Component {
   monIntro() {
@@ -86,36 +87,6 @@ class soleil extends Component {
       }
     }
 
-    class Atari {
-      constructor(posX, posY, size) {
-        this.video = document.createElement("video")
-        this.video.style.position = "absolute"
-        this.video.style.top = "7%"
-        this.video.style.right = "33%"
-        this.video.style.width = "37%"
-        this.video.playsinline = true
-        this.video.muted = true
-        this.video.loop = true
-
-        this.source = document.createElement("source")
-        this.source.src = "/img/jungleJuggle.mp4"
-        this.source.type = "video/mp4"
-
-        this.div = document.createElement("div")
-        this.div.style.position = "absolute"
-        this.div.style.right = posX + '%'
-        this.div.style.top = posY + '%'
-
-        this.img = document.createElement("img")
-        this.img.src = "/img/Atari.png"
-        this.img.style.position = "relative"
-        this.img.style.height = size + 'px'
-
-        this.video.appendChild(this.source)
-        this.div.appendChild(this.video)
-        this.div.appendChild(this.img)
-      }
-    }
 
     class Monkey {
       constructor() {
@@ -347,6 +318,40 @@ class soleil extends Component {
       }
     }
 
+    class Atari {
+      constructor(posX, posY, size) {
+        this.video = document.createElement("video")
+        this.video.style.position = "absolute"
+        this.video.style.top = "7%"
+        this.video.style.right = "33%"
+        this.video.style.width = "37%"
+        this.video.playsInLine = true
+        this.video.muted = true
+        this.video.loop = true
+        this.video.autoplay = true
+
+        this.source = document.createElement("source")
+        this.source.src = "/img/jungleJuggle.mp4"
+        //this.source.src = "/img/360backnoreverse.webm"
+        this.source.type = "video/mp4"
+
+        this.div = document.createElement("div")
+        this.div.style.position = "absolute"
+        this.div.style.right = posX + '%'
+        this.div.style.top = posY + '%'
+
+        this.img = document.createElement("img")
+        this.img.src = "/img/Atari.png"
+        this.img.style.position = "relative"
+        this.img.style.height = size + 'px'
+
+        this.video.appendChild(this.source)
+        this.div.appendChild(this.video)
+        this.div.appendChild(this.img)
+      }
+    }
+
+
     class univers {
       constructor() {
         //FPS control
@@ -364,7 +369,7 @@ class soleil extends Component {
         this.div.style.marginRight = "auto"
         this.div.style.marginBottom = "2%"
         this.div.style.borderRadius = "3%"
-        
+
         //Création de l'environnement 
         this.ciel = new Ciel()
         this.nuit = new Nuit()
@@ -374,7 +379,7 @@ class soleil extends Component {
         this.mer = new Mer()
         this.hill = new Hill()
         this.monkey = new Monkey()
-        this.atari = new Atari(0, 17, 240)
+        this.atari = new Atari(-5, 17, 240)
 
         this.div.appendChild(this.ciel.canvas)
         this.div.appendChild(this.nuit.canvas)
@@ -416,7 +421,7 @@ class soleil extends Component {
               break
 
             case 45:
-              this.atari.video.play()
+              //this.atari.video.play()
               break
 
             case 50:
@@ -445,7 +450,7 @@ class soleil extends Component {
               break
 
             case 130:
-              this.atari.video.pause()
+              //this.atari.video.pause()
               $(".nuit").fadeIn(3000)
               $(".matrix").fadeIn(3000)
               break

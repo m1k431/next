@@ -22,12 +22,11 @@ class Header extends Component {
           <meta property="og:title" content="Portfolio Mikael" key="ogtitle" />
           <meta property="og:description" content="My name is Mikael. I'm an IBM software engineer. This website hosts my projects, skills and experiences." />
           <meta property="og:image" content={previewImage} key="ogimage" />
-          <link rel="manifest" href="/mikael.webmanifest"></link>
         </Head>
 
         <Navbar bg="blue" variant="dark">
           <Navbar.Brand href="https://www.linkedin.com/in/mika%C3%ABl-garcia/">
-            <img src={linkedIn} alt="linkedin" height="35" style={{ marginLeft: "10px"}} />
+            <img src={linkedIn} alt="linkedin" height="35" style={{ marginLeft: "10px" }} />
           </Navbar.Brand>
           <Navbar.Collapse className="justify-content-end">
             <Nav>
