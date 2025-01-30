@@ -9,10 +9,10 @@ import LogoNextJs from "../public/img/nextJs.png"
 export default function Home({
   welcome = "Welcome",
   welcomefr = "Bienvenue",
-  moiUS = "Welcome, I am Mikael",
-  moiFR = "Bienvenue, je suis Mikael",
-  metierUS = "IBMi and nodeJS developer",
-  metierFR = "Developpeur IBMi et nodeJS",
+  moiUS = "Welcome to my backEnd developer portfolio",
+  moiFR = "Bienvenue sur mon portfolio de developeur backEnd",
+  metierUS = "My name is Mikael",
+  metierFR = "Je suis Mikael",
   outro = "This website is made with",
   outroFR = "Ce site est fait avec"
   /*paramParticles = {

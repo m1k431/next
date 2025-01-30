@@ -18,7 +18,7 @@ class JeuCv extends Component {
     $("#formation").hide()
     $("#complementaire").hide()
     $("#metier > h2").fadeOut(375, function () {
-      $(this).text("Touch here to play BrickBreaker and see more").fadeIn(375)
+      $(this).text("Touch here to play BrickBreaker GAME").fadeIn(375)
     })
     var $div2blink = $("#metier") // Save reference, only look this item up once, then save
     var idInterBlink = setInterval(function () {
